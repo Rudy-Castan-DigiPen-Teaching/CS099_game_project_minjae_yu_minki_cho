@@ -46,7 +46,6 @@ function draw()
 
         //ball_fire
         bullet_setoff();
-	    print(bullet.length);
 
         //call zombies
         for ( let day1_count = 0; day1_count < 10; day1_count++ )
