@@ -45,9 +45,8 @@ function draw()
         day1_background.drawing_wall();
 
         //ball_fire
-       
+        activate_ball_gun();
 	    print(bullet.length);
-        activateballgun()
 
         //call zombies
         for ( let day1_count = 0; day1_count < 10; day1_count++ )
