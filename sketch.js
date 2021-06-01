@@ -28,6 +28,7 @@ function draw()
     background( 220 )
 
     clear();
+    
     if ( game_mode == 0 )
     {
         push();
@@ -35,23 +36,22 @@ function draw()
         text( 'press enter to start', 20, 40 )
         pop();
     }
+
     if ( game_mode == 1 )
     {
         //draw alines and wall of game_background class
-    day1_background.drawing_lines();
-    day1_background.drawing_wall();
-    //call zombies
-    for ( let day1_count = 0; day1_count < 10; day1_count++ )
-    {
-        zombies_day1[ day1_count ].update();
-        zombies_day1[ day1_count ].draw();
-    }
+        day1_background.drawing_lines();
+        day1_background.drawing_wall();
 
-    crosshair()
-    }
-    
+        //call zombies
+        for ( let day1_count = 0; day1_count < 10; day1_count++ )
+        {
+            zombies_day1[ day1_count ].update();
+            zombies_day1[ day1_count ].draw();
+        }
 
-    
+        crosshair()
+    }
 }
 
 //mouse crosshair
