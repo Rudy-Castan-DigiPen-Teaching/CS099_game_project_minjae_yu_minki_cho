@@ -7,13 +7,14 @@ class Bullet
         this.x = x;
         this.y = y;
         this.angle = angle
-        this.speed = 5;
+        this.speed = 5;  //can change value to set bullet speed.
 
 
         //maps mouse location to angle
     }
 
-    draw_ball()
+    //This function is to draw bullet
+    draw_bullet()
     {
 
         stroke( 255 );
@@ -25,12 +26,14 @@ class Bullet
 
 }
 
+//Later we could change value in to meaningful name.
 function mousePressed()
 {
-    bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - width / 2 ) ) );
+    bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
 }
 
-function activate_ball_gun()
+//To draw bullets for the loop and erase if bullets are outside of canvas.
+function bullet_setoff()
 {
     for ( var i = 0; i < bullet.length; i++ )
     {

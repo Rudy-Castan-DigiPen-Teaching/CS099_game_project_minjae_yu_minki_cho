@@ -45,7 +45,7 @@ function draw()
         day1_background.drawing_wall();
 
         //ball_fire
-        activate_ball_gun();
+        bullet_setoff();
 	    print(bullet.length);
 
         //call zombies
