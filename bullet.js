@@ -16,7 +16,6 @@ class Bullet
     //This function is to draw bullet
     draw_bullet()
     {
-
         stroke( 255 );
         fill( 200, 0, 0 );
         circle( this.x, this.y, 5 );

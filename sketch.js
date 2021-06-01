@@ -29,7 +29,6 @@ function draw()
 {
     background( 220 )
 
-    clear();
     if ( game_mode == MAIN_MENU )
     {
         push();
@@ -40,6 +39,7 @@ function draw()
 
     if ( game_mode == GAME_START )
     {
+        background(220)
         //draw alines and wall of game_background class
         day1_background.drawing_lines();
         day1_background.drawing_wall();
@@ -78,6 +78,7 @@ function keyPressed()
 {
     if ( keyCode == ENTER )
     {
+        clear();
         game_mode = GAME_START;
     }
 }
