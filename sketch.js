@@ -30,40 +30,23 @@ function draw()
     background( 220 )
 
     clear();
-<<<<<<< HEAD
-    
-    if ( game_mode == 0 )
-=======
     if ( game_mode == MAIN_MENU )
->>>>>>> e9c0c787ea14d1d507a9837d63f0a953f8b25921
     {
         push();
         textSize( 21 );
         text( 'press enter to start', 20, 40 )
         pop();
     }
-<<<<<<< HEAD
 
-    if ( game_mode == 1 )
+    if ( game_mode == GAME_START )
     {
         //draw alines and wall of game_background class
         day1_background.drawing_lines();
         day1_background.drawing_wall();
-=======
-    if ( game_mode == GAME_START )
-    {
-        //draw alines and wall of game_background class
-    day1_background.drawing_lines();
-    day1_background.drawing_wall();
-    activateballgun();
-	print(bullet.length);
-    //call zombies
-    for ( let day1_count = 0; day1_count < 10; day1_count++ )
-    {
-        zombies_day1[ day1_count ].update();
-        zombies_day1[ day1_count ].draw();
-    }
->>>>>>> e9c0c787ea14d1d507a9837d63f0a953f8b25921
+
+        //ball_fire
+        activate_ball_gun();
+	    print(bullet.length);
 
         //call zombies
         for ( let day1_count = 0; day1_count < 10; day1_count++ )
@@ -72,6 +55,12 @@ function draw()
             zombies_day1[ day1_count ].draw();
         }
 
+        //call zombies
+        for ( let day1_count = 0; day1_count < 10; day1_count++ )
+        {
+            zombies_day1[ day1_count ].update();
+            zombies_day1[ day1_count ].draw();
+        }
         crosshair()
     }
 }
@@ -84,9 +73,6 @@ function crosshair()
     line( mouseX, mouseY, mouseX, mouseY + 10 );
     line( mouseX, mouseY, mouseX, mouseY - 10 );
 }
-
-
-
 
 function keyPressed()
 {
