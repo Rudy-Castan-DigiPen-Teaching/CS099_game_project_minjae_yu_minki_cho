@@ -73,6 +73,7 @@ function crosshair()
     line( mouseX, mouseY, mouseX, mouseY - 10 );
 }
 
+//This function is for main_menu game start, how to play and .
 function keyPressed()
 {
     if ( keyCode == ENTER )
