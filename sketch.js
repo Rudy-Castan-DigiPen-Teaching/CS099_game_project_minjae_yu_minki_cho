@@ -5,6 +5,7 @@ function preload()
 {
 
 }
+
 function setup()
 {
     createCanvas(800,500)
@@ -15,40 +16,18 @@ function setup()
     {
         zombies_day1[day1_count] = new zombies()
     }
+
+    //call background
+    day1_background = new game_background();
 }
 
 function draw()
 {
     background(220)
 
-    //drawing lines
-    for(let i = 0; i < 5; i++)
-    {
-        line(0, i * line_size , width , i * line_size)
-        
-        if(i === 2)//player position
-        {
-            fill('orange')
-            circle(50, ((i * line_size) + line_size / 2), 25)
-        }
-        else//AI position
-        {
-            fill('blue')
-            circle(50, ((i * line_size) + line_size / 2), 25)
-        }
-    }
-
-    //wall
-    rectMode(CENTER)
-    fill('brown')
-    rect(line_size,height/2,10,height)
-
-    //wall health bar test
-    /*rect(width/2,height/2,wall_health,20)
-    if(wall_health >= 0)
-    {
-        wall_health--;
-    }*/
+    //draw alines and wall of game_background class
+    day1_background.drawing_lines();
+    day1_background.drawing_wall();
 
     //call zombies
     for(let day1_count = 0; day1_count < 10; day1_count++)
@@ -56,11 +35,15 @@ function draw()
         zombies_day1[day1_count].update();
         zombies_day1[day1_count].draw();
     }
+
+    crosshair()
 }
 
-function cross() {
+//mouse crosshair
+function crosshair()
+{
     line(mouseX,mouseY,mouseX+10,mouseY);
-      line(mouseX,mouseY,mouseX-10,mouseY);
+    line(mouseX,mouseY,mouseX-10,mouseY);
     line(mouseX,mouseY,mouseX,mouseY+10);
-      line(mouseX,mouseY,mouseX,mouseY-10);
-  }
+    line(mouseX,mouseY,mouseX,mouseY-10);
+}
