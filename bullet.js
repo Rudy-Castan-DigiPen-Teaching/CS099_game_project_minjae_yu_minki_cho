@@ -32,7 +32,7 @@ function mousePressed()
     bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
 }
 
-//To draw bullets for the loop and erase if bullets are outside of canvas
+//To draw bullets for the loop and erase if bullets are outside of canvas.
 function bullet_setoff()
 {
     for ( var i = 0; i < bullet.length; i++ )
