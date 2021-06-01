@@ -13,7 +13,7 @@ class Bullet
         //maps mouse location to angle
     }
 
-    drawball()
+    draw_ball()
     {
 
         stroke( 255 );
@@ -30,11 +30,11 @@ function mousePressed()
     bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - width / 2 ) ) );
 }
 
-function activateballgun()
+function activate_ball_gun()
 {
     for ( var i = 0; i < bullet.length; i++ )
     {
-        bullet[ i ].drawball();
+        bullet[ i ].draw_ball();
 
         if ( bullet[ i ].x <= 0 || bullet[ i ].y <= 0 || bullet[ i ].x >= width || bullet[ i ].y >= height )
         {
