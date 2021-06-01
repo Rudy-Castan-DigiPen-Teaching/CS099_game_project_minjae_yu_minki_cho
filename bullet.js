@@ -1,5 +1,10 @@
 var bullet = [];
+let bullet_img;
 
+function bullet_image_preload()
+{
+    bullet_img = loadImage('assets/images/bullet.png');
+}
 class Bullet
 {
     constructor( x, y, angle )
@@ -16,9 +21,7 @@ class Bullet
     //This function is to draw bullet
     draw_bullet()
     {
-        stroke( 255 );
-        fill( 200, 0, 0 );
-        circle( this.x, this.y, 5 );
+        image(bullet_img,this.x,this.y)
         this.x += this.speed * cos( this.angle );
         this.y += this.speed * sin( this.angle );
     }

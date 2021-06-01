@@ -1,3 +1,10 @@
+let zombie_img;
+
+function zombie_image_preload()
+{
+    zombie_img = loadImage('assets/images/zombie.png');
+}
+
 class zombies
 {
     constructor()
@@ -31,6 +38,7 @@ class zombies
     {
         //drawing zombie
         fill('green')
-        circle(this.x,this.y,15)
+        image(zombie_img,this.x,this.y);
+        //circle(this.x,this.y,15)
     }
 }
