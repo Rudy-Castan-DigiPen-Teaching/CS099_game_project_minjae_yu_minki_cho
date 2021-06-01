@@ -2,40 +2,43 @@ var bullet = [];
 
 class Bullet
 {
-    constructor()
+    constructor( x, y, angle )
     {
-        this.x = 10;
-        this.y = height/2;
-        //map mouse location to angle
-        this.angleX = map(mouseX,0,width,2,-5);
-        this.angleY = map(mouseY,0,width,2,-5);
+        this.x = x;
+        this.y = y;
+        this.angle = angle
+        this.speed = 5;
+
+
+        //maps mouse location to angle
     }
 
-    draw_ball()
+    drawball()
     {
-        stroke(255);
-        fill(200,0,0);
-        circle(this.x,this.y,5);
-        this.y = this.y - this.angleY;
-        this.x = this.x - this.angleX;
+
+        stroke( 255 );
+        fill( 200, 0, 0 );
+        circle( this.x, this.y, 5 );
+        this.x += this.speed * cos( this.angle );
+        this.y += this.speed * sin( this.angle );
     }
+
 }
 
 function mousePressed()
 {
-    bullet.push(new Bullet());
+    bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - width / 2 ) ) );
 }
 
-function activate_ball_gun()
+function activateballgun()
 {
-    for(var i = 0; i < bullet.length; i++)
+    for ( var i = 0; i < bullet.length; i++ )
     {
-        bullet[i].draw_ball();
+        bullet[ i ].drawball();
 
-        //if the balls go out of the frame, delete the b alls from the array
-        if(bullet[i].x <= 0 || bullet[i].y <= 0 || bullet[i].x >= width || bullet[i].y >= height)
+        if ( bullet[ i ].x <= 0 || bullet[ i ].y <= 0 || bullet[ i ].x >= width || bullet[ i ].y >= height )
         {
-            bullet.splice(i,1);
-        }
+            bullet.splice( i, 1 );
+        } //if ball goes out of frame, delete the ball from the array. 
     }
 }
