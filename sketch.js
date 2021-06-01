@@ -3,7 +3,7 @@ let wall_health = 300;
 
 function preload()
 {
-    
+
 }
 function setup()
 {
@@ -57,3 +57,10 @@ function draw()
         zombies_day1[day1_count].draw();
     }
 }
+
+function cross() {
+    line(mouseX,mouseY,mouseX+10,mouseY);
+      line(mouseX,mouseY,mouseX-10,mouseY);
+    line(mouseX,mouseY,mouseX,mouseY+10);
+      line(mouseX,mouseY,mouseX,mouseY-10);
+  }
