@@ -29,7 +29,10 @@ class Bullet
 //Later we could change value in to meaningful name.
 function mousePressed()
 {
-    bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
+    if ( game_mode == GAME_START )
+    {
+        bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
+    }
 }
 
 //To draw bullets for the loop and erase if bullets are outside of canvas.
