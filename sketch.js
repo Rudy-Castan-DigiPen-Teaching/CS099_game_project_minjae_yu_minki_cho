@@ -75,10 +75,12 @@ function draw()
                 y_dis = zombies_day1[day1_count].y - bullet[bullet_count].y;
                 distance = sqrt(x_dis * x_dis + y_dis * y_dis);
                 
-                if(distance < 20)
+                if(distance < zombie_size)
                 {
                     console.log("hit");
+                    bullet.splice(bullet_count,1);
                     zombies_day1.splice(day1_count,1);
+                    break;
                 }
             }
         }
