@@ -27,7 +27,6 @@ function setup()
     game_mode = 0;
 
     //zombies
-    
     for ( let day1_count = 0; day1_count < 10; day1_count++ )
     {
         zombies_day1[ day1_count ] = new zombies()

@@ -41,8 +41,9 @@ class zombies
     draw()
     {
         //drawing zombie
-        fill( 'green' )
+        push()
+        imageMode(CENTER)
         image( zombie_img, this.x, this.y );
-        //circle(this.x,this.y,15)
+        pop()
     }
 }
