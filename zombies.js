@@ -53,7 +53,7 @@ class zombies
      1. If the bullet's position x and y is in zombie's position x and y.
      2. Then zombie's life(hp) will decrease -1.
      3. And the effect ex) blinking(It will be in the assets soon.) 
-     4. If the hp get 0(zero) the zombie will disappear.(I don't the way maybe split() will match up.)
+     4. If the hp get 0(zero) the zombie will disappear.(I don't know the way maybe split() will match up.)
     */
     collision_with_bullet()
     {
