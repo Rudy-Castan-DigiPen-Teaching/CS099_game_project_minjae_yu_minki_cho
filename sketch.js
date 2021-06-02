@@ -54,14 +54,20 @@ function draw()
             zombies_day1[ day1_count ].update();
             zombies_day1[ day1_count ].draw();
         }
-
-        //call zombies
-        for ( let day1_count = 0; day1_count < 10; day1_count++ )
-        {
-            zombies_day1[ day1_count ].update();
-            zombies_day1[ day1_count ].draw();
-        }
         crosshair()
+
+        //bullet_zombie collision
+        for(let day1_count = 0; day1_count < 10; day1_count++)
+        {
+            let x_dis = zombies_day1[day1_count].x - bullet[bullet_count].x
+            let y_dis = zombies_day1[day1_count].y - bullet[bullet_count].y
+            let distance = sqrt(x_dis * x_dis + y_dis * y_dis)
+    
+            if(distance < 20)
+            {
+                zombies_day1.splice(day1_count,1)
+            }
+        }
     }
 }
 

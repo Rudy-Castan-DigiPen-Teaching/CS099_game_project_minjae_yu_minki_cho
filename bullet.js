@@ -1,10 +1,12 @@
 var bullet = [];
+let bullet_count = 0;
 let bullet_img;
 
 function bullet_image_preload()
 {
     bullet_img = loadImage('assets/images/bullet.png');
 }
+
 class Bullet
 {
     constructor( x, y, angle )
@@ -32,6 +34,7 @@ class Bullet
 function mousePressed()
 {
     bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
+    bullet_count++;
 }
 
 //To draw bullets for the loop and erase if bullets are outside of canvas.

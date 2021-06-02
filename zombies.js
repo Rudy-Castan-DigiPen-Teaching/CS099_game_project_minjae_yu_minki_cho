@@ -57,7 +57,7 @@ class zombies
     */
     collision_with_bullet()
     {
-        if ( bullet.x < this.x + this.zombie_size || bullet.x > this.x - this.zombie_size )
+        /*if ( bullet.x < this.x + this.zombie_size || bullet.x > this.x - this.zombie_size )
         {
             if ( ( bullet.y < this.y + this.zombie_size || bullet.y > this.y - this.zombie_size ) )
             {
@@ -67,6 +67,6 @@ class zombies
         if(this.zombie_hp == 0)
         {
             zombies_day1.split([1,1]) //There are problem in 
-        }
+        }*/
     }
 }
