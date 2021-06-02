@@ -68,9 +68,9 @@ function draw()
         crosshair()
         
         //bullet_zombie collision
-        for(let day1_count = 0; day1_count < zombies_day1.length; day1_count++)
+        for(let bullet_count = 0; bullet_count < bullet.length; bullet_count++)
         {
-            for(let bullet_count = 0; bullet_count < bullet.length; bullet_count++)
+            for(let day1_count = 0; day1_count < zombies_day1.length; day1_count++)   
             {
                 x_dis = zombies_day1[day1_count].x - bullet[bullet_count].x;
                 y_dis = zombies_day1[day1_count].y - bullet[bullet_count].y;
