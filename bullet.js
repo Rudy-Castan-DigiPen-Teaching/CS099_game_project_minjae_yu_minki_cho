@@ -14,9 +14,6 @@ class Bullet
         this.y = y;
         this.angle = angle
         this.speed = 15;  //can change value to set bullet speed.
-
-
-        //maps mouse location to angle
     }
 
     //This function is to draw bullet

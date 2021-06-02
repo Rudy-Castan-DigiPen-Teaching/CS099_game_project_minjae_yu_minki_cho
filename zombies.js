@@ -45,28 +45,4 @@ class zombies
         image( zombie_img, this.x, this.y );
         //circle(this.x,this.y,15)
     }
-
-
-
-    /* (TODO)  
-    Trying to figure the collision with zombie and bullet. (ongoing..)
-     1. If the bullet's position x and y is in zombie's position x and y.
-     2. Then zombie's life(hp) will decrease -1.
-     3. And the effect ex) blinking(It will be in the assets soon.) 
-     4. If the hp get 0(zero) the zombie will disappear.(I don't know the way maybe split() will match up.)
-    */
-    collision_with_bullet()
-    {
-        /*if ( bullet.x < this.x + this.zombie_size || bullet.x > this.x - this.zombie_size )
-        {
-            if ( ( bullet.y < this.y + this.zombie_size || bullet.y > this.y - this.zombie_size ) )
-            {
-                this.zombie_hp--;
-            }
-        }
-        if(this.zombie_hp == 0)
-        {
-            zombies_day1.split([1,1]) //There are problem in 
-        }*/
-    }
 }
