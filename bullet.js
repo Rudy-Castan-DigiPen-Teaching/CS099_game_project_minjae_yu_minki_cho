@@ -12,7 +12,7 @@ class Bullet
         this.x = x;
         this.y = y;
         this.angle = angle
-        this.speed = 5;  //can change value to set bullet speed.
+        this.speed = 15;  //can change value to set bullet speed.
 
 
         //maps mouse location to angle
