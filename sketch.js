@@ -1,12 +1,20 @@
+//map_background
 let line_size = 100;
 let wall_health = 300;
+
+//game_mode
 let game_mode;
 const MAIN_MENU = 0;
 const GAME_START = 1;
+
+//day_count
 let zombies_day1 = [];
+
+//bullet_zombie_distance
 let x_dis;
 let y_dis;
 let distance;
+
 function preload()
 {
     bullet_image_preload();
