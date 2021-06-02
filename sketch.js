@@ -3,7 +3,10 @@ let wall_health = 300;
 let game_mode;
 const MAIN_MENU = 0;
 const GAME_START = 1;
-
+let zombies_day1 = [];
+let x_dis;
+let y_dis;
+let distance;
 function preload()
 {
     bullet_image_preload();
@@ -16,7 +19,7 @@ function setup()
     game_mode = 0;
 
     //zombies
-    zombies_day1 = [];
+    
     for ( let day1_count = 0; day1_count < 10; day1_count++ )
     {
         zombies_day1[ day1_count ] = new zombies()
@@ -49,25 +52,26 @@ function draw()
         bullet_setoff();
 
         //call zombies
-        for ( let day1_count = 0; day1_count < 10; day1_count++ )
+        for ( let day1_count = 0; day1_count < zombies_day1.length; day1_count++ )
         {
             zombies_day1[ day1_count ].update();
             zombies_day1[ day1_count ].draw();
         }
         crosshair()
-
+        
         //bullet_zombie collision
-        for(let day1_count = 0; day1_count < 10; day1_count++)
+        for(let day1_count = 0; day1_count < zombies_day1.length; day1_count++)
         {
             for(let bullet_count = 0; bullet_count < bullet.length; bullet_count++)
             {
-                let x_dis = zombies_day1[day1_count].x - bullet[bullet_count].x
-                let y_dis = zombies_day1[day1_count].y - bullet[bullet_count].y
-                let distance = sqrt(x_dis * x_dis + y_dis * y_dis)
-    
+                x_dis = zombies_day1[day1_count].x - bullet[bullet_count].x;
+                y_dis = zombies_day1[day1_count].y - bullet[bullet_count].y;
+                distance = sqrt(x_dis * x_dis + y_dis * y_dis);
+                
                 if(distance < 20)
                 {
-                    zombies_day1.splice(day1_count,1)
+                    console.log("hit");
+                    zombies_day1.splice(day1_count,1);
                 }
             }
         }
