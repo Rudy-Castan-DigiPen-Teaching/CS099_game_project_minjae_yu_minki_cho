@@ -31,7 +31,10 @@ function mousePressed()
 {
     if ( game_mode == GAME_START )
     {
-        bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
+        if(mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height)
+        {
+            bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
+        }
     }
 }
 
