@@ -1,6 +1,6 @@
 let zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img;
-let zombie_collision_img;
+let zombie_blinking_img;
 const zombie_size = 15;
 
 function zombie_image_preload()
@@ -56,7 +56,7 @@ class zombies
         push();
         imageMode( CENTER );
         image( fast_zombie_img, this.x, this.y );
-        pop()
+        pop();
     }
 
     draw_fat_zombies()
@@ -65,14 +65,16 @@ class zombies
         push();
         imageMode( CENTER );
         image( fat_zombie_img, this.x, this.y );
-        pop()
+        pop();
     }
 
+    //This function is to decorate the effects for collision.
+    //ex) blinking effect, bloods and sounds.
     collision_effects()
     {
         push();
         imageMode( CENTER );
         image( zombie_hit_img, this.x, this.y );
-        pop()
+        pop();
     }
 }

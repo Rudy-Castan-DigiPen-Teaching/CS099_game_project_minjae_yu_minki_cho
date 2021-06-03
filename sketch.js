@@ -53,7 +53,7 @@ function draw()
 
     if ( game_mode == GAME_START )
     {
-        background(220)
+        background( 220 )
         //draw alines and wall of game_background class
         day1_background.drawing_lines();
         day1_background.drawing_wall();
@@ -67,32 +67,33 @@ function draw()
             zombies_day1[ day1_count ].update();
         }
         crosshair()
-        
+
         //bullet_zombie collision
-        for(let bullet_count = 0; bullet_count < bullet.length; bullet_count++)
+        for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
         {
-            for(let day1_count = 0; day1_count < zombies_day1.length; day1_count++)   
+            for ( let day1_count = 0; day1_count < zombies_day1.length; day1_count++ )
             {
-                x_dis = zombies_day1[day1_count].x - bullet[bullet_count].x;
-                y_dis = zombies_day1[day1_count].y - bullet[bullet_count].y;
-                distance = sqrt(x_dis * x_dis + y_dis * y_dis);
-                
-                if(distance < zombie_size)
+                x_dis = zombies_day1[ day1_count ].x - bullet[ bullet_count ].x;
+                y_dis = zombies_day1[ day1_count ].y - bullet[ bullet_count ].y;
+                distance = sqrt( x_dis * x_dis + y_dis * y_dis );
+
+                if ( distance < zombie_size )
                 {
-                    console.log("hit");
-                    bullet.splice(bullet_count,1);
-                    zombies_day1.splice(day1_count,1);
+                    console.log( "hit" );
+                    bullet.splice( bullet_count, 1 );
+                    zombies_day1.splice( day1_count, 1 );
                     score++;
                     break;
                 }
             }
         }
 
-        text("your score is " + score + " !",width-200,10);
+        //print the score in canvas.
+        text( "your score is " + score + " !", width - 200, 10 );
     }
-    if (game_mode == CREDIT)
+    if ( game_mode == CREDIT )
     {
-
+        credit()
     }
 }
 
@@ -104,6 +105,10 @@ function crosshair()
     line( mouseX, mouseY, mouseX - 10, mouseY );
     line( mouseX, mouseY, mouseX, mouseY + 10 );
     line( mouseX, mouseY, mouseX, mouseY - 10 );
+    push();
+    noFill()
+    circle( mouseX, mouseY, 10);
+    pop();
 }
 
 //This function is for main_menu game start, how to play and credit.
@@ -115,7 +120,7 @@ function keyPressed()
         game_mode = GAME_START;
     }
 
-    if (keyCode == 'c')
+    if ( keyCode == 'c' )
     {
         clear();
         game_mode = CREDIT;
