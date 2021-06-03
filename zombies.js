@@ -64,7 +64,7 @@ class zombies
         //drawing fat zombies
         push();
         imageMode( CENTER );
-        image( fat_zombie_img, this.x, this.y );
+        image( zombie_hit_img, this.x, this.y );
         pop();
     }
 

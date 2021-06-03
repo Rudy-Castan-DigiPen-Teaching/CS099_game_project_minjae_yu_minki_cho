@@ -23,6 +23,7 @@ function preload()
 {
     bullet_image_preload();
     zombie_image_preload();
+    font_preload();
 }
 
 function setup()
