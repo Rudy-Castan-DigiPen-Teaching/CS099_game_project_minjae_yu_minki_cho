@@ -24,11 +24,6 @@ class Wall
         if(this.wall_health <= 0)
         {
             game_mode = GAME_OVER;
-
-        //TODO) If game is over then we have to reset the game
-        //making reset() is good way to present.
-        //
-        this.wall_health = 300;
         }
     }
-};
+}

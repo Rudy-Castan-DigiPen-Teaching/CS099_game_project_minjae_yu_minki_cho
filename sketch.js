@@ -125,17 +125,23 @@ function crosshair()
 //This function is for main_menu game start, how to play and credit.
 function keyPressed()
 {
-    //game start at MAIN_MENU
     if ( keyCode == ENTER )
     {
+        //game start at MAIN_MENU
         if( game_mode === MAIN_MENU )
+        {
+            clear();
+            game_mode = GAME_START;
+        }
+        //game start at CREDIT
+        else if ( game_mode === CREDIT )
         {
             clear();
             game_mode = GAME_START;
         }
     }
     //Press C to see credit at MAIN_MENU
-    else if ( keyCode == '67' )
+    else if ( keyCode == 67 )
     {
         if ( game_mode === MAIN_MENU )
         {
@@ -144,7 +150,7 @@ function keyPressed()
         }
     }
     //Press R to reset the game
-    else if ( key === 'r' || 'R')
+    else if ( keyCode === 82 )
     {
         if ( game_mode === GAME_OVER )
         {
