@@ -1,12 +1,13 @@
-//map_background
+//wall
 let line_size = 100;
-let wall_health = 300;
+let game_wall;
 
 //game_mode
 let game_mode;
 const MAIN_MENU = 0;
 const GAME_START = 1;
 const CREDIT = 2;
+const GAME_OVER = 4;
 
 //day_count
 let zombies_day1 = [];
@@ -32,12 +33,16 @@ function setup()
 
     //game's default is main_menu
     game_mode = MAIN_MENU;
-
+    game_wall = new Wall();
     //zombies
+
     for ( let day1_count = 0; day1_count < 10; day1_count++ )
     {
+        
         zombies_day1[ day1_count ] = new zombies();
+        
     }
+
 }
 
 function draw()
@@ -54,8 +59,8 @@ function draw()
         background( 220 )
         //draw alines and wall of game_background class
         drawing_lines();
-        drawing_wall();
-
+        //drawing_wall();
+        game_wall.draw();
         //ball_fire
         bullet_setoff();
 
@@ -78,6 +83,7 @@ function draw()
                 if ( distance < zombie_size )
                 {
                     console.log( "hit" );
+                    zombies_day1[day1_count].collision_effects();
                     bullet.splice( bullet_count, 1 );
                     zombies_day1.splice( day1_count, 1 );
                     score++;
@@ -92,6 +98,13 @@ function draw()
     if ( game_mode == CREDIT )
     {
         credit();
+    }
+    if(game_mode== GAME_OVER)
+    {
+        //later we could change this function to game_over(). It is for example
+        main_menu();
+
+
     }
 }
 
@@ -118,7 +131,8 @@ function keyPressed()
         game_mode = GAME_START;
     }
 
-    if ( keyCode == 'c' )
+    // if you press 'c' button then clear();  keycode 67 is C.
+    if ( keyCode == '67' )
     {
         clear();
         game_mode = CREDIT;

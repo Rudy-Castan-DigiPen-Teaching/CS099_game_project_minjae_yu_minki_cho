@@ -1,15 +1,23 @@
 let normal_zombie_img;
-let fast_zombie_img, fat_zombie_img, zombie_hit_img;
+let fast_zombie_img, fat_zombie_img, zombie_hit_img,white_zombie_img;
 let zombie_blinking_img;
 const zombie_size = 15;
 
 function zombie_image_preload()
 {
     normal_zombie_img = loadImage( 'assets/images/normal_zombie.png' );
+<<<<<<< Updated upstream
     fast_zombie_img = loadImage( 'assets/images/white_zombie.png' );
     fat_zombie_img = loadImage( 'assets/images/normal_zombie.png' );
     zombie_hit_img = loadImage('assets/images/zombie_hit.png')
     
+=======
+    fast_zombie_img   = loadImage( 'assets/images/normal_zombie.png' );
+    fat_zombie_img    = loadImage( 'assets/images/normal_zombie.png' );
+    zombie_hit_img    = loadImage( 'assets/images/zombie_hit.png' );
+    white_zombie_img  = loadImage('assets/images/white_zombie.png');
+
+>>>>>>> Stashed changes
 }
 
 class zombies
@@ -44,9 +52,19 @@ class zombies
         }
 
         //zombie stops at wall
-        if ( this.x > line_size + zombie_size )
+        if ( this.x > game_wall.x + zombie_size )
         {
             this.x -= this.speed;
+
+        }
+        //if zombie is on the wall later we could change into meaning full name.
+        if ( this.x == 115 )
+        {
+            if ( deltaTime % 1 == 0 )
+            {
+                //console.log("zombie hit the wall");
+                game_wall.wall_health--;
+            }
         }
 
     }
@@ -56,7 +74,7 @@ class zombies
         //drawing normal zombies
         push();
         imageMode( CENTER );
-        image(normal_zombie_img, this.x, this. y);
+        image( normal_zombie_img, this.x, this.y );
         pop();
     }
 
@@ -84,7 +102,7 @@ class zombies
     {
         push();
         imageMode( CENTER );
-        image( zombie_hit_img, this.x, this.y );
+        image( white_zombie_img, this.x, this.y );
         pop();
     }
 }
