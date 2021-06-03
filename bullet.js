@@ -19,10 +19,10 @@ class Bullet
     //This function is to draw bullet
     draw_bullet()
     {
-        push()
-        imageMode(CENTER)
-        image(bullet_img,this.x,this.y)
-        pop()
+        push();
+        imageMode(CENTER);
+        image(bullet_img,this.x,this.y);
+        pop();
         this.x += this.speed * cos( this.angle );
         this.y += this.speed * sin( this.angle );
     }

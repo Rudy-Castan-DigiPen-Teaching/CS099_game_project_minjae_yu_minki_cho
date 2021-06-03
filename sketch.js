@@ -35,7 +35,7 @@ function setup()
     //zombies
     for ( let day1_count = 0; day1_count < 10; day1_count++ )
     {
-        zombies_day1[ day1_count ] = new zombies()
+        zombies_day1[ day1_count ] = new zombies();
     }
 
     //call background
@@ -93,7 +93,7 @@ function draw()
     }
     if ( game_mode == CREDIT )
     {
-        credit()
+        credit();
     }
 }
 
@@ -106,7 +106,7 @@ function crosshair()
     line( mouseX, mouseY, mouseX, mouseY + 10 );
     line( mouseX, mouseY, mouseX, mouseY - 10 );
     push();
-    noFill()
+    noFill();
     circle( mouseX, mouseY, 10);
     pop();
 }
