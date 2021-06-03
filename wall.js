@@ -15,13 +15,12 @@ class Wall
         fill( 'brown' );
         rect( this.x, this.y, this.width, this.height );
         this.wall_hp();
-
     }
 
     wall_hp()
     {
         //If wall become 0 or less then game over.
-        if(this.wall_health<=0)
+        if(this.wall_health <= 0)
         {
             game_mode = GAME_OVER;
 

@@ -24,7 +24,6 @@ class zombies
         this.line_size = 100; //wall x_position
         this.zombie_type = round( random( 2 ) ) //0 = normal, 1 = fast, 2 = fat
         this.zombie_hp = 5;
-        this.zombie_size = 5;
     }
 
     update()
@@ -52,7 +51,7 @@ class zombies
 
         }
         //if zombie is on the wall later we could change into meaning full name.
-        if ( this.x == 115 )
+        if ( this.x == line_size + zombie_size )
         {
             if ( deltaTime % 1 == 0 )
             {
