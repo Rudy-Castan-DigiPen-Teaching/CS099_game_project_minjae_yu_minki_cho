@@ -6,6 +6,7 @@ let wall_health = 300;
 let game_mode;
 const MAIN_MENU = 0;
 const GAME_START = 1;
+const CREDIT = 2;
 
 //day_count
 let zombies_day1 = [];
@@ -15,6 +16,9 @@ let x_dis;
 let y_dis;
 let distance;
 
+//score
+let score = 0;
+
 function preload()
 {
     bullet_image_preload();
@@ -23,8 +27,10 @@ function preload()
 
 function setup()
 {
-    createCanvas( 800, 500 )
-    game_mode = 0;
+    createCanvas( 800, 500 );
+
+    //game's default is main_menu
+    game_mode = MAIN_MENU;
 
     //zombies
     for ( let day1_count = 0; day1_count < 10; day1_count++ )
@@ -42,10 +48,7 @@ function draw()
 
     if ( game_mode == MAIN_MENU )
     {
-        push();
-        textSize( 21 );
-        text( 'press enter to start', 20, 40 )
-        pop();
+        main_menu();
     }
 
     if ( game_mode == GAME_START )
@@ -62,7 +65,6 @@ function draw()
         for ( let day1_count = 0; day1_count < zombies_day1.length; day1_count++ )
         {
             zombies_day1[ day1_count ].update();
-            zombies_day1[ day1_count ].draw();
         }
         crosshair()
         
@@ -80,12 +82,20 @@ function draw()
                     console.log("hit");
                     bullet.splice(bullet_count,1);
                     zombies_day1.splice(day1_count,1);
+                    score++;
                     break;
                 }
             }
         }
+
+        text("your score is " + score + " !",width-200,10);
+    }
+    if (game_mode == CREDIT)
+    {
+
     }
 }
+
 
 //mouse crosshair
 function crosshair()
@@ -96,12 +106,18 @@ function crosshair()
     line( mouseX, mouseY, mouseX, mouseY - 10 );
 }
 
-//This function is for main_menu game start, how to play and .
+//This function is for main_menu game start, how to play and credit.
 function keyPressed()
 {
     if ( keyCode == ENTER )
     {
         clear();
         game_mode = GAME_START;
+    }
+
+    if (keyCode == 'c')
+    {
+        clear();
+        game_mode = CREDIT;
     }
 }
