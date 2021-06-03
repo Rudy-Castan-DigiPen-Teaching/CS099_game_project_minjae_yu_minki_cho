@@ -1,5 +1,4 @@
-function credit(
-    {
-        
-    }
-)
+function credit()
+{
+    
+}

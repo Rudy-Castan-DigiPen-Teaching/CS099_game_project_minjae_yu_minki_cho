@@ -38,9 +38,6 @@ function setup()
     {
         zombies_day1[ day1_count ] = new zombies();
     }
-
-    //call background
-    day1_background = new game_background();
 }
 
 function draw()
@@ -56,8 +53,8 @@ function draw()
     {
         background( 220 )
         //draw alines and wall of game_background class
-        day1_background.drawing_lines();
-        day1_background.drawing_wall();
+        drawing_lines();
+        drawing_wall();
 
         //ball_fire
         bullet_setoff();

@@ -31,21 +31,17 @@ class zombies
         {
             this.speed = 1.5;
             this.draw_fast_zombies();
-            
-
         }
         else if ( this.zombie_type === 2 ) //fat_zombie
         {
             this.speed = 0.5;
             this.draw_fat_zombies();
-
         }
 
         //zombie stops at wall
         if ( this.x > line_size + zombie_size )
         {
             this.x -= this.speed;
-
         }
 
     }
