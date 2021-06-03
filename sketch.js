@@ -34,13 +34,11 @@ function setup()
     //game's default is main_menu
     game_mode = MAIN_MENU;
     game_wall = new Wall();
-    //zombies
 
+    //zombies
     for ( let day1_count = 0; day1_count < 10; day1_count++ )
     {
-        
         zombies_day1[ day1_count ] = new zombies();
-        
     }
 
 }
@@ -99,10 +97,14 @@ function draw()
     {
         credit();
     }
-    if(game_mode== GAME_OVER)
+    if( game_mode == GAME_OVER )
     {
-        //later we could change this function to game_over(). It is for example
-        main_menu();
+        clear();
+        push();
+        textFont(new_text_font);
+        textSize( 21 );
+        text( 'press R to restart!', 20, 40 );
+        pop();
     }
 }
 
@@ -123,16 +125,39 @@ function crosshair()
 //This function is for main_menu game start, how to play and credit.
 function keyPressed()
 {
+    //game start at MAIN_MENU
     if ( keyCode == ENTER )
     {
-        clear();
-        game_mode = GAME_START;
+        if( game_mode === MAIN_MENU )
+        {
+            clear();
+            game_mode = GAME_START;
+        }
     }
-
-    // if you press 'c' button then clear();  keycode 67 is C.
-    if ( keyCode == '67' )
+    //Press C to see credit at MAIN_MENU
+    else if ( keyCode == '67' )
     {
-        clear();
-        game_mode = CREDIT;
+        if ( game_mode === MAIN_MENU )
+        {
+            clear();
+            game_mode = CREDIT;
+        }
+    }
+    //Press R to reset the game
+    else if ( key === 'r' || 'R')
+    {
+        if ( game_mode === GAME_OVER )
+        {
+            clear();
+            game_mode = GAME_START;
+            score = 0;
+            game_wall.wall_health = 300;
+
+            //reset zombies
+            for ( let day1_count = 0; day1_count < 10; day1_count++ )
+            {
+                zombies_day1[ day1_count ] = new zombies();
+            }
+        }
     }
 }
