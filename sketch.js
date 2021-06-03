@@ -140,18 +140,18 @@ function keyPressed()
             game_mode = GAME_START;
         }
     }
-    //Press C to see credit at MAIN_MENU
     else if ( keyCode == 67 )
     {
+        //Press C to see credit at MAIN_MENU
         if ( game_mode === MAIN_MENU )
         {
             clear();
             game_mode = CREDIT;
         }
     }
-    //Press R to reset the game
     else if ( keyCode === 82 )
     {
+        //Press R to reset the game
         if ( game_mode === GAME_OVER )
         {
             clear();
