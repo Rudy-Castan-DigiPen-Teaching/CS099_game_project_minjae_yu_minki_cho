@@ -1,13 +1,13 @@
-let zombie_img;
+let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img;
 let zombie_blinking_img;
 const zombie_size = 15;
 
 function zombie_image_preload()
 {
-    zombie_img = loadImage( 'assets/images/zombie.png' );
-    fast_zombie_img = loadImage( 'assets/images/zombie.png' );
-    fat_zombie_img = loadImage( 'assets/images/zombie.png' );
+    normal_zombie_img = loadImage( 'assets/images/normal_zombie.png' );
+    fast_zombie_img = loadImage( 'assets/images/normal_zombie.png' );
+    fat_zombie_img = loadImage( 'assets/images/normal_zombie.png' );
     zombie_hit_img = loadImage('assets/images/zombie_hit.png')
     
 }
@@ -37,6 +37,11 @@ class zombies
             this.speed = 0.5;
             this.draw_fat_zombies();
         }
+        else //normal_zombie
+        {
+            this.speed = 1;
+            this.draw_normal_zombies();
+        }
 
         //zombie stops at wall
         if ( this.x > line_size + zombie_size )
@@ -44,6 +49,15 @@ class zombies
             this.x -= this.speed;
         }
 
+    }
+
+    draw_normal_zombies()
+    {
+        //drawing normal zombies
+        push();
+        imageMode( CENTER );
+        image(normal_zombie_img, this.x, this. y);
+        pop();
     }
 
     draw_fast_zombies()
