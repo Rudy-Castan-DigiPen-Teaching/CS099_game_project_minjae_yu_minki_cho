@@ -103,8 +103,6 @@ function draw()
     {
         //later we could change this function to game_over(). It is for example
         main_menu();
-
-
     }
 }
 
