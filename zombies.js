@@ -1,10 +1,15 @@
 let zombie_img;
+let fast_zombie_img, fat_zombie_img, zombie_hit_img;
 let zombie_collision_img;
 const zombie_size = 15;
 
 function zombie_image_preload()
 {
     zombie_img = loadImage( 'assets/images/zombie.png' );
+    fast_zombie_img = loadImage( 'assets/images/zombie.png' );
+    fat_zombie_img = loadImage( 'assets/images/zombie.png' );
+    zombie_hit_img = loadImage('assets/images/zombie_hit.png')
+    
 }
 
 class zombies
@@ -25,26 +30,49 @@ class zombies
         if ( this.zombie_type === 1 ) //fast_zombie
         {
             this.speed = 1.5;
+            this.draw_fast_zombies();
+            
+
         }
         else if ( this.zombie_type === 2 ) //fat_zombie
         {
             this.speed = 0.5;
+            this.draw_fat_zombies();
+
         }
 
         //zombie stops at wall
         if ( this.x > line_size + zombie_size )
         {
             this.x -= this.speed;
+
         }
-        
+
     }
 
-    draw()
+    draw_fast_zombies()
     {
-        //drawing zombie
-        push()
-        imageMode(CENTER)
-        image( zombie_img, this.x, this.y );
+        //drawing fast zombies
+        push();
+        imageMode( CENTER );
+        image( fast_zombie_img, this.x, this.y );
+        pop()
+    }
+
+    draw_fat_zombies()
+    {
+        //drawing fat zombies
+        push();
+        imageMode( CENTER );
+        image( fat_zombie_img, this.x, this.y );
+        pop()
+    }
+
+    collision_effects()
+    {
+        push();
+        imageMode( CENTER );
+        image( zombie_hit_img, this.x, this.y );
         pop()
     }
 }
