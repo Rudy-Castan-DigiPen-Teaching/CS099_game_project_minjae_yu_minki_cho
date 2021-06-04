@@ -20,6 +20,9 @@ let distance;
 //score
 let score = 0;
 
+//damage
+const gun_damage = 1;
+
 function preload()
 {
     bullet_image_preload();
@@ -82,9 +85,15 @@ function draw()
                 {
                     console.log( "hit" );
                     zombies_day1[day1_count].collision_effects();
+                    zombies_day1[day1_count].zombie_hp -= gun_damage;//reduce zombie_hp
                     bullet.splice( bullet_count, 1 );
-                    zombies_day1.splice( day1_count, 1 );
-                    score++;
+                    print(zombies_day1[day1_count].zombie_hp)
+
+                    if(zombies_day1[day1_count].zombie_hp <= 0)//remove zombie when zombie_hp is 0
+                    {
+                        zombies_day1.splice( day1_count, 1 );
+                        score++;
+                    }
                     break;
                 }
             }

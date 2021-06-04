@@ -23,12 +23,29 @@ class zombies
         this.speed = 1; //normal zombie_speed
         this.line_size = 100; //wall x_position
         this.zombie_type = round( random( 2 ) ) //0 = normal, 1 = fast, 2 = fat
-        this.zombie_hp = 5;
+
+        if ( this.zombie_type === 0 )
+        {
+            this.zombie_hp = 5;//normal_zombie
+        }
+        else if ( this.zombie_type === 1 )
+        {
+            this.zombie_hp = 2;//fast_zombie
+        }
+        else if ( this.zombie_type === 2 )
+        {
+            this.zombie_hp = 10;//fat_zombie
+        }
     }
 
     update()
     {
-        if ( this.zombie_type === 1 ) //fast_zombie
+        if ( this.zombie_type === 0 )//normal_zombie
+        {
+            this.speed = 100 * (deltaTime/1000);
+            this.draw_normal_zombies();
+        }
+        else if ( this.zombie_type === 1 ) //fast_zombie
         {
             this.speed = 150 * (deltaTime/1000);
             this.draw_fast_zombies();
@@ -37,11 +54,6 @@ class zombies
         {
             this.speed = 50 * (deltaTime/1000);
             this.draw_fat_zombies();
-        }
-        else //normal_zombie
-        {
-            this.speed = 100 * (deltaTime/1000);
-            this.draw_normal_zombies();
         }
 
         //zombie stops at wall
