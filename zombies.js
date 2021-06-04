@@ -61,7 +61,7 @@ class zombies
 
         }
         //if zombie is on the wall later we could change into meaning full name.
-        if ( this.x == line_size + zombie_size )
+        if ( this.x <= line_size + zombie_size )
         {
             if ( deltaTime % 1 == 0 )
             {
