@@ -33,7 +33,6 @@ function preload()
 function setup()
 {
     createCanvas( 800, 500 );
-    noCursor();
 
     //game's default is main_menu
     game_mode = MAIN_MENU;
@@ -65,6 +64,8 @@ function draw()
         game_wall.draw();
         //ball_fire
         bullet_setoff();
+        //remove mouse_cursor
+        noCursor();
 
         //call zombies
         for ( let day1_count = 0; day1_count < zombies_day1.length; day1_count++ )
