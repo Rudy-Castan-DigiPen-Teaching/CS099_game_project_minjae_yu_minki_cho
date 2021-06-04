@@ -33,6 +33,7 @@ function preload()
 function setup()
 {
     createCanvas( 800, 500 );
+    noCursor();
 
     //game's default is main_menu
     game_mode = MAIN_MENU;
