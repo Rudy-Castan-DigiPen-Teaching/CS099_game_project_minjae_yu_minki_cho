@@ -30,17 +30,17 @@ class zombies
     {
         if ( this.zombie_type === 1 ) //fast_zombie
         {
-            this.speed = 1.5;
+            this.speed = 150 * (deltaTime/1000);
             this.draw_fast_zombies();
         }
         else if ( this.zombie_type === 2 ) //fat_zombie
         {
-            this.speed = 0.5;
+            this.speed = 50 * (deltaTime/1000);
             this.draw_fat_zombies();
         }
         else //normal_zombie
         {
-            this.speed = 1;
+            this.speed = 100 * (deltaTime/1000);
             this.draw_normal_zombies();
         }
 

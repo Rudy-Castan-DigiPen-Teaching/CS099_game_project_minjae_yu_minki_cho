@@ -13,7 +13,7 @@ class Bullet
         this.x = x;
         this.y = y;
         this.angle = angle
-        this.speed = 15;  //can change value to set bullet speed.
+        this.speed = 800 * (deltaTime/1000);  //can change value to set bullet speed.
     }
 
     //This function is to draw bullet
