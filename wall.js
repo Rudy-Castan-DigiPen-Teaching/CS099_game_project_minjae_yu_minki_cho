@@ -21,6 +21,7 @@ class Wall
 
     wall_hp()
     {
+        //draw wall_health_bar
         push()
         rectMode(CENTER)
         this.wall_health_bar = this.wall_health / 10;
