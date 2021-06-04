@@ -15,7 +15,7 @@ class Wall
         fill( 'brown' );
         rect( this.x, this.y, this.width, this.height );
         this.wall_hp();
-        console.log(this.wall_health);
+        //console.log(this.wall_health);
     }
 
     wall_hp()
