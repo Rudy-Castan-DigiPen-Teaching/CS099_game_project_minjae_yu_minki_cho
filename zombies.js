@@ -10,8 +10,6 @@ function zombie_image_preload()
     fat_zombie_img    = loadImage( 'assets/images/normal_zombie.png' );
     zombie_hit_img    = loadImage( 'assets/images/zombie_hit.png' );
     white_zombie_img  = loadImage('assets/images/white_zombie.png');
-    
-
 }
 
 class zombies
