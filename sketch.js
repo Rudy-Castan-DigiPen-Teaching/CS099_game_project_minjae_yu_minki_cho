@@ -10,7 +10,10 @@ const CREDIT = 2;
 const GAME_OVER = 4;
 
 //day_count
-let zombies_day1 = [];
+let zombies_day1 = new Array;
+let zombies_day2 = [];
+let zombies_day3 = [];
+let zombies_day4 = [];
 
 //bullet_zombie_distance
 let x_dis;
@@ -44,6 +47,19 @@ function setup()
         zombies_day1[ day1_count ] = new zombies();
     }
 
+    for ( let day2_count = 0; day2_count < 10; day2_count++ )
+    {
+        zombies_day2[ day2_count ] = new zombies();
+    }
+    for ( let day3_count = 0; day3_count < 10; day3_count++ )
+    {
+        zombies_day3[ day3_count ] = new zombies();
+    }
+    for ( let day4_count = 0; day4_count < 10; day4_count++ )
+    {
+        zombies_day4[ day4_count ] = new zombies();
+    }
+
 }
 
 function draw()
@@ -67,38 +83,21 @@ function draw()
         //remove mouse_cursor
         noCursor();
 
+        //crosshair
+        crosshair();
+
         //call zombies
-        for ( let day1_count = 0; day1_count < zombies_day1.length; day1_count++ )
+        zombie_day(zombies_day1);
+
+        //if stage1's zombie left 3 then next stage is starting
+        if(zombies_day1.length <= 3)
         {
-            zombies_day1[ day1_count ].update();
+            zombie_day(zombies_day2);
         }
-        crosshair()
-
-        //bullet_zombie collision
-        for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
+        //if stage2's zombie left 4 then next stage is starting
+        if(zombies_day1.length + zombies_day2.length <= 4 )
         {
-            for ( let day1_count = 0; day1_count < zombies_day1.length; day1_count++ )
-            {
-                x_dis = zombies_day1[ day1_count ].x - bullet[ bullet_count ].x;
-                y_dis = zombies_day1[ day1_count ].y - bullet[ bullet_count ].y;
-                distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-
-                if ( distance < zombie_size )
-                {
-                    console.log( "hit" );
-                    zombies_day1[day1_count].collision_effects();
-                    zombies_day1[day1_count].zombie_hp -= gun_damage;//reduce zombie_hp
-                    bullet.splice( bullet_count, 1 );
-                    print(zombies_day1[day1_count].zombie_hp)
-
-                    if(zombies_day1[day1_count].zombie_hp <= 0)//remove zombie when zombie_hp is 0
-                    {
-                        zombies_day1.splice( day1_count, 1 );
-                        score++;
-                    }
-                    break;
-                }
-            }
+            zombie_day(zombies_day3);
         }
 
         //print the score in canvas.
@@ -120,60 +119,40 @@ function draw()
 }
 
 
-//mouse crosshair
-function crosshair()
-{
-    line( mouseX, mouseY, mouseX + 10, mouseY );
-    line( mouseX, mouseY, mouseX - 10, mouseY );
-    line( mouseX, mouseY, mouseX, mouseY + 10 );
-    line( mouseX, mouseY, mouseX, mouseY - 10 );
-    push();
-    noFill();
-    circle( mouseX, mouseY, 10);
-    pop();
-}
 
-//This function is for main_menu game start, how to play and credit.
-function keyPressed()
-{
-    if ( keyCode == ENTER )
-    {
-        //game start at MAIN_MENU
-        if( game_mode === MAIN_MENU )
-        {
-            clear();
-            game_mode = GAME_START;
-        }
-        //game start at CREDIT
-        else if ( game_mode === CREDIT )
-        {
-            clear();
-            game_mode = GAME_START;
-        }
-    }
-    else if ( keyCode == 67 )
-    {
-        //Press C to see credit at MAIN_MENU
-        if ( game_mode === MAIN_MENU )
-        {
-            clear();
-            game_mode = CREDIT;
-        }
-    }
-    else if ( keyCode === 82 )
-    {
-        //Press R to reset the game
-        if ( game_mode === GAME_OVER )
-        {
-            clear();
-            game_mode = GAME_START;
-            score = 0;
-            game_wall.wall_health = 300;
 
-            //reset zombies
-            for ( let day1_count = 0; day1_count < 10; day1_count++ )
+
+function zombie_day(day_count)
+{
+    for ( let day1_count = 0; day1_count < day_count.length; day1_count++ )
+    {
+        day_count[ day1_count ].update();
+    }
+
+
+    //bullet_zombie collision
+    for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
+    {
+        for ( let day1_count = 0; day1_count < day_count.length; day1_count++ )
+        {
+            x_dis = day_count[ day1_count ].x - bullet[ bullet_count ].x;
+            y_dis = day_count[ day1_count ].y - bullet[ bullet_count ].y;
+            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
+
+            if ( distance < zombie_size )
             {
-                zombies_day1[ day1_count ] = new zombies();
+                console.log( "hit" );
+                day_count[day1_count].collision_effects();
+                day_count[day1_count].zombie_hp -= gun_damage;//reduce zombie_hp
+                bullet.splice( bullet_count, 1 );
+                print(day_count[day1_count].zombie_hp)
+
+                if(day_count[day1_count].zombie_hp <= 0)//remove zombie when zombie_hp is 0
+                {
+                    day_count.splice( day1_count, 1 );
+                    score++;
+                }
+                break;
             }
         }
     }
