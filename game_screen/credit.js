@@ -6,4 +6,4 @@ function credit()
     text( 'This is credit', 20, 40 );
     text( '\nPress enter to start game!', 20, 40 );
     pop();
-}
+} 

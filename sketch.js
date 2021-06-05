@@ -11,9 +11,9 @@ const GAME_OVER = 4;
 
 //day_count
 let zombies_day1 = new Array;
-let zombies_day2 = [];
-let zombies_day3 = [];
-let zombies_day4 = [];
+let zombies_day2 = new Array;
+let zombies_day3 = new Array;
+let zombies_day4 = new Array;
 
 //bullet_zombie_distance
 let x_dis;
@@ -117,8 +117,6 @@ function draw()
         pop();
     }
 }
-
-
 
 
 
