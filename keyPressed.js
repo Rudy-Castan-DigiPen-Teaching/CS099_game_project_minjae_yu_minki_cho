@@ -40,6 +40,8 @@ function keyPressed()
             {
                 day_count[ day1_count ] = new zombies();
             }
+            
+            
         }
     }
 }

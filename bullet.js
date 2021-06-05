@@ -1,9 +1,11 @@
 var bullet = [];
 let bullet_img;
+let bullet_sound;
 
-function bullet_image_preload()
+function bullet_preload()
 {
     bullet_img = loadImage('assets/images/bullet.png');
+    bullet_sound = loadSound('assets/sounds/shoot.wav')
 }
 
 class Bullet
@@ -29,7 +31,6 @@ class Bullet
 
 }
 
-//Later we could change value in to meaningful name.
 function mousePressed()
 {
     if ( game_mode == GAME_START )
@@ -38,6 +39,7 @@ function mousePressed()
         if(mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height)
         {
             bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
+            bullet_sound.play();
         }
     }
 }

@@ -24,13 +24,17 @@ let distance;
 let score = 0;
 
 //damage
-const gun_damage = 1;
+const gun_damage = 2;
+
+//preload hit sound
+let hit_sound;
 
 function preload()
 {
-    bullet_image_preload();
+    bullet_preload();
     zombie_image_preload();
     font_preload();
+    hit_sound = loadSound('assets/sounds/hit.wav');
 }
 
 function setup()
@@ -39,6 +43,8 @@ function setup()
 
     //game's default is main_menu
     game_mode = MAIN_MENU;
+
+    //Make wall
     game_wall = new Wall();
 
     //zombies
@@ -46,16 +52,15 @@ function setup()
     {
         zombies_day1[ day1_count ] = new zombies();
     }
-
-    for ( let day2_count = 0; day2_count < 10; day2_count++ )
+    for ( let day2_count = 0; day2_count < 11; day2_count++ )
     {
         zombies_day2[ day2_count ] = new zombies();
     }
-    for ( let day3_count = 0; day3_count < 10; day3_count++ )
+    for ( let day3_count = 0; day3_count < 12; day3_count++ )
     {
         zombies_day3[ day3_count ] = new zombies();
     }
-    for ( let day4_count = 0; day4_count < 10; day4_count++ )
+    for ( let day4_count = 0; day4_count < 13; day4_count++ )
     {
         zombies_day4[ day4_count ] = new zombies();
     }
@@ -82,13 +87,11 @@ function draw()
         bullet_setoff();
         //remove mouse_cursor
         noCursor();
-
         //crosshair
         crosshair();
 
         //call zombies
         zombie_day(zombies_day1);
-
         //if stage1's zombie left 3 then next stage is starting
         if(zombies_day1.length <= 3)
         {
@@ -131,23 +134,23 @@ function zombie_day(day_count)
     //bullet_zombie collision
     for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
     {
-        for ( let day1_count = 0; day1_count < day_count.length; day1_count++ )
+        for ( let i = 0; i < day_count.length; i++ )
         {
-            x_dis = day_count[ day1_count ].x - bullet[ bullet_count ].x;
-            y_dis = day_count[ day1_count ].y - bullet[ bullet_count ].y;
+            x_dis = day_count[ i ].x - bullet[ bullet_count ].x;
+            y_dis = day_count[ i ].y - bullet[ bullet_count ].y;
             distance = sqrt( x_dis * x_dis + y_dis * y_dis );
 
             if ( distance < zombie_size )
             {
                 console.log( "hit" );
-                day_count[day1_count].collision_effects();
-                day_count[day1_count].zombie_hp -= gun_damage;//reduce zombie_hp
+                day_count[i].collision_effects();
+                day_count[i].zombie_hp -= gun_damage;//reduce zombie_hp
                 bullet.splice( bullet_count, 1 );
-                print(day_count[day1_count].zombie_hp)
+                print(day_count[i].zombie_hp)
 
-                if(day_count[day1_count].zombie_hp <= 0)//remove zombie when zombie_hp is 0
+                if(day_count[i].zombie_hp <= 0)//remove zombie when zombie_hp is 0
                 {
-                    day_count.splice( day1_count, 1 );
+                    day_count.splice( i, 1 );
                     score++;
                 }
                 break;
