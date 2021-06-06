@@ -40,8 +40,18 @@ function keyPressed()
             {
                 day_count[ day1_count ] = new zombies();
             }
-            
-            
+            for ( let day2_count = 0; day2_count < 11; day2_count++ )
+            {
+                zombies_day2[ day2_count ] = new zombies();
+            }
+            for ( let day3_count = 0; day3_count < 12; day3_count++ )
+            {
+                zombies_day3[ day3_count ] = new zombies();
+            }
+            for ( let day4_count = 0; day4_count < 13; day4_count++ )
+            {
+                zombies_day4[ day4_count ] = new zombies();
+            }
         }
     }
 }

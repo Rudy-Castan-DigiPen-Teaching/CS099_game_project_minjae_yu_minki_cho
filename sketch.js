@@ -64,7 +64,6 @@ function setup()
     {
         zombies_day4[ day4_count ] = new zombies();
     }
-
 }
 
 function draw()
@@ -129,7 +128,6 @@ function zombie_day(day_count)
     {
         day_count[ day1_count ].update();
     }
-
 
     //bullet_zombie collision
     for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
