@@ -10,7 +10,7 @@ const CREDIT = 2;
 const GAME_OVER = 4;
 
 //day_count
-let zombies_day1 = new Array;
+let zombies_day1 = [];
 let zombies_day2 = new Array;
 let zombies_day3 = new Array;
 let zombies_day4 = new Array;
@@ -120,13 +120,11 @@ function draw()
     }
 }
 
-
-
 function zombie_day(day_count)
 {
-    for ( let day1_count = 0; day1_count < day_count.length; day1_count++ )
+    for ( let count = 0; count < day_count.length; count++ )
     {
-        day_count[ day1_count ].update();
+        day_count[ count ].update();
     }
 
     //bullet_zombie collision

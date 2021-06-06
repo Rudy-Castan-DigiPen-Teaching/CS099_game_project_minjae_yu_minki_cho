@@ -38,7 +38,7 @@ function keyPressed()
             //reset zombies
             for ( let day1_count = 0; day1_count < 10; day1_count++ )
             {
-                day_count[ day1_count ] = new zombies();
+                zombies_day1[ day1_count ] = new zombies();
             }
             for ( let day2_count = 0; day2_count < 11; day2_count++ )
             {

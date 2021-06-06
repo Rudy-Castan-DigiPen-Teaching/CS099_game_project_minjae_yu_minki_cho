@@ -67,7 +67,7 @@ class zombies
             if ( deltaTime % 1 == 0 )
             {
                 //console.log("zombie hit the wall");
-                game_wall.wall_health--;
+                game_wall.wall_health -= 10;//originally -= 1
             }
         }
 
