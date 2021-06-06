@@ -111,6 +111,8 @@ function draw()
     }
     if( game_mode == GAME_OVER )
     {
+        cursor();
+
         clear();
         push();
         textFont(new_text_font);
