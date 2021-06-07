@@ -29,12 +29,17 @@ const gun_damage = 1;
 //preload hit sound
 let hit_sound;
 
+//background
+let bg;
+
 function preload()
 {
     bullet_preload();
     zombie_image_preload();
     font_preload();
-    hit_sound = loadSound('assets/sounds/hit.wav');
+    preload_wall();
+    hit_sound = loadSound( 'assets/sounds/hit.wav' );
+    bg = loadImage( 'assets/images/background.jpg' )
 }
 
 function setup()
@@ -77,7 +82,8 @@ function draw()
 
     if ( game_mode == GAME_START )
     {
-        background( 220 )
+        imageMode( CORNER );
+        background( bg )
         //draw alines and wall of game_background class
         drawing_lines();
         //drawing_wall();
@@ -90,16 +96,16 @@ function draw()
         crosshair();
 
         //call zombies
-        zombie_day(zombies_day1);
+        zombie_day( zombies_day1 );
         //if stage1's zombie left 3 then next stage is starting
-        if(zombies_day1.length <= 3)
+        if ( zombies_day1.length <= 3 )
         {
-            zombie_day(zombies_day2);
+            zombie_day( zombies_day2 );
         }
         //if stage2's zombie left 4 then next stage is starting
-        if(zombies_day1.length + zombies_day2.length <= 4 )
+        if ( zombies_day1.length + zombies_day2.length <= 4 )
         {
-            zombie_day(zombies_day3);
+            zombie_day( zombies_day3 );
         }
 
         //print the score in canvas.
@@ -109,20 +115,20 @@ function draw()
     {
         credit();
     }
-    if( game_mode == GAME_OVER )
+    if ( game_mode == GAME_OVER )
     {
         cursor();
 
         clear();
         push();
-        textFont(new_text_font);
+        textFont( new_text_font );
         textSize( 21 );
         text( 'press R to restart!', 20, 40 );
         pop();
     }
 }
 
-function zombie_day(day_count)
+function zombie_day( day_count )
 {
     for ( let count = 0; count < day_count.length; count++ )
     {
@@ -140,13 +146,13 @@ function zombie_day(day_count)
 
             if ( distance < zombie_size )
             {
-                console.log( "hit" );
-                day_count[i].collision_effects();
-                day_count[i].zombie_hp -= gun_damage;//reduce zombie_hp
+                //console.log( "hit" );
+                day_count[ i ].collision_effects();
+                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
                 bullet.splice( bullet_count, 1 );
-                print(day_count[i].zombie_hp)
+                print( day_count[ i ].zombie_hp )
 
-                if(day_count[i].zombie_hp <= 0)//remove zombie when zombie_hp is 0
+                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
                 {
                     day_count.splice( i, 1 );
                     score++;
