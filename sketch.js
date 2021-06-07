@@ -83,7 +83,7 @@ function draw()
     if ( game_mode == GAME_START )
     {
         imageMode( CORNER );
-        background( bg )
+        background( 220 )
         //draw alines and wall of game_background class
         drawing_lines();
         //drawing_wall();

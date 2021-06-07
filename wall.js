@@ -24,7 +24,7 @@ class Wall
         imageMode( CENTER );
         image( wall_img, this.x, this.y )
         this.wall_hp();
-        console.log( this.wall_health );
+        //console.log( this.wall_health );
     }
 
     wall_hp()
