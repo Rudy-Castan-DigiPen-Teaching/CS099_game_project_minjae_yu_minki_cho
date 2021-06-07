@@ -32,7 +32,15 @@ function drawing_lines_characters()//drawing lines and characters
             {
                 rotate(atan2( 100 , mouseX - 60 ));
             }
-            image(character_arm_img, 0, 0);
+            
+            if(bullet_fired === true)
+            {
+                image(gun_recoil, 0, 0);
+            }
+            else
+            {
+                image(character_arm_img, 0, 0); 
+            }
             pop();
             image(character_img, 50, ((i * line_size) + line_size / 2));
         }
