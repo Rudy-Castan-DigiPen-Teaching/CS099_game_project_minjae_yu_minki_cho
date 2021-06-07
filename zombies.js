@@ -5,9 +5,9 @@ const zombie_size = 15;
 
 function zombie_image_preload()
 {
-    normal_zombie_img = loadImage( 'assets/images/zombie_setup.gif' );
-    fast_zombie_img   = loadImage( 'assets/images/normal_zombie.png' );
-    fat_zombie_img    = loadImage( 'assets/images/normal_zombie.png' );
+    normal_zombie_img = loadImage( 'assets/images/zombie_normal.gif' );
+    fast_zombie_img   = loadImage( 'assets/images/zombie_fast.gif' );
+    fat_zombie_img    = loadImage( 'assets/images/zombie_fat.gif' );
     zombie_hit_img    = loadImage( 'assets/images/zombie_hit.png' );
     white_zombie_img  = loadImage('assets/images/white_zombie.png');
     test_zombie_img   = loadImage('assets/images/Zombie.gif')
@@ -98,7 +98,7 @@ class zombies
         //drawing fat zombies
         push();
         imageMode( CENTER );
-        image( zombie_hit_img, this.x, this.y );
+        image( fat_zombie_img, this.x, this.y );
         pop();
     }
 
@@ -109,7 +109,7 @@ class zombies
         push();
         hit_sound.play();
         imageMode( CENTER );
-        image( white_zombie_img, this.x, this.y );
+        image( zombie_hit_img, this.x, this.y );
         this.x += 10; //Knock-back
         pop();
     }
