@@ -5,7 +5,7 @@ const zombie_size = 15;
 
 function zombie_image_preload()
 {
-    normal_zombie_img = loadImage( 'assets/images/normal_zombie.png' );
+    normal_zombie_img = loadImage( 'assets/images/zombie_setup.gif' );
     fast_zombie_img   = loadImage( 'assets/images/normal_zombie.png' );
     fat_zombie_img    = loadImage( 'assets/images/normal_zombie.png' );
     zombie_hit_img    = loadImage( 'assets/images/zombie_hit.png' );
