@@ -53,7 +53,7 @@ function drawing_lines_characters()//drawing lines and characters
     }
 }
 
-function mouseClicked()
+/*function mouseClicked()
 {
     gun_recoil.reset();
-}
+}*/
