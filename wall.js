@@ -19,7 +19,7 @@ class Wall
 
     draw()
     {
-        rectMode( CENTER );
+        //rectMode( CENTER );
         fill( 'brown' );
         imageMode( CENTER );
         image( wall_img, this.x, this.y )

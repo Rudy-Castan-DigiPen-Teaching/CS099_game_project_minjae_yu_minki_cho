@@ -1,16 +1,18 @@
 let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img,white_zombie_img, test_zombie_img;
-let zombie_blinking_img;
+let zombie_hit_wall_img, blood_img;
 const zombie_size = 15;
 
 function zombie_image_preload()
 {
-    normal_zombie_img = loadImage( 'assets/images/zombie_normal.gif' );
-    fast_zombie_img   = loadImage( 'assets/images/zombie_fast.gif' );
-    fat_zombie_img    = loadImage( 'assets/images/zombie_fat.gif' );
-    zombie_hit_img    = loadImage( 'assets/images/zombie_hit.png' );
-    white_zombie_img  = loadImage('assets/images/white_zombie.png');
-    test_zombie_img   = loadImage('assets/images/Zombie.gif')
+    normal_zombie_img   = loadImage( 'assets/images/zombie_normal.gif' );
+    fast_zombie_img     = loadImage( 'assets/images/zombie_fast.gif' );
+    fat_zombie_img      = loadImage( 'assets/images/zombie_fat.gif' );
+    zombie_hit_img      = loadImage( 'assets/images/zombie_hit.png' );
+    white_zombie_img    = loadImage('assets/images/white_zombie.png');
+    test_zombie_img     = loadImage('assets/images/Zombie.gif');
+    zombie_hit_wall_img = loadImage('assets/images/wall_hit.jpg');
+    blood_img           = loadImage('assets/images/blood.png');
 }
 
 class zombies
@@ -25,33 +27,33 @@ class zombies
 
         if ( this.zombie_type === 0 )
         {
-            this.zombie_hp = 5;//normal_zombie
+            this.zombie_hp = 5; //normal_zombie
         }
         else if ( this.zombie_type === 1 )
         {
-            this.zombie_hp = 2;//fast_zombie
+            this.zombie_hp = 2; //fast_zombie
         }
         else if ( this.zombie_type === 2 )
         {
-            this.zombie_hp = 10;//fat_zombie
+            this.zombie_hp = 10; //fat_zombie
         }
     }
 
     update()
     {
-        if ( this.zombie_type === 0 )//normal_zombie
+        if ( this.zombie_type === 0 ) //normal_zombie
         {
-            this.speed = 100 * (deltaTime/1000);
+            this.speed = 100 * ( deltaTime / 1000 );
             this.draw_normal_zombies();
         }
         else if ( this.zombie_type === 1 ) //fast_zombie
         {
-            this.speed = 150 * (deltaTime/1000);
+            this.speed = 150 * ( deltaTime / 1000 );
             this.draw_fast_zombies();
         }
         else if ( this.zombie_type === 2 ) //fat_zombie
         {
-            this.speed = 50 * (deltaTime/1000);
+            this.speed = 50 * ( deltaTime / 1000 );
             this.draw_fat_zombies();
         }
 
@@ -67,7 +69,8 @@ class zombies
             if ( deltaTime % 1 == 0 )
             {
                 //console.log("zombie hit the wall");
-                game_wall.wall_health -= 10;//originally -= 1
+                game_wall.wall_health -= 10; //originally -= 1
+                image(zombie_hit_wall_img,game_wall.x,game_wall.y);
             }
         }
 
@@ -78,8 +81,8 @@ class zombies
         //drawing normal zombies
         push();
         imageMode( CENTER );
-        translate(this.x,this.y)
-        rotate(2*PI)
+        translate( this.x, this.y )
+        rotate( 2 * PI )
         image( normal_zombie_img, 0, 0 );
         pop();
     }
@@ -110,7 +113,8 @@ class zombies
         hit_sound.play();
         imageMode( CENTER );
         image( zombie_hit_img, this.x, this.y );
-        this.x += 10; //Knock-back
+        image( blood_img, this.x + 40, this.y )
+        this.x += 20; //Knock-back
         pop();
     }
 }

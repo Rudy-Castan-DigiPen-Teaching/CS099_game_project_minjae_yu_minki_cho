@@ -150,10 +150,10 @@ function zombie_day( day_count )
                 day_count[ i ].collision_effects();
                 day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
                 bullet.splice( bullet_count, 1 );
-                print( day_count[ i ].zombie_hp )
 
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
                 {
+                    image(blood_img,day_count[ i ].x,day_count[ i ].y)
                     day_count.splice( i, 1 );
                     score++;
                 }
