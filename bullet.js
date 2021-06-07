@@ -4,8 +4,8 @@ let bullet_sound;
 
 function bullet_preload()
 {
-    bullet_img = loadImage('assets/images/bullet.png');
-    bullet_sound = loadSound('assets/sounds/shoot.wav')
+    bullet_img = loadImage( 'assets/images/bullet.png' );
+    bullet_sound = loadSound( 'assets/sounds/shoot.wav' )
 }
 
 class Bullet
@@ -15,15 +15,15 @@ class Bullet
         this.x = x;
         this.y = y;
         this.angle = angle
-        this.speed = 1000 * (deltaTime/1000);  //can change value to set bullet speed.
+        this.speed = 1000 * ( deltaTime / 1000 ); //can change value to set bullet speed.
     }
 
     //This function is to draw bullet
     draw_bullet()
     {
         push();
-        imageMode(CENTER);
-        image(bullet_img,this.x,this.y);
+        imageMode( CENTER );
+        image( bullet_img, this.x, this.y );
         pop();
         this.x += this.speed * cos( this.angle );
         this.y += this.speed * sin( this.angle );
@@ -36,7 +36,7 @@ function mousePressed()
     if ( game_mode == GAME_START )
     {
         //fire bullets when the mouse position is within the shooting range except player lines
-        if(mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height)
+        if ( mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height )
         {
             bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
             bullet_sound.play();
