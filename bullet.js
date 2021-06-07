@@ -7,6 +7,7 @@ function bullet_preload()
     bullet_img   = loadImage( 'assets/images/bullet.gif' );
     bullet_sound = loadSound( 'assets/sounds/shoot.wav' );
     fire_img     = loadImage( 'assets/images/fire.png');
+    gun_recoil = loadImage('assets/images/gun_recoil.gif')
 }
 
 class Bullet
@@ -47,6 +48,23 @@ function mousePressed()
             bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
             image(fire_img,150, height / 2);
             bullet_sound.play();
+
+            push();
+            translate(56, ((i * line_size) + line_size / 2) - 3)
+            if( mouseX >= line_size && mouseX <= width && mouseY >= line_size && mouseY <= height - line_size )
+            {
+                rotate(atan2( mouseY - ((i * line_size) + line_size / 2) , mouseX - 60 ));
+            }
+            else if( mouseX >= line_size && mouseX <= width && mouseY >= 0 && mouseY < line_size )
+            {
+                rotate(atan2( -100 , mouseX - 60 ));
+            }
+            else if( mouseX >= line_size && mouseX <= width && mouseY > height - line_size && mouseY <= height )
+            {
+                rotate(atan2( 100 , mouseX - 60 ));
+            }
+            image(gun_recoil, 0, 0);
+            pop();
         }
     }
 }

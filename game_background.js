@@ -4,7 +4,7 @@ function preload_characters()
     character_arm_img = loadImage('assets/images/arm_and_gun.png')
 }
 
-function drawing_lines()//drawing lines
+function drawing_lines_characters()//drawing lines and characters
 {
     for(let i = 0; i < 5; i++)
     {
@@ -17,9 +17,8 @@ function drawing_lines()//drawing lines
         {
             fill('orange');
             imageMode(CENTER);
-            image(character_img, 50, ((i * line_size) + line_size / 2));
             push();
-            translate(60, ((i * line_size) + line_size / 2) - 5)
+            translate(56, ((i * line_size) + line_size / 2) - 3)
             if( mouseX >= line_size && mouseX <= width && mouseY >= line_size && mouseY <= height - line_size )
             {
                 rotate(atan2( mouseY - ((i * line_size) + line_size / 2) , mouseX - 60 ));
@@ -34,6 +33,7 @@ function drawing_lines()//drawing lines
             }
             image(character_arm_img, 0, 0);
             pop();
+            image(character_img, 50, ((i * line_size) + line_size / 2));
         }
         else//AI position
         {

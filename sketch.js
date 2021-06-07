@@ -86,7 +86,7 @@ function draw()
         imageMode( CORNER );
         background( 220 )
         //draw alines and wall of game_background class
-        drawing_lines();
+        drawing_lines_characters();
         //drawing_wall();
         game_wall.draw();
         //ball_fire
