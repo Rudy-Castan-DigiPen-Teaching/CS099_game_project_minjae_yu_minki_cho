@@ -33,6 +33,7 @@ function drawing_lines_characters()//drawing lines and characters
                 rotate(atan2( 100 , mouseX - 60 ));
             }
             
+            //if mouse_clicked and mouse is fired, play gun_recoil motion
             if(bullet_fired === true)
             {
                 image(gun_recoil, 0, 0);
@@ -50,4 +51,9 @@ function drawing_lines_characters()//drawing lines and characters
             circle(50, ((i * line_size) + line_size / 2), 25);;
         }
     }
+}
+
+function mouseClicked()
+{
+    gun_recoil.reset();
 }
