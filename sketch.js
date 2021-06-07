@@ -24,7 +24,7 @@ let distance;
 let score = 0;
 
 //damage
-const gun_damage = 1;
+const gun_damage = 5;
 
 //preload hit sound
 let hit_sound;
