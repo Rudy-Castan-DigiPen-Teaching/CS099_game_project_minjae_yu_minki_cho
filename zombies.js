@@ -5,13 +5,13 @@ const zombie_size = 30;
 
 function zombie_image_preload()
 {
-    normal_zombie_img   = loadImage( 'assets/images/zombie_normal.gif' );
-    fast_zombie_img     = loadImage( 'assets/images/zombie_fast.gif' );
-    fat_zombie_img      = loadImage( 'assets/images/zombie_fat.gif' );
-    zombie_hit_img      = loadImage( 'assets/images/zombie_hit.png' );
-    white_zombie_img    = loadImage('assets/images/white_zombie.png');
-    test_zombie_img     = loadImage('assets/images/Zombie.gif');
-    zombie_hit_wall_img = loadImage('assets/images/wall_hit.jpg');
+    normal_zombie_img   = loadImage( 'assets/images/zombies/zombie_normal.gif' );
+    fast_zombie_img     = loadImage( 'assets/images/zombies/zombie_fast.gif' );
+    fat_zombie_img      = loadImage( 'assets/images/zombies/zombie_fat.gif' );
+    zombie_hit_img      = loadImage( 'assets/images/zombies/zombie_hit.png' );
+    white_zombie_img    = loadImage('assets/images/zombies/white_zombie.png');
+    test_zombie_img     = loadImage('assets/images/zombies/Zombie.gif');
+    zombie_hit_wall_img = loadImage('assets/images/game_background/wall_hit.jpg');
     blood_img           = loadImage('assets/images/blood.png');
 }
 
@@ -70,7 +70,7 @@ class zombies
             if ( deltaTime % 1 == 0 )
             {
                 //console.log("zombie hit the wall");
-                game_wall.wall_health -= 1; //originally -= 1
+                game_wall.wall_health -= 0; //originally -= 1
                 image(zombie_hit_wall_img,game_wall.x,game_wall.y);
             }
         }

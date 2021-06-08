@@ -2,7 +2,7 @@ let wall_img;
 
 function preload_wall()
 {
-    wall_img = loadImage( 'assets/images/wall2.jpg' );
+    wall_img = loadImage( 'assets/images/game_background/wall2.jpg' );
 }
 
 class Wall

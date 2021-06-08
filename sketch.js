@@ -40,7 +40,7 @@ function preload()
     preload_wall();
     preload_characters()
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
-    bg = loadImage( 'assets/images/background.jpg' )
+    bg = loadImage( 'assets/images/game_background/background.jpg' )
 }
 
 function setup()

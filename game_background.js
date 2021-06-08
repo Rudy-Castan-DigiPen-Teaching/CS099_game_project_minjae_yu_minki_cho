@@ -1,8 +1,8 @@
 function preload_characters()
 {
-    character_img = loadImage('assets/images/player(no arms).png')
-    character_arm_img = loadImage('assets/images/arm_and_gun.png')
-    gun_recoil = loadImage('assets/images/gun_recoil.gif')
+    character_img = loadImage('assets/images/player_and_ai/player(no arms).png')
+    character_arm_img = loadImage('assets/images/player_and_ai/arm_and_gun.png')
+    gun_recoil = loadImage('assets/images/player_and_ai/gun_recoil.gif')
 }
 
 function drawing_lines_characters()//drawing lines and characters
