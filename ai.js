@@ -14,6 +14,7 @@ class draw_ai{
 
     draw()
     {
+        //draw_ai per line
         for ( let i = 0; i < 5; i++)
         {
             if ( i != 2 )
@@ -21,6 +22,11 @@ class draw_ai{
                 imageMode( CENTER )
                 image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) )
                 image( ai_img, this.x, ((i * line_size) + line_size / 2) )
+
+                if ( deltaTime % 1 == 0 )
+                {
+                    image( ai_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) );
+                }
             }
         }
     }
@@ -36,10 +42,12 @@ class ai_bullet
         this.distance = 0;
         this.speed = 2 * ( deltaTime / 1000 );
     }
+
     move()
     {
         this.distance = this.distance + this.speed;
     }
+
     show()
     {
         push(); // remember the fill and stroke before
@@ -52,6 +60,7 @@ class ai_bullet
         }
         pop();  //restore fill and stroke
     }
+
     run()
     {
         this.show();
