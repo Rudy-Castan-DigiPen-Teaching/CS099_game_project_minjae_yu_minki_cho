@@ -81,6 +81,7 @@ class ai_bullet
     {  
         ai_bullets.push(new ai_bullet(50, line_size / 2));
         ai_bullet_fired = true;
+        ai_gun_recoil_img.reset();
     }
      
     for ( var i = 0; i < ai_bullets.length; i++ )
