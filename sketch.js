@@ -12,12 +12,6 @@ const GAME_START = 1;
 const CREDIT = 2;
 const GAME_OVER = 4;
 
-//day_count
-let zombies_day1_1 = new Array;
-let zombies_day1_2 = new Array;
-let zombies_day1_3 = new Array;
-let zombies_day1_4 = new Array;
-
 //bullet_zombie_distance
 let x_dis;
 let y_dis;
@@ -36,10 +30,7 @@ let hit_sound;
 let bg;
 
 //laser
-let laser1 = [];
-let laser2 = [];
-let laser3 = [];
-let laser4 = [];
+let ai_bullets = [];
 
 function preload()
 {
@@ -66,8 +57,6 @@ function setup()
     ai_1 = new Ai_1();
 
     zombie_day_1_setup();
-
-
 }
 
 function draw()
@@ -152,5 +141,32 @@ function zombie_day( day_count )
                 break;
             }
         }
+
+        //ai-1_bullet collision
+        for ( let laser_count = 0; laser_count < ai_bullets.length; laser_count++ )
+        {
+            for ( let i = 0; i < day_count.length; i++ )
+            {
+                x_dis = day_count[ i ].x - ai_bullets[ laser_count ].x;
+                y_dis = day_count[ i ].y - ai_bullets[ laser_count ].y;
+                distance = sqrt( x_dis * x_dis + y_dis * y_dis );
+
+                if ( distance < zombie_size )
+                {
+                    day_count[ i ].collision_effects();
+                    day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
+                    ai_bullets.splice( bullet_count, 1 );
+
+                    if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
+                {
+                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
+                    day_count.splice( i, 1 );
+                    score++;
+                }
+                break;
+                }
+            }
+        }
+
     }
 }
