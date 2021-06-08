@@ -38,7 +38,8 @@ function preload()
     zombie_image_preload();
     font_preload();
     preload_wall();
-    preload_characters()
+    preload_characters();
+    ai_image_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' )
 }

@@ -1,12 +1,28 @@
+function ai_image_preload()
+{
+    ai_img = loadImage('assets/images/player_and_ai/ai_1.png');
+    ai_arm_img = loadImage('assets/images/player_and_ai/ai_1_arm_and_gun.png')
+    ai_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_1_gun_recoil.gif');
+}
+
 class draw_ai{
     constructor()
     {
         this.x = 50;
         this.y = line_size / 2; 
     }
+
     draw()
     {
-        circle(50, this.y, 25);
+        for ( let i = 0; i < 5; i++)
+        {
+            if ( i != 2 )
+            {
+                imageMode( CENTER )
+                image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) )
+                image( ai_img, this.x, ((i * line_size) + line_size / 2) )
+            }
+        }
     }
 }
 
@@ -50,7 +66,6 @@ class ai_bullet
     {  
         ai_bullets.push(new ai_bullet(50, line_size / 2));
     }
-
      
     for ( var i = 0; i < ai_bullets.length; i++ )
     {
