@@ -101,6 +101,8 @@ function draw()
         text( "your score is " + score + " !", width - 200, 10 );
 
         ai_bullet_setoff();
+
+        
     }
     if ( game_mode == CREDIT )
     {
