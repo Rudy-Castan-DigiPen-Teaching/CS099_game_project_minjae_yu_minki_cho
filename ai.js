@@ -1,3 +1,5 @@
+let ai_bullet_fired = false;
+
 function ai_image_preload()
 {
     ai_img = loadImage('assets/images/player_and_ai/ai_1.png');
@@ -19,14 +21,19 @@ class draw_ai{
         {
             if ( i != 2 )
             {
+                push();
                 imageMode( CENTER )
-                image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) )
                 image( ai_img, this.x, ((i * line_size) + line_size / 2) )
 
-                if ( deltaTime % 1 == 0 )
+                if ( ai_bullet_fired === false )
+                {
+                    image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) )
+                }
+                else if ( ai_bullet_fired === true )
                 {
                     image( ai_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) );
                 }
+                pop();
             }
         }
     }
@@ -74,6 +81,7 @@ class ai_bullet
     if( deltaTime % 1 == 0 )
     {  
         ai_bullets.push(new ai_bullet(50, line_size / 2));
+        ai_bullet_fired = true;
     }
      
     for ( var i = 0; i < ai_bullets.length; i++ )
