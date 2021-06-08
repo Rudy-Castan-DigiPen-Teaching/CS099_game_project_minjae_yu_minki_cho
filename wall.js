@@ -34,9 +34,9 @@ class Wall
         rectMode( CORNER );
         this.wall_health_bar = this.wall_health / 10;
         fill( 'red' );
-        rect( line_size / 3, line_size * 3 - 25, 30, 5 );
+        rect( line_size / 3, line_size * 3 - 15, 30, 5 );
         fill( 'green' );
-        rect( line_size / 3, line_size * 3 - 25, this.wall_health_bar, 5 );
+        rect( line_size / 3, line_size * 3 - 15, this.wall_health_bar, 5 );
         pop();
 
         //If wall become 0 or less then game over.

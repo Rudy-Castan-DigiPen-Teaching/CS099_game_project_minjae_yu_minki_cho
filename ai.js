@@ -27,18 +27,17 @@ class draw_ai{
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) )
+                    image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) );
+                    image( ai_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
                 }
                 pop();
             }
         }
     }
 }
-
 
 class ai_bullet
 {
@@ -78,7 +77,7 @@ class ai_bullet
   function ai_bullet_setoff()
   {
     //이거 델타타임말고 좋은 방법 있을까?
-    if( deltaTime % 1 == 0 )
+    if ( deltaTime % 1 == 0 )
     {  
         ai_bullets.push(new ai_bullet(50, line_size / 2));
         ai_bullet_fired = true;
