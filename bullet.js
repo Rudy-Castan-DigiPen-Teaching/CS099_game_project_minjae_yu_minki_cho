@@ -27,7 +27,7 @@ class Bullet
     {
         push();
         imageMode( CENTER );
-        translate(this.x, this.y)
+        translate(this.x, this.y);
         rotate(Math.atan2( this.dy, this.dx ));
         image( bullet_img, 0, 0 );
         pop();
@@ -37,21 +37,6 @@ class Bullet
 
 }
 
-function mousePressed()
-{
-    if ( game_mode == GAME_START )
-    {
-        //fire bullets when the mouse position is within the shooting range except player lines
-        if ( mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height )
-        {
-            bullet_fired = true;
-            gun_recoil.reset();
-            bullet.push( new Bullet( 50, height / 2, atan2( mouseY - height / 2, mouseX - 50 ) ) );
-            image(fire_img,150, height / 2);
-            bullet_sound.play();
-        }
-    }
-}
 
 //To draw bullets for the loop and erase if bullets are outside of canvas.
 function bullet_setoff()
@@ -65,4 +50,5 @@ function bullet_setoff()
             bullet.splice( i, 1 );
         } //if ball goes out of frame, delete the ball from the array.
     }
+    
 }
