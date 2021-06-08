@@ -54,7 +54,7 @@ function setup()
     game_wall = new Wall();
 
     //ai
-    ai_1 = new Ai_1();
+    ai_1 = new draw_ai();
 
     zombie_day_1_setup();
 }
