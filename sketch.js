@@ -3,7 +3,7 @@ let line_size = 100;
 let game_wall;
 
 //ai
-let ai_1;
+let ai;
 
 //game_mode
 let game_mode;
@@ -29,7 +29,7 @@ let hit_sound;
 //background
 let bg;
 
-//laser
+//ai_bullet
 let ai_bullets = [];
 
 function preload()
@@ -55,9 +55,9 @@ function setup()
     game_wall = new Wall();
 
     //ai
-    ai_1 = new draw_ai();
+    ai = new draw_ai();
 
-    zombie_day_1_setup();
+    zombie_day_setup();
 }
 
 function draw()
@@ -83,9 +83,9 @@ function draw()
         noCursor();
         //crosshair
         crosshair();
-        ai_1.draw();
+        ai.draw();
 
-        zombie_day_1_draw();
+        zombie_day_draw();
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
@@ -110,6 +110,7 @@ function draw()
     }
 }
 
+//zombie array and collision
 function zombie_day( day_count )
 {
     for ( let count = 0; count < day_count.length; count++ )
@@ -143,13 +144,13 @@ function zombie_day( day_count )
             }
         }
 
-        //ai-1_bullet collision
-        for ( let laser_count = 0; laser_count < ai_bullets.length; laser_count++ )
+        //ai_bullet collision
+        for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullets.length; ai_bullet_count++ )
         {
             for ( let i = 0; i < day_count.length; i++ )
             {
-                x_dis = day_count[ i ].x - ai_bullets[ laser_count ].x;
-                y_dis = day_count[ i ].y - ai_bullets[ laser_count ].y;
+                x_dis = day_count[ i ].x - ai_bullets[ ai_bullet_count ].x;
+                y_dis = day_count[ i ].y - ai_bullets[ ai_bullet_count ].y;
                 distance = sqrt( x_dis * x_dis + y_dis * y_dis );
 
                 if ( distance < zombie_size )
@@ -158,7 +159,7 @@ function zombie_day( day_count )
                     day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
                     ai_bullets.splice( bullet_count, 1 );
 
-                    if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
+                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
                 {
                     image( blood_img, day_count[ i ].x, day_count[ i ].y )
                     day_count.splice( i, 1 );
@@ -168,6 +169,5 @@ function zombie_day( day_count )
                 }
             }
         }
-
     }
 }
