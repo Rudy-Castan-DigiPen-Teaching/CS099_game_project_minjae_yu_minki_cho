@@ -87,17 +87,17 @@ function draw()
 
         zombie_day_draw();
 
-        //print the score in canvas.
-        text( "your score is " + score + " !", width - 200, 10 );
-
         ai_bullet_setoff();
 
-        
+        //print the score in canvas.
+        text( "your score is " + score + " !", width - 200, 10 );
     }
+
     if ( game_mode == CREDIT )
     {
         credit();
     }
+
     if ( game_mode == GAME_OVER )
     {
         cursor();
@@ -110,8 +110,8 @@ function draw()
     }
 }
 
-//zombie array and collision
-function zombie_day( day_count )
+//zombie array and collision update
+function zombie_day_update( day_count )
 {
     for ( let count = 0; count < day_count.length; count++ )
     {
@@ -159,13 +159,13 @@ function zombie_day( day_count )
                     day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
                     ai_bullets.splice( bullet_count, 1 );
 
-                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                {
-                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                    day_count.splice( i, 1 );
-                    score++;
-                }
-                break;
+                    if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
+                    {
+                        image( blood_img, day_count[ i ].x, day_count[ i ].y )
+                        day_count.splice( i, 1 );
+                        score++;
+                    }
+                    break;
                 }
             }
         }

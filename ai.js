@@ -7,7 +7,8 @@ function ai_image_preload()
     ai_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_1_gun_recoil.gif');
 }
 
-class draw_ai{
+class draw_ai
+{
     constructor()
     {
         this.x = 50;
@@ -72,10 +73,10 @@ class ai_bullet
         this.show();
         this.move();
     }
-  }
+}
 
-  function ai_bullet_setoff()
-  {
+function ai_bullet_setoff()
+{
     //이거 델타타임말고 좋은 방법 있을까?
     if ( deltaTime % 1 == 0 )
     {  
