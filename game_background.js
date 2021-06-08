@@ -48,7 +48,7 @@ function drawing_lines_characters()//drawing lines and characters
         else//AI position
         {
             fill('blue');
-            circle(50, ((i * line_size) + line_size / 2), 25);;
+            circle(50, ((i * line_size) + line_size / 2), 25);
         }
     }
 }

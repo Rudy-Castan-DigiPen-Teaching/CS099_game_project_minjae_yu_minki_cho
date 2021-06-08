@@ -2,6 +2,9 @@
 let line_size = 100;
 let game_wall;
 
+//ai
+let ai_1;
+
 //game_mode
 let game_mode;
 const MAIN_MENU = 0;
@@ -10,10 +13,10 @@ const CREDIT = 2;
 const GAME_OVER = 4;
 
 //day_count
-let zombies_day1 = [];
-let zombies_day2 = new Array;
-let zombies_day3 = new Array;
-let zombies_day4 = new Array;
+let zombies_day1_1 = new Array;
+let zombies_day1_2 = new Array;
+let zombies_day1_3 = new Array;
+let zombies_day1_4 = new Array;
 
 //bullet_zombie_distance
 let x_dis;
@@ -31,6 +34,12 @@ let hit_sound;
 
 //background
 let bg;
+
+//laser
+let laser1 = [];
+let laser2 = [];
+let laser3 = [];
+let laser4 = [];
 
 function preload()
 {
@@ -53,23 +62,12 @@ function setup()
     //Make wall
     game_wall = new Wall();
 
-    //zombies
-    for ( let day1_count = 0; day1_count < 10; day1_count++ )
-    {
-        zombies_day1[ day1_count ] = new zombies();
-    }
-    for ( let day2_count = 0; day2_count < 11; day2_count++ )
-    {
-        zombies_day2[ day2_count ] = new zombies();
-    }
-    for ( let day3_count = 0; day3_count < 12; day3_count++ )
-    {
-        zombies_day3[ day3_count ] = new zombies();
-    }
-    for ( let day4_count = 0; day4_count < 13; day4_count++ )
-    {
-        zombies_day4[ day4_count ] = new zombies();
-    }
+    //ai
+    ai_1 = new Ai_1();
+
+    zombie_day_1_setup();
+
+
 }
 
 function draw()
@@ -95,22 +93,14 @@ function draw()
         noCursor();
         //crosshair
         crosshair();
+        ai_1.draw();
 
-        //call zombies
-        zombie_day( zombies_day1 );
-        //if stage1's zombie left 3 then next stage is starting
-        if ( zombies_day1.length <= 3 )
-        {
-            zombie_day( zombies_day2 );
-        }
-        //if stage2's zombie left 4 then next stage is starting
-        if ( zombies_day1.length + zombies_day2.length <= 4 )
-        {
-            zombie_day( zombies_day3 );
-        }
+        zombie_day_1_draw();
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
+
+        ai_bullet_setoff();
     }
     if ( game_mode == CREDIT )
     {
@@ -119,7 +109,6 @@ function draw()
     if ( game_mode == GAME_OVER )
     {
         cursor();
-
         clear();
         push();
         textFont( new_text_font );
@@ -154,7 +143,7 @@ function zombie_day( day_count )
 
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
                 {
-                    image(blood_img,day_count[ i ].x,day_count[ i ].y)
+                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
                     day_count.splice( i, 1 );
                     score++;
                 }
