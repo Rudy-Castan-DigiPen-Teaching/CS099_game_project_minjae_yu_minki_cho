@@ -4,6 +4,7 @@ let zombies_day1_wave2 = new Array;
 let zombies_day1_wave3 = new Array;
 let zombies_day1_wave4 = new Array;
 
+
 function zombie_day1_setup()
 { 
     //zombies
