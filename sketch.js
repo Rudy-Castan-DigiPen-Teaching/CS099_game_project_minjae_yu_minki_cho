@@ -58,6 +58,7 @@ function setup()
     ai = new draw_ai();
 
     zombie_day1_setup();
+    zombie_day2_setup();
 }
 
 function draw()
@@ -86,6 +87,12 @@ function draw()
         ai.draw();
 
         zombie_day1_draw();
+
+        if(zombies_day1_wave1.length + zombies_day1_wave2.length 
+            + zombies_day1_wave3.length == 0 )
+            {
+                zombie_day2_draw();
+            }
 
         ai_bullet_setoff();
 

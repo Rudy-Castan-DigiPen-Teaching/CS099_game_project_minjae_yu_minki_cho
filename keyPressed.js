@@ -38,19 +38,19 @@ function keyPressed()
             //reset zombies
             for ( let day1_count = 0; day1_count < 10; day1_count++ )
             {
-                zombies_day1_1[ day1_count ] = new zombies();
+                zombies_day1_wave1[ day1_count ] = new zombies();
             }
             for ( let day2_count = 0; day2_count < 11; day2_count++ )
             {
-                zombies_day1_2[ day2_count ] = new zombies();
+                zombies_day1_wave2[ day2_count ] = new zombies();
             }
             for ( let day3_count = 0; day3_count < 12; day3_count++ )
             {
-                zombies_day1_3[ day3_count ] = new zombies();
+                zombies_day1_wave3[ day3_count ] = new zombies();
             }
             for ( let day4_count = 0; day4_count < 13; day4_count++ )
             {
-                zombies_day1_4[ day4_count ] = new zombies();
+                zombies_day1_wave4[ day4_count ] = new zombies();
             }
         }
     }
