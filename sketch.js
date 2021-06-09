@@ -57,7 +57,7 @@ function setup()
     //ai
     ai = new draw_ai();
 
-    zombie_day_setup();
+    zombie_day1_setup();
 }
 
 function draw()
@@ -85,7 +85,7 @@ function draw()
         crosshair();
         ai.draw();
 
-        zombie_day_draw();
+        zombie_day1_draw();
 
         ai_bullet_setoff();
 

@@ -4,7 +4,7 @@ let zombies_day1_2 = new Array;
 let zombies_day1_3 = new Array;
 let zombies_day1_4 = new Array;
 
-function zombie_day_setup()
+function zombie_day1_setup()
 { 
     //zombies
     for ( let count1 = 0; count1 < 10; count1++ )
@@ -25,7 +25,7 @@ function zombie_day_setup()
     }
 }
 
-function zombie_day_draw()
+function zombie_day1_draw()
 {
     //call zombies
     zombie_day_update( zombies_day1_1 );
