@@ -103,7 +103,7 @@ function draw()
             {
                 if(!ready_for_day2)
                 {
-                    text("press any key to move next day",width/2,height/2);
+                    text("press any key to move next day2",width/2,height/2);
                 }
                 if(keyIsPressed)
                 {
@@ -120,7 +120,7 @@ function draw()
                 {
                     if(!ready_for_day3)
                     {
-                        text("press any key to move next day",width/2,height/2);
+                        text("press any key to move next day3",width/2,height/2);
                     }
                     if(keyIsPressed)
                     {
@@ -137,7 +137,7 @@ function draw()
                     {
                         if(!ready_for_day4)
                         {
-                            text("press any key to move next day",width/2,height/2);
+                            text("press any key to move next day4",width/2,height/2);
                         }
                         if(keyIsPressed)
                         {

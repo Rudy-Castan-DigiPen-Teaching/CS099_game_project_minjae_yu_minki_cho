@@ -7,19 +7,19 @@ let zombies_day4_wave4 = new Array;
 function zombie_day4_setup()
 { 
     //zombies
-    for ( let count1 = 0; count1 < 10; count1++ )
+    for ( let count1 = 0; count1 < 50; count1++ )
     {
-        zombies_day2_wave1[ count1 ] = new zombies();
+        zombies_day4_wave1[ count1 ] = new zombies();
     }
-    for ( let count2 = 0; count2 < 10; count2++ )
+    for ( let count2 = 0; count2 < 50; count2++ )
     {
-        zombies_day2_wave2[ count2 ] = new zombies();
+        zombies_day4_wave2[ count2 ] = new zombies();
     }
-    for ( let count3 = 0; count3 < 10; count3++ )
+    for ( let count3 = 0; count3 < 50; count3++ )
     {
-        zombies_day2_wave3[ count3 ] = new zombies();
+        zombies_day4_wave3[ count3 ] = new zombies();
     }
-    for ( let count4 = 0; count4 < 10; count4++ )
+    for ( let count4 = 0; count4 < 50; count4++ )
     {
         zombies_day4_wave4[ count4 ] = new zombies();
     }
@@ -28,18 +28,18 @@ function zombie_day4_setup()
 function zombie_day4_draw()
 {
     //call zombies
-    zombie_day_update( zombies_day2_wave1 );
+    zombie_day_update( zombies_day4_wave1 );
     //if stage1's zombie left 3 then next stage is starting
-    if ( zombies_day2_wave1.length <= 2 )
+    if ( zombies_day4_wave1.length <= 12 )
     {
-        zombie_day_update( zombies_day2_wave2 );
+        zombie_day_update( zombies_day4_wave2 );
     }
     //if stage2's zombies and stage1's zombies left 4 then next stage is starting
-    if ( zombies_day2_wave1.length + zombies_day2_wave2.length <= 3 )
+    if ( zombies_day4_wave1.length + zombies_day4_wave2.length <= 13 )
     {
         zombie_day_update( zombies_day2_wave3 );
     }
-    if ( zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length <= 4 )
+    if ( zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length <= 14 )
     {
         zombie_day_update( zombies_day4_wave4 );
     }
