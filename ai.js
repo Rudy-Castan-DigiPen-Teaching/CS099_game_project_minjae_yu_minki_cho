@@ -2,12 +2,22 @@ let ai_bullet_fired = false;
 
 function ai_image_preload()
 {
+    //ai_1
     ai_img = loadImage('assets/images/player_and_ai/ai_1.png');
     ai_arm_img = loadImage('assets/images/player_and_ai/ai_1_arm_and_gun.png')
     ai_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_1_gun_recoil.gif');
+    //ai_2
     ai2_img = loadImage('assets/images/player_and_ai/ai_2.png');
     ai2_arm_img = loadImage('assets/images/player_and_ai/ai_2_arm_and_gun.png')
     ai2_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_2_gun_recoil.gif');
+    //ai_3
+    ai3_img = loadImage('assets/images/player_and_ai/ai_3.png');
+    ai3_arm_img = loadImage('assets/images/player_and_ai/ai_3_arm_and_gun.png')
+    ai3_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_3_gun_recoil.gif');
+    //ai_4
+    ai4_img = loadImage('assets/images/player_and_ai/ai_4.png');
+    ai4_arm_img = loadImage('assets/images/player_and_ai/ai_4_arm_and_gun.png')
+    ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
 }
 
 class draw_ai
@@ -59,15 +69,15 @@ class draw_ai
             {
                 push();
                 imageMode( CENTER )
-                image( ai2_img, this.x, ((i * line_size) + line_size / 2) )
+                image( ai3_img, this.x, ((i * line_size) + line_size / 2) )
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai2_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                    image( ai3_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai2_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                    image( ai3_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
                 }
                 pop();
             }
@@ -75,15 +85,15 @@ class draw_ai
             {
                 push();
                 imageMode( CENTER )
-                image( ai2_img, this.x, ((i * line_size) + line_size / 2) )
+                image( ai4_img, this.x, ((i * line_size) + line_size / 2) )
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai2_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                    image( ai4_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai2_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                    image( ai4_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
                 }
                 pop();
             }
@@ -139,6 +149,8 @@ function ai_bullet_setoff()
         ai_bullet_fired = true;
         ai_gun_recoil_img.reset();
         ai2_gun_recoil_img.reset();
+        ai3_gun_recoil_img.reset();
+        ai4_gun_recoil_img.reset();
     }
      
     for ( var i = 0; i < ai_bullets.length; i++ )
