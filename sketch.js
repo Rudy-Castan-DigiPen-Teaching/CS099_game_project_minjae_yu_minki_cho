@@ -38,7 +38,11 @@ let ready_for_day2 = false;
 let ready_for_day3 = false;
 let ready_for_day4 = false;
 
+//frameCount works when game_mode is GAME_START from 0
 let count_start = false;
+
+//player gun magazine
+let player_gun_bullet = 7;
 
 function preload()
 {
@@ -146,6 +150,7 @@ function draw()
             if(keyIsPressed)
             {
                 ready_for_day2 = true;
+                player_gun_bullet = 7;
             }
             if(ready_for_day2)
             {
@@ -166,9 +171,11 @@ function draw()
                 if(keyIsPressed)
                 {
                     ready_for_day3 = true;
+                    player_gun_bullet = 7;
                 }
                 if(ready_for_day3)
                 {
+                    game_mode = GAME_START;
                     zombie_day3_draw();
                 }
             }
@@ -185,9 +192,11 @@ function draw()
                     if(keyIsPressed)
                     {
                         ready_for_day4 = true;
+                        player_gun_bullet = 7;
                     }
                     if(ready_for_day4)
                     {
+                        game_mode = GAME_START;
                         zombie_day4_draw();
                     }
                 }

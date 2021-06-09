@@ -1,5 +1,3 @@
-let player_gun_bullet = 7;
-
 function mousePressed()
 {
     if ( game_mode == GAME_START )
