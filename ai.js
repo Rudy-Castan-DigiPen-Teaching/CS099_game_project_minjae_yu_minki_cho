@@ -5,6 +5,9 @@ function ai_image_preload()
     ai_img = loadImage('assets/images/player_and_ai/ai_1.png');
     ai_arm_img = loadImage('assets/images/player_and_ai/ai_1_arm_and_gun.png')
     ai_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_1_gun_recoil.gif');
+    ai2_img = loadImage('assets/images/player_and_ai/ai_2.png');
+    ai2_arm_img = loadImage('assets/images/player_and_ai/ai_2_arm_and_gun.png')
+    ai2_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_2_gun_recoil.gif');
 }
 
 class draw_ai
@@ -20,7 +23,7 @@ class draw_ai
         //draw_ai per line
         for ( let i = 0; i < 5; i++)
         {
-            if ( i != 2 )
+            if ( i == 0 )
             {
                 push();
                 imageMode( CENTER )
@@ -33,6 +36,54 @@ class draw_ai
                 else if ( ai_bullet_fired === true )
                 {
                     image( ai_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                }
+                pop();
+            }
+            else if ( i == 1 )
+            {
+                push();
+                imageMode( CENTER )
+                image( ai2_img, this.x, ((i * line_size) + line_size / 2) )
+
+                if ( ai_bullet_fired === false )
+                {
+                    image( ai2_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                }
+                else if ( ai_bullet_fired === true )
+                {
+                    image( ai2_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                }
+                pop();
+            }
+            else if ( i == 3 )
+            {
+                push();
+                imageMode( CENTER )
+                image( ai2_img, this.x, ((i * line_size) + line_size / 2) )
+
+                if ( ai_bullet_fired === false )
+                {
+                    image( ai2_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                }
+                else if ( ai_bullet_fired === true )
+                {
+                    image( ai2_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                }
+                pop();
+            }
+            else if ( i == 4 )
+            {
+                push();
+                imageMode( CENTER )
+                image( ai2_img, this.x, ((i * line_size) + line_size / 2) )
+
+                if ( ai_bullet_fired === false )
+                {
+                    image( ai2_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                }
+                else if ( ai_bullet_fired === true )
+                {
+                    image( ai2_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
                 }
                 pop();
             }
@@ -87,6 +138,7 @@ function ai_bullet_setoff()
         ai_bullets.push( new ai_bullet( 90, 5 * line_size + line_size / 2 - 10 ) );
         ai_bullet_fired = true;
         ai_gun_recoil_img.reset();
+        ai2_gun_recoil_img.reset();
     }
      
     for ( var i = 0; i < ai_bullets.length; i++ )
