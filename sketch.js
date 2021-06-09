@@ -38,7 +38,7 @@ let ready_for_day2 = false;
 let ready_for_day3 = false;
 let ready_for_day4 = false;
 
-
+let count_start = false;
 
 function preload()
 {
@@ -75,6 +75,7 @@ function setup()
 function draw()
 {
     background( 220 )
+    console.log(frameCount)
 
     if ( game_mode == MAIN_MENU )
     {
@@ -83,8 +84,10 @@ function draw()
 
     if ( game_mode == GAME_START )
     {
+        count_start = true;//start frameCount
+
         imageMode( CORNER );
-        background( 220 )
+        background( 220 );
         //draw alines and wall of game_background class
         drawing_lines_characters();
         //drawing_wall();
@@ -102,6 +105,16 @@ function draw()
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
+    }
+    else
+    {
+        count_start = false;
+    }
+
+    //frameCount works only at the GAME_START screen
+    if ( count_start === false )
+    {
+        frameCount = 0;
     }
 
     if ( game_mode == CREDIT )
@@ -147,7 +160,7 @@ function draw()
                 if(!ready_for_day3)
                 {
                     clear();
-                    game_mode = GAME_START;
+                    game_mode = INTERMISSION;
                     text("press any key to move next day3",width/2,height/2);
                 }
                 if(keyIsPressed)
@@ -166,7 +179,7 @@ function draw()
                     if(!ready_for_day4)
                     {
                         clear();
-                        game_mode = GAME_START;
+                        game_mode = INTERMISSION;
                         text("press any key to move next day4",width/2,height/2);
                     }
                     if(keyIsPressed)
