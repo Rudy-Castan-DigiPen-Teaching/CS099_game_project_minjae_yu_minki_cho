@@ -27,6 +27,15 @@ function keyPressed()
     }
     else if ( keyCode === 82 )
     {
+        //Press R to reload
+        if ( game_mode === GAME_START )
+        {
+            if ( player_gun_bullet >= 0 )
+            {
+                player_gun_bullet = 7;
+            }
+        }
+
         //Press R to reset the game
         if ( game_mode === GAME_OVER )
         {
