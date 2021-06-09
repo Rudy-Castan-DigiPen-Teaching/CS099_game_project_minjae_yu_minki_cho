@@ -138,7 +138,7 @@ class ai_bullet
 
 function ai_bullet_setoff()
 {
-    if( game_mode == GAME_START )
+    if ( frameCount % 60 == 1 )
     {
         ai_bullets.push( new ai_bullet( 90, line_size / 2 - 10 ) );
         ai_bullets.push( new ai_bullet( 90, 1 * line_size + line_size / 2 - 10 ) );
