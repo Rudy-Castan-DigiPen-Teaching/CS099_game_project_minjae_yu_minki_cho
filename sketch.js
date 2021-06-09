@@ -10,6 +10,7 @@ let game_mode;
 const MAIN_MENU = 0;
 const GAME_START = 1;
 const CREDIT = 2;
+const INTERMISSION = 3;
 const GAME_OVER = 4;
 
 //bullet_zombie_distance
@@ -96,60 +97,9 @@ function draw()
         ai.draw();
 
         zombie_day1_draw();
-
-        //if there are no zombie on day1 then day2 start! 
-        if(zombies_day1_wave1.length + zombies_day1_wave2.length 
-            + zombies_day1_wave3.length + zombies_day1_wave4 == 0 )
-            {
-                if(!ready_for_day2)
-                {
-                    text("press any key to move next day2",width/2,height/2);
-                }
-                if(keyIsPressed)
-                {
-                    ready_for_day2 = true;
-                }
-                if(ready_for_day2)
-                {
-                    zombie_day2_draw();
-                }
-            }
-
-            if(zombies_day2_wave1.length + zombies_day2_wave2.length 
-                + zombies_day2_wave3.length + zombies_day2_wave4 == 0 )
-                {
-                    if(!ready_for_day3)
-                    {
-                        text("press any key to move next day3",width/2,height/2);
-                    }
-                    if(keyIsPressed)
-                    {
-                        ready_for_day3 = true;
-                    }
-                    if(ready_for_day3)
-                    {
-                        zombie_day3_draw();
-                    }
-                }
-
-                if(zombies_day3_wave1.length + zombies_day3_wave2.length 
-                    + zombies_day3_wave3.length + zombies_day3_wave4 == 0 )
-                    {
-                        if(!ready_for_day4)
-                        {
-                            text("press any key to move next day4",width/2,height/2);
-                        }
-                        if(keyIsPressed)
-                        {
-                            ready_for_day4 = true;
-                        }
-                        if(ready_for_day4)
-                        {
-                            zombie_day4_draw();
-                        }
-                    }
-
         ai_bullet_setoff();
+
+        //ai_bullet_setoff();
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
@@ -170,6 +120,65 @@ function draw()
         text( 'press R to restart!', 20, 40 );
         pop();
     }
+
+    //if there are no zombie on day1 then day2 start! 
+    if(zombies_day1_wave1.length + zombies_day1_wave2.length 
+        + zombies_day1_wave3.length + zombies_day1_wave4 == 0 )
+        {
+            if(!ready_for_day2)
+            {
+                clear();
+                game_mode = INTERMISSION;
+                text("press any key to move next day2",width/2,height/2);
+            }
+            if(keyIsPressed)
+            {
+                ready_for_day2 = true;
+            }
+            if(ready_for_day2)
+            {
+                game_mode = GAME_START;
+                zombie_day2_draw();
+            }
+        }
+    
+        if(zombies_day2_wave1.length + zombies_day2_wave2.length 
+            + zombies_day2_wave3.length + zombies_day2_wave4 == 0 )
+            {
+                if(!ready_for_day3)
+                {
+                    clear();
+                    game_mode = GAME_START;
+                    text("press any key to move next day3",width/2,height/2);
+                }
+                if(keyIsPressed)
+                {
+                    ready_for_day3 = true;
+                }
+                if(ready_for_day3)
+                {
+                    zombie_day3_draw();
+                }
+            }
+    
+            if(zombies_day3_wave1.length + zombies_day3_wave2.length 
+                + zombies_day3_wave3.length + zombies_day3_wave4 == 0 )
+                {
+                    if(!ready_for_day4)
+                    {
+                        clear();
+                        game_mode = GAME_START;
+                        text("press any key to move next day4",width/2,height/2);
+                    }
+                    if(keyIsPressed)
+                    {
+                        ready_for_day4 = true;
+                    }
+                    if(ready_for_day4)
+                    {
+                        zombie_day4_draw();
+                    }
+                }
 }
 
 //zombie array and collision update
