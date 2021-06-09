@@ -144,29 +144,30 @@ function zombie_day_update( day_count )
             }
         }
     }
-            //ai_bullet collision
-            for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullets.length; ai_bullet_count++ )
+
+    //ai_bullet collision
+    for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullets.length; ai_bullet_count++ )
+    {
+        for ( let i = 0; i < day_count.length; i++ )
+        {
+            x_dis = day_count[ i ].x - ai_bullets[ ai_bullet_count ].x;
+            y_dis = day_count[ i ].y - ai_bullets[ ai_bullet_count ].y;
+            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
+    
+            if ( distance < zombie_size )
             {
-                for ( let i = 0; i < day_count.length; i++ )
+                day_count[ i ].collision_effects();
+                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
+                ai_bullets.splice( ai_bullet_count, 1 );
+    
+                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
                 {
-                    x_dis = day_count[ i ].x - ai_bullets[ ai_bullet_count ].x;
-                    y_dis = day_count[ i ].y - ai_bullets[ ai_bullet_count ].y;
-                    distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-    
-                    if ( distance < zombie_size )
-                    {
-                        day_count[ i ].collision_effects();
-                        day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
-                        ai_bullets.splice( ai_bullet_count, 1 );
-    
-                        if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                        {
-                            image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                            day_count.splice( i, 1 );
-                            score++;
-                        }
-                        break;
-                    }
+                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
+                    day_count.splice( i, 1 );
+                    score++;
                 }
+                break;
             }
+        }
+    }
 }
