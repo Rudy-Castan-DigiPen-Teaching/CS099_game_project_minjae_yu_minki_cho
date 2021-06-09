@@ -37,7 +37,6 @@ class Bullet
 
 }
 
-
 //To draw bullets for the loop and erase if bullets are outside of canvas.
 function bullet_setoff()
 {

@@ -99,8 +99,6 @@ function draw()
         zombie_day1_draw();
         ai_bullet_setoff();
 
-        //ai_bullet_setoff();
-
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
     }
