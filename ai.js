@@ -103,12 +103,13 @@ class draw_ai
 
 class ai_bullet
 {
-    constructor(x, y)
+    constructor(x, y, speed = 2, damage)
     {
         this.x = x;
         this.y = y;
         this.distance = 0;
-        this.speed = 2 * ( deltaTime / 1000 );
+        this.speed = speed * ( deltaTime / 1000 );
+        this.damage = damage;
     }
 
     move()
@@ -138,17 +139,36 @@ class ai_bullet
 
 function ai_bullet_setoff()
 {
+
+    //To change the value of fameCount value I divide into each if statement.
+    // class ai_bullet's constructor(x, y, speed = 2, damage)
+    // ★ damage is  not implement yet.
     if ( frameCount % 60 == 1 )
     {
-        ai_bullets.push( new ai_bullet( 90, line_size / 2 - 10 ) );
-        ai_bullets.push( new ai_bullet( 90, 1 * line_size + line_size / 2 - 10 ) );
-        ai_bullets.push( new ai_bullet( 90, 3 * line_size + line_size / 2 - 10 ) );
-        ai_bullets.push( new ai_bullet( 90, 4 * line_size + line_size / 2 - 10 ) );
-        ai_bullet_fired = true;
+        //ai_bullets = []
+        ai_bullets.push( new ai_bullet( 90, line_size / 2 - 10, 2, 3 ) );
         ai_gun_recoil_img.reset();
+        ai_bullet_fired = true;
+    }
+
+    if (frameCount % 70 == 1 )
+    {
+        ai_bullets.push( new ai_bullet( 90, 1 * line_size + line_size / 2 - 10, 13, 2) );
         ai2_gun_recoil_img.reset();
+        ai_bullet_fired = true;
+    }
+
+    if (frameCount % 50 == 1 )
+    {
+        ai_bullets.push( new ai_bullet( 90, 3 * line_size + line_size / 2 - 10, 50 , 2) );
         ai3_gun_recoil_img.reset();
+        ai_bullet_fired = true;
+    }
+    if (frameCount % 30 == 1 )
+    {
+        ai_bullets.push( new ai_bullet( 90, 4 * line_size + line_size / 2 - 10 , 30, 3) );
         ai4_gun_recoil_img.reset();
+        ai_bullet_fired = true;
     }
      
     for ( var i = 0; i < ai_bullets.length; i++ )
