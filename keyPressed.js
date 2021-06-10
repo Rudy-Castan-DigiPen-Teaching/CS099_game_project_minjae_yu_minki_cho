@@ -40,7 +40,7 @@ function keyPressed()
         if ( game_mode === GAME_OVER )
         {
             clear();
-            game_mode = GAME_START;
+            game_mode = MAIN_MENU;
             score = 0;
             game_wall.wall_health = 300;
 
