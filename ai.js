@@ -142,7 +142,7 @@ function ai_bullet_setoff()
 
     //To change the value of fameCount value I divide into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
-    // ★ damage is  not implement yet.
+    // ★TODO) damage is  not implement yet.
     if ( frameCount % 60 == 1 )
     {
         //ai_bullets = []

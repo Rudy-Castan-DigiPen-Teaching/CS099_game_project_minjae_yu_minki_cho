@@ -48,11 +48,7 @@ let count_start = false;
 let player_gun_bullet = 7;
 //day1,2,3,4 img
 let day1_img, day2_img, day3_img, day4_img;
-//this is for fadeout img.
-let life = 255,
-    life1 = 255,
-    life2 = 255,
-    life3 = 255;
+
 
 function preload()
 {
@@ -62,13 +58,11 @@ function preload()
     preload_wall();
     preload_characters();
     ai_image_preload();
+    day_fadeout_img_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
-    day1_img = loadImage( 'assets/images/day1.png' );
-    day2_img = loadImage( 'assets/images/day2.png' );
-    day3_img = loadImage( 'assets/images/day3.png' );
-    day4_img = loadImage( 'assets/images/day4.png' );
+
 
 }
 
@@ -306,42 +300,3 @@ function bullet_check()
     }
 }
 
-function day1_fadeout_img()
-{
-    push();
-    scale( 3 );
-    if ( life > 0 ) life -= 1;
-    tint( 255, life );
-    image( day1_img, width / 4, 80 );
-    pop();
-}
-
-function day2_fadeout_img()
-{
-    push();
-    scale( 3 );
-    if ( life1 > 0 ) life1 -= 1;
-    tint( 255, life1 );
-    image( day2_img, width / 4, 80 );
-    pop();
-}
-
-function day3_fadeout_img()
-{
-    push();
-    scale( 3 );
-    if ( life2 > 0 ) life2 -= 1;
-    tint( 255, life2 );
-    image( day3_img, width / 4, 80 );
-    pop();
-}
-
-function day4_fadeout_img()
-{
-    push();
-    scale( 3 );
-    if ( life3 > 0 ) life3 -= 1;
-    tint( 255, life3 );
-    image( day4_img, width / 4, 80 );
-    pop();
-}
