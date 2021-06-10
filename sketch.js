@@ -4,6 +4,7 @@ let game_wall;
 
 //ai
 let ai;
+let ai_1, ai_2, ai_3, ai_4;
 
 //game_mode
 let game_mode;
@@ -35,6 +36,10 @@ let left_bullet_img;
 
 //ai_bullet
 let ai_bullets = [];
+// let ai_bullet_1 = new Array;
+// let ai_bullet_2 = new Array;
+// let ai_bullet_3 = new Array;
+// let ai_bullet_4 = new Array;
 
 //check for it is okay for next day.
 let ready_for_day2 = false;
@@ -48,6 +53,9 @@ let count_start = false;
 let player_gun_bullet = 7;
 //day1,2,3,4 img
 let day1_img, day2_img, day3_img, day4_img;
+
+//count ais
+let ai_is_pressed = false;
 
 
 function preload()
@@ -78,7 +86,11 @@ function setup()
     game_wall = new Wall();
 
     //ai
-    ai = new draw_ai();
+    //ai = new draw_ai();
+    ai_1 = new draw_ai_1();
+    ai_2 = new draw_ai_2();
+    ai_3 = new draw_ai_3();
+    ai_4 = new draw_ai_4();
 
     zombie_day1_setup();
     zombie_day2_setup();
@@ -88,7 +100,7 @@ function setup()
 
 function draw()
 {
-    background( 220 )
+    background( 220 );
     //console.log(frameCount)
 
     if ( game_mode == MAIN_MENU )
@@ -112,7 +124,11 @@ function draw()
         noCursor();
         //crosshair
         crosshair();
-        ai.draw();
+        //ai.draw();
+        ai_1.draw();
+        ai_2.draw();
+        ai_3.draw();
+        ai_4.draw();
 
 
         zombie_day1_draw();
@@ -151,6 +167,11 @@ function draw()
         pop();
     }
 
+    if(game_mode == INTERMISSION)
+    {
+
+    }
+
     if ( zombies_day1_wave1 != 0 && game_mode != MAIN_MENU )
     {
         day1_fadeout_img();
@@ -163,11 +184,12 @@ function draw()
         {
             clear();
             game_mode = INTERMISSION;
-            text( "press any key to move next day2", width / 2, height / 2 );
-
-
+            text( "Sacrifice one for the next stage.", width / 2, height / 2 );
+            cursor();
+            pick_ai();
+            who_will_sacrifice();
         }
-        if ( keyIsPressed )
+        if ( keyIsPressed)
         {
             ready_for_day2 = true;
             player_gun_bullet = 7;
@@ -187,7 +209,10 @@ function draw()
         {
             clear();
             game_mode = INTERMISSION;
-            text( "press any key to move next day3", width / 2, height / 2 );
+            text( "Sacrifice one for the next stage.", width / 2, height / 2 );
+            cursor();
+            pick_ai();
+            who_will_sacrifice();
         }
         if ( keyIsPressed )
         {
@@ -199,6 +224,7 @@ function draw()
             game_mode = GAME_START;
             day3_fadeout_img();
             zombie_day3_draw();
+            who_will_sacrifice();
         }
     }
 
@@ -209,7 +235,7 @@ function draw()
         {
             clear();
             game_mode = INTERMISSION;
-            text( "press any key to move next day4", width / 2, height / 2 );
+            text( "Sacrifice one for the next stage.", width / 2, height / 2 );
         }
         if ( keyIsPressed )
         {
@@ -221,6 +247,9 @@ function draw()
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
+            cursor();
+            pick_ai();
+            who_will_sacrifice();
         }
     }
 }
@@ -298,5 +327,76 @@ function bullet_check()
     {
         text( "press r to reload!", 40, height / 2 + 30 )
     }
+}
+
+//if ai`1~4 is true than draw().
+function pick_ai()
+{
+    if (ai_1) ai_1.draw();
+    if (ai_2) ai_2.draw();
+    if (ai_3) ai_3.draw();
+    if (ai_4) ai_4.draw();
+}
+function who_will_sacrifice()
+{
+    if(ai_1)
+    { 
+        if(ai_1.x-30<mouseX && mouseX<ai_1.x+30 && ai_1.y-30<mouseY && mouseY<ai_1.y+30)
+        {
+            circle(ai_1.x,ai_1.y,10);
+            if(mouseIsPressed)
+            {
+                ai_1.removeClass;
+               // ai_bullet_1.removeClass;
+               
+            }
+            
+        }
+        
+    }
+    if(ai_2)
+    { 
+        if(ai_2.x-30<mouseX && mouseX<ai_2.x+30 && ai_2.y-30<mouseY && mouseY<ai_2.y+30)
+        {
+            circle(ai_2.x,ai_2.y,10);
+            if(mouseIsPressed)
+            {
+                ai_2.removeClass;
+                //ai_bullet_2.removeClass;
+                
+            }
+        }
+        
+    }
+    if(ai_3)
+    { 
+        if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
+        {
+            circle(ai_3.x,ai_3.y,10);
+            if(mouseIsPressed)
+            {
+                ai_3.removeClass;
+                //ai_bullet_3.removeClass;
+                
+            }
+        }
+        
+    }
+    if(ai_4)
+    { 
+        if(ai_4.x-30<mouseX && mouseX<ai_4.x+30 && ai_4.y-30<mouseY && mouseY<ai_4.y+30)
+        {
+            circle(ai_4.x,ai_4.y,10);
+            if(mouseIsPressed)
+            {
+                ai_4.removeClass;
+                //ai_bullet_4.removeClass;
+                
+            }
+        }
+        
+    }
+
+    
 }
 
