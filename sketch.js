@@ -167,6 +167,7 @@ function draw()
     {
         day1_fadeout_img();
     }
+
     //if there are no zombie on day1 then day2 start! 
     if ( zombies_day1_wave1.length + zombies_day1_wave2.length +
         zombies_day1_wave3.length + zombies_day1_wave4 == 0 )
@@ -175,12 +176,16 @@ function draw()
         {
             clear();
             game_mode = INTERMISSION;
-            text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
             if( ai_picked == false )
             {
+                text( "Sacrifice one for the next stage.", width / 2, height / 2 );
                 pick_ai();
                 pick_and_ban();
+            }
+            else
+            {
+                text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
         if ( keyIsPressed )
@@ -204,12 +209,16 @@ function draw()
         {
             clear();
             game_mode = INTERMISSION;
-            text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
             if( ai_picked == false )
             {
+                text( "Sacrifice one for the next stage.", width / 2, height / 2 );
                 pick_ai();
                 pick_and_ban();
+            }
+            else
+            {
+                text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
         if ( keyIsPressed )
@@ -233,12 +242,16 @@ function draw()
         {
             clear();
             game_mode = INTERMISSION;
-            text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
             if( ai_picked == false )
             {
+                text( "Sacrifice one for the next stage.", width / 2, height / 2 );
                 pick_ai();
                 pick_and_ban();
+            }
+            else
+            {
+                text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
         if ( keyIsPressed )
