@@ -163,7 +163,7 @@ function draw()
         pop();
     }
 
-    if ( zombies_day1_wave1 != 0 && game_mode != MAIN_MENU )
+    if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
     {
         day1_fadeout_img();
     }
