@@ -46,6 +46,13 @@ let count_start = false;
 
 //player gun magazine
 let player_gun_bullet = 7;
+//day1,2,3,4 img
+let day1_img, day2_img, day3_img, day4_img;
+//this is for fadeout img.
+let life = 255,
+    life1 = 255,
+    life2 = 255,
+    life3 = 255;
 
 function preload()
 {
@@ -57,7 +64,12 @@ function preload()
     ai_image_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' );
-    left_bullet_img = loadImage('assets/images/left_bullet.png');
+    left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
+    day1_img = loadImage( 'assets/images/day1.png' );
+    day2_img = loadImage( 'assets/images/day2.png' );
+    day3_img = loadImage( 'assets/images/day3.png' );
+    day4_img = loadImage( 'assets/images/day4.png' );
+
 }
 
 function setup()
@@ -92,7 +104,7 @@ function draw()
 
     if ( game_mode == GAME_START )
     {
-        count_start = true;//start frameCount
+        count_start = true; //start frameCount
 
         imageMode( CORNER );
         background( 220 );
@@ -108,12 +120,15 @@ function draw()
         crosshair();
         ai.draw();
 
+
         zombie_day1_draw();
         ai_bullet_setoff();
         bullet_check();
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
+
+
     }
     else
     {
@@ -142,69 +157,78 @@ function draw()
         pop();
     }
 
+    if ( zombies_day1_wave1 != 0 && game_mode != MAIN_MENU )
+    {
+        day1_fadeout_img();
+    }
     //if there are no zombie on day1 then day2 start! 
-    if(zombies_day1_wave1.length + zombies_day1_wave2.length 
-        + zombies_day1_wave3.length + zombies_day1_wave4 == 0 )
+    if ( zombies_day1_wave1.length + zombies_day1_wave2.length +
+        zombies_day1_wave3.length + zombies_day1_wave4 == 0 )
+    {
+        if ( !ready_for_day2 )
         {
-            if(!ready_for_day2)
-            {
-                clear();
-                game_mode = INTERMISSION;
-                text("press any key to move next day2",width/2,height/2);
-            }
-            if(keyIsPressed)
-            {
-                ready_for_day2 = true;
-                player_gun_bullet = 7;
-            }
-            if(ready_for_day2)
-            {
-                game_mode = GAME_START;
-                zombie_day2_draw();
-            }
+            clear();
+            game_mode = INTERMISSION;
+            text( "press any key to move next day2", width / 2, height / 2 );
+
+
         }
-    
-        if(zombies_day2_wave1.length + zombies_day2_wave2.length 
-            + zombies_day2_wave3.length + zombies_day2_wave4 == 0 )
-            {
-                if(!ready_for_day3)
-                {
-                    clear();
-                    game_mode = INTERMISSION;
-                    text("press any key to move next day3",width/2,height/2);
-                }
-                if(keyIsPressed)
-                {
-                    ready_for_day3 = true;
-                    player_gun_bullet = 7;
-                }
-                if(ready_for_day3)
-                {
-                    game_mode = GAME_START;
-                    zombie_day3_draw();
-                }
-            }
-    
-            if(zombies_day3_wave1.length + zombies_day3_wave2.length 
-                + zombies_day3_wave3.length + zombies_day3_wave4 == 0 )
-                {
-                    if(!ready_for_day4)
-                    {
-                        clear();
-                        game_mode = INTERMISSION;
-                        text("press any key to move next day4",width/2,height/2);
-                    }
-                    if(keyIsPressed)
-                    {
-                        ready_for_day4 = true;
-                        player_gun_bullet = 7;
-                    }
-                    if(ready_for_day4)
-                    {
-                        game_mode = GAME_START;
-                        zombie_day4_draw();
-                    }
-                }
+        if ( keyIsPressed )
+        {
+            ready_for_day2 = true;
+            player_gun_bullet = 7;
+        }
+        if ( ready_for_day2 )
+        {
+            game_mode = GAME_START;
+            day2_fadeout_img();
+            zombie_day2_draw();
+        }
+    }
+
+    if ( zombies_day2_wave1.length + zombies_day2_wave2.length +
+        zombies_day2_wave3.length + zombies_day2_wave4 == 0 )
+    {
+        if ( !ready_for_day3 )
+        {
+            clear();
+            game_mode = INTERMISSION;
+            text( "press any key to move next day3", width / 2, height / 2 );
+        }
+        if ( keyIsPressed )
+        {
+            ready_for_day3 = true;
+            player_gun_bullet = 7;
+        }
+        if ( ready_for_day3 )
+        {
+            game_mode = GAME_START;
+            day3_fadeout_img();
+            zombie_day3_draw();
+        }
+    }
+
+    if ( zombies_day3_wave1.length + zombies_day3_wave2.length +
+        zombies_day3_wave3.length + zombies_day3_wave4 == 0 )
+    {
+        if ( !ready_for_day4 )
+        {
+            clear();
+            game_mode = INTERMISSION;
+            text( "press any key to move next day4", width / 2, height / 2 );
+        }
+        if ( keyIsPressed )
+        {
+            ready_for_day4 = true;
+            player_gun_bullet = 7;
+        }
+        if ( ready_for_day4 )
+        {
+            game_mode = GAME_START;
+            day4_fadeout_img();
+            zombie_day4_draw();
+        }
+    }
 }
 
 //zombie array and collision update
@@ -250,13 +274,13 @@ function zombie_day_update( day_count )
             x_dis = day_count[ i ].x - ai_bullets[ ai_bullet_count ].x;
             y_dis = day_count[ i ].y - ai_bullets[ ai_bullet_count ].y;
             distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-    
+
             if ( distance < zombie_size )
             {
                 day_count[ i ].collision_effects();
                 day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
                 ai_bullets.splice( ai_bullet_count, 1 );
-    
+
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
                 {
                     image( blood_img, day_count[ i ].x, day_count[ i ].y )
@@ -280,4 +304,44 @@ function bullet_check()
     {
         text( "press r to reload!", 40, height / 2 + 30 )
     }
+}
+
+function day1_fadeout_img()
+{
+    push();
+    scale( 3 );
+    if ( life > 0 ) life -= 1;
+    tint( 255, life );
+    image( day1_img, width / 4, 80 );
+    pop();
+}
+
+function day2_fadeout_img()
+{
+    push();
+    scale( 3 );
+    if ( life1 > 0 ) life1 -= 1;
+    tint( 255, life1 );
+    image( day2_img, width / 4, 80 );
+    pop();
+}
+
+function day3_fadeout_img()
+{
+    push();
+    scale( 3 );
+    if ( life2 > 0 ) life2 -= 1;
+    tint( 255, life2 );
+    image( day3_img, width / 4, 80 );
+    pop();
+}
+
+function day4_fadeout_img()
+{
+    push();
+    scale( 3 );
+    if ( life3 > 0 ) life3 -= 1;
+    tint( 255, life3 );
+    image( day4_img, width / 4, 80 );
+    pop();
 }
