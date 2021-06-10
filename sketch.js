@@ -186,6 +186,7 @@ function draw()
         if ( keyIsPressed )
         {
             ready_for_day2 = true;
+            ai_picked = false;
             player_gun_bullet = 7;
         }
         if ( ready_for_day2 )
@@ -214,6 +215,7 @@ function draw()
         if ( keyIsPressed )
         {
             ready_for_day3 = true;
+            ai_picked = false;
             player_gun_bullet = 7;
         }
         if ( ready_for_day3 )
@@ -242,6 +244,7 @@ function draw()
         if ( keyIsPressed )
         {
             ready_for_day4 = true;
+            ai_picked = false;
             player_gun_bullet = 7;
         }
         if ( ready_for_day4 )
