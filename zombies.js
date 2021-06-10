@@ -1,5 +1,5 @@
 let normal_zombie_img;
-let fast_zombie_img, fat_zombie_img, zombie_hit_img,white_zombie_img, test_zombie_img;
+let fast_zombie_img, fat_zombie_img, zombie_hit_img,white_zombie_img;
 let zombie_hit_wall_img, blood_img;
 const zombie_size = 30;
 
@@ -10,7 +10,6 @@ function zombie_image_preload()
     fat_zombie_img      = loadImage( 'assets/images/zombies/zombie_fat.gif' );
     zombie_hit_img      = loadImage( 'assets/images/zombies/zombie_hit.png' );
     white_zombie_img    = loadImage('assets/images/zombies/white_zombie.png');
-    test_zombie_img     = loadImage('assets/images/zombies/Zombie.gif');
     zombie_hit_wall_img = loadImage('assets/images/game_background/wall_hit.jpg');
     blood_img           = loadImage('assets/images/blood.png');
 }
