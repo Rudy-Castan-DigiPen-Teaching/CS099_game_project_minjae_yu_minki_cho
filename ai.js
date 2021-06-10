@@ -20,32 +20,33 @@ function ai_image_preload()
     ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
 }
 
+/* 이거 옛날 draw_ai 클래스
 class draw_ai
 {
     constructor()
     {
         this.x = 50;
-        this.y = line_size / 2; 
+        this.y = line_size / 2;
     }
 
     draw()
     {
-        //draw_ai per line
-        for ( let i = 0; i < 5; i++)
+        draw_ai per line
+        for ( let i = 0; i < 5; i++ )
         {
             if ( i == 0 )
             {
                 push();
                 imageMode( CENTER )
-                image( ai_img, this.x, ((i * line_size) + line_size / 2) )
+                image( ai_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                    image( ai_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                    image( ai_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
                 }
                 pop();
             }
@@ -53,15 +54,15 @@ class draw_ai
             {
                 push();
                 imageMode( CENTER )
-                image( ai2_img, this.x, ((i * line_size) + line_size / 2) )
+                image( ai2_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai2_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                    image( ai2_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai2_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                    image( ai2_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
                 }
                 pop();
             }
@@ -69,15 +70,15 @@ class draw_ai
             {
                 push();
                 imageMode( CENTER )
-                image( ai3_img, this.x, ((i * line_size) + line_size / 2) )
+                image( ai3_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai3_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                    image( ai3_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai3_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                    image( ai3_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
                 }
                 pop();
             }
@@ -85,25 +86,28 @@ class draw_ai
             {
                 push();
                 imageMode( CENTER )
-                image( ai4_img, this.x, ((i * line_size) + line_size / 2) )
+                image( ai4_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
 
                 if ( ai_bullet_fired === false )
                 {
-                    image( ai4_arm_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 )
+                    image( ai4_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
                 }
                 else if ( ai_bullet_fired === true )
                 {
-                    image( ai4_gun_recoil_img, this.x + 10, ((i * line_size) + line_size / 2) - 5 );
+                    image( ai4_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
                 }
                 pop();
             }
         }
     }
 }
+*/
 
+
+// ★TODO) damage is  not implement yet.
 class ai_bullet
 {
-    constructor(x, y, speed = 2, damage)
+    constructor(x, y, speed, damage)
     {
         this.x = x;
         this.y = y;
@@ -120,7 +124,7 @@ class ai_bullet
     show()
     {
         push(); // remember the fill and stroke before
-        fill( 0, 0, 0);
+        fill( 50, 50, 50);
         //stroke( 255, 0, 0, 155);
         this.x += this.distance;
         if ( this.x < width )
@@ -140,12 +144,11 @@ class ai_bullet
 function ai_bullet_setoff()
 {
 
-    //To change the value of fameCount value I divide into each if statement.
+    //To change the value of fameCount value, I divided into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
-    // ★TODO) damage is  not implement yet.
     if ( frameCount % 60 == 1 )
     {
-        //ai_bullets = []
+        //ai_bullets = [] this is in sketch.js
         ai_bullets.push( new ai_bullet( 90, line_size / 2 - 10, 2, 3 ) );
         ai_gun_recoil_img.reset();
         ai_bullet_fired = true;
