@@ -54,10 +54,6 @@ let player_gun_bullet = 7;
 //day1,2,3,4 img
 let day1_img, day2_img, day3_img, day4_img;
 
-//count ais
-let ai_is_pressed = false;
-
-
 function preload()
 {
     bullet_preload();
@@ -164,11 +160,6 @@ function draw()
         pop();
     }
 
-    if(game_mode == INTERMISSION)
-    {
-
-    }
-
     if ( zombies_day1_wave1 != 0 && game_mode != MAIN_MENU )
     {
         day1_fadeout_img();
@@ -184,9 +175,9 @@ function draw()
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
             pick_ai();
-            who_will_sacrifice();
+            pick_and_ban();
         }
-        if ( keyIsPressed)
+        if ( keyIsPressed )
         {
             ready_for_day2 = true;
             player_gun_bullet = 7;
@@ -209,7 +200,7 @@ function draw()
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
             pick_ai();
-            who_will_sacrifice();
+            pick_and_ban();
         }
         if ( keyIsPressed )
         {
@@ -233,7 +224,8 @@ function draw()
             game_mode = INTERMISSION;
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
-            who_will_sacrifice();
+            pick_ai();
+            pick_and_ban();
         }
         if ( keyIsPressed )
         {
@@ -245,7 +237,6 @@ function draw()
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
-            pick_ai();
         }
     }
 }
@@ -328,73 +319,60 @@ function bullet_check()
 //if ai`1~4 is true than draw().
 function pick_ai()
 {
-    if (ai_1) ai_1.draw();
-    if (ai_2) ai_2.draw();
-    if (ai_3) ai_3.draw();
-    if (ai_4) ai_4.draw();
+    if ( ai_1_survived ) ai_1.draw();
+    if ( ai_2_survived ) ai_2.draw();
+    if ( ai_3_survived ) ai_3.draw();
+    if ( ai_4_survived ) ai_4.draw();
 }
 
-function who_will_sacrifice()
+function pick_and_ban()
 {
-    if(ai_1)
-    { 
-        if(ai_1.x-30<mouseX && mouseX<ai_1.x+30 && ai_1.y-30<mouseY && mouseY<ai_1.y+30)
+    if(ai_1.x-30<mouseX && mouseX<ai_1.x+30 && ai_1.y-30<mouseY && mouseY<ai_1.y+30)
+    {
+        if ( ai_1_survived )
         {
             circle(ai_1.x,ai_1.y,10);
-            if(mouseIsPressed)
-            {
-                //이 removeClass가 진짜 class를 지우는건 아닌거 같네 다른방법으로 없애야겠다
-                ai_1.removeClass;
-               // ai_bullet_1.removeClass;
-               
-            }
-            
+        }
+        if(mouseIsPressed)
+        {
+            ai_1_survived = false;
         }
         
     }
-    if(ai_2)
-    { 
-        if(ai_2.x-30<mouseX && mouseX<ai_2.x+30 && ai_2.y-30<mouseY && mouseY<ai_2.y+30)
+
+    if(ai_2.x-30<mouseX && mouseX<ai_2.x+30 && ai_2.y-30<mouseY && mouseY<ai_2.y+30)
+    {
+        if ( ai_2_survived )
         {
             circle(ai_2.x,ai_2.y,10);
-            if(mouseIsPressed)
-            {
-                ai_2.removeClass;
-                //ai_bullet_2.removeClass;
-                
-            }
         }
-        
+        if(mouseIsPressed)
+        {
+            ai_2_survived = false;
+        }
     }
-    if(ai_3)
-    { 
-        if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
+
+    if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
+    {
+            if ( ai_3_survived )
         {
             circle(ai_3.x,ai_3.y,10);
-            if(mouseIsPressed)
-            {
-                ai_3.removeClass;
-                //ai_bullet_3.removeClass;
-                
-            }
         }
-        
+        if(mouseIsPressed)
+        {
+            ai_3_survived = false;
+        }
     }
-    if(ai_4)
-    { 
-        if(ai_4.x-30<mouseX && mouseX<ai_4.x+30 && ai_4.y-30<mouseY && mouseY<ai_4.y+30)
+
+    if(ai_4.x-30<mouseX && mouseX<ai_4.x+30 && ai_4.y-30<mouseY && mouseY<ai_4.y+30)
+    {
+        if ( ai_4_survived )
         {
             circle(ai_4.x,ai_4.y,10);
-            if(mouseIsPressed)
-            {
-                ai_4.removeClass;
-                //ai_bullet_4.removeClass;
-                
-            }
         }
-        
+        if(mouseIsPressed)
+        {
+            ai_4_survived = false;
+        }
     }
-
-    
 }
-

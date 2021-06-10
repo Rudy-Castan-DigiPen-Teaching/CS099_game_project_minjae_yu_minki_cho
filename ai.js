@@ -20,7 +20,7 @@ function ai_image_preload()
     ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
 }
 
-/* 이거 옛날 draw_ai 클래스
+/* old draw_ai class
 class draw_ai
 {
     constructor()
@@ -143,7 +143,6 @@ class ai_bullet
 
 function ai_bullet_setoff()
 {
-
     //To change the value of fameCount value, I divided into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
     if ( frameCount % 60 == 1 )

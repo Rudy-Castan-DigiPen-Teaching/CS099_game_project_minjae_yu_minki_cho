@@ -1,3 +1,5 @@
+let ai_3_survived = true;
+
 class draw_ai_3
 {
     constructor()
@@ -10,7 +12,6 @@ class draw_ai_3
     {
         push();
         imageMode( CENTER );
-        image( ai3_img, this.x, ( (3 * line_size ) + line_size / 2 ) );
 
         if ( ai_bullet_fired === false )
         {
@@ -20,6 +21,7 @@ class draw_ai_3
         {
             image( ai3_gun_recoil_img, this.x + 10, ( ( 3 * line_size ) + line_size / 2 ) - 5 );
         }
+        image( ai3_img, this.x, ( ( 3 * line_size ) + line_size / 2 ) );
         pop();
     }
 }
