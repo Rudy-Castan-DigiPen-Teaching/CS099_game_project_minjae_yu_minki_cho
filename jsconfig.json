@@ -3,5 +3,5 @@
     "*.js",
     "libraries/*.js",
     "libraries/p5types/global.d.ts"
-, "game_screen/main_menu.js", "game_screen/crosshair.js", "zombie_day/zombie_day1.js"  ]
+, "game_screen/main_menu.js", "game_screen/crosshair.js", "zombie_day/zombie_day1.js", "game_screen/day_img.js"  ]
 }
