@@ -188,7 +188,7 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if ( keyIsPressed )
+        if ( keyIsPressed && ai_picked )
         {
             ready_for_day2 = true;
             ai_picked = false;
@@ -221,7 +221,7 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if ( keyIsPressed )
+        if ( keyIsPressed && ai_picked )
         {
             ready_for_day3 = true;
             ai_picked = false;
@@ -254,7 +254,7 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if ( keyIsPressed )
+        if ( keyIsPressed && ai_picked )
         {
             ready_for_day4 = true;
             ai_picked = false;
@@ -355,56 +355,58 @@ function pick_ai()
 
 function pick_and_ban()
 {
-    if(ai_1.x-30<mouseX && mouseX<ai_1.x+30 && ai_1.y-30<mouseY && mouseY<ai_1.y+30)
+    if ( ai_1_survived )
     {
-        if ( ai_1_survived )
+        if(ai_1.x-30<mouseX && mouseX<ai_1.x+30 && ai_1.y-30<mouseY && mouseY<ai_1.y+30)
         {
             circle(ai_1.x,ai_1.y,10);
+
+            if(mouseIsPressed)
+            {
+                ai_1_survived = false;
+                ai_picked = true;
+            }
         }
-        if(mouseIsPressed)
-        {
-            ai_1_survived = false;
-            ai_picked = true;
-        }
-        
     }
 
-    if(ai_2.x-30<mouseX && mouseX<ai_2.x+30 && ai_2.y-30<mouseY && mouseY<ai_2.y+30)
+    if ( ai_2_survived )
     {
-        if ( ai_2_survived )
+        if(ai_2.x-30<mouseX && mouseX<ai_2.x+30 && ai_2.y-30<mouseY && mouseY<ai_2.y+30)
         {
             circle(ai_2.x,ai_2.y,10);
-        }
-        if(mouseIsPressed)
-        {
-            ai_2_survived = false;
-            ai_picked = true;
+            if(mouseIsPressed)
+            {
+                ai_2_survived = false;
+                ai_picked = true;
+            }
         }
     }
 
-    if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
+    if ( ai_3_survived )
     {
-        if ( ai_3_survived )
+        if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
         {
             circle(ai_3.x,ai_3.y,10);
-        }
-        if(mouseIsPressed)
-        {
-            ai_3_survived = false;
-            ai_picked = true;
+
+            if(mouseIsPressed)
+            {
+                ai_3_survived = false;
+                ai_picked = true;
+            }
         }
     }
 
-    if(ai_4.x-30<mouseX && mouseX<ai_4.x+30 && ai_4.y-30<mouseY && mouseY<ai_4.y+30)
+    if ( ai_4_survived )
     {
-        if ( ai_4_survived )
+        if(ai_4.x-30<mouseX && mouseX<ai_4.x+30 && ai_4.y-30<mouseY && mouseY<ai_4.y+30)
         {
             circle(ai_4.x,ai_4.y,10);
-        }
-        if(mouseIsPressed)
-        {
-            ai_4_survived = false;
-            ai_picked = true;
+
+            if(mouseIsPressed)
+            {
+                ai_4_survived = false;
+                ai_picked = true;
+            }
         }
     }
 }
