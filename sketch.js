@@ -346,6 +346,7 @@ function who_will_sacrifice()
             circle(ai_1.x,ai_1.y,10);
             if(mouseIsPressed)
             {
+                //이 removeClass가 진짜 class를 지우는건 아닌거 같네 다른방법으로 없애야겠다
                 ai_1.removeClass;
                // ai_bullet_1.removeClass;
                
