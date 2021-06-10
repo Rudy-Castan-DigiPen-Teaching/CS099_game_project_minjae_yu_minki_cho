@@ -31,6 +31,7 @@ class Bullet
         rotate(Math.atan2( this.dy, this.dx ));
         image( bullet_img, 0, 0 );
         pop();
+       
         this.x += this.speed * cos( this.angle );
         this.y += this.speed * sin( this.angle );
     }

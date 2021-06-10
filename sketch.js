@@ -30,6 +30,9 @@ let hit_sound;
 //background
 let bg;
 
+//left bullet
+let left_bullet_img;
+
 //ai_bullet
 let ai_bullets = [];
 
@@ -53,7 +56,8 @@ function preload()
     preload_characters();
     ai_image_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
-    bg = loadImage( 'assets/images/game_background/background.jpg' )
+    bg = loadImage( 'assets/images/game_background/background.jpg' );
+    left_bullet_img = loadImage('assets/images/left_bullet.png');
 }
 
 function setup()
@@ -79,7 +83,7 @@ function setup()
 function draw()
 {
     background( 220 )
-    console.log(frameCount)
+    //console.log(frameCount)
 
     if ( game_mode == MAIN_MENU )
     {
@@ -106,6 +110,7 @@ function draw()
 
         zombie_day1_draw();
         ai_bullet_setoff();
+        bullet_check();
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
@@ -261,5 +266,18 @@ function zombie_day_update( day_count )
                 break;
             }
         }
+    }
+}
+
+function bullet_check()
+{
+    for ( let i = 0; i < player_gun_bullet; i++ )
+    {
+        image( left_bullet_img, 30, height / 2 + i * 3 );
+        //circle(40,height/2+i*3,5);
+    }
+    if ( player_gun_bullet == 0 )
+    {
+        text( "press r to reload!", 40, height / 2 + 30 )
     }
 }
