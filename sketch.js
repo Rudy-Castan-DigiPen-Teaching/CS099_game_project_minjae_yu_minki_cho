@@ -54,6 +54,9 @@ let player_gun_bullet = 7;
 //day1,2,3,4 img
 let day1_img, day2_img, day3_img, day4_img;
 
+//check AI is picked or not once
+let ai_picked = false;
+
 function preload()
 {
     bullet_preload();
@@ -174,8 +177,11 @@ function draw()
             game_mode = INTERMISSION;
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
-            pick_ai();
-            pick_and_ban();
+            if( ai_picked == false )
+            {
+                pick_ai();
+                pick_and_ban();
+            }
         }
         if ( keyIsPressed )
         {
@@ -199,8 +205,11 @@ function draw()
             game_mode = INTERMISSION;
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
-            pick_ai();
-            pick_and_ban();
+            if( ai_picked == false )
+            {
+                pick_ai();
+                pick_and_ban();
+            }
         }
         if ( keyIsPressed )
         {
@@ -224,8 +233,11 @@ function draw()
             game_mode = INTERMISSION;
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
             cursor();
-            pick_ai();
-            pick_and_ban();
+            if( ai_picked == false )
+            {
+                pick_ai();
+                pick_and_ban();
+            }
         }
         if ( keyIsPressed )
         {
@@ -316,7 +328,7 @@ function bullet_check()
     }
 }
 
-//if ai`1~4 is true than draw().
+//draw ai to pick when the game_mode is INTERMISSION
 function pick_ai()
 {
     if ( ai_1_survived ) ai_1.draw();
@@ -336,6 +348,7 @@ function pick_and_ban()
         if(mouseIsPressed)
         {
             ai_1_survived = false;
+            ai_picked = true;
         }
         
     }
@@ -349,18 +362,20 @@ function pick_and_ban()
         if(mouseIsPressed)
         {
             ai_2_survived = false;
+            ai_picked = true;
         }
     }
 
     if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
     {
-            if ( ai_3_survived )
+        if ( ai_3_survived )
         {
             circle(ai_3.x,ai_3.y,10);
         }
         if(mouseIsPressed)
         {
             ai_3_survived = false;
+            ai_picked = true;
         }
     }
 
@@ -373,6 +388,7 @@ function pick_and_ban()
         if(mouseIsPressed)
         {
             ai_4_survived = false;
+            ai_picked = true;
         }
     }
 }
