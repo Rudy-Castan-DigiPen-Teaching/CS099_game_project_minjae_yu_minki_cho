@@ -69,8 +69,6 @@ function preload()
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
-
-
 }
 
 function setup()
@@ -101,6 +99,7 @@ function draw()
 {
     background( 220 );
     //console.log(frameCount)
+    console.log(ready_for_day3)
 
     if ( game_mode == MAIN_MENU )
     {
@@ -168,7 +167,7 @@ function draw()
         day1_fadeout_img();
     }
 
-    //if there are no zombie on day1 then day2 start! 
+    //if there are no zombie on day1 then day2 start!
     if ( zombies_day1_wave1.length + zombies_day1_wave2.length +
         zombies_day1_wave3.length + zombies_day1_wave4 <= 0 )
     {
