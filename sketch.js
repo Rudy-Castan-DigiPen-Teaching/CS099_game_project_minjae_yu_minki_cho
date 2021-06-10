@@ -130,15 +130,12 @@ function draw()
         ai_3.draw();
         ai_4.draw();
 
-
         zombie_day1_draw();
         ai_bullet_setoff();
         bullet_check();
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
-
-
     }
     else
     {
@@ -224,7 +221,6 @@ function draw()
             game_mode = GAME_START;
             day3_fadeout_img();
             zombie_day3_draw();
-            who_will_sacrifice();
         }
     }
 
@@ -236,6 +232,8 @@ function draw()
             clear();
             game_mode = INTERMISSION;
             text( "Sacrifice one for the next stage.", width / 2, height / 2 );
+            cursor();
+            who_will_sacrifice();
         }
         if ( keyIsPressed )
         {
@@ -247,9 +245,7 @@ function draw()
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
-            cursor();
             pick_ai();
-            who_will_sacrifice();
         }
     }
 }
@@ -337,6 +333,7 @@ function pick_ai()
     if (ai_3) ai_3.draw();
     if (ai_4) ai_4.draw();
 }
+
 function who_will_sacrifice()
 {
     if(ai_1)
