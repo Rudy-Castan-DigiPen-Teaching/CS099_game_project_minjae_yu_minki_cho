@@ -43,7 +43,7 @@ let ai_bullets = [];
 
 //check for it is okay for next day.
 let ready_for_day2 = false;
-let ready_for_day3 = false;
+let ready_for_day3;
 let ready_for_day4 = false;
 
 //frameCount works when game_mode is GAME_START from 0
@@ -99,7 +99,7 @@ function draw()
 {
     background( 220 );
     //console.log(frameCount)
-    console.log(ready_for_day3)
+    //console.log(ready_for_day3)
 
     if ( game_mode == MAIN_MENU )
     {
@@ -220,13 +220,18 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if ( keyIsPressed && ai_picked )
+
+        if(ai_picked)
+            {
+                 ready_for_day3 = true;
+            }
+        if ( keyIsPressed )
         {
-            ready_for_day3 = true;
+            
             ai_picked = false;
             player_gun_bullet = 7;
         }
-        if ( ready_for_day3 )
+        if ( ready_for_day3&&keyIsPressed )
         {
             game_mode = GAME_START;
             day3_fadeout_img();
@@ -253,13 +258,16 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if ( keyIsPressed && ai_picked )
+        if(ai_picked)
+            {
+                 ready_for_day4 = true;
+            }
+        if ( keyIsPressed )
         {
-            ready_for_day4 = true;
             ai_picked = false;
             player_gun_bullet = 7;
         }
-        if ( ready_for_day4 )
+        if ( ready_for_day4 &&  keyIsPressed)
         {
             game_mode = GAME_START;
             day4_fadeout_img();
