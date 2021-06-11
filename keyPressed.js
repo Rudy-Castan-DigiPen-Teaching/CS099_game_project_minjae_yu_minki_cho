@@ -25,17 +25,20 @@ function keyPressed()
             game_mode = CREDIT;
         }
     }
-    else if ( keyCode === 82 )
-    {
+    
         //Press R to reload
         if ( game_mode === GAME_START )
+        {
+            if(keyCode===82)
         {
             if ( player_gun_bullet >= 0 )
             {
                 player_gun_bullet = 7;
             }
         }
-
+        }
+        else if ( keyCode === 82 )
+        {
         //Press R to reset the game
         if ( game_mode === GAME_OVER )
         {
