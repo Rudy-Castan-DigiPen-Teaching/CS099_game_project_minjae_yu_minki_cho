@@ -228,27 +228,17 @@ function draw()
             }
         }
 
-        if(ai_picked)
-            {
-                 ready_for_day3 = true;
-                 ai_picked = false;
-                 player_gun_bullet = 7;
-                 
-            }
-        // if ( keyIsPressed )
-        // {
-            
-            
-            
-        // }
-        
-        if ( ready_for_day3 )
+        if ( keyIsPressed && ai_picked )
         {
+            ready_for_day3 = true;
+            ai_picked3 = false;
+            player_gun_bullet = 7;
+        }
+        if ( ready_for_day2 )
+        {
+            game_mode = GAME_START;
             day3_fadeout_img();
             zombie_day3_draw();
-            game_mode = GAME_START;
-            
-            //check_keyIsPressed = true;
         }
     }
 
