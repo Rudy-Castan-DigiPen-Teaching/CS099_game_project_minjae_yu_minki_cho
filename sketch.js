@@ -36,10 +36,10 @@ let left_bullet_img;
 
 //ai_bullet
 let ai_bullets = [];
-// let ai_bullet_1 = new Array;
-// let ai_bullet_2 = new Array;
-// let ai_bullet_3 = new Array;
-// let ai_bullet_4 = new Array;
+ let ai_bullet_1 = new Array;
+ let ai_bullet_2 = new Array;
+ let ai_bullet_3 = new Array;
+ let ai_bullet_4 = new Array;
 
 //check for it is okay for next day.
 let ready_for_day2 = false;
@@ -56,6 +56,8 @@ let day1_img, day2_img, day3_img, day4_img;
 
 //check AI is picked or not once
 let ai_picked = false;
+
+let check_keyIsPressed= false; 
 
 function preload()
 {
@@ -224,18 +226,24 @@ function draw()
         if(ai_picked)
             {
                  ready_for_day3 = true;
+                 ai_picked = false;
+                 player_gun_bullet = 7;
+                 
             }
-        if ( keyIsPressed )
-        {
+        // if ( keyIsPressed )
+        // {
             
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }
-        if ( ready_for_day3&&keyIsPressed )
+            
+            
+        // }
+        
+        if ( ready_for_day3 )
         {
-            game_mode = GAME_START;
             day3_fadeout_img();
             zombie_day3_draw();
+            game_mode = GAME_START;
+            
+            //check_keyIsPressed = true;
         }
     }
 
@@ -267,7 +275,7 @@ function draw()
             ai_picked = false;
             player_gun_bullet = 7;
         }
-        if ( ready_for_day4 &&  keyIsPressed)
+        if ( ready_for_day4)
         {
             game_mode = GAME_START;
             day4_fadeout_img();
@@ -372,6 +380,7 @@ function pick_and_ban()
             {
                 ai_1_survived = false;
                 ai_picked = true;
+
             }
         }
     }
