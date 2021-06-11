@@ -36,14 +36,14 @@ let left_bullet_img;
 
 //ai_bullet
 let ai_bullets = [];
- let ai_bullet_1 = new Array;
- let ai_bullet_2 = new Array;
- let ai_bullet_3 = new Array;
- let ai_bullet_4 = new Array;
+let ai_bullet_1 = new Array;
+let ai_bullet_2 = new Array;
+let ai_bullet_3 = new Array;
+let ai_bullet_4 = new Array;
 
 //check for it is okay for next day.
 let ready_for_day2 = false;
-let ready_for_day3;
+let ready_for_day3 = false;
 let ready_for_day4 = false;
 
 //frameCount works when game_mode is GAME_START from 0
@@ -57,7 +57,7 @@ let day1_img, day2_img, day3_img, day4_img;
 //check AI is picked or not once
 let ai_picked = false;
 
-let check_keyIsPressed= false; 
+let check_keyIsPressed = false;
 
 let check_ai_1_picked = true;
 let check_ai_2_picked = true;
@@ -143,6 +143,7 @@ function draw()
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
     }
+    
     else
     {
         count_start = false;
@@ -181,10 +182,9 @@ function draw()
     {
         if ( !ready_for_day2 )
         {
-            clear();
             game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false )
+            if ( ai_picked == false )
             {
                 text( "Sacrifice one for the next stage.", width / 2, height / 2 );
                 pick_ai();
@@ -214,10 +214,9 @@ function draw()
     {
         if ( !ready_for_day3 )
         {
-            clear();
             game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false )
+            if ( ai_picked == false )
             {
                 text( "Sacrifice one for the next stage.", width / 2, height / 2 );
                 pick_ai();
@@ -228,21 +227,23 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if(ai_picked)
+        if ( ai_picked )
         {
-             ready_for_day3 = true;
+            ready_for_day3 = true;
+            //player_gun_bullet = 7;
         }
-    if ( keyIsPressed )
-    {
-        ai_picked = false;
-        player_gun_bullet = 7;
-    }
-    if ( ready_for_day3)
-    {
-        game_mode = GAME_START;
-        day3_fadeout_img();
-        zombie_day3_draw();
-    }
+        // if ( keyIsPressed )
+        // {
+        //     ai_picked = false;
+        //     player_gun_bullet = 7;
+        // }
+        if ( ready_for_day3 )
+        {
+            game_mode = GAME_START;
+            
+            day3_fadeout_img();
+            zombie_day3_draw();
+        }
     }
 
     if ( zombies_day3_wave1.length + zombies_day3_wave2.length +
@@ -250,10 +251,9 @@ function draw()
     {
         if ( !ready_for_day4 )
         {
-            clear();
             game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false )
+            if ( ai_picked == false )
             {
                 text( "Sacrifice one for the next stage.", width / 2, height / 2 );
                 pick_ai();
@@ -264,244 +264,22 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if(ai_picked)
-            {
-                 ready_for_day4 = true;
-            }
-        if ( keyIsPressed )
+        if ( ai_picked )
         {
-            ai_picked = false;
-            player_gun_bullet = 7;
+            ready_for_day4 = true;
+            //player_gun_bullet = 7;
         }
-        if ( ready_for_day4)
+        // if ( keyIsPressed )
+        // {
+        //     ai_picked = false;
+        //     player_gun_bullet = 7;
+        // }
+        if ( ready_for_day4 )
         {
             game_mode = GAME_START;
+            
             day4_fadeout_img();
             zombie_day4_draw();
-        }
-    }
-}
-
-//zombie array and collision update
-function zombie_day_update( day_count )
-{
-    for ( let count = 0; count < day_count.length; count++ )
-    {
-        day_count[ count ].update();
-    }
-
-    //bullet_zombie collision
-    for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
-    {
-        for ( let i = 0; i < day_count.length; i++ )
-        {
-            x_dis = day_count[ i ].x - bullet[ bullet_count ].x;
-            y_dis = day_count[ i ].y - bullet[ bullet_count ].y;
-            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-
-            if ( distance < zombie_size )
-            {
-                //console.log( "hit" );
-                day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
-                bullet.splice( bullet_count, 1 );
-
-                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                {
-                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                    day_count.splice( i, 1 );
-                    score++;
-                }
-                break;
-            }
-        }
-    }
-
-    //ai_bullet collision
-
-    for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_1.length; ai_bullet_count++ )
-    {
-        for ( let i = 0; i < day_count.length; i++ )
-        {
-            x_dis = day_count[ i ].x - ai_bullet_1[ ai_bullet_count ].x;
-            y_dis = day_count[ i ].y - ai_bullet_1[ ai_bullet_count ].y;
-            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-
-            if ( distance < zombie_size )
-            {
-                day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
-                ai_bullet_1.splice( ai_bullet_count, 1 );
-
-                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                {
-                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                    day_count.splice( i, 1 );
-                    score++;
-                }
-                break;
-            }
-        }
-    }
-    
-    for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_2.length; ai_bullet_count++ )
-    {
-        for ( let i = 0; i < day_count.length; i++ )
-        {
-            x_dis = day_count[ i ].x - ai_bullet_2[ ai_bullet_count ].x;
-            y_dis = day_count[ i ].y - ai_bullet_2[ ai_bullet_count ].y;
-            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-
-            if ( distance < zombie_size )
-            {
-                day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
-                ai_bullet_2.splice( ai_bullet_count, 1 );
-
-                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                {
-                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                    day_count.splice( i, 1 );
-                    score++;
-                }
-                break;
-            }
-        }
-    }
-
-    for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_3.length; ai_bullet_count++ )
-    {
-        for ( let i = 0; i < day_count.length; i++ )
-        {
-            x_dis = day_count[ i ].x - ai_bullet_3[ ai_bullet_count ].x;
-            y_dis = day_count[ i ].y - ai_bullet_3[ ai_bullet_count ].y;
-            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-
-            if ( distance < zombie_size )
-            {
-                day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
-                ai_bullet_3.splice( ai_bullet_count, 1 );
-
-                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                {
-                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                    day_count.splice( i, 1 );
-                    score++;
-                }
-                break;
-            }
-        }
-    }
-
-    for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_4.length; ai_bullet_count++ )
-    {
-        for ( let i = 0; i < day_count.length; i++ )
-        {
-            x_dis = day_count[ i ].x - ai_bullet_4[ ai_bullet_count ].x;
-            y_dis = day_count[ i ].y - ai_bullet_4[ ai_bullet_count ].y;
-            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
-
-            if ( distance < zombie_size )
-            {
-                day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= gun_damage; //reduce zombie_hp
-                ai_bullet_4.splice( ai_bullet_count, 1 );
-
-                if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
-                {
-                    image( blood_img, day_count[ i ].x, day_count[ i ].y )
-                    day_count.splice( i, 1 );
-                    score++;
-                }
-                break;
-            }
-        }
-    }
-
-}
-
-function bullet_check()
-{
-    for ( let i = 0; i < player_gun_bullet; i++ )
-    {
-        image( left_bullet_img, 30, height / 2 + i * 3 );
-        //circle(40,height/2+i*3,5);
-    }
-    if ( player_gun_bullet == 0 )
-    {
-        text( "press r to reload!", 40, height / 2 + 30 )
-    }
-}
-
-//draw ai to pick when the game_mode is INTERMISSION
-function pick_ai()
-{
-    if ( ai_1_survived ) ai_1.draw();
-    if ( ai_2_survived ) ai_2.draw();
-    if ( ai_3_survived ) ai_3.draw();
-    if ( ai_4_survived ) ai_4.draw();
-}
-
-function pick_and_ban()
-{
-    if ( ai_1_survived )
-    {
-        if(ai_1.x-30<mouseX && mouseX<ai_1.x+30 && ai_1.y-30<mouseY && mouseY<ai_1.y+30)
-        {
-            circle(ai_1.x,ai_1.y,10);
-
-            if(mouseIsPressed)
-            {
-                check_ai_1_picked = false   ;
-                ai_1_survived = false;
-                ai_picked = true;
-
-            }
-        }
-    }
-
-    if ( ai_2_survived )
-    {
-        if(ai_2.x-30<mouseX && mouseX<ai_2.x+30 && ai_2.y-30<mouseY && mouseY<ai_2.y+30)
-        {
-            circle(ai_2.x,ai_2.y,10);
-            if(mouseIsPressed)
-            {
-                check_ai_2_picked = false;
-                ai_2_survived = false;
-                ai_picked = true;
-            }
-        }
-    }
-
-    if ( ai_3_survived )
-    {
-        if(ai_3.x-30<mouseX && mouseX<ai_3.x+30 && ai_3.y-30<mouseY && mouseY<ai_3.y+30)
-        {
-            circle(ai_3.x,ai_3.y,10);
-
-            if(mouseIsPressed)
-            {
-                check_ai_3_picked = false;
-                ai_3_survived = false;
-                ai_picked = true;
-            }
-        }
-    }
-
-    if ( ai_4_survived )
-    {
-        if(ai_4.x-30<mouseX && mouseX<ai_4.x+30 && ai_4.y-30<mouseY && mouseY<ai_4.y+30)
-        {
-            circle(ai_4.x,ai_4.y,10);
-
-            if(mouseIsPressed)
-            {
-                check_ai_4_picked = false;
-                ai_4_survived = false;
-                ai_picked = true;
-            }
         }
     }
 }
