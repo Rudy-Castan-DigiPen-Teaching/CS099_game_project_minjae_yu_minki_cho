@@ -28,3 +28,41 @@ class draw_ai_2
         }
     }
 }
+
+class Ai_bullet_2
+{
+    constructor()
+    {
+        this.x = 90;
+        this.y = 1 * line_size + line_size / 2 - 10;
+        this.distance = 0;
+        this.speed = 13 * ( deltaTime / 1000 );
+        this.damage = 2;
+    }
+
+    move()
+    {
+        this.distance = this.distance + this.speed;
+    }
+
+    show()
+    {
+        push(); // remember the fill and stroke before
+        fill( 50, 50, 50);
+        //stroke( 255, 0, 0, 155);
+        this.x += this.distance;
+        if ( this.x < width )
+        {
+            ellipse( this.x, this.y, 40, 5 );
+        }
+        pop();  //restore fill and stroke
+    }
+  
+
+    run()
+    {
+        this.show();
+        this.move();
+
+    }
+}
