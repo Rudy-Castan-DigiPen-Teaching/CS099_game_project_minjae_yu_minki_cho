@@ -34,7 +34,6 @@ function zombie_day_update( day_count )
     }
 
     //ai_bullet collision
-
     for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_1.length; ai_bullet_count++ )
     {
         for ( let i = 0; i < day_count.length; i++ )
@@ -136,26 +135,3 @@ function zombie_day_update( day_count )
     }
 
 }
-
-function bullet_check()
-{
-    for ( let i = 0; i < player_gun_bullet; i++ )
-    {
-        image( left_bullet_img, 30, height / 2 + i * 3 );
-        //circle(40,height/2+i*3,5);
-    }
-    if ( player_gun_bullet == 0 )
-    {
-        text( "press r to reload!", 40, height / 2 + 30 )
-    }
-}
-
-//draw ai to pick when the game_mode is INTERMISSION
-function pick_ai()
-{
-    if ( ai_1_survived ) ai_1.draw();
-    if ( ai_2_survived ) ai_2.draw();
-    if ( ai_3_survived ) ai_3.draw();
-    if ( ai_4_survived ) ai_4.draw();
-}
-

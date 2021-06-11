@@ -283,3 +283,12 @@ function draw()
         }
     }
 }
+
+//draw ai to pick when the game_mode is INTERMISSION
+function pick_ai()
+{
+    if ( ai_1_survived ) ai_1.draw();
+    if ( ai_2_survived ) ai_2.draw();
+    if ( ai_3_survived ) ai_3.draw();
+    if ( ai_4_survived ) ai_4.draw();
+}
