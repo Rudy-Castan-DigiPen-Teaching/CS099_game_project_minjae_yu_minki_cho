@@ -178,7 +178,7 @@ function draw()
 
     //if there are no zombie on day1 then day2 start!
     if ( zombies_day1_wave1.length + zombies_day1_wave2.length +
-        zombies_day1_wave3.length + zombies_day1_wave4 <= 0 )
+        zombies_day1_wave3.length + zombies_day1_wave4 <= 0 && game_mode==GAME_START)
     {
         if ( !ready_for_day2 )
         {
@@ -210,7 +210,7 @@ function draw()
     }
 
     if ( zombies_day2_wave1.length + zombies_day2_wave2.length +
-        zombies_day2_wave3.length + zombies_day2_wave4 <= 0 )
+        zombies_day2_wave3.length + zombies_day2_wave4 <= 0 && game_mode==GAME_START )
     {
         if ( !ready_for_day3 )
         {
@@ -247,7 +247,7 @@ function draw()
     }
 
     if ( zombies_day3_wave1.length + zombies_day3_wave2.length +
-        zombies_day3_wave3.length + zombies_day3_wave4 <= 0 )
+        zombies_day3_wave3.length + zombies_day3_wave4 <= 0 && game_mode==GAME_START)
     {
         if ( !ready_for_day4 )
         {
