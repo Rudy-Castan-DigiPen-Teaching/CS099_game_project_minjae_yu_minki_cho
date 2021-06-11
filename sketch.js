@@ -42,9 +42,8 @@ let ai_bullets = [];
  let ai_bullet_4 = new Array;
 
 //check for it is okay for next day.
-let ready_for_day1 = false;
 let ready_for_day2 = false;
-let ready_for_day3 = false;
+let ready_for_day3;
 let ready_for_day4 = false;
 
 //frameCount works when game_mode is GAME_START from 0
@@ -168,8 +167,6 @@ function draw()
     if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
     {
         day1_fadeout_img();
-
-
     }
 
     //if there are no zombie on day1 then day2 start!
