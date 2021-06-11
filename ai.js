@@ -3,21 +3,21 @@ let ai_bullet_fired = false;
 function ai_image_preload()
 {
     //ai_1
-    ai_img = loadImage( 'assets/images/player_and_ai/ai_1.png' );
-    ai_arm_img = loadImage( 'assets/images/player_and_ai/ai_1_arm_and_gun.png' )
-    ai_gun_recoil_img = loadImage( 'assets/images/player_and_ai/ai_1_gun_recoil.gif' );
+    ai_img = loadImage('assets/images/player_and_ai/ai_1.png');
+    ai_arm_img = loadImage('assets/images/player_and_ai/ai_1_arm_and_gun.png')
+    ai_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_1_gun_recoil.gif');
     //ai_2
-    ai2_img = loadImage( 'assets/images/player_and_ai/ai_2.png' );
-    ai2_arm_img = loadImage( 'assets/images/player_and_ai/ai_2_arm_and_gun.png' )
-    ai2_gun_recoil_img = loadImage( 'assets/images/player_and_ai/ai_2_gun_recoil.gif' );
+    ai2_img = loadImage('assets/images/player_and_ai/ai_2.png');
+    ai2_arm_img = loadImage('assets/images/player_and_ai/ai_2_arm_and_gun.png')
+    ai2_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_2_gun_recoil.gif');
     //ai_3
-    ai3_img = loadImage( 'assets/images/player_and_ai/ai_3.png' );
-    ai3_arm_img = loadImage( 'assets/images/player_and_ai/ai_3_arm_and_gun.png' )
-    ai3_gun_recoil_img = loadImage( 'assets/images/player_and_ai/ai_3_gun_recoil.gif' );
+    ai3_img = loadImage('assets/images/player_and_ai/ai_3.png');
+    ai3_arm_img = loadImage('assets/images/player_and_ai/ai_3_arm_and_gun.png')
+    ai3_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_3_gun_recoil.gif');
     //ai_4
-    ai4_img = loadImage( 'assets/images/player_and_ai/ai_4.png' );
-    ai4_arm_img = loadImage( 'assets/images/player_and_ai/ai_4_arm_and_gun.png' )
-    ai4_gun_recoil_img = loadImage( 'assets/images/player_and_ai/ai_4_gun_recoil.gif' );
+    ai4_img = loadImage('assets/images/player_and_ai/ai_4.png');
+    ai4_arm_img = loadImage('assets/images/player_and_ai/ai_4_arm_and_gun.png')
+    ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
 }
 
 /* old draw_ai class
@@ -107,12 +107,12 @@ class draw_ai
 // ★TODO) damage is  not implement yet.
 class ai_bullet
 {
-    constructor( x, y, speed, damage )
+    constructor(x, y, speed, damage)
     {
         this.x = x;
         this.y = y;
         this.distance = 0;
-        this.speed = speed;
+        this.speed = speed * ( deltaTime / 1000 );
         this.damage = damage;
     }
 
@@ -124,13 +124,14 @@ class ai_bullet
     show()
     {
         push(); // remember the fill and stroke before
-        fill( 50, 50, 50 );
+        fill( 50, 50, 50);
         //stroke( 255, 0, 0, 155);
+        this.x += this.distance;
         if ( this.x < width )
         {
             ellipse( this.x, this.y, 40, 5 );
         }
-        pop(); //restore fill and stroke
+        pop();  //restore fill and stroke
     }
 
     run()
@@ -146,111 +147,83 @@ function ai_bullet_setoff()
     // class ai_bullet's constructor(x, y, speed = 2, damage)
     if ( frameCount % 60 == 1 )
     {
-
+        
         //ai_bullets = [] this is in sketch.js
-        if ( check_ai_1_picked )
+        if(check_ai_1_picked)
         {
-            ai_bullet_1.push( new Ai_bullet_1() );
-            ai_gun_recoil_img.reset();
-            ai_bullet_fired = true;
-        }
-        else
-        {
-            for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_1.length; ai_bullet_count++ )
-            {
-                ai_bullet_1.splice( ai_bullet_count, 1 );
-            }
+        ai_bullet_1.push(new Ai_bullet_1());
+        ai_gun_recoil_img.reset();
+        ai_bullet_fired = true;
         }
     }
 
-    if ( frameCount % 70 == 1 )
+    if (frameCount % 70 == 1 )
     {
-        if ( check_ai_2_picked )
+        if(check_ai_2_picked)
         {
-            ai_bullet_2.push( new Ai_bullet_2() );
-            ai2_gun_recoil_img.reset();
-            ai_bullet_fired = true;
-        }
-        else
-        {
-            for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_2.length; ai_bullet_count++ )
-            {
-                ai_bullet_2.splice( ai_bullet_count, 1 );
-            }
+        ai_bullet_2.push(new Ai_bullet_2());
+        ai2_gun_recoil_img.reset();
+        ai_bullet_fired = true;
         }
     }
 
-    if ( frameCount % 50 == 1 )
+    if (frameCount % 50 == 1 )
     {
-        if ( check_ai_3_picked )
+        if(check_ai_3_picked)
         {
-            ai_bullet_3.push( new Ai_bullet_3() );
-            ai3_gun_recoil_img.reset();
-            ai_bullet_fired = true;
-        }
-        else
-        {
-            for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_3.length; ai_bullet_count++ )
-            {
-                ai_bullet_3.splice( ai_bullet_count, 1 );
-            }
+        ai_bullet_3.push(new Ai_bullet_3());
+        ai3_gun_recoil_img.reset();
+        ai_bullet_fired = true;
         }
     }
-    if ( frameCount % 30 == 1 )
+    if (frameCount % 30 == 1 )
     {
-        if ( check_ai_4_picked )
+        if(check_ai_4_picked)
         {
-            ai_bullet_4.push( new Ai_bullet_4() );
-            ai4_gun_recoil_img.reset();
-            ai_bullet_fired = true;
-        }
-        else
-        {
-            for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_4.length; ai_bullet_count++ )
-            {
-                ai_bullet_4.splice( ai_bullet_count, 1 );
-            }
+        ai_bullet_4.push(new Ai_bullet_4());
+        ai4_gun_recoil_img.reset();
+        ai_bullet_fired = true;
         }
     }
-
+     
     for ( var i = 0; i < ai_bullet_1.length; i++ )
     {
         ai_bullet_1[ i ].run();
-
+  
         if ( ai_bullet_1[ i ].x >= width )
         {
             ai_bullet_1.splice( i, 1 );
-        }
+        } 
     }
 
 
     for ( var i = 0; i < ai_bullet_2.length; i++ )
     {
         ai_bullet_2[ i ].run();
-
+  
         if ( ai_bullet_2[ i ].x >= width )
         {
             ai_bullet_2.splice( i, 1 );
-        }
+        } 
     }
 
     for ( var i = 0; i < ai_bullet_3.length; i++ )
     {
         ai_bullet_3[ i ].run();
-
+  
         if ( ai_bullet_3[ i ].x >= width )
         {
             ai_bullet_3.splice( i, 1 );
-        }
+        } 
     }
 
     for ( var i = 0; i < ai_bullet_4.length; i++ )
     {
         ai_bullet_4[ i ].run();
-
+  
         if ( ai_bullet_4[ i ].x >= width )
         {
             ai_bullet_4.splice( i, 1 );
-        }
+        } 
     }
 }
