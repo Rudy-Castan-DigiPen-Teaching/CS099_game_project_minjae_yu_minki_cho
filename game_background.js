@@ -48,19 +48,6 @@ function drawing_lines_characters()//drawing lines and characters
     }
 }
 
-function bullet_check()
-{
-    for ( let i = 0; i < player_gun_bullet; i++ )
-    {
-        image( left_bullet_img, 30, height / 2 + i * 3 );
-        //circle(40,height/2+i*3,5);
-    }
-    if ( player_gun_bullet == 0 )
-    {
-        text( "press r to reload!", 40, height / 2 + 30 )
-    }
-}
-
 /*function mouseClicked()
 {
     gun_recoil.reset();
