@@ -64,6 +64,7 @@ let check_ai_2_picked = true;
 let check_ai_3_picked = true;
 let check_ai_4_picked = true;
 
+
 function preload()
 {
     bullet_preload();
@@ -373,7 +374,7 @@ function pick_and_ban()
 
             if(mouseIsPressed)
             {
-                check_ai_1_picked = true;
+                check_ai_1_picked = false   ;
                 ai_1_survived = false;
                 ai_picked = true;
 
