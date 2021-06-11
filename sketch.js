@@ -59,6 +59,11 @@ let ai_picked = false;
 
 let check_keyIsPressed= false; 
 
+let check_ai_1_picked = true;
+let check_ai_2_picked = true;
+let check_ai_3_picked = true;
+let check_ai_4_picked = true;
+
 function preload()
 {
     bullet_preload();
@@ -368,6 +373,7 @@ function pick_and_ban()
 
             if(mouseIsPressed)
             {
+                check_ai_1_picked = true;
                 ai_1_survived = false;
                 ai_picked = true;
 
@@ -382,6 +388,7 @@ function pick_and_ban()
             circle(ai_2.x,ai_2.y,10);
             if(mouseIsPressed)
             {
+                check_ai_2_picked = false;
                 ai_2_survived = false;
                 ai_picked = true;
             }
@@ -396,6 +403,7 @@ function pick_and_ban()
 
             if(mouseIsPressed)
             {
+                check_ai_3_picked = false;
                 ai_3_survived = false;
                 ai_picked = true;
             }
@@ -410,6 +418,7 @@ function pick_and_ban()
 
             if(mouseIsPressed)
             {
+                check_ai_4_picked = false;
                 ai_4_survived = false;
                 ai_picked = true;
             }
