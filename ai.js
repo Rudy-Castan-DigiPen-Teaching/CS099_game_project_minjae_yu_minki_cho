@@ -147,43 +147,30 @@ function ai_bullet_setoff()
     // class ai_bullet's constructor(x, y, speed = 2, damage)
     if ( frameCount % 60 == 1 )
     {
-        
         //ai_bullets = [] this is in sketch.js
-        if(check_ai_1_picked)
-        {
         ai_bullet_1.push(new Ai_bullet_1());
         ai_gun_recoil_img.reset();
         ai_bullet_fired = true;
-        }
     }
 
     if (frameCount % 70 == 1 )
     {
-        if(check_ai_2_picked)
-        {
         ai_bullet_2.push(new Ai_bullet_2());
         ai2_gun_recoil_img.reset();
         ai_bullet_fired = true;
-        }
     }
 
     if (frameCount % 50 == 1 )
     {
-        if(check_ai_3_picked)
-        {
         ai_bullet_3.push(new Ai_bullet_3());
         ai3_gun_recoil_img.reset();
         ai_bullet_fired = true;
-        }
     }
     if (frameCount % 30 == 1 )
     {
-        if(check_ai_4_picked)
-        {
         ai_bullet_4.push(new Ai_bullet_4());
         ai4_gun_recoil_img.reset();
         ai_bullet_fired = true;
-        }
     }
      
     for ( var i = 0; i < ai_bullet_1.length; i++ )
