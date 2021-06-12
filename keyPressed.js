@@ -30,12 +30,12 @@ function keyPressed()
         if ( game_mode === GAME_START )
         {
             if(keyCode === 82)
-        {
-            if ( player_gun_bullet >= 0 )
             {
-                player_gun_bullet = 7;
+                if ( player_gun_bullet >= 0 )
+                {
+                    player_gun_bullet = 7;
+                }
             }
-        }
         }
         else if ( keyCode === 82 )
         {
@@ -47,6 +47,30 @@ function keyPressed()
             game_wall.wall_health = 300;
             setup();
             game_mode = MAIN_MENU;
+        }
+    }
+
+    if (game_mode == INTERMISSION)
+    {
+        if ( ai_picked == true && !ready_for_day2 )
+        {
+            ready_for_day2 = true;
+            ai_picked = false;
+            player_gun_bullet = 7;
+        }
+
+        if ( ai_picked == true && !ready_for_day3 )
+        {
+            ready_for_day3 = true;
+            ai_picked = false;
+            player_gun_bullet = 7;
+        }
+
+        if ( ai_picked == true && !ready_for_day4 )
+        {
+            ready_for_day4 = true;
+            ai_picked = false;
+            player_gun_bullet = 7;
         }
     }
 }
