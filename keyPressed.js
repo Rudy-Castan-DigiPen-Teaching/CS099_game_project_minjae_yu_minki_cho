@@ -29,7 +29,7 @@ function keyPressed()
         //Press R to reload
         if ( game_mode === GAME_START )
         {
-            if(keyCode===82)
+            if(keyCode === 82)
         {
             if ( player_gun_bullet == 0 )
             {

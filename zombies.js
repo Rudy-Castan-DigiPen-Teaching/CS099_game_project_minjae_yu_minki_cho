@@ -1,5 +1,5 @@
 let normal_zombie_img;
-let fast_zombie_img, fat_zombie_img, zombie_hit_img,white_zombie_img;
+let fast_zombie_img, fat_zombie_img, zombie_hit_img, white_zombie_img;
 let zombie_hit_wall_img, blood_img;
 const zombie_size = 30;
 const boss_zombie_size = 100;
@@ -94,7 +94,8 @@ class zombies
 
             }
         }
-        else{
+        else
+        {
             if ( this.x > game_wall.x + boss_zombie_size )
             {
                 this.x -= this.speed;
@@ -116,7 +117,8 @@ class zombies
                 }
             }
         }
-        else{
+        else
+        {
             if ( this.x <= line_size + boss_zombie_size )
             {
                 if ( deltaTime % 1 == 0 )
