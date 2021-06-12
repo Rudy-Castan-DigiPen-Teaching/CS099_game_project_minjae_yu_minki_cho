@@ -110,6 +110,7 @@ function setup()
 
 function draw()
 {
+    
     background( 220 );
     //console.log(frameCount)
     //console.log(ready_for_day3)

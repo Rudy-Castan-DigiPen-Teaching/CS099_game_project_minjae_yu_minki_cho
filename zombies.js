@@ -31,21 +31,24 @@ class zombies
         this.line_size = 100; //wall x_position
         this.zombie_type = round( random( 2 ) ) //0 = normal, 1 = fast, 2 = fat
         this.boss_zombie = boss_zombie;
+        this.normal_zombie_hp = 5;
+        this.fat_zombie_hp = 10;
+        this.fast_zombie_hp = 2;
 
 
         if ( this.boss_zombie == false)
         {
             if ( this.zombie_type === 0 )
             {
-                this.zombie_hp = 5; //normal_zombie
+                this.zombie_hp = this.normal_zombie_hp; //normal_zombie
             }
             else if ( this.zombie_type === 1 )
             {
-                this.zombie_hp = 2; //fast_zombie
+                this.zombie_hp = this.fast_zombie_hp; //fast_zombie
             }
             else if ( this.zombie_type === 2 )
             {
-                this.zombie_hp = 10; //fat_zombie
+                this.zombie_hp = this.fat_zombie_hp; //fat_zombie
             }
         }
         else
@@ -107,6 +110,8 @@ class zombies
                 {
                     //console.log("zombie hit the wall");
                     game_wall.wall_health -= 1; //originally -= 1
+                    fill('black');
+                    text("-1",this.x-20, this.y);
                     image( zombie_hit_wall_img, game_wall.x, game_wall.y );
                 }
             }
@@ -130,9 +135,13 @@ class zombies
         //drawing normal zombies
         push();
         imageMode( CENTER );
-        translate( this.x, this.y )
-        rotate( 2 * PI )
-        image( normal_zombie_img, 0, 0 );
+        image( normal_zombie_img, this.x, this.y );
+        fill('red');
+        rectMode(CORNER)
+        rect(this.x+10,this.y,5,this.normal_zombie_hp*6);
+        fill('green');
+        rect(this.x+10,this.y,5,this.zombie_hp*6);
+        
         pop();
     }
 
@@ -142,6 +151,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( fast_zombie_img, this.x, this.y );
+        fill('red');
+        rectMode(CORNER)
+        rect(this.x+10,this.y,5,this.fast_zombie_hp*6);
+        fill('green');
+        rect(this.x+10,this.y,5,this.zombie_hp*6);
         pop();
     }
 
@@ -151,6 +165,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( fat_zombie_img, this.x, this.y );
+        fill('red');
+        rectMode(CORNER)
+        rect(this.x+10,this.y,5,this.fat_zombie_hp*3);
+        fill('green');
+        rect(this.x+10,this.y,5,this.zombie_hp*3);
         pop();
     }
 
@@ -159,6 +178,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( boss_zombie_img, this.x, this.y );
+        fill('red');
+        rectMode(CORNER)
+        rect(this.x+10,this.y,5,30);
+        fill('green');
+        rect(this.x+10,this.y,5,this.zombie_hp*6);
         pop();
     }
 
