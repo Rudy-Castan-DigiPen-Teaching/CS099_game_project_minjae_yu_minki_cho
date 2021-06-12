@@ -53,7 +53,7 @@ class Ai_bullet_4
         this.x += this.distance;
         if ( this.x < width )
         {
-            ellipse( this.x, this.y, 40, 5 );
+            image(ai_bullet_img,this.x,this.y);
         }
         pop();  //restore fill and stroke
     }

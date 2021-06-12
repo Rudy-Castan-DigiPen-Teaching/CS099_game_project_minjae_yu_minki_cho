@@ -1,7 +1,8 @@
 let ai_bullet_fired = false;
+let ai_bullet_img;
 
-let ai_1_damage = 2;
-let ai_2_damage = 1;
+let ai_1_damage = 0.1;
+let ai_2_damage = 0.17;
 let ai_3_damage = 2;
 let ai_4_damage = 4;
 
@@ -28,13 +29,14 @@ function ai_image_preload()
     ai4_img = loadImage('assets/images/player_and_ai/ai_4.png');
     ai4_arm_img = loadImage('assets/images/player_and_ai/ai_4_arm_and_gun.png')
     ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
+    ai_bullet_img = loadImage('assets/images/player_and_ai/ai_bullet.png');
 }
 
 function ai_bullet_setoff()
 {
     //To change the value of fameCount value, I divided into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
-    if ( frameCount % ai_1_speed == 1 )
+    if ( frameCount % int(1000/ai_1_speed) == 1 )
     {
         
         //ai_bullets = [] this is in sketch.js
@@ -46,7 +48,7 @@ function ai_bullet_setoff()
         }
     }
 
-    if (frameCount % ai_2_speed == 1 )
+    if (frameCount % int(1000/ai_2_speed) == 1 )
     {
         if(check_ai_2_picked)
         {
@@ -56,7 +58,7 @@ function ai_bullet_setoff()
         }
     }
 
-    if (frameCount % ai_3_speed == 1 )
+    if (frameCount % int(1000/ai_3_speed) == 1 )
     {
         if(check_ai_3_picked)
         {
@@ -65,7 +67,7 @@ function ai_bullet_setoff()
         ai_bullet_fired = true;
         }
     }
-    if (frameCount % ai_4_speed == 1 )
+    if (frameCount % int(1000/ai_4_speed) == 1 )
     {
         if(check_ai_4_picked)
         {
