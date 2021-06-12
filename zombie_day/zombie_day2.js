@@ -44,23 +44,3 @@ function zombie_day2_draw()
         zombie_day_update( zombies_day2_wave4 );
     }
 }
-
-function zombie_day2_splice()
-{
-    for ( let i = 0; i < zombies_day2_wave1.length; i++ )
-    {
-        zombies_day2_wave1.splice(i,1);
-    }
-    for ( let i = 0; i < zombies_day2_wave2.length; i++ )
-    {
-        zombies_day2_wave2.splice(i,1);
-    }
-    for ( let i = 0; i < zombies_day2_wave3.length; i++ )
-    {
-        zombies_day2_wave3.splice(i,1);
-    }
-    for ( let i = 0; i < zombies_day2_wave4.length; i++ )
-    {
-        zombies_day2_wave4.splice(i,1);
-    }
-}

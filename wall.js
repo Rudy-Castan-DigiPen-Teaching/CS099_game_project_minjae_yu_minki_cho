@@ -43,10 +43,6 @@ class Wall
         if ( this.wall_health <= 0 )
         {
             game_mode = GAME_OVER;
-            zombie_day1_splice();
-            zombie_day2_splice();
-            zombie_day3_splice();
-            zombie_day4_splice();
         }
     }
 }
