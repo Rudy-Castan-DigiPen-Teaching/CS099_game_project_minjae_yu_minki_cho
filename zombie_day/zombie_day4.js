@@ -44,3 +44,23 @@ function zombie_day4_draw()
         zombie_day_update( zombies_day4_wave4 );
     }
 }
+
+function zombie_day4_splice()
+{
+    for ( let i = 0; i < zombies_day4_wave1.length; i++ )
+    {
+        zombies_day4_wave1.splice(i,1);
+    }
+    for ( let i = 0; i < zombies_day4_wave2.length; i++ )
+    {
+        zombies_day4_wave2.splice(i,1);
+    }
+    for ( let i = 0; i < zombies_day4_wave3.length; i++ )
+    {
+        zombies_day4_wave3.splice(i,1);
+    }
+    for ( let i = 0; i < zombies_day4_wave4.length; i++ )
+    {
+        zombies_day4_wave4.splice(i,1);
+    }
+}

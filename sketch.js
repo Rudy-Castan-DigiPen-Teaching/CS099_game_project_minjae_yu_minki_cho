@@ -59,6 +59,7 @@ let ai_picked = false;
 
 let check_keyIsPressed= false; 
 
+//This is for ai bullet
 let check_ai_1_picked = true;
 let check_ai_2_picked = true;
 let check_ai_3_picked = true;
@@ -105,7 +106,19 @@ function setup()
 
 function draw()
 {
+    let day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
+        zombies_day1_wave4;
+    let day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
+        zombies_day2_wave4;
+    let day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
+        zombies_day3_wave4;
+    let day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
+        zombies_day4_wave4;
+
+
     background( 220 );
+     //This function is to count the day's zombie
+     
     //console.log(frameCount)
     //console.log(ready_for_day3)
 
@@ -118,6 +131,7 @@ function draw()
     {
         count_start = true; //start frameCount
 
+         
         imageMode( CORNER );
         background( 220 );
         //draw alines and wall of game_background class
@@ -139,6 +153,10 @@ function draw()
         zombie_day1_draw();
         ai_bullet_setoff();
         bullet_check();
+
+        //fade out image for day1   
+        if ( zombies_day1_wave1 != 0)  day1_fadeout_img();
+    
 
         //print the score in canvas.
         text( "your score is " + score + " !", width - 200, 10 );
@@ -170,14 +188,10 @@ function draw()
         pop();
     }
 
-    if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
-    {
-        day1_fadeout_img();
-    }
+    
 
     //if there are no zombie on day1 then day2 start!
-    if ( zombies_day1_wave1.length + zombies_day1_wave2.length +
-        zombies_day1_wave3.length + zombies_day1_wave4 <= 0)
+    if ( day1_length <= 0 && game_mode )
     {
         if ( !ready_for_day2 )
         {
@@ -209,8 +223,7 @@ function draw()
         }
     }
 
-    if ( zombies_day2_wave1.length + zombies_day2_wave2.length +
-        zombies_day2_wave3.length + zombies_day2_wave4 <= 0 )
+    if ( day1_length && day2_length <= 0 )
     {
         if ( !ready_for_day3 )
         {
@@ -245,8 +258,7 @@ function draw()
     }
     }
 
-    if ( zombies_day3_wave1.length + zombies_day3_wave2.length +
-        zombies_day3_wave3.length + zombies_day3_wave4 <= 0)
+    if ( day1_length && day2_length && day3_length <= 0 )
     {
         if ( !ready_for_day4 )
         {
@@ -281,8 +293,6 @@ function draw()
         }
     }
 }
-
-
 
 function bullet_check()
 {
