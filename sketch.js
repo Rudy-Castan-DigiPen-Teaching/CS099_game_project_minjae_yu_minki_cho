@@ -275,6 +275,7 @@ function draw()
         }
         if ( ready_for_day4)
         {
+            
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
