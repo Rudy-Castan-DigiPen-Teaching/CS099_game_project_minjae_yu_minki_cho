@@ -215,12 +215,6 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        /*if ( keyIsPressed && ai_picked )
-        {
-            ready_for_day2 = true;
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }*/
         if ( ready_for_day2 )
         {
             game_mode = GAME_START;
@@ -251,12 +245,6 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        /*if( keyIsPressed && ai_picked )
-        {
-             ready_for_day3 = true;
-             ai_picked = false;
-             player_gun_bullet = 7;
-        }*/
         if ( ready_for_day3)
         {
             game_mode = GAME_START;
@@ -287,12 +275,6 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        /*if ( keyIsPressed && ai_picked )
-        {
-             ready_for_day4 = true;
-             ai_picked = false;
-             player_gun_bullet = 7;
-        }*/
         if ( ready_for_day4 )
         { 
             game_mode = GAME_START;
