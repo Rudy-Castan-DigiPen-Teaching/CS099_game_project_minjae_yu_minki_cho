@@ -12,6 +12,8 @@ function font_preload()
 
 function main_menu()
 {
+    push();
+    imageMode(CORNER)
     background( 110 );
     image( tombstone_img, 300, 180 );
     image( tombstone_img, 410, 120 );
@@ -69,6 +71,7 @@ function main_menu()
             }
         }
     }
+    pop();
     push();
     textFont( new_text_font );
     textSize( 21 );

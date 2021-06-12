@@ -138,11 +138,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( normal_zombie_img, this.x, this.y );
-        fill('red');
-        rectMode(CORNER)
-        rect(this.x+10,this.y,5,this.normal_zombie_hp*6);
-        fill('green');
-        rect(this.x+10,this.y,5,this.zombie_hp*6);
+        // fill('red');
+        // rectMode(CORNER)
+        // rect(this.x+10,this.y,5,this.normal_zombie_hp*6);
+        // fill('green');
+        // rect(this.x+10,this.y,5,this.zombie_hp*6);
         
         pop();
     }
@@ -153,11 +153,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( fast_zombie_img, this.x, this.y );
-        fill('red');
-        rectMode(CORNER)
-        rect(this.x+10,this.y,5,this.fast_zombie_hp*6);
-        fill('green');
-        rect(this.x+10,this.y,5,this.zombie_hp*6);
+        // fill('red');
+        // rectMode(CORNER)
+        // rect(this.x+10,this.y,5,this.fast_zombie_hp*6);
+        // fill('green');
+        // rect(this.x+10,this.y,5,this.zombie_hp*6);
         pop();
     }
 
@@ -167,11 +167,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( fat_zombie_img, this.x, this.y );
-        fill('red');
-        rectMode(CORNER)
-        rect(this.x+10,this.y,5,this.fat_zombie_hp*3);
-        fill('green');
-        rect(this.x+10,this.y,5,this.zombie_hp*3);
+        // fill('red');
+        // rectMode(CORNER)
+        // rect(this.x+10,this.y,5,this.fat_zombie_hp*3);
+        // fill('green');
+        // rect(this.x+10,this.y,5,this.zombie_hp*3);
         pop();
     }
 
@@ -180,11 +180,11 @@ class zombies
         push();
         imageMode( CENTER );
         image( boss_zombie_img, this.x, this.y );
-        fill('red');
-        rectMode(CORNER)
-        rect(this.x+10,this.y,5,30);
-        fill('green');
-        rect(this.x+10,this.y,5,this.zombie_hp*6);
+        // fill('red');
+        // rectMode(CORNER)
+        // rect(this.x+10,this.y,5,30);
+        // fill('green');
+        // rect(this.x+10,this.y,5,this.zombie_hp*6);
         pop();
     }
 
