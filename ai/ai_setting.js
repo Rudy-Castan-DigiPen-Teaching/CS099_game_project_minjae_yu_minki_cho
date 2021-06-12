@@ -1,5 +1,15 @@
 let ai_bullet_fired = false;
 
+let ai_1_damage = 2;
+let ai_2_damage = 1;
+let ai_3_damage = 2;
+let ai_4_damage = 4;
+
+let ai_1_speed = 60;
+let ai_2_speed = 70;
+let ai_3_speed = 50;
+let ai_4_speed = 30;
+
 function ai_image_preload()
 {
     //ai_1
@@ -20,132 +30,11 @@ function ai_image_preload()
     ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
 }
 
-/* old draw_ai class
-class draw_ai
-{
-    constructor()
-    {
-        this.x = 50;
-        this.y = line_size / 2;
-    }
-
-    draw()
-    {
-        draw_ai per line
-        for ( let i = 0; i < 5; i++ )
-        {
-            if ( i == 0 )
-            {
-                push();
-                imageMode( CENTER )
-                image( ai_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
-
-                if ( ai_bullet_fired === false )
-                {
-                    image( ai_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
-                }
-                else if ( ai_bullet_fired === true )
-                {
-                    image( ai_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
-                }
-                pop();
-            }
-            else if ( i == 1 )
-            {
-                push();
-                imageMode( CENTER )
-                image( ai2_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
-
-                if ( ai_bullet_fired === false )
-                {
-                    image( ai2_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
-                }
-                else if ( ai_bullet_fired === true )
-                {
-                    image( ai2_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
-                }
-                pop();
-            }
-            else if ( i == 3 )
-            {
-                push();
-                imageMode( CENTER )
-                image( ai3_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
-
-                if ( ai_bullet_fired === false )
-                {
-                    image( ai3_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
-                }
-                else if ( ai_bullet_fired === true )
-                {
-                    image( ai3_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
-                }
-                pop();
-            }
-            else if ( i == 4 )
-            {
-                push();
-                imageMode( CENTER )
-                image( ai4_img, this.x, ( ( i * line_size ) + line_size / 2 ) )
-
-                if ( ai_bullet_fired === false )
-                {
-                    image( ai4_arm_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 )
-                }
-                else if ( ai_bullet_fired === true )
-                {
-                    image( ai4_gun_recoil_img, this.x + 10, ( ( i * line_size ) + line_size / 2 ) - 5 );
-                }
-                pop();
-            }
-        }
-    }
-}
-*/
-
-
-// ★TODO) damage is  not implement yet.
-class ai_bullet
-{
-    constructor(x, y, speed, damage)
-    {
-        this.x = x;
-        this.y = y;
-        this.distance = 0;
-        this.speed = speed * ( deltaTime / 1000 );
-        this.damage = damage;
-    }
-
-    move()
-    {
-        this.distance = this.distance + this.speed;
-    }
-
-    show()
-    {
-        push(); // remember the fill and stroke before
-        fill( 50, 50, 50);
-        //stroke( 255, 0, 0, 155);
-        this.x += this.distance;
-        if ( this.x < width )
-        {
-            ellipse( this.x, this.y, 40, 5 );
-        }
-        pop();  //restore fill and stroke
-    }
-
-    run()
-    {
-        this.show();
-        this.move();
-    }
-}
-
 function ai_bullet_setoff()
 {
     //To change the value of fameCount value, I divided into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
-    if ( frameCount % 60 == 1 )
+    if ( frameCount % ai_1_speed == 1 )
     {
         
         //ai_bullets = [] this is in sketch.js
@@ -157,7 +46,7 @@ function ai_bullet_setoff()
         }
     }
 
-    if (frameCount % 70 == 1 )
+    if (frameCount % ai_2_speed == 1 )
     {
         if(check_ai_2_picked)
         {
@@ -167,7 +56,7 @@ function ai_bullet_setoff()
         }
     }
 
-    if (frameCount % 50 == 1 )
+    if (frameCount % ai_3_speed == 1 )
     {
         if(check_ai_3_picked)
         {
@@ -176,7 +65,7 @@ function ai_bullet_setoff()
         ai_bullet_fired = true;
         }
     }
-    if (frameCount % 30 == 1 )
+    if (frameCount % ai_4_speed == 1 )
     {
         if(check_ai_4_picked)
         {

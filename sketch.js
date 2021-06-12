@@ -314,8 +314,9 @@ function pick_and_ban()
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
         {
             circle( ai_1.x, ai_1.y, 10 );
-            text("My family is waiting. Please save me! ",ai_1.x+50, ai_1.y);
-
+            text("My family is waiting. Please save me! \n",ai_1.x+50, ai_1.y);
+            text("\nbullet damage: " + ai_1_damage, ai_1.x+50, ai_1.y);
+            text("\n\nbullet speed: " + ai_1_speed, ai_1.x+50, ai_1.y);
             if ( mouseIsPressed )
             {
                 check_ai_1_picked = false;
@@ -332,6 +333,8 @@ function pick_and_ban()
         {
             circle( ai_2.x, ai_2.y, 10 );
             text("I am ready to die. I want to save others",ai_2.x+50, ai_2.y);
+            text("\nbullet damage: " + ai_2_damage, ai_2.x+50, ai_2.y);
+            text("\n\nbullet speed: " + ai_2_speed, ai_2.x+50, ai_2.y);
             if ( mouseIsPressed )
             {
                 check_ai_2_picked = false;
@@ -347,6 +350,8 @@ function pick_and_ban()
         {
             circle( ai_3.x, ai_3.y, 10 );
             text("I can kill zombie well.",ai_3.x+50, ai_3.y);
+            text("\nbullet damage: " + ai_3_damage, ai_3.x+50, ai_3.y);
+            text("\n\nbullet speed: " + ai_3_speed, ai_3.x+50, ai_3.y);
 
             if ( mouseIsPressed )
             {
@@ -363,6 +368,8 @@ function pick_and_ban()
         {
             circle( ai_4.x, ai_4.y, 10 );
             text("PLEASE DON'T KILL ME. I am good in programing",ai_4.x+50, ai_4.y);
+            text("\nbullet damage: " + ai_4_damage, ai_4.x+50, ai_4.y);
+            text("\n\nbullet speed: " + ai_4_speed, ai_4.x+50, ai_4.y);
 
             if ( mouseIsPressed )
             {

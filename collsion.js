@@ -46,7 +46,7 @@ function zombie_day_update( day_count )
             if ( distance < zombie_size )
             {
                 day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= ai_bullet_1.damage; //reduce zombie_hp
+                day_count[ i ].zombie_hp -= ai_1_damage; //reduce zombie_hp
                 ai_bullet_1.splice( ai_bullet_count, 1 );
 
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
@@ -71,7 +71,7 @@ function zombie_day_update( day_count )
             if ( distance < zombie_size )
             {
                 day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= ai_bullet_2.damage; //reduce zombie_hp
+                day_count[ i ].zombie_hp -= ai_2_damage; //reduce zombie_hp
                 ai_bullet_2.splice( ai_bullet_count, 1 );
 
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
@@ -96,7 +96,7 @@ function zombie_day_update( day_count )
             if ( distance < zombie_size )
             {
                 day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= ai_bullet_3.damage; //reduce zombie_hp
+                day_count[ i ].zombie_hp -= ai_3_damage; //reduce zombie_hp
                 ai_bullet_3.splice( ai_bullet_count, 1 );
 
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
@@ -121,7 +121,7 @@ function zombie_day_update( day_count )
             if ( distance < zombie_size )
             {
                 day_count[ i ].collision_effects();
-                day_count[ i ].zombie_hp -= ai_bullet_4.damage; //reduce zombie_hp
+                day_count[ i ].zombie_hp -= ai_4_damage; //reduce zombie_hp
                 ai_bullet_4.splice( ai_bullet_count, 1 );
 
                 if ( day_count[ i ].zombie_hp <= 0 ) //remove zombie when zombie_hp is 0
