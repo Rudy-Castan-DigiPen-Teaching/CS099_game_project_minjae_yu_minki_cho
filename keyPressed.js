@@ -50,6 +50,7 @@ function keyPressed()
         }
     }
 
+    //move to next day when AI is picked
     if (game_mode == INTERMISSION)
     {
         if ( ai_picked == true && !ready_for_day2 )
