@@ -195,7 +195,11 @@ function draw()
             cursor();
             if( ai_picked == false )
             {
-                text( "Sacrifice one for the next stage.", width / 2, height / 2 );
+                push();
+                textSize(20);
+                fill("black")
+                text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
+                pop();
                 pick_ai();
                 pick_and_ban();
             }
@@ -227,7 +231,11 @@ function draw()
             cursor();
             if( ai_picked == false )
             {
-                text( "Sacrifice one for the next stage.", width / 2, height / 2 );
+                push();
+                textSize(20);
+                fill("black")
+                text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
+                pop();
                 pick_ai();
                 pick_and_ban();
             }
@@ -262,7 +270,11 @@ function draw()
             cursor();
             if( ai_picked == false )
             {
-                text( "Sacrifice one for the next stage.", width / 2, height / 2 );
+                push();
+                textSize(20);
+                fill("black")
+                text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
+                pop();
                 pick_ai();
                 pick_and_ban();
             }
@@ -325,9 +337,12 @@ function pick_and_ban()
         {
             circle( ai_1.x, ai_1.y, 10 );
             text("My family is waiting. Please save me! \n",ai_1.x+50, ai_1.y);
+            push();
+            fill('black');
             text("\nbullet damage: " + ai_1_damage, ai_1.x+50, ai_1.y);
             text("\n\nbullet speed: " + ai_1_speed, ai_1.x+50, ai_1.y);
             text("\n\n\nbullet speed: 12", ai_1.x+50, ai_1.y);
+            pop();
             if ( mouseIsPressed )
             {
                 check_ai_1_picked = false;
@@ -344,9 +359,12 @@ function pick_and_ban()
         {
             circle( ai_2.x, ai_2.y, 10 );
             text("I am ready to die. I want to save others",ai_2.x+50, ai_2.y);
+            push();
+            fill('black');
             text("\nbullet damage: " + ai_2_damage, ai_2.x+50, ai_2.y);
             text("\n\nrate of fire: " + ai_2_speed, ai_2.x+50, ai_2.y);
             text("\n\n\nbullet speed: 13", ai_2.x+50, ai_2.y);
+            pop();
             if ( mouseIsPressed )
             {
                 check_ai_2_picked = false;
@@ -362,10 +380,12 @@ function pick_and_ban()
         {
             circle( ai_3.x, ai_3.y, 10 );
             text("I can kill zombie well.",ai_3.x+50, ai_3.y);
+            push();
+            fill('black');
             text("\nbullet damage: " + ai_3_damage, ai_3.x+50, ai_3.y);
             text("\n\nrate of fire: " + ai_3_speed, ai_3.x+50, ai_3.y);
             text("\n\n\nbullet speed: 40", ai_3.x+50, ai_3.y);
-
+            pop();
             if ( mouseIsPressed )
             {
                 check_ai_3_picked = false;
@@ -381,10 +401,12 @@ function pick_and_ban()
         {
             circle( ai_4.x, ai_4.y, 10 );
             text("PLEASE DON'T KILL ME. I am good in programing",ai_4.x+50, ai_4.y);
+            push();
+            fill('black');
             text("\nbullet damage: " + ai_4_damage, ai_4.x+50, ai_4.y);
             text("\n\nrate of fire: " + ai_4_speed, ai_4.x+50, ai_4.y);
             text("\n\n\nbullet speed: 30", ai_4.x+50, ai_4.y);
-
+            pop();
             if ( mouseIsPressed )
             {
                 check_ai_4_picked = false;
