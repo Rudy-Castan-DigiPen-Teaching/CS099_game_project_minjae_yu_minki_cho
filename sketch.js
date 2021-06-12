@@ -298,7 +298,7 @@ function draw()
             
             game_mode = GAME_START;
             day4_fadeout_img();
-
+            zombie_day4_draw();
             
         }
     }

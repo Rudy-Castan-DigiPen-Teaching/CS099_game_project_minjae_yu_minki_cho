@@ -45,7 +45,7 @@ function bullet_setoff()
     {
         bullet[ i ].draw_bullet();
 
-        if ( bullet[ i ].x <= 0 || bullet[ i ].y <= 0 || bullet[ i ].x >= width || bullet[ i ].y >= height )
+        if ( bullet[ i ].x <= 0 || bullet[ i ].y <= 0 || bullet[ i ].x >= width+20 || bullet[ i ].y >= height )
         {
             bullet.splice( i, 1 );
         } //if ball goes out of frame, delete the ball from the array.

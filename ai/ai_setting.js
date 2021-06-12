@@ -3,8 +3,8 @@ let ai_bullet_img;
 
 let ai_1_damage = 0.1;
 let ai_2_damage = 0.17;
-let ai_3_damage = 2;
-let ai_4_damage = 4;
+let ai_3_damage = 0.3;
+let ai_4_damage = 0.4;
 
 let ai_1_speed = 60;
 let ai_2_speed = 70;

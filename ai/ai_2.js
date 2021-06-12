@@ -37,7 +37,6 @@ class Ai_bullet_2
         this.y = 1 * line_size + line_size / 2 - 10;
         this.distance = 0;
         this.speed = 13 * ( deltaTime / 1000 );
-        this.damage = 2;
     }
 
     move()
