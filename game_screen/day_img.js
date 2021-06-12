@@ -10,6 +10,7 @@ function day_fadeout_img_preload()
     day2_img = loadImage( 'assets/images/day2.png' );
     day3_img = loadImage( 'assets/images/day3.png' );
     day4_img = loadImage( 'assets/images/day4.png' );
+    day5_img = loadImage( 'assets/images/day5.png')
 }
 
 function day1_fadeout_img()
@@ -49,5 +50,15 @@ function day4_fadeout_img()
     if ( life3 > 0 ) life3 -= 1;
     tint( 255, life3 );
     image( day4_img, width / 4, 80 );
+    pop();
+}
+
+function day5_fadeout_img()
+{
+    push();
+    scale( 3 );
+    if ( life3 > 0 ) life3 -= 1;
+    tint( 255, life3 );
+    image( day5_img, width / 4, 80 );
     pop();
 }

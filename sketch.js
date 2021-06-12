@@ -43,8 +43,9 @@ let ai_bullets = [];
 
 //check for it is okay for next day.
 let ready_for_day2 = false;
-let ready_for_day3;
+let ready_for_day3 = false;
 let ready_for_day4 = false;
+let ready_for_day5 = false;
 
 //frameCount works when game_mode is GAME_START from 0
 let count_start = false;
@@ -52,18 +53,21 @@ let count_start = false;
 //player gun magazine
 let player_gun_bullet = 7;
 //day1,2,3,4 img
-let day1_img, day2_img, day3_img, day4_img;
+let day1_img, day2_img, day3_img, day4_img, day5_img;
 
 //check AI is picked or not once
 let ai_picked = false;
 
 let check_keyIsPressed= false; 
 
+//This is for ai_bullet 
 let check_ai_1_picked = true;
 let check_ai_2_picked = true;
 let check_ai_3_picked = true;
 let check_ai_4_picked = true;
 
+//boss stage
+let boss_stage = false;
 
 function preload()
 {
@@ -81,7 +85,7 @@ function preload()
 
 function setup()
 {
-    createCanvas( 800, 500 );
+    createCanvas( 1000, 500 );
     frameRate( 60 );
 
     //game's default is main_menu
@@ -101,6 +105,7 @@ function setup()
     zombie_day2_setup();
     zombie_day3_setup();
     zombie_day4_setup();
+    //zombie_day5_setup();
 }
 
 function draw()
@@ -175,13 +180,17 @@ function draw()
         day1_fadeout_img();
     }
 
+
+    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4;
+    let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length + zombies_day2_wave4;
+    let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length + zombies_day3_wave4;
+    let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length + zombies_day4_wave4;
     //if there are no zombie on day1 then day2 start!
-    if ( zombies_day1_wave1.length + zombies_day1_wave2.length +
-        zombies_day1_wave3.length + zombies_day1_wave4 <= 0)
+    if ( zombie_day1_length <= 0)
     {
         if ( !ready_for_day2 )
         {
-            clear();
+            //clear();
             game_mode = INTERMISSION;
             cursor();
             if( ai_picked == false )
@@ -209,12 +218,11 @@ function draw()
         }
     }
 
-    if ( zombies_day2_wave1.length + zombies_day2_wave2.length +
-        zombies_day2_wave3.length + zombies_day2_wave4 <= 0 )
+    if ( zombie_day2_length <= 0 )
     {
         if ( !ready_for_day3 )
         {
-            clear();
+            //clear();
             game_mode = INTERMISSION;
             cursor();
             if( ai_picked == false )
@@ -245,12 +253,11 @@ function draw()
     }
     }
 
-    if ( zombies_day3_wave1.length + zombies_day3_wave2.length +
-        zombies_day3_wave3.length + zombies_day3_wave4 <= 0)
+    if ( zombie_day3_length <= 0)
     {
         if ( !ready_for_day4 )
         {
-            clear();
+            //clear();
             game_mode = INTERMISSION;
             cursor();
             if( ai_picked == false )
@@ -278,9 +285,12 @@ function draw()
             
             game_mode = GAME_START;
             day4_fadeout_img();
-            zombie_day4_draw();
+
+            
         }
     }
+    
+    
 }
 
 
@@ -317,6 +327,7 @@ function pick_and_ban()
             text("My family is waiting. Please save me! \n",ai_1.x+50, ai_1.y);
             text("\nbullet damage: " + ai_1_damage, ai_1.x+50, ai_1.y);
             text("\n\nbullet speed: " + ai_1_speed, ai_1.x+50, ai_1.y);
+            text("\n\n\nbullet speed: 12", ai_1.x+50, ai_1.y);
             if ( mouseIsPressed )
             {
                 check_ai_1_picked = false;
@@ -334,7 +345,8 @@ function pick_and_ban()
             circle( ai_2.x, ai_2.y, 10 );
             text("I am ready to die. I want to save others",ai_2.x+50, ai_2.y);
             text("\nbullet damage: " + ai_2_damage, ai_2.x+50, ai_2.y);
-            text("\n\nbullet speed: " + ai_2_speed, ai_2.x+50, ai_2.y);
+            text("\n\nrate of fire: " + ai_2_speed, ai_2.x+50, ai_2.y);
+            text("\n\n\nbullet speed: 13", ai_2.x+50, ai_2.y);
             if ( mouseIsPressed )
             {
                 check_ai_2_picked = false;
@@ -351,7 +363,8 @@ function pick_and_ban()
             circle( ai_3.x, ai_3.y, 10 );
             text("I can kill zombie well.",ai_3.x+50, ai_3.y);
             text("\nbullet damage: " + ai_3_damage, ai_3.x+50, ai_3.y);
-            text("\n\nbullet speed: " + ai_3_speed, ai_3.x+50, ai_3.y);
+            text("\n\nrate of fire: " + ai_3_speed, ai_3.x+50, ai_3.y);
+            text("\n\n\nbullet speed: 40", ai_3.x+50, ai_3.y);
 
             if ( mouseIsPressed )
             {
@@ -369,7 +382,8 @@ function pick_and_ban()
             circle( ai_4.x, ai_4.y, 10 );
             text("PLEASE DON'T KILL ME. I am good in programing",ai_4.x+50, ai_4.y);
             text("\nbullet damage: " + ai_4_damage, ai_4.x+50, ai_4.y);
-            text("\n\nbullet speed: " + ai_4_speed, ai_4.x+50, ai_4.y);
+            text("\n\nrate of fire: " + ai_4_speed, ai_4.x+50, ai_4.y);
+            text("\n\n\nbullet speed: 30", ai_4.x+50, ai_4.y);
 
             if ( mouseIsPressed )
             {

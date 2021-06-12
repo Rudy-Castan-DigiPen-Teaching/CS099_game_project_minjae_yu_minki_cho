@@ -36,7 +36,7 @@ class Ai_bullet_1
         this.x = 90;
         this.y = line_size / 2 - 10;
         this.distance = 0;
-        this.speed = 2 * ( deltaTime / 1000 );
+        this.speed = 12 * ( deltaTime / 1000 );
         this.damage = 1;
     }
 

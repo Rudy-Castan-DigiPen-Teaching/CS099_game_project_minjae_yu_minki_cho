@@ -2,6 +2,9 @@ let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img,white_zombie_img;
 let zombie_hit_wall_img, blood_img;
 const zombie_size = 30;
+const boss_zombie_size = 100;
+
+let boss_zombie_img, boss_hit_img;
 
 function zombie_image_preload()
 {
@@ -12,65 +15,111 @@ function zombie_image_preload()
     white_zombie_img    = loadImage('assets/images/zombies/white_zombie.png');
     zombie_hit_wall_img = loadImage('assets/images/game_background/wall_hit.jpg');
     blood_img           = loadImage('assets/images/blood.png');
+
+    boss_zombie_img  = loadImage( 'assets/images/zombies/boss_zombie.png' );
+    boss_hit_img     = loadImage( 'assets/images/zombies/boss_zombie_hit.png' );
 }
 
 class zombies
 {
-    constructor()
+    constructor(boss_zombie = false)
     {
-        this.x = width + 20;
+        this.x = width- 20;
         //this.y = round( random( 4 ) ) * line_size + line_size / 2;
         this.y = round( random( 0, height ) );
         this.speed = 1; //normal zombie_speed
         this.line_size = 100; //wall x_position
         this.zombie_type = round( random( 2 ) ) //0 = normal, 1 = fast, 2 = fat
+        this.boss_zombie = boss_zombie;
 
-        if ( this.zombie_type === 0 )
+
+        if ( this.boss_zombie == false)
         {
-            this.zombie_hp = 5; //normal_zombie
+            if ( this.zombie_type === 0 )
+            {
+                this.zombie_hp = 5; //normal_zombie
+            }
+            else if ( this.zombie_type === 1 )
+            {
+                this.zombie_hp = 2; //fast_zombie
+            }
+            else if ( this.zombie_type === 2 )
+            {
+                this.zombie_hp = 10; //fat_zombie
+            }
         }
-        else if ( this.zombie_type === 1 )
+        else
         {
-            this.zombie_hp = 2; //fast_zombie
-        }
-        else if ( this.zombie_type === 2 )
-        {
-            this.zombie_hp = 10; //fat_zombie
+            this.x = width + 100;
+            this.y = 450;
+            this.zombie_hp = 300; //boss_zombie
         }
     }
 
     update()
     {
-        if ( this.zombie_type === 0 ) //normal_zombie
+        if ( this.boss_zombie == false)
         {
-            this.speed = 100 * ( deltaTime / 1000 );
-            this.draw_normal_zombies();
+            if ( this.zombie_type === 0 ) //normal_zombie
+            {
+                this.speed = 100 * ( deltaTime / 1000 );
+                this.draw_normal_zombies();
+            }
+            else if ( this.zombie_type === 1 ) //fast_zombie
+            {
+                this.speed = 150 * ( deltaTime / 1000 );
+                this.draw_fast_zombies();
+            }
+            else if ( this.zombie_type === 2 ) //fat_zombie
+            {
+                this.speed = 50 * ( deltaTime / 1000 );
+                this.draw_fat_zombies();
+            }
         }
-        else if ( this.zombie_type === 1 ) //fast_zombie
-        {
-            this.speed = 150 * ( deltaTime / 1000 );
-            this.draw_fast_zombies();
-        }
-        else if ( this.zombie_type === 2 ) //fat_zombie
+        else
         {
             this.speed = 50 * ( deltaTime / 1000 );
             this.draw_fat_zombies();
         }
 
         //zombie stops at wall
-        if ( this.x > game_wall.x + zombie_size )
+        if ( this.boss_zombie == false)
         {
-            this.x -= this.speed;
+            if ( this.x > game_wall.x + zombie_size )
+            {
+                this.x -= this.speed;
 
+            }
+        }
+        else{
+            if ( this.x > game_wall.x + boss_zombie_size )
+            {
+                this.x -= this.speed;
+
+            }
         }
         //if zombie is on the wall later we could change into meaning full name.
-        if ( this.x <= line_size + zombie_size )
+        if ( this.boss_zombie == false)
         {
-            if ( deltaTime % 1 == 0 )
+            if ( this.x <= line_size + zombie_size )
             {
-                //console.log("zombie hit the wall");
-                game_wall.wall_health -= 1; //originally -= 1
-                image(zombie_hit_wall_img,game_wall.x,game_wall.y);
+                if ( deltaTime % 1 == 0 )
+                {
+                    //console.log("zombie hit the wall");
+                    game_wall.wall_health -= 1; //originally -= 1
+                    image( zombie_hit_wall_img, game_wall.x, game_wall.y );
+                }
+            }
+        }
+        else{
+            if ( this.x <= line_size + boss_zombie_size )
+            {
+                if ( deltaTime % 1 == 0 )
+                {
+                    //console.log("zombie hit the wall");
+                    game_wall.wall_health -= 10; //originally -= 1
+                    image( zombie_hit_wall_img, game_wall.x, game_wall.y );
+                }
             }
         }
 
@@ -102,6 +151,14 @@ class zombies
         push();
         imageMode( CENTER );
         image( fat_zombie_img, this.x, this.y );
+        pop();
+    }
+
+    draw_boss_zombies()
+    {
+        push();
+        imageMode( CENTER );
+        image( boss_zombie_img, this.x, this.y );
         pop();
     }
 
