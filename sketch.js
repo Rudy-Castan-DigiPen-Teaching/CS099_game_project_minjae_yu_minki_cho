@@ -42,6 +42,7 @@ let ai_bullets = [];
  let ai_bullet_4 = new Array;
 
 //check for it is okay for next day.
+let ready_for_day1 = false;
 let ready_for_day2 = false;
 let ready_for_day3 = false;
 let ready_for_day4 = false;
@@ -123,6 +124,7 @@ function draw()
     if ( game_mode == GAME_START )
     {
         count_start = true; //start frameCount
+        ready_for_day1 = true;
 
         imageMode( CORNER );
         background( 220 );
@@ -186,13 +188,12 @@ function draw()
         day1_fadeout_img();
     }*/
 
-
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4;
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length + zombies_day2_wave4;
     let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length + zombies_day3_wave4;
     let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length + zombies_day4_wave4;
     //if there are no zombie on day1 then day2 start!
-    if ( zombie_day1_length <= 0)
+    if ( zombie_day1_length <= 0 && ready_for_day1 == true )
     {
         if ( !ready_for_day2 )
         {
@@ -225,10 +226,11 @@ function draw()
             game_mode = GAME_START;
             day2_fadeout_img();
             zombie_day2_draw();
+            ready_for_day1 = false;
         }
     }
 
-    if ( zombie_day2_length <= 0 )
+    if ( zombie_day2_length <= 0 && ready_for_day2 == true )
     {
         if ( !ready_for_day3 )
         {
@@ -250,24 +252,22 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if(ai_picked)
+        if( keyIsPressed && ai_picked )
         {
              ready_for_day3 = true;
+             ai_picked = false;
+             player_gun_bullet = 7;
         }
-    if ( keyIsPressed )
-    {
-        ai_picked = false;
-        player_gun_bullet = 7;
-    }
-    if ( ready_for_day3)
-    {
-        game_mode = GAME_START;
-        day3_fadeout_img();
-        zombie_day3_draw();
-    }
+        if ( ready_for_day3)
+        {
+            game_mode = GAME_START;
+            day3_fadeout_img();
+            zombie_day3_draw();
+            ready_for_day2 = false;
+        }
     }
 
-    if ( zombie_day3_length <= 0)
+    if ( zombie_day3_length <= 0 && ready_for_day3 == true )
     {
         if ( !ready_for_day4 )
         {
@@ -289,25 +289,20 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if(ai_picked)
-            {
-                 ready_for_day4 = true;
-            }
-        if ( keyIsPressed )
+        if ( keyIsPressed && ai_picked )
         {
-            ai_picked = false;
-            player_gun_bullet = 7;
+             ready_for_day4 = true;
+             ai_picked = false;
+             player_gun_bullet = 7;
         }
         if ( ready_for_day4)
-        {
-            
+        { 
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
+            ready_for_day3 = false;
         }
     }
-    
-    
 }
 
 
