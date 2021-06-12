@@ -36,10 +36,10 @@ let left_bullet_img;
 
 //ai_bullet
 let ai_bullets = [];
- let ai_bullet_1 = new Array;
- let ai_bullet_2 = new Array;
- let ai_bullet_3 = new Array;
- let ai_bullet_4 = new Array;
+let ai_bullet_1 = new Array;
+let ai_bullet_2 = new Array;
+let ai_bullet_3 = new Array;
+let ai_bullet_4 = new Array;
 
 //check for it is okay for next day.
 let ready_for_day1 = false;
@@ -107,6 +107,19 @@ function setup()
     zombie_day3_setup();
     zombie_day4_setup();
     //zombie_day5_setup();
+
+    ai_1_survived = true;
+    ai_2_survived = true;
+    ai_3_survived = true;
+    ai_4_survived = true;
+    check_ai_1_picked = true;
+    check_ai_2_picked = true;
+    check_ai_3_picked = true;
+    check_ai_4_picked = true;
+    life = 255;
+    life1 = 255;
+    life2 = 255;
+    life3 = 255;
 }
 
 function draw()
@@ -174,6 +187,12 @@ function draw()
 
     if ( game_mode == GAME_OVER )
     {
+        ready_for_day1 = false;
+        ready_for_day2 = false;
+        ready_for_day3 = false;
+        ready_for_day4 = false;
+        ready_for_day5 = false;
+
         clear();
         cursor();
         push();
@@ -192,13 +211,15 @@ function draw()
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length + zombies_day2_wave4;
     let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length + zombies_day3_wave4;
     let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length + zombies_day4_wave4;
+
     //if there are no zombie on day1 then day2 start!
-    if ( zombie_day1_length <= 0 )
+    if ( zombie_day1_length <= 0 && game_mode != GAME_OVER )
     {
-        if ( !ready_for_day2 )
+        game_mode = INTERMISSION;
+        if ( !ready_for_day2 && game_mode == INTERMISSION )
         {
             //clear();
-            game_mode = INTERMISSION;
+            //game_mode = INTERMISSION;
             cursor();
             if( ai_picked == false )
             {
@@ -223,12 +244,13 @@ function draw()
         }
     }
 
-    if ( zombie_day2_length <= 0 )
+    if ( zombie_day2_length <= 0 && game_mode != GAME_OVER )
     {
-        if ( !ready_for_day3 )
+        game_mode = INTERMISSION;
+        if ( !ready_for_day3 && game_mode == INTERMISSION )
         {
             //clear();
-            game_mode = INTERMISSION;
+            //game_mode = INTERMISSION;
             cursor();
             if( ai_picked == false )
             {
@@ -245,7 +267,7 @@ function draw()
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
             }
         }
-        if ( ready_for_day3)
+        if ( ready_for_day3 )
         {
             game_mode = GAME_START;
             day3_fadeout_img();
@@ -253,14 +275,15 @@ function draw()
         }
     }
 
-    if ( zombie_day3_length <= 0 )
+    if ( zombie_day3_length <= 0 && game_mode != GAME_OVER )
     {
+        game_mode = INTERMISSION;
         if ( !ready_for_day4 )
         {
             //clear();
-            game_mode = INTERMISSION;
+            //game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false )
+            if( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
                 textSize(20);
