@@ -31,7 +31,7 @@ function keyPressed()
         {
             if(keyCode === 82)
         {
-            if ( player_gun_bullet == 0 )
+            if ( player_gun_bullet >= 0 )
             {
                 player_gun_bullet = 7;
             }
@@ -43,27 +43,10 @@ function keyPressed()
         if ( game_mode === GAME_OVER )
         {
             clear();
-            game_mode = MAIN_MENU;
             score = 0;
             game_wall.wall_health = 300;
-
-            //reset zombies
-            for ( let day1_count = 0; day1_count < 10; day1_count++ )
-            {
-                zombies_day1_wave1[ day1_count ] = new zombies();
-            }
-            for ( let day2_count = 0; day2_count < 11; day2_count++ )
-            {
-                zombies_day1_wave2[ day2_count ] = new zombies();
-            }
-            for ( let day3_count = 0; day3_count < 12; day3_count++ )
-            {
-                zombies_day1_wave3[ day3_count ] = new zombies();
-            }
-            for ( let day4_count = 0; day4_count < 13; day4_count++ )
-            {
-                zombies_day1_wave4[ day4_count ] = new zombies();
-            }
+            setup();
+            game_mode = MAIN_MENU;
         }
     }
 }

@@ -142,6 +142,11 @@ function draw()
         ai_3.draw();
         ai_4.draw();
 
+        if ( zombies_day1_wave1 != 0 )
+        {
+            day1_fadeout_img();
+        }
+
         zombie_day1_draw();
         ai_bullet_setoff();
         bullet_check();
@@ -176,10 +181,10 @@ function draw()
         pop();
     }
 
-    if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
+    /*if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
     {
         day1_fadeout_img();
-    }
+    }*/
 
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4;
@@ -299,7 +304,6 @@ function draw()
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
-            
         }
     }
     
