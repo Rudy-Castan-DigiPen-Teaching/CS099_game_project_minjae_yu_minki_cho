@@ -2,6 +2,9 @@ let new_text_font;
 let tombstone_img;
 let menu_img, menu_focus_img;
 
+let x = 230;
+let x2 = 100
+
 function font_preload()
 {
     new_text_font = loadFont( 'assets/font/Montserrat-Bold.ttf' );
@@ -13,7 +16,7 @@ function font_preload()
 function main_menu()
 {
     push();
-    imageMode(CORNER)
+    imageMode( CORNER )
     background( 110 );
     image( tombstone_img, 300, 180 );
     image( tombstone_img, 410, 120 );
@@ -28,11 +31,18 @@ function main_menu()
     image( tombstone_img, 160, 120 );
     image( normal_zombie_img, 110, 310 );
     image( normal_zombie_img, 80, 230 );
-    image( fast_zombie_img, 170, 440 );
+    image( fast_zombie_img, x2, 440 );
     image( fast_zombie_img, 370, 110 );
     image( fat_zombie_img, 430, 10 );
-    image( fat_zombie_img, 330, 290 );
+    image( fat_zombie_img, x, 60 );
 
+    x -= 1;
+    x2 -= 2;
+    if ( x < -10 || x2 < 1 - 10 )
+    {
+        x = width + 10;
+        x2 = width + 10;
+    }
     image( menu_img, 600, 80 );
     image( menu_img, 600, 210 );
     image( menu_img, 600, 340 );
@@ -56,7 +66,7 @@ function main_menu()
             image( menu_focus_img, 600, 210 );
             if ( mouseIsPressed )
             {
-                game_mode = GAME_START;
+                game_mode = HOW_TO_PLAY;
             }
         }
     }
