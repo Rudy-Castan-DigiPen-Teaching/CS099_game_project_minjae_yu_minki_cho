@@ -13,6 +13,7 @@ const GAME_START = 1;
 const CREDIT = 2;
 const INTERMISSION = 3;
 const GAME_OVER = 4;
+const HOW_TO_PLAY = 5;
 
 //bullet_zombie_distance
 let x_dis;
@@ -80,6 +81,7 @@ function preload()
     ai_image_preload();
     day_fadeout_img_preload();
     game_over_preload();
+    howToPlay_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
@@ -127,7 +129,7 @@ function setup()
 function draw()
 {
     
-    //background( bg );
+    background( 110 );
     //console.log(frameCount)
     //console.log(ready_for_day3)
 
@@ -135,14 +137,17 @@ function draw()
     {
         main_menu();
     }
-
+    if( game_mode == HOW_TO_PLAY)
+    {
+        howToPlay();
+    }
     if ( game_mode == GAME_START )
     {
         count_start = true; //start frameCount
         ready_for_day1 = true;
 
         imageMode( CORNER );
-        background( bg );
+        background( 110 );
         //draw alines and wall of game_background class
         drawing_lines_characters();
         //drawing_wall();
