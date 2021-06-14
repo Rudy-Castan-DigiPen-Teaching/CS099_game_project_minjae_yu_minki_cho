@@ -167,7 +167,10 @@ function draw()
         bullet_check();
 
         //print the score in canvas.
+        push();
+        textSize(13);
         text( "your score is " + score + " !", width - 200, 10 );
+        pop();
     }
     else
     {
