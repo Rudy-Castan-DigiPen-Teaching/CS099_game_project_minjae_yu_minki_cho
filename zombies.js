@@ -91,7 +91,6 @@ class zombies
             if ( this.x > game_wall.x + zombie_size )
             {
                 this.x -= this.speed;
-
             }
         }
         else
@@ -99,7 +98,6 @@ class zombies
             if ( this.x > game_wall.x + boss_zombie_size )
             {
                 this.x -= this.speed;
-
             }
         }
         //if zombie is on the wall later we could change into meaning full name.

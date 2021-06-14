@@ -140,10 +140,12 @@ function draw()
     {
         main_menu();
     }
+
     if( game_mode == HOW_TO_PLAY)
     {
         howToPlay();
     }
+
     if ( game_mode == GAME_START )
     {
         count_start = true; //start frameCount
