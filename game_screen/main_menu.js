@@ -10,14 +10,15 @@ function font_preload()
     new_text_font = loadFont( 'assets/font/Montserrat-Bold.ttf' );
     tombstone_img = loadImage( 'assets/images/game_background/tombstone.png' );
     menu_img = loadImage( 'assets/images/game_background/menu.png' );
-    menu_focus_img = loadImage( 'assets/images/game_background/menu_focus.png' )
+    menu_focus_img = loadImage( 'assets/images/game_background/menu_focus.png' );
+    main_menu_bg = loadImage( 'assets/images/game_background/main_menu_background.png')
 }
 
 function main_menu()
 {
     push();
     imageMode( CORNER )
-    background( 110 );
+    background( main_menu_bg );
     image( tombstone_img, 300, 180 );
     image( tombstone_img, 410, 120 );
     image( tombstone_img, 110, 300 );
