@@ -62,6 +62,5 @@ class Ai_bullet_2
     {
         this.show();
         this.move();
-
     }
 }
