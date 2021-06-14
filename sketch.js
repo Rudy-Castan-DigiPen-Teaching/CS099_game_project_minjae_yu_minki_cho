@@ -79,9 +79,11 @@ function preload()
     preload_characters();
     ai_image_preload();
     day_fadeout_img_preload();
+    game_over_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
+
 }
 
 function setup()
@@ -125,7 +127,7 @@ function setup()
 function draw()
 {
     
-    background( 220 );
+    //background( bg );
     //console.log(frameCount)
     //console.log(ready_for_day3)
 
@@ -140,7 +142,7 @@ function draw()
         ready_for_day1 = true;
 
         imageMode( CORNER );
-        background( 220 );
+        background( bg );
         //draw alines and wall of game_background class
         drawing_lines_characters();
         //drawing_wall();
@@ -190,19 +192,8 @@ function draw()
 
     if ( game_mode == GAME_OVER )
     {
-        ready_for_day1 = false;
-        ready_for_day2 = false;
-        ready_for_day3 = false;
-        ready_for_day4 = false;
-        ready_for_day5 = false;
-
-        clear();
-        cursor();
-        push();
-        textFont( new_text_font );
-        textSize( 21 );
-        text( 'press R to restart!', 20, 40 );
-        pop();
+        game_over();
+        
     }
 
     /*if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
