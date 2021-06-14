@@ -3,6 +3,7 @@ let zombies_day1_wave1 = new Array;
 let zombies_day1_wave2 = new Array;
 let zombies_day1_wave3 = new Array;
 let zombies_day1_wave4 = new Array;
+let zombies_day1_wave5 = new Array;
 
 
 function zombie_day1_setup()
@@ -24,6 +25,10 @@ function zombie_day1_setup()
     {
         zombies_day1_wave4[ count4 ] = new zombies();
     }
+    for ( let count5 = 0; count5 < 24; count5++ )
+    {
+        zombies_day1_wave5[ count5 ] = new zombies();
+    }
 }
 
 function zombie_day1_draw()
@@ -43,5 +48,9 @@ function zombie_day1_draw()
     if ( zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length <= 17 )
     {
         zombie_day_update( zombies_day1_wave4 );
+    }
+    if ( zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length+zombies_day1_wave4 <= 18 )
+    {
+        zombie_day_update( zombies_day1_wave5 );
     }
 }

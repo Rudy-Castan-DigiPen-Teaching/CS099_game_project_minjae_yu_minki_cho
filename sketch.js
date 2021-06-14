@@ -82,6 +82,7 @@ function preload()
     day_fadeout_img_preload();
     game_over_preload();
     howToPlay_preload();
+    credit_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.jpg' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
@@ -206,7 +207,7 @@ function draw()
         day1_fadeout_img();
     }*/
 
-    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4;
+    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4 + zombies_day1_wave5;
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length + zombies_day2_wave4;
     let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length + zombies_day3_wave4;
     let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length + zombies_day4_wave4;
