@@ -19,8 +19,8 @@ function credit()
     image(img2,90,0);
     
     pop();
-    text("Hello~ I am Putin",200,250);
-    text("Hello~ I am Xí Jìnpíng",670,250);
+    text("Hello~ I am",200,250);
+    text("Hello~ I am",670,250);
     if ( mouseX < width - 30 && mouseX > width - 80 )
     {
         if ( mouseY < height - 30 && mouseY > height - 80 )
