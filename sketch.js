@@ -84,7 +84,7 @@ function preload()
     howToPlay_preload();
     credit_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
-    bg = loadImage( 'assets/images/game_background/background.jpg' );
+    bg = loadImage( 'assets/images/game_background/background.png' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
 
 }
@@ -112,6 +112,8 @@ function setup()
     zombie_day3_setup();
     zombie_day4_setup();
     //zombie_day5_setup();
+
+    player_gun_bullet = 7;
 
     ai_1_survived = true;
     ai_2_survived = true;
@@ -148,7 +150,7 @@ function draw()
         ready_for_day1 = true;
 
         imageMode( CORNER );
-        background( 110 );
+        background( bg );
         //draw alines and wall of game_background class
         drawing_lines_characters();
         //drawing_wall();
@@ -201,11 +203,6 @@ function draw()
         game_over();
         
     }
-
-    /*if ( zombies_day1_wave1 != 0 && game_mode == GAME_START )
-    {
-        day1_fadeout_img();
-    }*/
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4 + zombies_day1_wave5;
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length + zombies_day2_wave4;
