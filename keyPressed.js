@@ -15,7 +15,7 @@ function keyPressed()
         {
             if(keyCode === 82)
             {
-                if ( player_gun_bullet >= 0 )
+                if ( player_gun_bullet == 0 )
                 {
                     player_gun_bullet = 7;
                 }
