@@ -17,16 +17,17 @@ function credit()
     scale(7.0);
     image(img1,20,0)
     image(img2,90,0);
-    
     pop();
     
     text("Hello~ I am",200,250);
     text("Hello~ I am",670,250);
 
+    push();
     if ( mouseX < width - 30 && mouseX > width - 80 )
     {
         if ( mouseY < height - 30 && mouseY > height - 80 )
         {
+            imageMode(CORNER );
             image( gray_back_img, width - 80, height - 80 );
             if ( mouseIsPressed )
             {
@@ -34,4 +35,5 @@ function credit()
             }
         }
     }
+    pop();
 } 
