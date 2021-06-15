@@ -241,7 +241,7 @@ function draw()
                 push();
                 textSize( 20 );
                 fill( "black" )
-                text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
+                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -250,8 +250,8 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day survival.", width / 2, height / 2 );
-                ai_last_talk();
+                text( "Press any key to start your next day.", width / 2, height / 2 );
+                ai_last_word();
             }
         }
         if ( ready_for_day2 )
@@ -276,7 +276,7 @@ function draw()
                 push();
                 textSize( 20 );
                 fill( "black" )
-                text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
+                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -285,8 +285,8 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day survival.", width / 2, height / 2 );
-                ai_last_talk();
+                text( "Press any key to start your next day.", width / 2, height / 2 );
+                ai_last_word();
             }
         }
         if ( ready_for_day3 )
@@ -313,7 +313,7 @@ function draw()
                 push();
                 textSize( 20 );
                 fill( "black" )
-                text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
+                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -322,8 +322,8 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day survival.", width / 2, height / 2 );
-                ai_last_talk();
+                text( "Press any key to start your next day.", width / 2, height / 2 );
+                ai_last_word();
             }
         }
         if ( ready_for_day4 )
@@ -348,7 +348,7 @@ function bullet_check()
     }
 }
 
-function ai_last_talk()
+function ai_last_word()
 {
     push();
     fill('black');
@@ -357,10 +357,10 @@ function ai_last_talk()
     text("The wills left before died.",width / 2, 80);
     textSize(10);
     text("--------------------------------------------------------------.",width / 2, 100);
-    if ( ai_1_lastTalk == false ) text( "Logan: Don't let my death go to waste...", width / 2, 110 );
-    if ( ai_2_lastTalk == false ) text( "\n Easton: Please tell my family my death.", width / 2, 130 );
-    if ( ai_3_lastTalk == false ) text( "\n\nAble: I don't want to be a zombie.", width / 2, 150 );
-    if ( ai_4_lastTalk == false ) text( "\n\nHarper: God bless", width / 2, 170 );
+    if ( ai_1_lastTalk == false ) text( "Lyon : Please tell my family my death.", width / 2, 110 );
+    if ( ai_2_lastTalk == false ) text( "\n\nElon : Do not make my death wasted...", width / 2, 130 );
+    if ( ai_3_lastTalk == false ) text( "\n\nAlexander : I respect your decision. God Bless Us...", width / 2, 150 );
+    if ( ai_4_lastTalk == false ) text( "\n\nHudson : NO!! Why me? Go to hell you all!", width / 2, 170 );
     pop();
 }
 
@@ -384,7 +384,7 @@ function pick_and_ban()
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
         {
             circle( ai_1.x, ai_1.y, 10 );
-            text( "My family is waiting. Please save me! \n", ai_1.x + 50, ai_1.y );
+            text( "Lyon : My family is waiting for me. Please save me! \n", ai_1.x + 50, ai_1.y );
             push();
             fill( 'black' );
             text( "\nbullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
@@ -397,7 +397,6 @@ function pick_and_ban()
                 ai_1_survived = false;
                 ai_picked = true;
                 ai_1_lastTalk = false;
-
             }
         }
     }
@@ -407,7 +406,7 @@ function pick_and_ban()
         if ( ai_2.x - 30 < mouseX && mouseX < ai_2.x + 30 && ai_2.y - 30 < mouseY && mouseY < ai_2.y + 30 )
         {
             circle( ai_2.x, ai_2.y, 10 );
-            text( "I am ready to die. I want to save others", ai_2.x + 50, ai_2.y );
+            text( "Elon : I am ready to sacrifice myself. I want to save others", ai_2.x + 50, ai_2.y );
             push();
             fill( 'black' );
             text( "\nbullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
@@ -429,7 +428,7 @@ function pick_and_ban()
         if ( ai_3.x - 30 < mouseX && mouseX < ai_3.x + 30 && ai_3.y - 30 < mouseY && mouseY < ai_3.y + 30 )
         {
             circle( ai_3.x, ai_3.y, 10 );
-            text( "I can kill zombie well.", ai_3.x + 50, ai_3.y );
+            text( "Alexander : You know I can kill zombies better than others. I must be left here!", ai_3.x + 50, ai_3.y );
             push();
             fill( 'black' );
             text( "\nbullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
@@ -451,7 +450,7 @@ function pick_and_ban()
         if ( ai_4.x - 30 < mouseX && mouseX < ai_4.x + 30 && ai_4.y - 30 < mouseY && mouseY < ai_4.y + 30 )
         {
             circle( ai_4.x, ai_4.y, 10 );
-            text( "PLEASE DON'T KILL ME. I am good in programing", ai_4.x + 50, ai_4.y );
+            text( "Hudson : PLEASE DON'T KILL ME!! I just don't wanna die!", ai_4.x + 50, ai_4.y );
             push();
             fill( 'black' );
             text( "\nbullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
