@@ -5,10 +5,10 @@ let game_wall;
 //ai
 let ai;
 let ai_1, ai_2, ai_3, ai_4;
-let ai_1_lastTalk =true;
-let ai_2_lastTalk =true;
-let ai_3_lastTalk =true;
-let ai_4_lastTalk =true;
+let ai_1_lastTalk = true;
+let ai_2_lastTalk = true;
+let ai_3_lastTalk = true;
+let ai_4_lastTalk = true;
 
 //game_mode
 let game_mode;
@@ -65,7 +65,7 @@ let day1_img, day2_img, day3_img, day4_img, day5_img;
 //check AI is picked or not once
 let ai_picked = false;
 
-let check_keyIsPressed= false; 
+let check_keyIsPressed = false;
 
 //This is for ai_bullet 
 let ai_1_isShoot = true;
@@ -136,7 +136,7 @@ function setup()
 
 function draw()
 {
-    
+
     background( 110 );
     //console.log(frameCount)
     //console.log(ready_for_day3)
@@ -146,11 +146,11 @@ function draw()
         main_menu();
     }
 
-    if( game_mode == HOW_TO_PLAY)
+    if ( game_mode == HOW_TO_PLAY )
     {
         howToPlay();
     }
-    if(game_mode == STORY)
+    if ( game_mode == STORY )
     {
         story();
     }
@@ -189,7 +189,7 @@ function draw()
 
         //print the score in canvas.
         push();
-        textSize(13);
+        textSize( 13 );
         text( "your score is " + score + " !", width - 200, 10 );
         pop();
     }
@@ -212,13 +212,17 @@ function draw()
     if ( game_mode == GAME_OVER )
     {
         game_over();
-        
+
     }
 
-    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length + zombies_day1_wave4 + zombies_day1_wave5;
-    let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length + zombies_day2_wave4;
-    let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length + zombies_day3_wave4;
-    let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length + zombies_day4_wave4;
+    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
+        zombies_day1_wave4 + zombies_day1_wave5;
+    let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
+        zombies_day2_wave4;
+    let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
+        zombies_day3_wave4;
+    let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
+        zombies_day4_wave4;
 
     //if there are no zombie on day1 then day2 start!
     if ( zombie_day1_length <= 0 && game_mode != GAME_OVER )
@@ -229,11 +233,11 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false )
+            if ( ai_picked == false )
             {
                 push();
-                textSize(20);
-                fill("black")
+                textSize( 20 );
+                fill( "black" )
                 text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
                 pop();
                 pick_ai();
@@ -242,7 +246,7 @@ function draw()
             else
             {
                 clear();
-                background(110);
+                background( 110 );
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
                 ai_last_talk();
             }
@@ -252,7 +256,7 @@ function draw()
             game_mode = GAME_START;
             day2_fadeout_img();
             zombie_day2_draw();
-            
+
         }
     }
 
@@ -264,11 +268,11 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false )
+            if ( ai_picked == false )
             {
                 push();
-                textSize(20);
-                fill("black")
+                textSize( 20 );
+                fill( "black" )
                 text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
                 pop();
                 pick_ai();
@@ -277,7 +281,7 @@ function draw()
             else
             {
                 clear();
-                background(110);
+                background( 110 );
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
                 ai_last_talk();
             }
@@ -298,11 +302,11 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            if( ai_picked == false && game_mode == INTERMISSION )
+            if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
-                textSize(20);
-                fill("black")
+                textSize( 20 );
+                fill( "black" )
                 text( " We're out of water and food. Sacrifice one for the next stage.", width / 3, height / 2 );
                 pop();
                 pick_ai();
@@ -311,13 +315,13 @@ function draw()
             else
             {
                 clear();
-                background(110);
+                background( 110 );
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
                 ai_last_talk();
             }
         }
         if ( ready_for_day4 )
-        { 
+        {
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
@@ -337,25 +341,27 @@ function bullet_check()
         text( "press r to reload!", 40, height / 2 + 30 )
     }
 }
+
 function ai_last_talk()
 {
-    if(ai_1_lastTalk==false) text('testing ai1',width/2,height/5);
-    if(ai_2_lastTalk==false) text('testing ai2',width/2,height/5);
-    if(ai_3_lastTalk==false) text('testing ai3',width/2,height/5);
-    if(ai_4_lastTalk==false) text('testing ai4',width/2,height/5);
+    if ( ai_1_lastTalk == false ) text( 'testing ai1', width / 2, height / 5 );
+    if ( ai_2_lastTalk == false ) text( 'testing ai2', width / 2, height / 5 );
+    if ( ai_3_lastTalk == false ) text( 'testing ai3', width / 2, height / 5 );
+    if ( ai_4_lastTalk == false ) text( 'testing ai4', width / 2, height / 5 );
+
 }
 
 //draw ai to pick when the game_mode is INTERMISSION
 function pick_ai()
 {
     if ( ai_1_survived ) ai_1.draw();
-    else image(tombstone_img,ai_1.x,ai_1.y);
+    else image( tombstone_img, ai_1.x, ai_1.y );
     if ( ai_2_survived ) ai_2.draw();
-    else image(tombstone_img,ai_2.x,ai_2.y);
+    else image( tombstone_img, ai_2.x, ai_2.y );
     if ( ai_3_survived ) ai_3.draw();
-    else image(tombstone_img,ai_3.x,ai_3.y);
+    else image( tombstone_img, ai_3.x, ai_3.y );
     if ( ai_4_survived ) ai_4.draw();
-    else image(tombstone_img,ai_4.x,ai_4.y);
+    else image( tombstone_img, ai_4.x, ai_4.y );
 }
 
 function pick_and_ban()
@@ -365,19 +371,19 @@ function pick_and_ban()
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
         {
             circle( ai_1.x, ai_1.y, 10 );
-            text("My family is waiting. Please save me! \n",ai_1.x+50, ai_1.y);
+            text( "My family is waiting. Please save me! \n", ai_1.x + 50, ai_1.y );
             push();
-            fill('black');
-            text("\nbullet damage: " + ai_1_damage, ai_1.x+50, ai_1.y);
-            text("\n\nbullet speed: " + ai_1_speed, ai_1.x+50, ai_1.y);
-            text("\n\n\nbullet speed: 12", ai_1.x+50, ai_1.y);
+            fill( 'black' );
+            text( "\nbullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
+            text( "\n\nbullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
+            text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )
             {
                 ai_1_isShoot = false;
                 ai_1_survived = false;
                 ai_picked = true;
-                ai_1_lastTalk =false;
+                ai_1_lastTalk = false;
 
             }
         }
@@ -388,19 +394,19 @@ function pick_and_ban()
         if ( ai_2.x - 30 < mouseX && mouseX < ai_2.x + 30 && ai_2.y - 30 < mouseY && mouseY < ai_2.y + 30 )
         {
             circle( ai_2.x, ai_2.y, 10 );
-            text("I am ready to die. I want to save others",ai_2.x+50, ai_2.y);
+            text( "I am ready to die. I want to save others", ai_2.x + 50, ai_2.y );
             push();
-            fill('black');
-            text("\nbullet damage: " + ai_2_damage, ai_2.x+50, ai_2.y);
-            text("\n\nrate of fire: " + ai_2_speed, ai_2.x+50, ai_2.y);
-            text("\n\n\nbullet speed: 13", ai_2.x+50, ai_2.y);
+            fill( 'black' );
+            text( "\nbullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
+            text( "\n\nrate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
+            text( "\n\n\nbullet speed: 13", ai_2.x + 50, ai_2.y );
             pop();
             if ( mouseIsPressed )
             {
                 ai_2_isShoot = false;
                 ai_2_survived = false;
                 ai_picked = true;
-                ai_2_lastTalk =false;
+                ai_2_lastTalk = false;
             }
         }
     }
@@ -410,19 +416,19 @@ function pick_and_ban()
         if ( ai_3.x - 30 < mouseX && mouseX < ai_3.x + 30 && ai_3.y - 30 < mouseY && mouseY < ai_3.y + 30 )
         {
             circle( ai_3.x, ai_3.y, 10 );
-            text("I can kill zombie well.",ai_3.x+50, ai_3.y);
+            text( "I can kill zombie well.", ai_3.x + 50, ai_3.y );
             push();
-            fill('black');
-            text("\nbullet damage: " + ai_3_damage, ai_3.x+50, ai_3.y);
-            text("\n\nrate of fire: " + ai_3_speed, ai_3.x+50, ai_3.y);
-            text("\n\n\nbullet speed: 40", ai_3.x+50, ai_3.y);
+            fill( 'black' );
+            text( "\nbullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
+            text( "\n\nrate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
+            text( "\n\n\nbullet speed: 40", ai_3.x + 50, ai_3.y );
             pop();
             if ( mouseIsPressed )
             {
                 ai_3_isShoot = false;
                 ai_3_survived = false;
                 ai_picked = true;
-                ai_3_lastTalk =false;
+                ai_3_lastTalk = false;
             }
         }
     }
@@ -432,19 +438,19 @@ function pick_and_ban()
         if ( ai_4.x - 30 < mouseX && mouseX < ai_4.x + 30 && ai_4.y - 30 < mouseY && mouseY < ai_4.y + 30 )
         {
             circle( ai_4.x, ai_4.y, 10 );
-            text("PLEASE DON'T KILL ME. I am good in programing",ai_4.x+50, ai_4.y);
+            text( "PLEASE DON'T KILL ME. I am good in programing", ai_4.x + 50, ai_4.y );
             push();
-            fill('black');
-            text("\nbullet damage: " + ai_4_damage, ai_4.x+50, ai_4.y);
-            text("\n\nrate of fire: " + ai_4_speed, ai_4.x+50, ai_4.y);
-            text("\n\n\nbullet speed: 30", ai_4.x+50, ai_4.y);
+            fill( 'black' );
+            text( "\nbullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
+            text( "\n\nrate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
+            text( "\n\n\nbullet speed: 30", ai_4.x + 50, ai_4.y );
             pop();
             if ( mouseIsPressed )
             {
                 ai_4_isShoot = false;
                 ai_4_survived = false;
                 ai_picked = true;
-                ai_4_lastTalk =false;
+                ai_4_lastTalk = false;
             }
         }
     }
