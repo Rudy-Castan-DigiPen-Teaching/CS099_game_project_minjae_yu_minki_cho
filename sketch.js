@@ -89,7 +89,7 @@ function preload()
     howToPlay_preload();
     credit_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
-    bg = loadImage( 'assets/images/game_background/background.png' );
+    bg = loadImage( 'assets/images/game_background/background-1.png' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
 
 }
