@@ -36,6 +36,8 @@ let hit_sound;
 
 //background
 let bg;
+let bg1;
+let bg2;
 
 //left bullet
 let left_bullet_img;
@@ -89,9 +91,10 @@ function preload()
     howToPlay_preload();
     credit_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
-    bg = loadImage( 'assets/images/game_background/background-1.png' );
+    bg = loadImage( 'assets/images/game_background/background.png' );
+    bg1 = loadImage( 'assets/images/game_background/background-1.png' );
+    bg2 = loadImage( 'assets/images/game_background/background-2.png' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
-
 }
 
 function setup()
@@ -288,9 +291,12 @@ function draw()
         }
         if ( ready_for_day3 )
         {
+            
+            
             game_mode = GAME_START;
             day3_fadeout_img();
             zombie_day3_draw();
+
         }
     }
 
