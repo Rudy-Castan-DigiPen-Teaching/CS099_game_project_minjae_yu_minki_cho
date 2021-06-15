@@ -1,8 +1,17 @@
+let day2_bg_check = false;
+let day3_bg_check = false;
+let day4_bg_check = false;
+
 function preload_characters()
 {
     character_img = loadImage('assets/images/player_and_ai/player(no arms).png')
     character_arm_img = loadImage('assets/images/player_and_ai/arm_and_gun.png')
     gun_recoil = loadImage('assets/images/player_and_ai/gun_recoil.gif')
+
+    bg = loadImage( 'assets/images/game_background/background.png' );
+    bg1 = loadImage( 'assets/images/game_background/background_1.png' );
+    bg2 = loadImage( 'assets/images/game_background/background_2.png' );
+    bg3 = loadImage( 'assets/images/game_background/background_3.png' );
 }
 
 function drawing_lines_characters()//drawing lines and characters
@@ -47,8 +56,3 @@ function drawing_lines_characters()//drawing lines and characters
         }
     }
 }
-
-/*function mouseClicked()
-{
-    gun_recoil.reset();
-}*/

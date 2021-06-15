@@ -91,9 +91,6 @@ function preload()
     howToPlay_preload();
     credit_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
-    bg = loadImage( 'assets/images/game_background/background.png' );
-    //bg1 = loadImage( 'assets/images/game_background/background-1.png' );
-    //bg2 = loadImage( 'assets/images/game_background/background-2.png' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
 }
 
@@ -139,10 +136,18 @@ function setup()
 
 function draw()
 {
-
-    background( 110 );
+    background ( 110 )
     //console.log(frameCount)
-    //console.log(ready_for_day3)
+    //console.log(zombie_day2_length)
+
+    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
+    zombies_day1_wave4 + zombies_day1_wave5;
+    let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
+    zombies_day2_wave4;
+    let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
+    zombies_day3_wave4;
+    let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
+    zombies_day4_wave4;
 
     if ( game_mode == MAIN_MENU )
     {
@@ -170,7 +175,25 @@ function draw()
         ready_for_day1 = true;
 
         imageMode( CORNER );
-        background( bg );
+
+        //change background per day
+        if ( zombie_day1_length != 0)
+        {
+            background ( bg );
+        }
+        else if ( zombie_day2_length != 0 )
+        {
+            background ( bg1 );
+        }
+        else if ( zombie_day3_length != 0 )
+        {
+            background ( bg2 );
+        }
+        else if ( zombie_day4_length != 0 )
+        {
+            background ( bg3 );
+        }
+
         //draw alines and wall of game_background class
         drawing_lines_characters();
         //drawing_wall();
@@ -218,14 +241,14 @@ function draw()
         game_over();
     }
 
-    let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
+    /*let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4 + zombies_day1_wave5;
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
         zombies_day2_wave4;
     let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
         zombies_day3_wave4;
     let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
-        zombies_day4_wave4;
+        zombies_day4_wave4;*/
 
     //if there are no zombie on day1 then day2 start!
     if ( zombie_day1_length <= 0 && game_mode != GAME_OVER )
@@ -259,7 +282,6 @@ function draw()
             game_mode = GAME_START;
             day2_fadeout_img();
             zombie_day2_draw();
-
         }
     }
 
