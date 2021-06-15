@@ -153,6 +153,12 @@ function draw()
     {
         howToPlay();
     }
+
+    if ( game_mode == CREDIT )
+    {
+        credit();
+    }
+
     if ( game_mode == STORY )
     {
         story();
@@ -207,15 +213,9 @@ function draw()
         frameCount = 0;
     }
 
-    if ( game_mode == CREDIT )
-    {
-        credit();
-    }
-
     if ( game_mode == GAME_OVER )
     {
         game_over();
-
     }
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
