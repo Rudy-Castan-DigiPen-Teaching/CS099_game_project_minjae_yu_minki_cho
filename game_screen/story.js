@@ -12,6 +12,7 @@ function story()
         "I pray for your victory.\n\n", 50, text_i );*/
 
     textSize(20)
+    fill('black');
     text( "An unknown disease occurred in 2022.\n\n" +
         "People are infected, changed into zombies.\n\n" +
         "And now you, the ex-military soldier have to survive with other\n\n" +
