@@ -1,30 +1,6 @@
 //This function is for main_menu game start, how to play and credit.
 function keyPressed()
 {
-    // if ( keyCode == ENTER )
-    // {
-    //     //game start at MAIN_MENU
-    //     if( game_mode === MAIN_MENU )
-    //     {
-    //         clear();
-    //         game_mode = GAME_START;
-    //     }
-    //     //game start at CREDIT
-    //     else if ( game_mode === CREDIT )
-    //     {
-    //         clear();
-    //         game_mode = GAME_START;
-    //     }
-    // }
-    // else if ( keyCode === 67 )
-    // {
-    //     //Press C to see credit at MAIN_MENU
-    //     if ( game_mode === MAIN_MENU )
-    //     {
-    //         clear();
-    //         game_mode = CREDIT;
-    //     }
-    // }
 
     if(game_mode===STORY)
     {

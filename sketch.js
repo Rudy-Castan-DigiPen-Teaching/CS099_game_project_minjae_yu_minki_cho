@@ -344,11 +344,18 @@ function bullet_check()
 
 function ai_last_talk()
 {
-    if ( ai_1_lastTalk == false ) text( 'testing ai1', width / 2, height / 5 );
-    if ( ai_2_lastTalk == false ) text( 'testing ai2', width / 2, height / 5 );
-    if ( ai_3_lastTalk == false ) text( 'testing ai3', width / 2, height / 5 );
-    if ( ai_4_lastTalk == false ) text( 'testing ai4', width / 2, height / 5 );
-
+    push();
+    fill('black');
+    stroke(0);
+    textSize(20);
+    text("The wills left before died.",width / 2, 80);
+    textSize(10);
+    text("--------------------------------------------------------------.",width / 2, 100);
+    if ( ai_1_lastTalk == false ) text( "Logan: Don't let my death go to waste...", width / 2, 110 );
+    if ( ai_2_lastTalk == false ) text( "\n Easton: Please tell my family my death.", width / 2, 130 );
+    if ( ai_3_lastTalk == false ) text( "\n\nAble: I don't want to be a zombie.", width / 2, 150 );
+    if ( ai_4_lastTalk == false ) text( "\n\nHarper: God bless", width / 2, 170 );
+    pop();
 }
 
 //draw ai to pick when the game_mode is INTERMISSION
