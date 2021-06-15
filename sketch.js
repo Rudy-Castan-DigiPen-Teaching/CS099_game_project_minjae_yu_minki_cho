@@ -14,6 +14,7 @@ const CREDIT = 2;
 const INTERMISSION = 3;
 const GAME_OVER = 4;
 const HOW_TO_PLAY = 5;
+const STORY = 6;
 
 //bullet_zombie_distance
 let x_dis;
@@ -144,6 +145,10 @@ function draw()
     if( game_mode == HOW_TO_PLAY)
     {
         howToPlay();
+    }
+    if(game_mode == STORY)
+    {
+        story();
     }
 
     if ( game_mode == GAME_START )

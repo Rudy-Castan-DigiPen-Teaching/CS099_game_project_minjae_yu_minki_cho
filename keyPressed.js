@@ -25,6 +25,14 @@ function keyPressed()
     //         game_mode = CREDIT;
     //     }
     // }
+
+    if(game_mode===STORY)
+    {
+        if(keyCode==ENTER)
+        {
+            game_mode=GAME_START;
+        }
+    }
     
         //Press R to reload
         if ( game_mode === GAME_START )

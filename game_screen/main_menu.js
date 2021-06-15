@@ -56,7 +56,7 @@ function main_menu()
             image( menu_focus_img, 600, 80 );
             if ( mouseIsPressed )
             {
-                game_mode = GAME_START;
+                game_mode = STORY;
             }
         }
     }
