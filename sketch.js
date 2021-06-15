@@ -328,9 +328,13 @@ function bullet_check()
 function pick_ai()
 {
     if ( ai_1_survived ) ai_1.draw();
+    else image(tombstone_img,ai_1.x,ai_1.y);
     if ( ai_2_survived ) ai_2.draw();
+    else image(tombstone_img,ai_2.x,ai_2.y);
     if ( ai_3_survived ) ai_3.draw();
+    else image(tombstone_img,ai_3.x,ai_3.y);
     if ( ai_4_survived ) ai_4.draw();
+    else image(tombstone_img,ai_4.x,ai_4.y);
 }
 
 function pick_and_ban()
