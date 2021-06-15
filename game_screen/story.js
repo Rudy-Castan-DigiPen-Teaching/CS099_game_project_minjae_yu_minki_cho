@@ -1,4 +1,4 @@
-let text_i = 500;
+let text_y_pos = 500;
 
 function story()
 {
@@ -11,22 +11,21 @@ function story()
         "But food and water are limited. We have to last four days.\n\n" +
         "I pray for your victory.\n\n", 50, text_i );*/
 
+    textSize(20)
     text( "An unknown disease occurred in 2022.\n\n" +
         "People are infected, changed into zombies.\n\n" +
         "And now you, the ex-military soldier have to survive with other\n\n" +
         "survivors from zombies until a rescue team arrives.\n\n" +
         "However, since lack of supplies, it is forced to choose one\n\n" +
         "survivor per day.\n\n" +
-        "Who do you gonna choose? Their fate is on your hand...\n\n", 70, text_i );
+        "Who do you gonna choose? Their fate is on your hand...\n\n", 70, text_y_pos );
 
-    if ( text_i <= 300 )
-    {
-        text( "press enter to start...", width / 2, height / 2 );
-    }
+    textSize(15)
+    text( 'Press Enter to start the game', width - 250, height/2 )
     pop();
-    text_i--;
-    if ( text_i < -200 )
+    text_y_pos--;
+    if ( text_y_pos < -350 )
     {
-        text_i = 500;
+        text_y_pos = 500;
     }
 }

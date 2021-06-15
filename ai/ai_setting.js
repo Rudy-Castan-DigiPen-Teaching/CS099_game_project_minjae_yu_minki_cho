@@ -29,6 +29,7 @@ function ai_image_preload()
     ai4_img = loadImage('assets/images/player_and_ai/ai_4.png');
     ai4_arm_img = loadImage('assets/images/player_and_ai/ai_4_arm_and_gun.png')
     ai4_gun_recoil_img = loadImage('assets/images/player_and_ai/ai_4_gun_recoil.gif');
+    
     ai_bullet_img = loadImage('assets/images/player_and_ai/ai_bullet.png');
 }
 

@@ -5,10 +5,10 @@ let game_wall;
 //ai
 let ai;
 let ai_1, ai_2, ai_3, ai_4;
-let ai_1_lastTalk = true;
-let ai_2_lastTalk = true;
-let ai_3_lastTalk = true;
-let ai_4_lastTalk = true;
+let ai_1_lastTalk = false;
+let ai_2_lastTalk = false;
+let ai_3_lastTalk = false;
+let ai_4_lastTalk = false;
 
 //game_mode
 let game_mode;
@@ -92,8 +92,8 @@ function preload()
     credit_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     bg = loadImage( 'assets/images/game_background/background.png' );
-    bg1 = loadImage( 'assets/images/game_background/background-1.png' );
-    bg2 = loadImage( 'assets/images/game_background/background-2.png' );
+    //bg1 = loadImage( 'assets/images/game_background/background-1.png' );
+    //bg2 = loadImage( 'assets/images/game_background/background-2.png' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
 }
 
@@ -291,12 +291,9 @@ function draw()
         }
         if ( ready_for_day3 )
         {
-            
-            
             game_mode = GAME_START;
             day3_fadeout_img();
             zombie_day3_draw();
-
         }
     }
 
@@ -357,10 +354,10 @@ function ai_last_word()
     text("The wills left before died.",width / 2, 80);
     textSize(10);
     text("--------------------------------------------------------------.",width / 2, 100);
-    if ( ai_1_lastTalk == false ) text( "Lyon : Please tell my family my death.", width / 2, 110 );
-    if ( ai_2_lastTalk == false ) text( "\n\nElon : Do not make my death wasted...", width / 2, 130 );
-    if ( ai_3_lastTalk == false ) text( "\n\nAlexander : I respect your decision. God Bless Us...", width / 2, 150 );
-    if ( ai_4_lastTalk == false ) text( "\n\nHudson : NO!! Why me? Go to hell you all!", width / 2, 170 );
+    if ( ai_1_lastTalk == true ) text( "Lyon : Please tell my family my death.", width / 2, 110 );
+    if ( ai_2_lastTalk == true ) text( "\n\nElon : Do not make my death wasted...", width / 2, 130 );
+    if ( ai_3_lastTalk == true ) text( "\n\nAlexander : I respect your decision. God Bless Us...", width / 2, 150 );
+    if ( ai_4_lastTalk == true ) text( "\n\nHudson : NO!! Why me? Go to hell you all!", width / 2, 170 );
     pop();
 }
 
@@ -396,7 +393,7 @@ function pick_and_ban()
                 ai_1_isShoot = false;
                 ai_1_survived = false;
                 ai_picked = true;
-                ai_1_lastTalk = false;
+                ai_1_lastTalk = true;
             }
         }
     }
@@ -418,7 +415,7 @@ function pick_and_ban()
                 ai_2_isShoot = false;
                 ai_2_survived = false;
                 ai_picked = true;
-                ai_2_lastTalk = false;
+                ai_2_lastTalk = true;
             }
         }
     }
@@ -440,7 +437,7 @@ function pick_and_ban()
                 ai_3_isShoot = false;
                 ai_3_survived = false;
                 ai_picked = true;
-                ai_3_lastTalk = false;
+                ai_3_lastTalk = true;
             }
         }
     }
@@ -462,7 +459,7 @@ function pick_and_ban()
                 ai_4_isShoot = false;
                 ai_4_survived = false;
                 ai_picked = true;
-                ai_4_lastTalk = false;
+                ai_4_lastTalk = true;
             }
         }
     }

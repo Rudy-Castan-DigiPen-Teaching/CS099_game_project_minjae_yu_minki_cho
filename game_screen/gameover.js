@@ -15,7 +15,7 @@ function game_over()
     ready_for_day5 = false;
     
     clear();
-    background(240);
+    background(50);
     cursor();
     push();
     textFont( new_text_font );

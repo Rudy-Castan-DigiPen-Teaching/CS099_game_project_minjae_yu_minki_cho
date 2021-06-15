@@ -12,14 +12,16 @@ function howToPlay()
 {
     clear();
     push();
-    background( 110 );
+    background( 50 );
+    fill('black');
+    textSize(30);
     text( "You have to stop the zombies.\n" +
         "Move the crosshair by moving the mouse.\n" +
-        "If you right click, the bullet goes out.\n" +
-        "You can reload it with the r button.\n" +
-        "Each day you choose your allies to sacrifice.:\n" +
-        "The game ends when the wall's stamina is zero.\n" +
-        "I pray for your victory.\n", 50, 50 );
+        "If you click the right mouse button, a bullet goes out.\n" +
+        "You can reload by pressing 'R' button.\n" +
+        "Each day you choose one survivor to sacrifice.:\n" +
+        "The game ends when the wall's durability is zero.\n" +
+        "I pray for your survival.\n", 50, 50 );
     imageMode( CORNER );
     image( back_img, width - 80, height - 80 );
     pop();

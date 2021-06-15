@@ -84,6 +84,7 @@ function main_menu()
     pop();
     push();
     textFont( new_text_font );
+    fill('black');
     textSize( 21 );
     //text( 'press enter to start!', 20, 40 );
     //text( '\n\n\n\npress c to see credit!', 20, 40 );
