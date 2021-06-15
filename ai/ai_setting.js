@@ -39,7 +39,7 @@ function ai_bullet_setoff()
     if ( frameCount % int(1000/ai_1_speed) == 1 )
     {
         //ai_bullets = [] this is in sketch.js
-        if(ai_1_isShoot)
+        if(check_ai_1_picked)
         {
             ai_bullet_1.push(new Ai_bullet_1());
             ai_gun_recoil_img.reset();
@@ -49,7 +49,7 @@ function ai_bullet_setoff()
 
     if (frameCount % int(1000/ai_2_speed) == 1 )
     {
-        if(ai_1_isShoot)
+        if(check_ai_2_picked)
         {
             ai_bullet_2.push(new Ai_bullet_2());
             ai2_gun_recoil_img.reset();
@@ -59,7 +59,7 @@ function ai_bullet_setoff()
 
     if (frameCount % int(1000/ai_3_speed) == 1 )
     {
-        if(ai_1_isShoot)
+        if(check_ai_3_picked)
         {
             ai_bullet_3.push(new Ai_bullet_3());
             ai3_gun_recoil_img.reset();
@@ -68,7 +68,7 @@ function ai_bullet_setoff()
     }
     if (frameCount % int(1000/ai_4_speed) == 1 )
     {
-        if(ai_4_isShoot)
+        if(check_ai_4_picked)
         {
             ai_bullet_4.push(new Ai_bullet_4());
             ai4_gun_recoil_img.reset();

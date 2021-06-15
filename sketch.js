@@ -5,10 +5,6 @@ let game_wall;
 //ai
 let ai;
 let ai_1, ai_2, ai_3, ai_4;
-let ai_1_lastTalk =true;
-let ai_2_lastTalk =true;
-let ai_3_lastTalk =true;
-let ai_4_lastTalk =true;
 
 //game_mode
 let game_mode;
@@ -68,10 +64,10 @@ let ai_picked = false;
 let check_keyIsPressed= false; 
 
 //This is for ai_bullet 
-let ai_1_isShoot = true;
-let ai_2_isShoot = true;
-let ai_3_isShoot = true;
-let ai_4_isShoot = true;
+let check_ai_1_picked = true;
+let check_ai_2_picked = true;
+let check_ai_3_picked = true;
+let check_ai_4_picked = true;
 
 //boss stage
 let boss_stage = false;
@@ -124,10 +120,10 @@ function setup()
     ai_2_survived = true;
     ai_3_survived = true;
     ai_4_survived = true;
-    ai_1_isShoot = true;
-    ai_1_isShoot = true;
-    ai_1_isShoot = true;
-    ai_4_isShoot = true;
+    check_ai_1_picked = true;
+    check_ai_2_picked = true;
+    check_ai_3_picked = true;
+    check_ai_4_picked = true;
     life = 255;
     life1 = 255;
     life2 = 255;
@@ -241,10 +237,7 @@ function draw()
             }
             else
             {
-                clear();
-                background(110);
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
-                ai_last_talk();
             }
         }
         if ( ready_for_day2 )
@@ -252,7 +245,6 @@ function draw()
             game_mode = GAME_START;
             day2_fadeout_img();
             zombie_day2_draw();
-            
         }
     }
 
@@ -276,10 +268,7 @@ function draw()
             }
             else
             {
-                clear();
-                background(110);
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
-                ai_last_talk();
             }
         }
         if ( ready_for_day3 )
@@ -310,10 +299,7 @@ function draw()
             }
             else
             {
-                clear();
-                background(110);
                 text( "Press any key to start your next day survival.", width / 2, height / 2 );
-                ai_last_talk();
             }
         }
         if ( ready_for_day4 )
@@ -336,13 +322,6 @@ function bullet_check()
     {
         text( "press r to reload!", 40, height / 2 + 30 )
     }
-}
-function ai_last_talk()
-{
-    if(ai_1_lastTalk==false) text('testing ai1',width/2,height/5);
-    if(ai_2_lastTalk==false) text('testing ai2',width/2,height/5);
-    if(ai_3_lastTalk==false) text('testing ai3',width/2,height/5);
-    if(ai_4_lastTalk==false) text('testing ai4',width/2,height/5);
 }
 
 //draw ai to pick when the game_mode is INTERMISSION
@@ -374,10 +353,9 @@ function pick_and_ban()
             pop();
             if ( mouseIsPressed )
             {
-                ai_1_isShoot = false;
+                check_ai_1_picked = false;
                 ai_1_survived = false;
                 ai_picked = true;
-                ai_1_lastTalk =false;
 
             }
         }
@@ -397,10 +375,9 @@ function pick_and_ban()
             pop();
             if ( mouseIsPressed )
             {
-                ai_2_isShoot = false;
+                check_ai_2_picked = false;
                 ai_2_survived = false;
                 ai_picked = true;
-                ai_2_lastTalk =false;
             }
         }
     }
@@ -419,10 +396,9 @@ function pick_and_ban()
             pop();
             if ( mouseIsPressed )
             {
-                ai_3_isShoot = false;
+                check_ai_3_picked = false;
                 ai_3_survived = false;
                 ai_picked = true;
-                ai_3_lastTalk =false;
             }
         }
     }
@@ -441,10 +417,9 @@ function pick_and_ban()
             pop();
             if ( mouseIsPressed )
             {
-                ai_4_isShoot = false;
+                check_ai_4_picked = false;
                 ai_4_survived = false;
                 ai_picked = true;
-                ai_4_lastTalk =false;
             }
         }
     }
