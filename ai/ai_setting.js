@@ -45,25 +45,37 @@ function ai_bullet_setoff()
             ai_gun_recoil_img.reset();
             ai_bullet_fired = true;
         }
+        else
+        {
+            ai_bullet_1.splice(0,ai_bullet_1.length)
+        }
     }
 
     if (frameCount % int(1000/ai_2_speed) == 1 )
     {
-        if(ai_1_isShoot)
+        if(ai_2_isShoot)
         {
             ai_bullet_2.push(new Ai_bullet_2());
             ai2_gun_recoil_img.reset();
             ai_bullet_fired = true;
         }
+        else
+        {
+            ai_bullet_2.splice(0,ai_bullet_2.length)
+        }
     }
 
     if (frameCount % int(1000/ai_3_speed) == 1 )
     {
-        if(ai_1_isShoot)
+        if(ai_3_isShoot)
         {
             ai_bullet_3.push(new Ai_bullet_3());
             ai3_gun_recoil_img.reset();
             ai_bullet_fired = true;
+        }
+        else
+        {
+            ai_bullet_3.splice(0,ai_bullet_3.length)
         }
     }
     if (frameCount % int(1000/ai_4_speed) == 1 )
@@ -73,6 +85,10 @@ function ai_bullet_setoff()
             ai_bullet_4.push(new Ai_bullet_4());
             ai4_gun_recoil_img.reset();
             ai_bullet_fired = true;
+        }
+        else
+        {
+            ai_bullet_4.splice(0,ai_bullet_4.length)
         }
     }
      
