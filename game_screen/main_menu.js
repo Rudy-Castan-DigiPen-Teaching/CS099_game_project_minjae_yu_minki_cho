@@ -21,9 +21,6 @@ function main_menu()
     background( main_menu_bg );
     image( tombstone_img, 300, 180 );
     image( tombstone_img, 410, 120 );
-    image( tombstone_img, 110, 300 );
-    image( normal_zombie_img, 340, 60 );
-    image( tombstone_img, 410, 450 );
     image( fast_zombie_img, 10, 40 );
     image( tombstone_img, 80, 90 );
     image( tombstone_img, 50, 400 );
@@ -44,6 +41,7 @@ function main_menu()
         x = width + 10;
         x2 = width + 10;
     }
+
     image( menu_img, 600, 80 );
     image( menu_img, 600, 210 );
     image( menu_img, 600, 340 );
@@ -82,6 +80,7 @@ function main_menu()
             }
         }
     }
+
     pop();
     push();
     textFont( new_text_font );
