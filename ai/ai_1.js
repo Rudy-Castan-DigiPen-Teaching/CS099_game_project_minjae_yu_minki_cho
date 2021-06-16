@@ -34,7 +34,7 @@ class Ai_bullet_1
     constructor()
     {
         this.x = 90;
-        this.y = line_size / 2 - 10;
+        this.y = line_size / 2 - 5;
         this.distance = 0;
         this.speed = 12 * ( deltaTime / 1000 );
     }

@@ -8,7 +8,7 @@ let zombies_day1_wave5 = new Array;
 function zombie_day1_setup()
 { 
     //zombies
-    for ( let count1 = 0; count1 < 1; count1++ )
+    for ( let count1 = 0; count1 < 6; count1++ )
     {
         zombies_day1_wave1[ count1 ] = new zombies();
     }
