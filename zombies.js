@@ -37,14 +37,6 @@ class zombies
         this.fat_zombie_hp = 10;
         this.fast_zombie_hp = 2;
 
-        // this.alpha = random( line_size / 2 - 5 - zombie_size, line_size / 2 - 5 + zombie_size );
-        // this.bravo = random( ( ( 1 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 1 * line_size ) +
-        //     line_size / 2 ) - 5 + zombie_size );
-        // this.charlie = random( ( ( 3 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 3 * line_size ) +
-        //     line_size / 2 ) - 5 + zombie_size );
-        // this.delta = random( ( ( 4 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 4 * line_size ) +
-        //     line_size / 2 ) - 5 + zombie_size );
-         
         this.line1 = line_size / 2 - 5 - zombie_line;
         this.line2 = line_size / 2 - 5 + zombie_line;
         this.line3 = ( ( 1 * line_size ) + line_size / 2 ) - 5 - zombie_line;
