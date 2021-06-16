@@ -1,7 +1,7 @@
 let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img, white_zombie_img;
 let zombie_hit_wall_img, blood_img;
-const zombie_size = 28;
+const zombie_size = 32;
 const boss_zombie_size = 100;
 
 let boss_zombie_img, boss_hit_img;
