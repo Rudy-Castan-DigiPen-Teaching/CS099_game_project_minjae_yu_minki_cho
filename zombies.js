@@ -1,7 +1,8 @@
 let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img, white_zombie_img;
 let zombie_hit_wall_img, blood_img;
-const zombie_size = 32;
+const zombie_size = 30;
+const zombie_line = 20;
 const boss_zombie_size = 100;
 
 let boss_zombie_img, boss_hit_img;
@@ -36,15 +37,27 @@ class zombies
         this.fat_zombie_hp = 10;
         this.fast_zombie_hp = 2;
 
+        // this.alpha = random( line_size / 2 - 5 - zombie_size, line_size / 2 - 5 + zombie_size );
+        // this.bravo = random( ( ( 1 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 1 * line_size ) +
+        //     line_size / 2 ) - 5 + zombie_size );
+        // this.charlie = random( ( ( 3 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 3 * line_size ) +
+        //     line_size / 2 ) - 5 + zombie_size );
+        // this.delta = random( ( ( 4 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 4 * line_size ) +
+        //     line_size / 2 ) - 5 + zombie_size );
+         
+        this.line1 = line_size / 2 - 5 - zombie_line;
+        this.line2 = line_size / 2 - 5 + zombie_line;
+        this.line3 = ( ( 1 * line_size ) + line_size / 2 ) - 5 - zombie_line;
+        this.line4 = ( ( 1 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+        this.line5 = ( ( 2 * line_size ) + line_size / 2 ) - 5 - zombie_line;
+        this.line6 = ( ( 2 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+        this.line7 = ( ( 3 * line_size ) + line_size / 2 ) - 5 - zombie_line;
+        this.line8 = ( ( 3 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+        this.line9 = ( ( 4 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+        this.line10= ( ( 4 * line_size ) + line_size / 2 ) - 5 - zombie_line;
+        this.y = 
+         random( [ this.line1, this.line2, this.line3, this.line4, this.line5, this.line6, this.line7, this.line8, this.line9, this.line10 ] ) ;
 
-        this.alpha = random( line_size / 2 - 5 - zombie_size, line_size / 2 - 5 + zombie_size );
-        this.bravo = random( ( ( 1 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 1 * line_size ) +
-            line_size / 2 ) - 5 + zombie_size );
-        this.charlie = random( ( ( 3 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 3 * line_size ) +
-            line_size / 2 ) - 5 + zombie_size );
-        this.delta = random( ( ( 4 * line_size ) + line_size / 2 ) - 5 - zombie_size, ( ( 4 * line_size ) +
-            line_size / 2 ) - 5 + zombie_size );
-        this.y = round( random( [ this.alpha, this.bravo, this.charlie, this.delta ] ) );
 
         this.value = random()
         if ( this.boss_zombie == false )
