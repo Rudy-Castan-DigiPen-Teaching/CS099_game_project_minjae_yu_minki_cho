@@ -206,7 +206,7 @@ function draw()
         //bullet_fire
         bullet_setoff();
         //bullet_fire_delay
-        if ( delay < 60 )
+        if ( delay < delay_time )
         {
             delay++;
         }

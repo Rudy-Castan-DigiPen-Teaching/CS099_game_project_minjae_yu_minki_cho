@@ -1,4 +1,5 @@
-let delay = 60;
+const delay_time = 30;
+let delay = delay_time;
 
 function mousePressed()
 {
@@ -7,7 +8,7 @@ function mousePressed()
         //fire bullets when the mouse position is within the shooting range except player lines
         if ( mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height )
         {
-            if ( player_gun_bullet > 0 &&  delay % 60 == 0 )
+            if ( player_gun_bullet > 0 &&  delay % delay_time == 0 )
             {
                 bullet_fired = true;
                 gun_recoil.reset();
