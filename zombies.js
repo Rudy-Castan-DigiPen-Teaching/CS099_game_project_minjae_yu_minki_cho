@@ -24,7 +24,8 @@ function zombie_image_preload()
 
 class zombies
 {
-    
+    constructor( boss_zombie = false )
+    {
         this.x = width - 20;
         //this.y = round( random( 4 ) ) * line_size + line_size / 2;
 
@@ -75,7 +76,7 @@ class zombies
             this.y = 450;
             this.zombie_hp = 300; //boss_zombie
         }
-}
+    }
 
     update()
     {
