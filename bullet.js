@@ -51,15 +51,3 @@ function bullet_setoff()
         } //if ball goes out of frame, delete the ball from the array.
     }
 }
-
-/*function bullet_delay()
-{
-    if ( delay_check == true && delay > 0 )
-    {
-        delay--;
-    }
-    else if ( delay < 60 )
-    {
-        delay_check = false;
-    }
-}*/

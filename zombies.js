@@ -24,8 +24,7 @@ function zombie_image_preload()
 
 class zombies
 {
-    constructor( boss_zombie = false )
-    {
+    
         this.x = width - 20;
         //this.y = round( random( 4 ) ) * line_size + line_size / 2;
 
@@ -56,21 +55,19 @@ class zombies
          random( [ this.line1, this.line2, this.line3, this.line4, this.line5, this.line6, this.line7, this.line8, this.line9, this.line10 ] ) ;
 
 
-        this.value = random()
-        if ( this.boss_zombie == false )
+        this.value = random();
+
+        if ( this.zombie_type === 0 )
         {
-            if ( this.zombie_type === 0 )
-            {
-                this.zombie_hp = this.normal_zombie_hp; //normal_zombie
-            }
-            else if ( this.zombie_type === 1 )
-            {
-                this.zombie_hp = this.fast_zombie_hp; //fast_zombie
-            }
-            else if ( this.zombie_type === 2 )
-            {
-                this.zombie_hp = this.fat_zombie_hp; //fat_zombie
-            }
+            this.zombie_hp = this.normal_zombie_hp; //normal_zombie
+        }
+        else if ( this.zombie_type === 1 )
+        {
+            this.zombie_hp = this.fast_zombie_hp; //fast_zombie
+        }
+        else if ( this.zombie_type === 2 )
+        {
+            this.zombie_hp = this.fat_zombie_hp; //fat_zombie
         }
         else
         {
@@ -78,7 +75,7 @@ class zombies
             this.y = 450;
             this.zombie_hp = 300; //boss_zombie
         }
-    }
+}
 
     update()
     {
@@ -101,12 +98,12 @@ class zombies
                 this.speed = 50 * ( deltaTime / 1000 );
                 this.draw_fat_zombies();
             }
-        }
         else
         {
             this.speed = 50 * ( deltaTime / 1000 );
             this.draw_fat_zombies();
         }
+    }
 
         //zombie stops at wall
         if ( this.boss_zombie == false )
@@ -150,7 +147,6 @@ class zombies
                 }
             }
         }
-
     }
 
     draw_normal_zombies()

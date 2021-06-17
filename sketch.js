@@ -136,7 +136,7 @@ function draw()
 {
     background ( 110 )
     //console.log(frameCount)
-    console.log(delay)
+    //console.log(zombie_day2_length)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
     zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length + 
@@ -203,7 +203,7 @@ function draw()
         drawing_lines_characters();
         //drawing_wall();
         game_wall.draw();
-        //bullet_fire
+        //ball_fire
         bullet_setoff();
         //bullet_fire_delay
         if ( delay < delay_time )

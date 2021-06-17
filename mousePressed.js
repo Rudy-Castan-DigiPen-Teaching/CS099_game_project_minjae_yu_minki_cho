@@ -17,9 +17,6 @@ function mousePressed()
                 player_gun_bullet--;
                 image(fire_img,150, height / 2);
                 bullet_sound.play();
-
-                //bullet_fire_delay
-                delay = 0;
             }
         }
     }
