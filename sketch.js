@@ -98,7 +98,6 @@ function setup()
 {
     createCanvas( 1000, 500 );
     frameRate( 60 );
-
     //game's default is main_menu
     game_mode = MAIN_MENU;
 
@@ -296,8 +295,9 @@ function draw()
             if ( ai_picked == false )
             {
                 push();
+                
                 textSize( 20 );
-                fill( "black" )
+                fill( "black" );
                 text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();

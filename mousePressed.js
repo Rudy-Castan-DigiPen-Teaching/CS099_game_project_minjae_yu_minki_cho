@@ -1,3 +1,5 @@
+let delay = 60;
+let delay_check = false;
 function mousePressed()
 {
     if ( game_mode == GAME_START )

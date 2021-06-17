@@ -1,9 +1,9 @@
 let ai_bullet_fired = false;
 let ai_bullet_img;
 
-let ai_1_damage = 0.1;
-let ai_2_damage = 0.17;
-let ai_3_damage = 0.3;
+let ai_1_damage = 0.5;
+let ai_2_damage = 0.4;
+let ai_3_damage = 1;
 let ai_4_damage = 0.4;
 
 let ai_1_speed = 60;
