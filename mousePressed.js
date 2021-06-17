@@ -1,5 +1,5 @@
 let delay = 60;
-let delay_check = false;
+
 function mousePressed()
 {
     if ( game_mode == GAME_START )
@@ -7,7 +7,7 @@ function mousePressed()
         //fire bullets when the mouse position is within the shooting range except player lines
         if ( mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height )
         {
-            if ( player_gun_bullet > 0 )
+            if ( player_gun_bullet > 0 &&  delay % 60 == 0 )
             {
                 bullet_fired = true;
                 gun_recoil.reset();
@@ -16,6 +16,9 @@ function mousePressed()
                 player_gun_bullet--;
                 image(fire_img,150, height / 2);
                 bullet_sound.play();
+
+                //bullet_fire_delay
+                delay = 0;
             }
         }
     }
