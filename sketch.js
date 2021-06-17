@@ -76,9 +76,6 @@ let ai_2_isShoot = true;
 let ai_3_isShoot = true;
 let ai_4_isShoot = true;
 
-//boss stage
-let boss_stage = false;
-
 function preload()
 {
     bullet_preload();
