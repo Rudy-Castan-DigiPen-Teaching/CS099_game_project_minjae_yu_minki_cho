@@ -1,4 +1,4 @@
-const delay_time = 30;
+const delay_time = 20;
 let delay = delay_time;
 
 function mousePressed()

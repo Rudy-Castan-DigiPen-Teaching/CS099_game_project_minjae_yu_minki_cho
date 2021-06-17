@@ -13,26 +13,26 @@ let zombies_day3_wave10 = new Array;
 function zombie_day3_setup()
 {
     //zombies
-    for ( let count1 = 0; count1 < 20; count1++ )
+    for ( let count1 = 0; count1 < 5; count1++ )
     {
-        zombies_day3_wave1[ count1 ] = new zombies();
+        zombies_day3_wave1[ count1 ] = new zombies( 1 );
     }
-    // for ( let count2 = 0; count2 < 20; count2++ )
-    // {
-    //     zombies_day3_wave2[ count2 ] = new zombies();
-    // }
-    // for ( let count3 = 0; count3 < 20; count3++ )
-    // {
-    //     zombies_day3_wave3[ count3 ] = new zombies();
-    // }
-    // for ( let count4 = 0; count4 < 20; count4++ )
-    // {
-    //     zombies_day3_wave4[ count4 ] = new zombies();
-    // }
-    // for ( let count5 = 0; count5 < 20; count5++ )
-    // {
-    //     zombies_day3_wave5[ count5 ] = new zombies();
-    // }
+    for ( let count2 = 0; count2 < 5; count2++ )
+    {
+        zombies_day3_wave2[ count2 ] = new zombies( 1 );
+    }
+    for ( let count3 = 0; count3 < 5; count3++ )
+    {
+        zombies_day3_wave3[ count3 ] = new zombies( 1 );
+    }
+    for ( let count4 = 0; count4 < 10; count4++ )
+    {
+        zombies_day3_wave4[ count4 ] = new zombies( 1 );
+    }
+    for ( let count5 = 0; count5 < 15; count5++ )
+    {
+        zombies_day3_wave5[ count5 ] = new zombies( 1 );
+    }
     // for ( let count6 = 0; count6 < 20; count6++ )
     // {
     //     zombies_day3_wave6[ count6 ] = new zombies();
@@ -60,21 +60,21 @@ function zombie_day3_draw()
     //call zombies
     zombie_day_update( zombies_day3_wave1 );
     //if stage1's zombie left 3 then next stage is starting
-    if ( zombies_day3_wave1.length <= 15 )
+    if ( zombies_day3_wave1.length <= 3 )
     {
         zombie_day_update( zombies_day3_wave2 );
     }
     //if stage2's zombies and stage1's zombies left 4 then next stage is starting
-    if ( zombies_day3_wave1.length + zombies_day3_wave2.length <= 15 )
+    if ( zombies_day3_wave1.length + zombies_day3_wave2.length <= 3 )
     {
         zombie_day_update( zombies_day3_wave3 );
     }
-    if ( zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length <= 15 )
+    if ( zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length <= 3 )
     {
         zombie_day_update( zombies_day3_wave4 );
     }
     if ( zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length + zombies_day3_wave4
-        .length <= 15 )
+        .length <= 3 )
     {
         zombie_day_update( zombies_day3_wave5 );
     }
