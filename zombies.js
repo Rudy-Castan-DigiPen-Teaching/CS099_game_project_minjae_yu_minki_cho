@@ -39,14 +39,19 @@ class zombies
 
         this.line1 = line_size / 2 - 5 - zombie_line;
         this.line2 = line_size / 2 - 5 + zombie_line;
+
         this.line3 = ( ( 1 * line_size ) + line_size / 2 ) - 5 - zombie_line;
         this.line4 = ( ( 1 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+
         this.line5 = ( ( 2 * line_size ) + line_size / 2 ) - 5 - zombie_line;
         this.line6 = ( ( 2 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+
         this.line7 = ( ( 3 * line_size ) + line_size / 2 ) - 5 - zombie_line;
         this.line8 = ( ( 3 * line_size ) + line_size / 2 ) - 5 + zombie_line;
+
         this.line9 = ( ( 4 * line_size ) + line_size / 2 ) - 5 + zombie_line;
         this.line10= ( ( 4 * line_size ) + line_size / 2 ) - 5 - zombie_line;
+        
         this.y = 
          random( [ this.line1, this.line2, this.line3, this.line4, this.line5, this.line6, this.line7, this.line8, this.line9, this.line10 ] ) ;
 
