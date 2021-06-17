@@ -55,6 +55,7 @@ let ready_for_day2 = false;
 let ready_for_day3 = false;
 let ready_for_day4 = false;
 let ready_for_day5 = false;
+let ready_for_day6 = false;
 
 //frameCount works when game_mode is GAME_START from 0
 let count_start = false;
@@ -115,7 +116,8 @@ function setup()
     zombie_day2_setup();
     zombie_day3_setup();
     zombie_day4_setup();
-    //zombie_day5_setup();
+    zombie_day5_setup();
+    zombie_final_setup();
 
     player_gun_bullet = 7;
 
@@ -127,10 +129,7 @@ function setup()
     ai_1_isShoot = true;
     ai_1_isShoot = true;
     ai_4_isShoot = true;
-    life = 255;
-    life1 = 255;
-    life2 = 255;
-    life3 = 255;
+
 }
 
 function draw()
@@ -140,13 +139,20 @@ function draw()
     //console.log(zombie_day2_length)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
-    zombies_day1_wave4 + zombies_day1_wave5;
+    zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length + 
+    zombies_day1_wave8.length + zombies_day1_wave9.length + zombies_day1_wave10;
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
-    zombies_day2_wave4;
+    zombies_day2_wave4.length + zombies_day2_wave5.length + zombies_day2_wave6.length + zombies_day2_wave7.length + 
+    zombies_day2_wave8.length + zombies_day2_wave9.length + zombies_day2_wave10.length;
     let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
-    zombies_day3_wave4;
+    zombies_day3_wave4 + zombies_day3_wave5.length + zombies_day3_wave6.length + zombies_day3_wave7.length + 
+    zombies_day3_wave8.length + zombies_day3_wave9.length + zombies_day3_wave10.length;
     let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
-    zombies_day4_wave4;
+    zombies_day4_wave4 + zombies_day4_wave5.length + zombies_day4_wave6.length + zombies_day4_wave7.length + 
+    zombies_day4_wave8.length + zombies_day4_wave9.length + zombies_day4_wave10.length;
+    let zombie_day5_length = zombies_day5_wave1.length + zombies_day5_wave2.length + zombies_day5_wave3.length +
+    zombies_day5_wave4 + zombies_day5_wave5.length + zombies_day5_wave6.length + zombies_day5_wave7.length + 
+    zombies_day5_wave8.length + zombies_day5_wave9.length + zombies_day5_wave10.length;
 
     if ( game_mode == MAIN_MENU )
     {
@@ -350,6 +356,74 @@ function draw()
             game_mode = GAME_START;
             day4_fadeout_img();
             zombie_day4_draw();
+        }
+    }
+
+    if ( zombie_day4_length <= 0 && game_mode != GAME_OVER )
+    {
+        game_mode = INTERMISSION;
+        if ( !ready_for_day5 )
+        {
+            //clear();
+            //game_mode = INTERMISSION;
+            cursor();
+            if ( ai_picked == false && game_mode == INTERMISSION )
+            {
+                push();
+                textSize( 20 );
+                fill( "black" )
+                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
+                pop();
+                pick_ai();
+                pick_and_ban();
+            }
+            else
+            {
+                clear();
+                background( 110 );
+                text( "Press any key to start your next day.", width / 2, height / 2 );
+                ai_last_word();
+            }
+        }
+        if ( ready_for_day5 )
+        {
+            game_mode = GAME_START;
+            day5_fadeout_img();
+            zombie_day5_draw();
+        }
+    }
+    if ( zombie_day5_length <= 0 && game_mode != GAME_OVER )
+    {
+        game_mode = INTERMISSION;
+        if ( !ready_for_day6 )
+        {
+            //clear();
+            //game_mode = INTERMISSION;
+            cursor();
+            if ( ai_picked == false && game_mode == INTERMISSION )
+            {
+                ai_picked = true;
+                push();
+                textSize( 20 );
+                fill( "black" )
+                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
+                pop();
+                pick_ai();
+                pick_and_ban();
+            }
+            else
+            {
+                clear();
+                background( 110 );
+                text( "Press any key to start your next day.", width / 2, height / 2 );
+                ai_last_word();
+            }
+        }
+        if ( ready_for_day6 )
+        {
+            game_mode = GAME_START;
+
+            zombie_final_draw();
         }
     }
 }

@@ -30,6 +30,10 @@ function keyPressed()
             score = 0;
             game_wall.wall_health = 300;
             setup();
+            ai_1_isShoot = true;
+            ai_2_isShoot = true;
+            ai_3_isShoot = true;
+            ai_4_isShoot = true;
             game_mode = MAIN_MENU;
         }
     }
@@ -54,6 +58,20 @@ function keyPressed()
         if ( ai_picked == true && !ready_for_day4 )
         {
             ready_for_day4 = true;
+            ai_picked = false;
+            player_gun_bullet = 7;
+        }
+
+        if ( ai_picked == true && !ready_for_day5 )
+        {
+            ready_for_day5 = true;
+            ai_picked = false;
+            player_gun_bullet = 7;
+        }
+
+        if ( ai_picked == true && !ready_for_day6 )
+        {
+            ready_for_day6 = true;
             ai_picked = false;
             player_gun_bullet = 7;
         }
