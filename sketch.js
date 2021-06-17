@@ -127,13 +127,24 @@ function setup()
     ai_1_isShoot = true;
     ai_4_isShoot = true;
 
+    //ai_damage setup
+    ai_1_damage = round( random( 0.5, 1 ), 1);
+    ai_2_damage = round( random( 0.5, 1 ), 1);
+    ai_3_damage = round( random( 0.5, 1 ), 1);
+    ai_4_damage = round( random( 0.5, 1 ), 1);
+
+    //ai_rate_of_fire
+    ai_1_speed = round( random( 10, 30 ), 1 );
+    ai_2_speed = round( random( 10, 30 ), 1 );
+    ai_3_speed = round( random( 10, 30 ), 1 );
+    ai_4_speed = round( random( 10, 30 ), 1 );
 }
 
 function draw()
 {
     background ( 110 )
     //console.log(frameCount)
-    //console.log(zombie_day2_length)
+    //console.log(delay)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
     zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length + 
@@ -484,7 +495,7 @@ function pick_and_ban()
             fill( 'black' );
             text( "\nbullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
             text( "\n\nbullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
-            text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
+            //text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )
             {
@@ -506,7 +517,7 @@ function pick_and_ban()
             fill( 'black' );
             text( "\nbullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
             text( "\n\nrate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
-            text( "\n\n\nbullet speed: 13", ai_2.x + 50, ai_2.y );
+            //text( "\n\n\nbullet speed: 13", ai_2.x + 50, ai_2.y );
             pop();
             if ( mouseIsPressed )
             {
@@ -528,7 +539,7 @@ function pick_and_ban()
             fill( 'black' );
             text( "\nbullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
             text( "\n\nrate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
-            text( "\n\n\nbullet speed: 40", ai_3.x + 50, ai_3.y );
+            //text( "\n\n\nbullet speed: 40", ai_3.x + 50, ai_3.y );
             pop();
             if ( mouseIsPressed )
             {
@@ -550,7 +561,7 @@ function pick_and_ban()
             fill( 'black' );
             text( "\nbullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
             text( "\n\nrate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
-            text( "\n\n\nbullet speed: 30", ai_4.x + 50, ai_4.y );
+            //text( "\n\n\nbullet speed: 30", ai_4.x + 50, ai_4.y );
             pop();
             if ( mouseIsPressed )
             {

@@ -90,17 +90,17 @@ class zombies
     }
 
     //zombie stops at wall
-        if ( this.x > game_wall.x + zombie_size )
-        {
-            this.x -= this.speed;
-        }
+    if ( this.x > game_wall.x + zombie_size )
+    {
+        this.x -= this.speed;
+    }
     //if zombie is on the wall later we could change into meaning full name.
         if ( this.x <= line_size + zombie_size )
         {
             if ( deltaTime % 1 == 0 )
             {
                 //console.log("zombie hit the wall");
-                game_wall.wall_health -= 500; //originally -= 1
+                game_wall.wall_health -= 0; //originally -= 1
                 fill( 'black' );
                 text( "-1", this.x - 20, this.y );
                 image( zombie_hit_wall_img, game_wall.x, game_wall.y );

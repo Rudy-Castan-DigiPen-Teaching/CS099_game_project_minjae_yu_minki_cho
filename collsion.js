@@ -6,7 +6,7 @@ function zombie_day_update( day_count )
         day_count[ count ].update();
     }
 
-    //bullet_zombie collision
+    //player_bullet_zombie collision
     for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
     {
         for ( let i = 0; i < day_count.length; i++ )
@@ -34,7 +34,6 @@ function zombie_day_update( day_count )
     }
 
     //ai_bullet collision
-
     for ( let ai_bullet_count = 0; ai_bullet_count < ai_bullet_1.length; ai_bullet_count++ )
     {
         for ( let i = 0; i < day_count.length; i++ )

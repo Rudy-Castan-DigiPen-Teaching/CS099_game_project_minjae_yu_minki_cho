@@ -28,7 +28,7 @@ class Bullet
         push();
         imageMode( CENTER );
         translate(this.x, this.y);
-        rotate(Math.atan2( this.dy, this.dx ));
+        rotate( Math.atan2( this.dy, this.dx ));
         image( bullet_img, 0, 0 );
         pop();
        
