@@ -58,7 +58,6 @@ function day4_fadeout_img()
 function day5_fadeout_img()
 {
     push();
-    scale( 3 );
     if ( life4 > 0 ) life4 -= 1;
     tint( 255, life4 );
     image( day5_img, width / 4, 80 );
