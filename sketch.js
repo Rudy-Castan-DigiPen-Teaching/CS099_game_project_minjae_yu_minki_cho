@@ -29,7 +29,7 @@ let distance;
 let score = 0;
 
 //damage
-const gun_damage = 1;
+const gun_damage = 100; //originally 1
 
 //preload hit sound
 let hit_sound;
@@ -303,7 +303,9 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day.", width / 2, height / 2 );
+                textSize ( 30 );
+                textAlign ( CENTER );
+                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 ai_last_word();
             }
         }
@@ -339,7 +341,9 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day.", width / 2, height / 2 );
+                textSize ( 30 );
+                textAlign ( CENTER );
+                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 ai_last_word();
             }
         }
@@ -375,7 +379,9 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day.", width / 2, height / 2 );
+                textSize ( 30 );
+                textAlign ( CENTER );
+                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 ai_last_word();
             }
         }
@@ -411,7 +417,9 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day.", width / 2, height / 2 );
+                textSize ( 30 );
+                textAlign ( CENTER );
+                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 ai_last_word();
             }
         }
@@ -447,7 +455,9 @@ function draw()
             {
                 clear();
                 background( 110 );
-                text( "Press any key to start your next day.", width / 2, height / 2 );
+                textSize ( 30 );
+                textAlign ( CENTER );
+                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 ai_last_word();
             }
         }
@@ -469,23 +479,38 @@ function bullet_check()
     }
     if ( player_gun_bullet == 0 )
     {
-        text( "press r to reload!", 40, height / 2 + 30 )
+        push();
+        textSize ( 10 );
+        textAlign ( CENTER );
+        text( "press r to reload!", 40, height / 2 + 30 );
+        pop();
     }
 }
 
 function ai_last_word()
 {
     push();
-    fill('black');
-    stroke(0);
     textSize(20);
-    text("The wills left before died.",width / 2, 80);
-    textSize(10);
-    text("--------------------------------------------------------------.",width / 2, 100);
-    if ( ai_1_lastTalk == true ) text( "Lyon : Please tell my family my death.", width / 2, 110 );
-    if ( ai_2_lastTalk == true ) text( "\n\nElon : Do not make my death wasted...", width / 2, 130 );
-    if ( ai_3_lastTalk == true ) text( "\n\nAlexander : I respect your decision. God Bless Us...", width / 2, 150 );
-    if ( ai_4_lastTalk == true ) text( "\n\nHudson : NO!! Why me? Go to hell you all!", width / 2, 170 );
+    if ( ai_1_lastTalk == true )
+    {
+        image ( ai_img, 350 - 15, height/2 - 50 );
+        text( "Lyon : Please tell my family my death.", width / 2, 90 );
+    }
+    if ( ai_2_lastTalk == true )
+    {
+        image ( ai2_img, 450 - 15, height/2 - 50 );
+        text( "Elon : Do not make my death wasted...", width / 2, 120 );
+    }
+    if ( ai_3_lastTalk == true )
+    {
+        image ( ai3_img, 550 - 15, height/2 - 50 );
+        text( "Alexander : I respect your decision. God Bless Us...", width / 2, 150 );
+    }
+    if ( ai_4_lastTalk == true )
+    {
+        image ( ai4_img, 650 - 15, height/2 - 50 );
+        text( "Hudson : NO!! Why me? Go to hell you all!", width / 2, 180 );
+    }
     pop();
 }
 
@@ -507,6 +532,7 @@ function pick_ai()
 
 function pick_and_ban()
 {
+    textSize ( 10 );
     if ( ai_1_survived )
     {
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
