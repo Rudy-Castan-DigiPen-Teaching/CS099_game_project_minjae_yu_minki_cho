@@ -287,6 +287,8 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
+            imageMode ( CORNER );
+            background( bg );
             if ( ai_picked == false )
             {
                 push();
@@ -321,10 +323,11 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
+            imageMode ( CORNER );
+            background( bg1 );
             if ( ai_picked == false )
             {
                 push();
-                
                 textSize( 20 );
                 fill( "black" );
                 text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
@@ -356,6 +359,8 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
+            imageMode ( CORNER );
+            background( bg2 );
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
@@ -390,6 +395,8 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
+            imageMode ( CORNER );
+            background( bg2 );
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
@@ -423,6 +430,8 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
+            imageMode ( CORNER );
+            background( bg3 );
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 ai_picked = true;
@@ -483,6 +492,8 @@ function ai_last_word()
 //draw ai to pick when the game_mode is INTERMISSION
 function pick_ai()
 {
+    push();
+    imageMode ( CENTER );
     if ( ai_1_survived ) ai_1.draw();
     else image( tombstone_img, ai_1.x, ai_1.y );
     if ( ai_2_survived ) ai_2.draw();
@@ -491,6 +502,7 @@ function pick_ai()
     else image( tombstone_img, ai_3.x, ai_3.y );
     if ( ai_4_survived ) ai_4.draw();
     else image( tombstone_img, ai_4.x, ai_4.y );
+    pop();
 }
 
 function pick_and_ban()
