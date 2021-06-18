@@ -12,6 +12,7 @@ function preload_characters()
     bg1 = loadImage( 'assets/images/game_background/background_1.png' );
     bg2 = loadImage( 'assets/images/game_background/background_2.png' );
     bg3 = loadImage( 'assets/images/game_background/background_3.png' );
+    bg4 = loadImage( 'assets/images/game_background/background_4.png' );
 }
 
 function drawing_lines_characters()//drawing lines and characters

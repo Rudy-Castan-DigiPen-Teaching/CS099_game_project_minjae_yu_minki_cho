@@ -161,6 +161,8 @@ function draw()
     let zombie_day5_length = zombies_day5_wave1.length + zombies_day5_wave2.length + zombies_day5_wave3.length +
     zombies_day5_wave4 + zombies_day5_wave5.length + zombies_day5_wave6.length + zombies_day5_wave7.length + 
     zombies_day5_wave8.length + zombies_day5_wave9.length + zombies_day5_wave10.length;
+    let zombie_day_final_length = zombies_final_wave1 + zombies_final_wave2 + zombies_final_wave3 + zombies_final_wave4 +
+    zombies_final_wave5 + zombies_final_wave6 + zombies_final_wave7 + zombies_final_wave8 + zombies_final_wave9 + zombies_final_wave10;
 
     if ( game_mode == MAIN_MENU )
     {
@@ -204,7 +206,15 @@ function draw()
         }
         else if ( zombie_day4_length != 0 )
         {
+            background ( bg2 );
+        }
+        else if ( zombie_day5_length != 0 )
+        {
             background ( bg3 );
+        }
+        else if ( zombie_day_final_length != 0 )
+        {
+            background ( bg4 );
         }
 
         //draw alines and wall of game_background class
