@@ -1,37 +1,36 @@
 let black_screen_img;
 
-let alpha = 0;
-let alpha1 = 0
+let screen_transparency = 0;
+let final_day_screen_transparency = 0;
 
 function fadeout_preload()
 {
     black_screen_img = loadImage( 'assets/images/game_background/black_screen.png' );
-
 }
 
 function fadeout()
 {
     push();
-    if ( alpha < 255 ) 
+    if ( screen_transparency < 255 ) 
     {
-        alpha += 2.5;
-        tint( 0, alpha );
+        screen_transparency += 2.5;
+        tint( 0, screen_transparency );
         imageMode( CORNER );
         image( black_screen_img, 0, 0 );
     }
     pop();
 }
 
-function fadeout1()
+function final_day_fadeout()
 {
     push();
-    if ( alpha1 < 255 ) 
+    if ( final_day_screen_transparency < 255 ) 
     {
         fill("white");
         textSize(30);
         text("rescue team will come 30min later... I have to keep fighting!",width/9,height/2);
-        alpha1 += 1;
-        tint( 0, alpha1 );
+        final_day_screen_transparency += 1;
+        tint( 0, final_day_screen_transparency );
         imageMode( CORNER );
         image( black_screen_img, 0, 0 );
     }

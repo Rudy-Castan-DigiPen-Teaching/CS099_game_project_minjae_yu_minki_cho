@@ -1,7 +1,6 @@
 //This function is for main_menu game start, how to play and credit.
 function keyPressed()
 {
-
     if ( game_mode === STORY )
     {
         if ( keyCode == ENTER )
@@ -9,6 +8,7 @@ function keyPressed()
             game_mode = GAME_START;
         }
     }
+    
     if ( game_mode === GAME_OVER)
     {
         if ( keyCode == ENTER )
@@ -16,7 +16,6 @@ function keyPressed()
             text_y_pos2 -= 100;
         }
     }
-
 
     //Press R to reload
     if ( game_mode === GAME_START )

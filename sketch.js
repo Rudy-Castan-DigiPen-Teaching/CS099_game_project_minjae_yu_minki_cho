@@ -140,13 +140,17 @@ function setup()
     ai_2_speed = round( random( 10, 30 ), 1 );
     ai_3_speed = round( random( 10, 30 ), 1 );
     ai_4_speed = round( random( 10, 30 ), 1 );
+
+    //fadeout reset
+    /*screen_transparency = 0;
+    final_day_screen_transparency = 0;*/
 }
 
 function draw()
 {
     background ( 110 );
     //console.log(frameCount)
-    //console.log(delay)
+    console.log(tint_value)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
     zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length + 
@@ -270,6 +274,10 @@ function draw()
     {
         game_over();
     }
+    else
+    {
+        tint_value = 0;
+    }
 
     /*let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4 + zombies_day1_wave5;
@@ -316,8 +324,12 @@ function draw()
         if ( ready_for_day2 )
         {
             game_mode = GAME_START;
-            day2_fadeout_img();
-            zombie_day2_draw();
+            fadeout();
+            if(screen_transparency==255)
+            {
+                day2_fadeout_img();
+                zombie_day2_draw();
+            }
         }
     }
 
@@ -331,6 +343,7 @@ function draw()
             cursor();
             imageMode ( CORNER );
             background( bg1 );
+            //screen_transparency = 0;
             if ( ai_picked == false )
             {
                 push();
@@ -356,8 +369,12 @@ function draw()
         if ( ready_for_day3 )
         {
             game_mode = GAME_START;
-            day3_fadeout_img();
-            zombie_day3_draw();
+            fadeout();
+            if(screen_transparency==255)
+            {
+                day3_fadeout_img();
+                zombie_day3_draw();
+            }
         }
     }
 
@@ -371,6 +388,7 @@ function draw()
             cursor();
             imageMode ( CORNER );
             background( bg2 );
+            screen_transparency = 0;
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
@@ -396,8 +414,12 @@ function draw()
         if ( ready_for_day4 )
         {
             game_mode = GAME_START;
-            day4_fadeout_img();
-            zombie_day4_draw();
+            fadeout();
+            if(screen_transparency==255)
+            {
+                day4_fadeout_img();
+                zombie_day4_draw();
+            }
         }
     }
 
@@ -411,6 +433,7 @@ function draw()
             cursor();
             imageMode ( CORNER );
             background( bg2 );
+            //screen_transparency = 0;
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
@@ -437,10 +460,10 @@ function draw()
         {
             game_mode = GAME_START;
             fadeout();
-            if(alpha==255)
+            if(screen_transparency==255)
             {
-            day5_fadeout_img();
-            zombie_day5_draw();
+                day5_fadeout_img();
+                zombie_day5_draw();
             }
         }
     }
@@ -480,10 +503,10 @@ function draw()
         if ( ready_for_day6 )
         {
             game_mode = GAME_START;
-            fadeout1();
-            if(alpha1==255)
+            final_day_fadeout();
+            if(final_day_screen_transparency==255)
             {
-            zombie_final_draw();
+                zombie_final_draw();
             }
         }
     }
