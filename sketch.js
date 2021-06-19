@@ -88,6 +88,7 @@ function preload()
     game_over_preload();
     howToPlay_preload();
     credit_preload();
+    fadeout_preload();
     hit_sound = loadSound( 'assets/sounds/hit.wav' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
 }
@@ -434,8 +435,12 @@ function draw()
         if ( ready_for_day5 )
         {
             game_mode = GAME_START;
+            fadeout();
+            if(alpha==255)
+            {
             day5_fadeout_img();
             zombie_day5_draw();
+            }
         }
     }
     if ( zombie_day5_length <= 0 && game_mode != GAME_OVER )
@@ -474,8 +479,11 @@ function draw()
         if ( ready_for_day6 )
         {
             game_mode = GAME_START;
-
+            fadeout1();
+            if(alpha1==255)
+            {
             zombie_final_draw();
+            }
         }
     }
 }
