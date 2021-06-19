@@ -47,52 +47,29 @@ function main_menu()
     image( menu_img, 600, 210 );
     image( menu_img, 600, 340 );
 
-
+    //play_button
     if ( mouseX < 950 && mouseX > 600 )
     {
         if ( mouseY < 180 && mouseY > 80 )
         {
             image( menu_focus_img, 600, 80 );
-            if ( mouseIsPressed )
-            {
-                game_mode = STORY;
-            }
         }
     }
+    //how_to_play_button
     if ( mouseX < 950 && mouseX > 600 )
     {
         if ( mouseY < 310 && mouseY > 210 )
         {
             image( menu_focus_img, 600, 210 );
-            if ( mouseIsPressed )
-            {
-                game_mode = HOW_TO_PLAY;
-            }
         }
     }
+    //credit_button
     if ( mouseX < 950 && mouseX > 600 )
     {
         if ( mouseY < 440 && mouseY > 340 )
         {
             image( menu_focus_img, 600, 340 );
-            if ( mouseIsPressed )
-            {
-                game_mode = CREDIT;
-            }
         }
-    }
-
-    if ( game_mode == STORY )
-    {
-        button_sound.play();
-    }
-    else if ( game_mode == HOW_TO_PLAY )
-    {
-        button_sound.play();
-    }
-    else if ( game_mode == CREDIT )
-    {
-        button_sound.play();
     }
 
     pop();

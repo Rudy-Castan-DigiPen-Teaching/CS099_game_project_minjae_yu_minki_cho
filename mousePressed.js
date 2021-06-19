@@ -3,6 +3,49 @@ let delay = delay_time;
 
 function mousePressed()
 {
+    //button_sound
+    if ( game_mode == MAIN_MENU )
+    {
+        if ( mouseX < 950 && mouseX > 600 )
+        {
+            if ( mouseY < 180 && mouseY > 80 )
+            {
+                button_sound.play();
+                game_mode = STORY;
+            }
+        }
+
+        if ( mouseX < 950 && mouseX > 600 )
+        {
+            if ( mouseY < 310 && mouseY > 210 )
+            {
+                button_sound.play();
+                game_mode = HOW_TO_PLAY;
+            }
+        }
+
+        if ( mouseX < 950 && mouseX > 600 )
+        {
+            if ( mouseY < 440 && mouseY > 340 )
+            {
+                button_sound.play();
+                game_mode = CREDIT;
+            }
+        }
+    }
+
+    if ( game_mode == HOW_TO_PLAY || CREDIT )
+    {
+        if ( mouseX < width - 30 && mouseX > width - 80 )
+        {
+            if ( mouseY < height - 30 && mouseY > height - 80 )
+            {
+                button_sound.play();
+                game_mode = MAIN_MENU;
+            }
+        }
+    }
+
     if ( game_mode == GAME_START )
     {
         //fire bullets when the mouse position is within the shooting range except player lines

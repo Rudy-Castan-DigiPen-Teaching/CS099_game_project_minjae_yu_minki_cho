@@ -32,10 +32,6 @@ function howToPlay()
         {
             imageMode( CORNER );
             image( gray_back_img, width - 80, height - 80 );
-            if ( mouseIsPressed )
-            {
-                game_mode = MAIN_MENU;
-            }
         }
     }
     pop();
