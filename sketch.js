@@ -302,10 +302,12 @@ function draw()
             else
             {
                 clear();
+                push();
                 background( 110 );
                 textSize ( 30 );
                 textAlign ( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                pop();
                 ai_last_word();
             }
         }
@@ -340,10 +342,12 @@ function draw()
             else
             {
                 clear();
+                push();
                 background( 110 );
                 textSize ( 30 );
                 textAlign ( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                pop();
                 ai_last_word();
             }
         }
@@ -378,10 +382,12 @@ function draw()
             else
             {
                 clear();
+                push();
                 background( 110 );
                 textSize ( 30 );
                 textAlign ( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                pop();
                 ai_last_word();
             }
         }
@@ -416,10 +422,12 @@ function draw()
             else
             {
                 clear();
+                push();
                 background( 110 );
                 textSize ( 30 );
                 textAlign ( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                pop();
                 ai_last_word();
             }
         }
@@ -454,10 +462,12 @@ function draw()
             else
             {
                 clear();
+                push();
                 background( 110 );
                 textSize ( 30 );
                 textAlign ( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                pop();
                 ai_last_word();
             }
         }
