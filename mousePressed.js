@@ -34,7 +34,7 @@ function mousePressed()
         }
     }
 
-    if ( game_mode == HOW_TO_PLAY || CREDIT )
+    if ( game_mode == HOW_TO_PLAY || game_mode == CREDIT )
     {
         if ( mouseX < width - 30 && mouseX > width - 80 )
         {
