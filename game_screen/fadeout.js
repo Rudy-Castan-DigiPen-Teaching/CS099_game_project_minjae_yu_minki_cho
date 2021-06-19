@@ -14,7 +14,7 @@ function fadeout()
     push();
     if ( alpha < 255 ) 
     {
-        alpha += 3;
+        alpha += 2.5;
         tint( 0, alpha );
         imageMode( CORNER );
         image( black_screen_img, 0, 0 );
@@ -27,7 +27,7 @@ function fadeout1()
     push();
     if ( alpha1 < 255 ) 
     {
-        alpha1 += 3;
+        alpha1 += 2.5;
         tint( 0, alpha1 );
         imageMode( CORNER );
         image( black_screen_img, 0, 0 );
