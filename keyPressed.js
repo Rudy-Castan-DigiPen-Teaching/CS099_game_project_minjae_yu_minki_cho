@@ -8,7 +8,7 @@ function keyPressed()
             game_mode = GAME_START;
         }
     }
-    
+
     if ( game_mode === GAME_OVER)
     {
         if ( keyCode == ENTER )
@@ -24,6 +24,7 @@ function keyPressed()
         {
             if ( player_gun_bullet == 0 )
             {
+                reload_sound.play();
                 player_gun_bullet = 7;
             }
         }
