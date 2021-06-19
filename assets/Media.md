@@ -94,6 +94,35 @@ URL: https://www.bfxr.net/
 
 /*You have full rights to all sounds made with bfxr, and are free to use them for any purposes, commercial or otherwise.*/
 
+    4. 1911_Short_Crack_01.mp3
+    5. 1911_Slide_Racked.mp3
+
+<Link>
+URL: https://www.youtube.com/watch?v=sXqFXucwlnw
+
+<License>
+
+ABOUT
+Thanks for downloading from BlinkFarm. Follow us to hear about future sound effects and stock footage as we release them:
+YouTube: http://goo.gl/go3JS 
+Facebook: http://goo.gl/3dfGh 
+Twitter: http://goo.gl/6hBvP 
+Google+: http://goo.gl/X5bXr 
+LICENSE AGREEMENT
+The Contents (“Contents”), including all files and data contained within the Collection (“Collection”), are proprietary and copyrighted. This copyright is protected under U.S. and International copyright law. James P. McDonough owns and reserves all rights, and grants the following license if the terms are followed.
+
+This is a non-exclusive, non-transferable license agreement. Please read this agreement carefully before using the product. By using these Contents, you are agreeing to the following terms:
+
+Please credit these sounds to "BlinkFarm", and when practical, include a link to www.youtube.com/blinkfarm
+The Contents are royalty free and may be published, broadcasted and distributed through broadcast channels only in completed works, and even for commercial purposes. 
+The Contents must be used and incorporated into your work (for example, you can make a video with the contents and distribute the final video on YouTube). You may NOT: sell, redistribute, incorporate in a separate product or give the contents of this collection to anyone. 
+You may not sell or incorporate your work for distribution on stock footage or sound websites with things like elements, projects files, template, layers, etc. 
+You may not sell, sublicense, loan, give, or transfer any part of the Contents to a third-party, or allow the Contents to be accessed by anyone.
+You must accept the Contents “as is” with no express or implied warranty.
+You agree to indemnify and hold harmless James P. McDonough, BlinkFarm, and associated entities and agents for any and all losses, damages, liabilities, claims, costs or expenses, including attorneys' fees, incurred directly or indirectly in connection with the use of the Contents for any purpose.
+Sound and Music files do not require queue sheets to be submitted for use in a production. These files are royalty free with consideration of the above terms. 
+
+Terms subject to change without notice. 
 
 ---
 
