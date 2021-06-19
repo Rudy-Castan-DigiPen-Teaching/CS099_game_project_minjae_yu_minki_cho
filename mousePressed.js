@@ -21,6 +21,10 @@ function mousePressed()
                 //bullet_fire_delay
                 delay = 0;
             }
+            else if ( player_gun_bullet == 0 )
+            {
+                empty_mag_sound.play();
+            }
         }
     }
 }

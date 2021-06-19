@@ -8,7 +8,8 @@ function bullet_preload()
     bullet_img   = loadImage( 'assets/images/bullet.gif' );
     fire_img     = loadImage( 'assets/images/fire.png');
     bullet_sound = loadSound( 'assets/sounds/1911_Short_Crack_01.mp3' );
-    reload_sound = loadSound( 'assets/sounds/1911_Slide_Racked.mp3')
+    reload_sound = loadSound( 'assets/sounds/1911_Slide_Racked.mp3' );
+    empty_mag_sound = loadSound( 'assets/sounds/1911_Dry_Fire.mp3' );
 }
 
 class Bullet

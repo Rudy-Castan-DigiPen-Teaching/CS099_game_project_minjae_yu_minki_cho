@@ -12,6 +12,7 @@ function font_preload()
     menu_img = loadImage( 'assets/images/game_background/menu.png' );
     menu_focus_img = loadImage( 'assets/images/game_background/menu_focus.png' );
     main_menu_bg = loadImage( 'assets/images/game_background/main_menu_background.png')
+    button_sound = loadSound( 'assets/sounds/button_sound.mp3' );
 }
 
 function main_menu()
@@ -79,6 +80,19 @@ function main_menu()
                 game_mode = CREDIT;
             }
         }
+    }
+
+    if ( game_mode == STORY )
+    {
+        button_sound.play();
+    }
+    else if ( game_mode == HOW_TO_PLAY )
+    {
+        button_sound.play();
+    }
+    else if ( game_mode == CREDIT )
+    {
+        button_sound.play();
     }
 
     pop();
