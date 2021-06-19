@@ -11,7 +11,6 @@ function zombie_image_preload()
     fast_zombie_img     = loadImage( 'assets/images/zombies/zombie_fast.gif' );
     fat_zombie_img      = loadImage( 'assets/images/zombies/zombie_fat.gif' );
     zombie_hit_img      = loadImage( 'assets/images/zombies/zombie_hit.png' );
-    white_zombie_img    = loadImage( 'assets/images/zombies/white_zombie.png' );
     zombie_hit_wall_img = loadImage( 'assets/images/game_background/wall_hit.jpg' );
     blood_img           = loadImage( 'assets/images/blood.png' );
 }

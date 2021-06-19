@@ -20,6 +20,7 @@ const GAME_OVER = 4;
 const HOW_TO_PLAY = 5;
 const STORY = 6;
 
+
 //bullet_zombie_distance
 let x_dis;
 let y_dis;
@@ -143,7 +144,7 @@ function setup()
 
 function draw()
 {
-    background ( 110 )
+    background ( 110 );
     //console.log(frameCount)
     //console.log(delay)
 
