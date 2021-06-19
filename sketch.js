@@ -343,7 +343,7 @@ function draw()
             cursor();
             imageMode ( CORNER );
             background( bg1 );
-            //screen_transparency = 0;
+            screen_transparency = 0;
             if ( ai_picked == false )
             {
                 push();
@@ -433,7 +433,7 @@ function draw()
             cursor();
             imageMode ( CORNER );
             background( bg2 );
-            //screen_transparency = 0;
+            screen_transparency = 0;
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
