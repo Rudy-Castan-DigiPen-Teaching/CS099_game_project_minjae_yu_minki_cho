@@ -96,6 +96,7 @@ URL: https://www.bfxr.net/
 
     4. 1911_Short_Crack_01.mp3
     5. 1911_Slide_Racked.mp3
+    6. 1911_Dry_Fire.mp3
 
 <Link>
 URL: https://www.youtube.com/watch?v=sXqFXucwlnw
@@ -123,6 +124,10 @@ You agree to indemnify and hold harmless James P. McDonough, BlinkFarm, and asso
 Sound and Music files do not require queue sheets to be submitted for use in a production. These files are royalty free with consideration of the above terms. 
 
 Terms subject to change without notice. 
+
+    7. button_sound.mp3
+
+    recorded my tongue sound with a cellphone.
 
 ---
 
