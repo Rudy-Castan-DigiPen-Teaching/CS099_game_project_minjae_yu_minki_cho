@@ -6,7 +6,7 @@ let bullet_fired = false;//check mouse_pressed and bullet is fired
 function bullet_preload()
 {
     bullet_img   = loadImage( 'assets/images/bullet.gif' );
-    bullet_sound = loadSound( 'assets/sounds/shoot.wav' );
+    bullet_sound = loadSound( 'assets/sounds/1911_Short_Crack_01.mp3' );
     fire_img     = loadImage( 'assets/images/fire.png');
 }
 

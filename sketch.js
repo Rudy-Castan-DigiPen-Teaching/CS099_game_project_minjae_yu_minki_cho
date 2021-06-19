@@ -90,7 +90,7 @@ function preload()
     howToPlay_preload();
     credit_preload();
     fadeout_preload();
-    hit_sound = loadSound( 'assets/sounds/hit.wav' );
+    hit_sound = loadSound( 'assets/sounds/hit_2.wav' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
 }
 
