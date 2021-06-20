@@ -39,10 +39,6 @@ function keyPressed()
             score = 0;
             game_wall.wall_health = 300;
             setup();
-            ai_1_isShoot = true;
-            ai_2_isShoot = true;
-            ai_3_isShoot = true;
-            ai_4_isShoot = true;
             game_mode = MAIN_MENU;
             screen_transparency = 0;
             text_y_pos = 500;

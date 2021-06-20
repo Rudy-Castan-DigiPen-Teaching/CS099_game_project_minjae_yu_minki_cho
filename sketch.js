@@ -130,6 +130,13 @@ function setup()
 
     player_gun_bullet = 7;
 
+    ready_for_day1 = false;
+    ready_for_day2 = false;
+    ready_for_day3 = false;
+    ready_for_day4 = false;
+    ready_for_day5 = false;
+    ready_for_day_final = false;
+
     ai_1_survived = true;
     ai_2_survived = true;
     ai_3_survived = true;
@@ -152,15 +159,22 @@ function setup()
     ai_4_speed = round( random( 10, 30 ), 1 );
 
     //fadeout reset
-    /*screen_transparency = 0;
-    final_day_screen_transparency = 0;*/
+    screen_transparency = 0;
+    final_day_screen_transparency = 0;
+    text_transparency = 250;
+    day1_transparency = 255;
+    day2_transparency = 255;
+    day3_transparency = 255;
+    day4_transparency = 255;
+    day5_transparency = 255;
+    text_y_pos2 = 500
 }
 
 function draw()
 {
     background( 110 );
     //console.log(frameCount)
-    //console.log(tint_value)
+    console.log(ready_for_day_final)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +

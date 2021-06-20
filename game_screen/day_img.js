@@ -1,10 +1,9 @@
 //this is for fadeout img.
-let life = 255,
-    life1 = 255,
-    life2 = 255,
-    life3 = 255,
-    life4 = 255,
-    life5 = 255;
+let day1_transparency = 255,
+    day2_transparency = 255,
+    day3_transparency = 255,
+    day4_transparency = 255,
+    day5_transparency = 255
 
 function day_fadeout_img_preload()
 {
@@ -19,8 +18,8 @@ function day1_fadeout_img()
 {
     push();
     scale( 3 );
-    if ( life > 0 ) life -= 1;
-    tint( 255, life );
+    if ( day1_transparency > 0 ) day1_transparency -= 1;
+    tint( 255, day1_transparency );
     image( day1_img, width / 4, 80 );
     pop();
 }
@@ -29,8 +28,8 @@ function day2_fadeout_img()
 {
     push();
     scale( 3 );
-    if ( life1 > 0 ) life1 -= 1;
-    tint( 255, life1 );
+    if ( day2_transparency > 0 ) day2_transparency -= 1;
+    tint( 255, day2_transparency );
     image( day2_img, width / 4, 80 );
     pop();
 }
@@ -39,8 +38,8 @@ function day3_fadeout_img()
 {
     push();
     scale( 3 );
-    if ( life2 > 0 ) life2 -= 1;
-    tint( 255, life2 );
+    if ( day3_transparency > 0 ) day3_transparency -= 1;
+    tint( 255, day3_transparency );
     image( day3_img, width / 4, 80 );
     pop();
 }
@@ -49,8 +48,8 @@ function day4_fadeout_img()
 {
     push();
     scale( 3 );
-    if ( life3 > 0 ) life3 -= 1;
-    tint( 255, life3 );
+    if ( day4_transparency > 0 ) day4_transparency -= 1;
+    tint( 255, day4_transparency );
     image( day4_img, width / 4, 80 );
     pop();
 }
@@ -58,8 +57,8 @@ function day4_fadeout_img()
 function day5_fadeout_img()
 {
     push();
-    if ( life4 > 0 ) life4 -= 1;
-    tint( 255, life4 );
+    if ( day5_transparency > 0 ) day5_transparency -= 1;
+    tint( 255, day5_transparency );
     image( day5_img, width / 4, 80 );
     pop();
 }
