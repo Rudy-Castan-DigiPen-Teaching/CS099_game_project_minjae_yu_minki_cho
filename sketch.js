@@ -266,6 +266,7 @@ function draw()
         bullet_check();
         //print the score in canvas.
         push();
+        fill('black');
         textSize( 12 );
         image(scoreBox_img,width-150, 10);
         text( " Your score is " + score + " !", width - 200, 20 );

@@ -37,6 +37,7 @@ assets/images/game_background
     17. textbox2.png
     18. textbox3.png
     19. textbox4.png
+    20. will.png
 
 assets/images/player_and_ai
 
@@ -55,6 +56,7 @@ assets/images/player_and_ai
     13. ai_4.png
     14. ai_4_arm_and_gun.png
     15. ai_4_gun_recoil.gif
+    16. ai_focus.png
     
 assets/images/zombies
 
