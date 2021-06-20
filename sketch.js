@@ -612,7 +612,6 @@ function pick_and_ban()
     {
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
         {
-            circle( ai_1.x, ai_1.y, 10 );
             fill("white");
             rect(ai_1.x + 50, ai_1.y-10,250,50);
             fill( 'black' );
@@ -640,7 +639,6 @@ function pick_and_ban()
     {
         if ( ai_2.x - 30 < mouseX && mouseX < ai_2.x + 30 && ai_2.y - 30 < mouseY && mouseY < ai_2.y + 30 )
         {
-            circle( ai_2.x, ai_2.y, 10 );
             fill("white");
             rect(ai_2.x + 50, ai_2.y-10,280,50);
             fill( 'black' );
@@ -669,8 +667,6 @@ function pick_and_ban()
         if ( ai_3.x - 30 < mouseX && mouseX < ai_3.x + 30 && ai_3.y - 30 < mouseY && mouseY < ai_3.y + 30 )
         {
 
-            
-            circle( ai_3.x, ai_3.y, 10 );
             fill("white");
             rect(ai_3.x + 50, ai_3.y-10,380,50);
             fill( 'black' );
@@ -699,7 +695,6 @@ function pick_and_ban()
     {
         if ( ai_4.x - 30 < mouseX && mouseX < ai_4.x + 30 && ai_4.y - 30 < mouseY && mouseY < ai_4.y + 30 )
         {
-            circle( ai_4.x, ai_4.y, 10 );
             fill("white");
             rect(ai_4.x + 50, ai_4.y-10,280,50);
             fill( 'black' );
