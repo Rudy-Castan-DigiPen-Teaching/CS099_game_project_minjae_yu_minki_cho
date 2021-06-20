@@ -36,8 +36,6 @@ function game_over()
 
 function game_ending()
 {
-
-
     clear();
     background( 50 );
     cursor();
@@ -65,7 +63,6 @@ function game_ending()
                 ai_3_isShoot = true;
                 ai_4_isShoot = true;
                 game_mode = MAIN_MENU;
-           
         }
     }
 }
