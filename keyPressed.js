@@ -78,9 +78,9 @@ function keyPressed()
             player_gun_bullet = 7;
         }
 
-        if ( ai_picked == true && !ready_for_day6 )
+        if ( ai_picked == true && !ready_for_day_final )
         {
-            ready_for_day6 = true;
+            ready_for_day_final = true;
             ai_picked = false;
             player_gun_bullet = 7;
         }

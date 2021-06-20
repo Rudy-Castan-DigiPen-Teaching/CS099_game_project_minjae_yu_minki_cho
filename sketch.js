@@ -55,7 +55,7 @@ let ready_for_day2 = false;
 let ready_for_day3 = false;
 let ready_for_day4 = false;
 let ready_for_day5 = false;
-let ready_for_day6 = false;
+let ready_for_day_final = false;
 
 //frameCount works when game_mode is GAME_START from 0
 let count_start = false;
@@ -271,15 +271,18 @@ function draw()
 
     if ( game_mode == GAME_OVER )
     {
-        game_over();
+        if ( !ready_for_day_final )
+        {
+            game_over();
+        }
+        else
+        {
+            game_ending();
+        }
     }
     else
     {
         tint_value = 0;
-    }
-    if(game_mode == ENDING)
-    {
-        game_ending();
     }
 
     /*let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
@@ -473,7 +476,7 @@ function draw()
     if ( zombie_day5_length <= 0 && game_mode != GAME_OVER )
     {
         game_mode = INTERMISSION;
-        if ( !ready_for_day6 )
+        if ( !ready_for_day_final )
         {
             //clear();
             //game_mode = INTERMISSION;
@@ -503,7 +506,7 @@ function draw()
                 ai_last_word();
             }
         }
-        if ( ready_for_day6 )
+        if ( ready_for_day_final )
         {
             game_mode = GAME_START;
             final_day_fadeout();
