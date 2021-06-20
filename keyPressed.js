@@ -6,6 +6,7 @@ function keyPressed()
         if ( keyCode == ENTER )
         {
             game_mode = GAME_START;
+            
         }
     }
 
@@ -44,6 +45,7 @@ function keyPressed()
             ai_4_isShoot = true;
             game_mode = MAIN_MENU;
             screen_transparency = 0;
+            text_y_pos = 500;
         }
 
     }

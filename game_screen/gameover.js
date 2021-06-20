@@ -43,10 +43,12 @@ function game_ending()
     if ( screen_transparency == 255 )
     {
         push();
-        textSize( 20 )
+        textSize( 20 );
         fill( 'black' );
         text( "Suddenly a lot of zombies appeared before the rescue team arrived.\n\n" +
             "I fought the zombies hard, but the numbers were too high.\n\n" +
+            "I there are no ammo left...\n\n" +
+            "no... no!!! \n\n" +
             "In the end, all the teams died.\n\n", 70, text_y_pos2 );
         text_y_pos2--;
         pop();
@@ -54,8 +56,9 @@ function game_ending()
         {
             push();
             textSize( 25 );
-            text( 'press R to restart!', 20, 40 );
-            text( 'your score is      ', 20, 440 );
+            textFont( new_text_font );
+            text( 'Press R to restart!', 20, 40 );
+            text( ' Your score is      ', 20, 440 );
             textSize( 40 );
             fill( 'black' );
             text( score, 200, 440 );

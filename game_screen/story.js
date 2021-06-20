@@ -11,7 +11,8 @@ function story()
         "But food and water are limited. We have to last four days.\n\n" +
         "I pray for your victory.\n\n", 50, text_i );*/
 
-    textSize(20)
+    textSize(20);
+    textFont( new_text_font );
     fill('black');
     text( "An unknown disease occurred in 2022.\n\n" +
         "People are infected, changed into zombies.\n\n" +
@@ -21,12 +22,21 @@ function story()
         "survivor per day.\n\n" +
         "Who do you gonna choose? Their fate is on your hand...\n\n", 70, text_y_pos );
 
-    textSize(15)
-    text( 'Press Enter to start the game', width - 250, height/2 );
+    
+    textSize(15);
+    text( 'Press Enter to skip the story..', width - 250, height-30 );
     pop();
     text_y_pos--;
     if ( text_y_pos < -350 )
     {
         text_y_pos = 500;
+    }
+    if(text_y_pos < -100)
+    {
+        fadeout();
+        if ( screen_transparency == 255 )
+        {
+            game_mode = GAME_START;
+        }
     }
 }

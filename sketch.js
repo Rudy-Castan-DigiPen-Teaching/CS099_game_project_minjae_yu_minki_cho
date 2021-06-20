@@ -76,6 +76,11 @@ let ai_2_isShoot = true;
 let ai_3_isShoot = true;
 let ai_4_isShoot = true;
 
+//text_box image
+let textBox_img, textBox2_img, textBox3_img, textBox4_img;
+
+let scoreBox_img;
+
 function preload()
 {
     bullet_preload();
@@ -91,6 +96,11 @@ function preload()
     fadeout_preload();
     hit_sound = loadSound( 'assets/sounds/hit_2.wav' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
+    textBox_img = loadImage( 'assets/images/game_background/textbox.png' );
+    textBox2_img = loadImage( 'assets/images/game_background/textbox2.png' );
+    textBox3_img = loadImage( 'assets/images/game_background/textbox3.png' );
+    scoreBox_img = loadImage( 'assets/images/game_background/scorebox.png' );
+    textBox4_img = loadImage( 'assets/images/game_background/textbox4.png' );
 }
 
 function setup()
@@ -129,10 +139,10 @@ function setup()
     ai_4_isShoot = true;
 
     //ai_damage setup
-    ai_1_damage = round( random( 0.5, 1 ), 1);
-    ai_2_damage = round( random( 0.5, 1 ), 1);
-    ai_3_damage = round( random( 0.5, 1 ), 1);
-    ai_4_damage = round( random( 0.5, 1 ), 1);
+    ai_1_damage = round( random( 0.5, 1 ), 1 );
+    ai_2_damage = round( random( 0.5, 1 ), 1 );
+    ai_3_damage = round( random( 0.5, 1 ), 1 );
+    ai_4_damage = round( random( 0.5, 1 ), 1 );
 
     //ai_rate_of_fire
     ai_1_speed = round( random( 10, 30 ), 1 );
@@ -147,27 +157,29 @@ function setup()
 
 function draw()
 {
-    background ( 110 );
+    background( 110 );
     //console.log(frameCount)
     //console.log(tint_value)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
-    zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length + 
-    zombies_day1_wave8.length + zombies_day1_wave9.length + zombies_day1_wave10;
+        zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +
+        zombies_day1_wave8.length + zombies_day1_wave9.length + zombies_day1_wave10;
     let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
-    zombies_day2_wave4.length + zombies_day2_wave5.length + zombies_day2_wave6.length + zombies_day2_wave7.length + 
-    zombies_day2_wave8.length + zombies_day2_wave9.length + zombies_day2_wave10.length;
+        zombies_day2_wave4.length + zombies_day2_wave5.length + zombies_day2_wave6.length + zombies_day2_wave7.length +
+        zombies_day2_wave8.length + zombies_day2_wave9.length + zombies_day2_wave10.length;
     let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
-    zombies_day3_wave4 + zombies_day3_wave5.length + zombies_day3_wave6.length + zombies_day3_wave7.length + 
-    zombies_day3_wave8.length + zombies_day3_wave9.length + zombies_day3_wave10.length;
+        zombies_day3_wave4 + zombies_day3_wave5.length + zombies_day3_wave6.length + zombies_day3_wave7.length +
+        zombies_day3_wave8.length + zombies_day3_wave9.length + zombies_day3_wave10.length;
     let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
-    zombies_day4_wave4 + zombies_day4_wave5.length + zombies_day4_wave6.length + zombies_day4_wave7.length + 
-    zombies_day4_wave8.length + zombies_day4_wave9.length + zombies_day4_wave10.length;
+        zombies_day4_wave4 + zombies_day4_wave5.length + zombies_day4_wave6.length + zombies_day4_wave7.length +
+        zombies_day4_wave8.length + zombies_day4_wave9.length + zombies_day4_wave10.length;
     let zombie_day5_length = zombies_day5_wave1.length + zombies_day5_wave2.length + zombies_day5_wave3.length +
-    zombies_day5_wave4 + zombies_day5_wave5.length + zombies_day5_wave6.length + zombies_day5_wave7.length + 
-    zombies_day5_wave8.length + zombies_day5_wave9.length + zombies_day5_wave10.length;
-    let zombie_day_final_length = zombies_final_wave1 + zombies_final_wave2 + zombies_final_wave3 + zombies_final_wave4 +
-    zombies_final_wave5 + zombies_final_wave6 + zombies_final_wave7 + zombies_final_wave8 + zombies_final_wave9 + zombies_final_wave10;
+        zombies_day5_wave4 + zombies_day5_wave5.length + zombies_day5_wave6.length + zombies_day5_wave7.length +
+        zombies_day5_wave8.length + zombies_day5_wave9.length + zombies_day5_wave10.length;
+    let zombie_day_final_length = zombies_final_wave1 + zombies_final_wave2 + zombies_final_wave3 +
+        zombies_final_wave4 +
+        zombies_final_wave5 + zombies_final_wave6 + zombies_final_wave7 + zombies_final_wave8 + zombies_final_wave9 +
+        zombies_final_wave10;
 
     if ( game_mode == MAIN_MENU )
     {
@@ -197,29 +209,29 @@ function draw()
         imageMode( CORNER );
 
         //change background per day
-        if ( zombie_day1_length != 0)
+        if ( zombie_day1_length != 0 )
         {
-            background ( bg );
+            background( bg );
         }
         else if ( zombie_day2_length != 0 )
         {
-            background ( bg1 );
+            background( bg1 );
         }
         else if ( zombie_day3_length != 0 )
         {
-            background ( bg2 );
+            background( bg2 );
         }
         else if ( zombie_day4_length != 0 )
         {
-            background ( bg2 );
+            background( bg2 );
         }
         else if ( zombie_day5_length != 0 )
         {
-            background ( bg3 );
+            background( bg3 );
         }
         else if ( zombie_day_final_length != 0 )
         {
-            background ( bg4 );
+            background( bg4 );
         }
 
         //draw alines and wall of game_background class
@@ -243,20 +255,20 @@ function draw()
         ai_3.draw();
         ai_4.draw();
 
+  
+        zombie_day1_draw();
+        ai_bullet_setoff();
+        bullet_check();
+        //print the score in canvas.
+        push();
+        textSize( 12 );
+        image(scoreBox_img,width-150, 10);
+        text( " Your score is " + score + " !", width - 200, 20 );
+        pop();
         if ( zombies_day1_wave1 != 0 )
         {
             day1_fadeout_img();
         }
-
-        zombie_day1_draw();
-        ai_bullet_setoff();
-        bullet_check();
-
-        //print the score in canvas.
-        push();
-        textSize( 13 );
-        text( "your score is " + score + " !", width - 200, 10 );
-        pop();
     }
     else
     {
@@ -303,14 +315,16 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            imageMode ( CORNER );
+            imageMode( CORNER );
             background( bg );
+            screen_transparency = 0;
             if ( ai_picked == false )
             {
                 push();
+                image(textBox4_img, width / 3-5, height / 2 - 70);
                 textSize( 20 );
                 fill( "black" )
-                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
+                text( " Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2);
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -320,8 +334,8 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize ( 30 );
-                textAlign ( CENTER );
+                textSize( 30 );
+                textAlign( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
@@ -331,7 +345,7 @@ function draw()
         {
             game_mode = GAME_START;
             fadeout();
-            if(screen_transparency==255)
+            if ( screen_transparency == 255 )
             {
                 day2_fadeout_img();
                 zombie_day2_draw();
@@ -347,15 +361,16 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            imageMode ( CORNER );
+            imageMode( CORNER );
             background( bg1 );
             screen_transparency = 0;
             if ( ai_picked == false )
             {
                 push();
+                image(textBox4_img, width / 3-5, height / 2 - 70);
                 textSize( 20 );
                 fill( "black" );
-                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
+                text( " Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -365,8 +380,8 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize ( 30 );
-                textAlign ( CENTER );
+                textSize( 30 );
+                textAlign( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
@@ -376,7 +391,7 @@ function draw()
         {
             game_mode = GAME_START;
             fadeout();
-            if(screen_transparency==255)
+            if ( screen_transparency == 255 )
             {
                 day3_fadeout_img();
                 zombie_day3_draw();
@@ -392,15 +407,16 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            imageMode ( CORNER );
+            imageMode( CORNER );
             background( bg2 );
             screen_transparency = 0;
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
+                image(textBox4_img, width / 3-5, height / 2 - 70);
                 textSize( 20 );
                 fill( "black" )
-                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
+                text( " Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -410,8 +426,8 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize ( 30 );
-                textAlign ( CENTER );
+                textSize( 30 );
+                textAlign( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
@@ -421,7 +437,7 @@ function draw()
         {
             game_mode = GAME_START;
             fadeout();
-            if(screen_transparency==255)
+            if ( screen_transparency == 255 )
             {
                 day4_fadeout_img();
                 zombie_day4_draw();
@@ -437,15 +453,16 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            imageMode ( CORNER );
+            imageMode( CORNER );
             background( bg2 );
             screen_transparency = 0;
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
                 push();
+                image(textBox4_img, width / 3-5, height / 2 - 70);
                 textSize( 20 );
                 fill( "black" )
-                text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
+                text( " Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
                 pop();
                 pick_ai();
                 pick_and_ban();
@@ -455,8 +472,8 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize ( 30 );
-                textAlign ( CENTER );
+                textSize( 30 );
+                textAlign( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
@@ -466,7 +483,7 @@ function draw()
         {
             game_mode = GAME_START;
             fadeout();
-            if(screen_transparency==255)
+            if ( screen_transparency == 255 )
             {
                 day5_fadeout_img();
                 zombie_day5_draw();
@@ -481,12 +498,14 @@ function draw()
             //clear();
             //game_mode = INTERMISSION;
             cursor();
-            imageMode ( CORNER );
+            imageMode( CORNER );
             background( bg3 );
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
+                
                 ai_picked = true;
                 push();
+                image(textBox4_img, width / 3-5, height / 2 - 70);
                 textSize( 20 );
                 fill( "black" )
                 text( "Choose one survivor to sacrifice to survive your next day.", width / 3, height / 2 );
@@ -499,8 +518,8 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize ( 30 );
-                textAlign ( CENTER );
+                textSize( 30 );
+                textAlign( CENTER );
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
@@ -510,7 +529,7 @@ function draw()
         {
             game_mode = GAME_START;
             final_day_fadeout();
-            if(final_day_screen_transparency==255)
+            if ( final_day_screen_transparency == 255 )
             {
                 zombie_final_draw();
             }
@@ -528,8 +547,8 @@ function bullet_check()
     if ( player_gun_bullet == 0 )
     {
         push();
-        textSize ( 10 );
-        textAlign ( CENTER );
+        textSize( 10 );
+        textAlign( CENTER );
         text( "press r to reload!", 40, height / 2 + 30 );
         pop();
     }
@@ -538,25 +557,25 @@ function bullet_check()
 function ai_last_word()
 {
     push();
-    textSize(20);
+    textSize( 20 );
     if ( ai_1_lastTalk == true )
     {
-        image ( ai_img, 350 - 15, height/2 - 50 );
+        image( ai_img, 350 - 15, height / 2 - 50 );
         text( "Lyon : Please tell my family my death.", width / 2, 90 );
     }
     if ( ai_2_lastTalk == true )
     {
-        image ( ai2_img, 450 - 15, height/2 - 50 );
+        image( ai2_img, 450 - 15, height / 2 - 50 );
         text( "Elon : Do not make my death wasted...", width / 2, 120 );
     }
     if ( ai_3_lastTalk == true )
     {
-        image ( ai3_img, 550 - 15, height/2 - 50 );
+        image( ai3_img, 550 - 15, height / 2 - 50 );
         text( "Alexander : I respect your decision. God Bless Us...", width / 2, 150 );
     }
     if ( ai_4_lastTalk == true )
     {
-        image ( ai4_img, 650 - 15, height/2 - 50 );
+        image( ai4_img, 650 - 15, height / 2 - 50 );
         text( "Hudson : NO!! Why me? Go to hell you all!", width / 2, 180 );
     }
     pop();
@@ -566,7 +585,7 @@ function ai_last_word()
 function pick_ai()
 {
     push();
-    imageMode ( CENTER );
+    imageMode( CENTER );
     if ( ai_1_survived ) ai_1.draw();
     else image( tombstone_img, ai_1.x, ai_1.y );
     if ( ai_2_survived ) ai_2.draw();
@@ -580,12 +599,13 @@ function pick_ai()
 
 function pick_and_ban()
 {
-    textSize ( 10 );
+    textSize( 10 );
     if ( ai_1_survived )
     {
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
         {
             circle( ai_1.x, ai_1.y, 10 );
+            image( textBox_img, ai_1.x, ai_1.y - 35 );
             text( "Lyon : My family is waiting for me. Please save me! \n", ai_1.x + 50, ai_1.y );
             push();
             fill( 'black' );
@@ -608,6 +628,7 @@ function pick_and_ban()
         if ( ai_2.x - 30 < mouseX && mouseX < ai_2.x + 30 && ai_2.y - 30 < mouseY && mouseY < ai_2.y + 30 )
         {
             circle( ai_2.x, ai_2.y, 10 );
+            image( textBox3_img, ai_2.x, ai_2.y - 35 );
             text( "Elon : I am ready to sacrifice myself. I want to save others", ai_2.x + 50, ai_2.y );
             push();
             fill( 'black' );
@@ -630,7 +651,9 @@ function pick_and_ban()
         if ( ai_3.x - 30 < mouseX && mouseX < ai_3.x + 30 && ai_3.y - 30 < mouseY && mouseY < ai_3.y + 30 )
         {
             circle( ai_3.x, ai_3.y, 10 );
-            text( "Alexander : You know I can kill zombies better than others. I must be left here!", ai_3.x + 50, ai_3.y );
+            image( textBox2_img, ai_3.x, ai_3.y - 35 );
+            text( "Alexander : You know I can kill zombies better than others. I must be left here!", ai_3.x + 50, ai_3
+                .y );
             push();
             fill( 'black' );
             text( "\nbullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
@@ -652,6 +675,7 @@ function pick_and_ban()
         if ( ai_4.x - 30 < mouseX && mouseX < ai_4.x + 30 && ai_4.y - 30 < mouseY && mouseY < ai_4.y + 30 )
         {
             circle( ai_4.x, ai_4.y, 10 );
+            image( textBox3_img, ai_4.x, ai_4.y - 35 );
             text( "Hudson : PLEASE DON'T KILL ME!! I just don't wanna die!", ai_4.x + 50, ai_4.y );
             push();
             fill( 'black' );

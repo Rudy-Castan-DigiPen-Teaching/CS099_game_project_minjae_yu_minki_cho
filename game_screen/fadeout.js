@@ -2,6 +2,7 @@ let black_screen_img;
 
 let screen_transparency = 0;
 let final_day_screen_transparency = 0;
+let text_decorative = 250;
 
 function fadeout_preload()
 {
@@ -11,7 +12,7 @@ function fadeout_preload()
 function fadeout()
 {
     push();
-    if ( screen_transparency < 255 ) 
+    if ( screen_transparency < 255 )
     {
         screen_transparency += 2.5;
         tint( 0, screen_transparency );
@@ -24,12 +25,13 @@ function fadeout()
 function final_day_fadeout()
 {
     push();
-    if ( final_day_screen_transparency < 255 ) 
+    if ( final_day_screen_transparency < 255 )
     {
-        fill("white");
-        textSize(30);
-        text("rescue team will come 30min later... I have to keep fighting!",width/9,height/2);
-        final_day_screen_transparency += 1;
+        fill( "white" );
+        textSize( 30 );
+        text( "Rescue team will come 30min later... I have to keep fighting!", width / 9 + 10, text_decorative );
+        final_day_screen_transparency += 2.5;
+        text_decorative++;
         tint( 0, final_day_screen_transparency );
         imageMode( CORNER );
         image( black_screen_img, 0, 0 );
