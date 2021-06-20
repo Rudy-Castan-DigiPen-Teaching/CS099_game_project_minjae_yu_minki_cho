@@ -17,6 +17,7 @@ function font_preload()
 
 function main_menu()
 {
+    screen_transparency = 0;
     push();
     imageMode( CORNER )
     background( main_menu_bg );
