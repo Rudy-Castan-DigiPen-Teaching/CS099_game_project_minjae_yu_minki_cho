@@ -43,6 +43,7 @@ function keyPressed()
             ai_3_isShoot = true;
             ai_4_isShoot = true;
             game_mode = MAIN_MENU;
+            screen_transparency = 0;
         }
 
     }

@@ -15,7 +15,7 @@ function game_over()
     ready_for_day3 = false;
     ready_for_day4 = false;
     ready_for_day5 = false;
-
+    push();
     clear();
     background( 50 );
     cursor();
@@ -27,7 +27,7 @@ function game_over()
     fill( 'black' );
     text( score, 200, 440 );
     imageMode( CORNER )
-    push();
+    
     if ( tint_value < 255 ) tint_value += 1;
     tint( 255, tint_value );
     image( game_over_img, 100, 100 );
@@ -50,19 +50,21 @@ function game_ending()
             "In the end, all the teams died.\n\n", 70, text_y_pos2 );
         text_y_pos2--;
         pop();
-        if ( text_y_pos2 < 50 )
+        if ( text_y_pos2 < 150 )
         {
-            screen_transparency = 0;
-            
-                clear();
-                score = 0;
-                game_wall.wall_health = 300;
-                setup();
-                ai_1_isShoot = true;
-                ai_2_isShoot = true;
-                ai_3_isShoot = true;
-                ai_4_isShoot = true;
-                game_mode = MAIN_MENU;
+            push();
+            textSize( 25 );
+            text( 'press R to restart!', 20, 40 );
+            text( 'your score is      ', 20, 440 );
+            textSize( 40 );
+            fill( 'black' );
+            text( score, 200, 440 );
+            imageMode( CORNER );
+            if ( tint_value < 255 ) tint_value += 1;
+            tint( 255, tint_value );
+            image( game_over_img, 100, 100 );
+            pop();
         }
+
     }
 }

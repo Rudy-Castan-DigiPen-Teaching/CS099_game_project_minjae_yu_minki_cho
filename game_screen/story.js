@@ -22,7 +22,7 @@ function story()
         "Who do you gonna choose? Their fate is on your hand...\n\n", 70, text_y_pos );
 
     textSize(15)
-    text( 'Press Enter to start the game', width - 250, height/2 )
+    text( 'Press Enter to start the game', width - 250, height/2 );
     pop();
     text_y_pos--;
     if ( text_y_pos < -350 )
