@@ -81,7 +81,8 @@ let textBox_img, textBox2_img, textBox3_img, textBox4_img;
 
 let scoreBox_img;
 
-let ai_picked_img
+let ai_picked_img;
+let will_img;
 
 function preload()
 {
@@ -104,6 +105,7 @@ function preload()
     scoreBox_img = loadImage( 'assets/images/game_background/scorebox.png' );
     textBox4_img = loadImage( 'assets/images/game_background/textbox4.png' );
     ai_picked_img = loadImage( 'assets/images/player_and_ai/ai_focus.png');
+    will_img = loadImage('assets/images/game_background/will.png');
 }
 
 function setup()
@@ -561,25 +563,27 @@ function ai_last_word()
 {
     push();
     textSize( 20 );
+    image(will_img,width/2-10,0);
     if ( ai_1_lastTalk == true )
     {
         image( ai_img, 350 - 15, height / 2 - 50 );
-        text( "Lyon : Please tell my family my death.", width / 2, 90 );
+        
+        text( "Lyon: Please tell my family my death.", width / 2, 90 );
     }
     if ( ai_2_lastTalk == true )
     {
         image( ai2_img, 450 - 15, height / 2 - 50 );
-        text( "Elon : Do not make my death wasted...", width / 2, 120 );
+        text( "Elon: Do not make my death wasted...", width / 2, 120 );
     }
     if ( ai_3_lastTalk == true )
     {
         image( ai3_img, 550 - 15, height / 2 - 50 );
-        text( "Alexander : I respect your decision. God Bless Us...", width / 2, 150 );
+        text( "Alexander: I respect your decision.", width / 2, 150 );
     }
     if ( ai_4_lastTalk == true )
     {
         image( ai4_img, 650 - 15, height / 2 - 50 );
-        text( "Hudson : NO!! Why me? Go to hell you all!", width / 2, 180 );
+        text( "Hudson: NO!! Why me? Go to hell you all", width / 2, 180 );
     }
     pop();
 }
