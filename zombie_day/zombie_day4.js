@@ -13,23 +13,23 @@ let zombies_day4_wave10 = new Array;
 function zombie_day4_setup()
 {
     //zombies 5 10 5 5 10
-    for ( let count1 = 0; count1 < 1; count1++ )
+    for ( let count1 = 0; count1 < 5; count1++ )
     {
         zombies_day4_wave1[ count1 ] = new zombies( 2 );
     }
-    for ( let count2 = 0; count2 < 1; count2++ )
+    for ( let count2 = 0; count2 < 10; count2++ )
     {
         zombies_day4_wave2[ count2 ] = new zombies( 2 );
     }
-    for ( let count3 = 0; count3 < 1; count3++ )
+    for ( let count3 = 0; count3 < 5; count3++ )
     {
         zombies_day4_wave3[ count3 ] = new zombies( 2 );
     }
-    for ( let count4 = 0; count4 < 1; count4++ )
+    for ( let count4 = 0; count4 < 5; count4++ )
     {
         zombies_day4_wave4[ count4 ] = new zombies( 2 );
     }
-    for ( let count5 = 0; count5 < 1; count5++ )
+    for ( let count5 = 0; count5 < 10; count5++ )
     {
         zombies_day4_wave5[ count5 ] = new zombies( 2 );
     }

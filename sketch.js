@@ -25,7 +25,7 @@ let distance;
 let score = 0;
 
 //damage
-const gun_damage = 100; //originally 1
+const gun_damage = 1; //originally 1
 
 //preload hit sound
 let hit_sound;
@@ -174,7 +174,7 @@ function draw()
 {
     background( 110 );
     //console.log(frameCount)
-    console.log(ready_for_day_final)
+    //console.log(ready_for_day_final)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +
