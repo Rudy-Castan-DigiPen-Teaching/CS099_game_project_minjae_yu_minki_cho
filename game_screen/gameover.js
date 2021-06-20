@@ -46,10 +46,10 @@ function game_ending()
         textSize( 20 );
         fill( 'black' );
         text( "Suddenly a lot of zombies appeared before the rescue team arrived.\n\n" +
-            "I fought the zombies hard, but the numbers were too high.\n\n" +
-            "I there are no ammo left...\n\n" +
-            "no... no!!! \n\n" +
-            "In the end, all the teams died.\n\n", 70, text_y_pos2 );
+            "I fought the zombies hard, but there are too many...\n\n" +
+            "Even ammo is almost empty...\n\n" +
+            "No... NO!!! \n\n" +
+            "In the end, all the survivors died.\n\n", 70, text_y_pos2 );
         text_y_pos2--;
         pop();
         if ( text_y_pos2 < 150 )
