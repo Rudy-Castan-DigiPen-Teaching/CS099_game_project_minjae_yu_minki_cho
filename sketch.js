@@ -622,7 +622,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_1.x, ai_1.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
-            text( "\n\n\n    bullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
+            text( "\n\n\n       bullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
             //text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )
@@ -649,7 +649,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_2.x, ai_2.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
-            text( "\n\n\n    rate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
+            text( "\n\n\n         rate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
             //text( "\n\n\nbullet speed: 13", ai_2.x + 50, ai_2.y );
             pop();
             if ( mouseIsPressed )
@@ -678,7 +678,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_3.x, ai_3.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
-            text( "\n\n\n    rate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
+            text( "\n\n\n         rate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
             //text( "\n\n\nbullet speed: 40", ai_3.x + 50, ai_3.y );
             pop();
             if ( mouseIsPressed )
@@ -704,7 +704,7 @@ function pick_and_ban()
             imageMode(CENTER);
             image(ai_picked_img, ai_4.x, ai_4.y+10);
             text( "\n\n    bullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
-            text( "\n\n\n    rate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
+            text( "\n\n\n         rate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
             //text( "\n\n\nbullet speed: 30", ai_4.x + 50, ai_4.y );
             pop();
             if ( mouseIsPressed )
