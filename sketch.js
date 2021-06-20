@@ -5,10 +5,6 @@ let game_wall;
 //ai
 let ai;
 let ai_1, ai_2, ai_3, ai_4;
-let ai_1_lastTalk = false;
-let ai_2_lastTalk = false;
-let ai_3_lastTalk = false;
-let ai_4_lastTalk = false;
 
 //game_mode
 let game_mode;
@@ -508,7 +504,6 @@ function draw()
             background( bg3 );
             if ( ai_picked == false && game_mode == INTERMISSION )
             {
-                
                 ai_picked = true;
                 push();
                 image(textBox4_img, width / 3-5, height / 2 - 70);
@@ -565,23 +560,23 @@ function ai_last_word()
     push();
     textSize( 20 );
     image(will_img,width/2-10,0);
-    if ( ai_1_lastTalk == true )
+    if ( ai_1_survived == false )
     {
         image( ai_img, 350 - 15, height / 2 - 50 );
         
         text( "Lyon: Please tell my family my death.", width / 2, 90 );
     }
-    if ( ai_2_lastTalk == true )
+    if ( ai_2_survived == false )
     {
         image( ai2_img, 450 - 15, height / 2 - 50 );
         text( "Elon: Do not make my death wasted...", width / 2, 120 );
     }
-    if ( ai_3_lastTalk == true )
+    if ( ai_3_survived == false )
     {
         image( ai3_img, 550 - 15, height / 2 - 50 );
         text( "Alexander: I respect your decision.", width / 2, 150 );
     }
-    if ( ai_4_lastTalk == true )
+    if ( ai_4_survived == false )
     {
         image( ai4_img, 650 - 15, height / 2 - 50 );
         text( "Hudson: NO!! Why me? Go to hell you all", width / 2, 180 );
@@ -622,7 +617,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_1.x, ai_1.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
-            text( "\n\n\n       bullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
+            text( "\n\n\n    bullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
             //text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )
@@ -630,7 +625,6 @@ function pick_and_ban()
                 ai_1_isShoot = false;
                 ai_1_survived = false;
                 ai_picked = true;
-                ai_1_lastTalk = true;
             }
         }
     }
@@ -649,7 +643,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_2.x, ai_2.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
-            text( "\n\n\n         rate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
+            text( "\n\n\n    rate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
             //text( "\n\n\nbullet speed: 13", ai_2.x + 50, ai_2.y );
             pop();
             if ( mouseIsPressed )
@@ -657,7 +651,6 @@ function pick_and_ban()
                 ai_2_isShoot = false;
                 ai_2_survived = false;
                 ai_picked = true;
-                ai_2_lastTalk = true;
             }
         }
     }
@@ -678,7 +671,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_3.x, ai_3.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
-            text( "\n\n\n         rate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
+            text( "\n\n\n    rate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
             //text( "\n\n\nbullet speed: 40", ai_3.x + 50, ai_3.y );
             pop();
             if ( mouseIsPressed )
@@ -686,7 +679,6 @@ function pick_and_ban()
                 ai_3_isShoot = false;
                 ai_3_survived = false;
                 ai_picked = true;
-                ai_3_lastTalk = true;
             }
         }
     }
@@ -704,7 +696,7 @@ function pick_and_ban()
             imageMode(CENTER);
             image(ai_picked_img, ai_4.x, ai_4.y+10);
             text( "\n\n    bullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
-            text( "\n\n\n         rate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
+            text( "\n\n\n    rate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
             //text( "\n\n\nbullet speed: 30", ai_4.x + 50, ai_4.y );
             pop();
             if ( mouseIsPressed )
@@ -712,7 +704,6 @@ function pick_and_ban()
                 ai_4_isShoot = false;
                 ai_4_survived = false;
                 ai_picked = true;
-                ai_4_lastTalk = true;
             }
         }
     }
