@@ -32,6 +32,11 @@ assets/images/game_background
     12. tombstone.png
     13. wall_hit.jpg
     14. wall2.jpg
+    15. scorebox.png
+    16. textbox.png
+    17. textbox2.png
+    18. textbox3.png
+    19. textbox4.png
 
 assets/images/player_and_ai
 
