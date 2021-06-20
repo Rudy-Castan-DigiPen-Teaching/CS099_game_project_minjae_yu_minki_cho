@@ -613,14 +613,17 @@ function pick_and_ban()
         if ( ai_1.x - 30 < mouseX && mouseX < ai_1.x + 30 && ai_1.y - 30 < mouseY && mouseY < ai_1.y + 30 )
         {
             circle( ai_1.x, ai_1.y, 10 );
-            image( textBox_img, ai_1.x, ai_1.y - 35 );
-            text( "Lyon : My family is waiting for me. Please save me! \n", ai_1.x + 50, ai_1.y );
+            fill("white");
+            rect(ai_1.x + 50, ai_1.y-10,250,50);
+            fill( 'black' );
+            //image( textBox_img, ai_1.x, ai_1.y - 35 );
+            text( " Lyon : My family is waiting for me. Please save me! \n", ai_1.x + 50, ai_1.y );
             push();
             imageMode(CENTER);
             image(ai_picked_img, ai_1.x, ai_1.y+10);
             fill( 'black' );
-            text( "\nbullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
-            text( "\n\nbullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
+            text( "\n\n    bullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
+            text( "\n\n\n    bullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
             //text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )
@@ -638,14 +641,17 @@ function pick_and_ban()
         if ( ai_2.x - 30 < mouseX && mouseX < ai_2.x + 30 && ai_2.y - 30 < mouseY && mouseY < ai_2.y + 30 )
         {
             circle( ai_2.x, ai_2.y, 10 );
-            image( textBox3_img, ai_2.x, ai_2.y - 35 );
-            text( "Elon : I am ready to sacrifice myself. I want to save others", ai_2.x + 50, ai_2.y );
+            fill("white");
+            rect(ai_2.x + 50, ai_2.y-10,280,50);
+            fill( 'black' );
+            //image( textBox3_img, ai_2.x, ai_2.y - 35 );
+            text( " Elon : I am ready to sacrifice myself. I want to save others", ai_2.x + 50, ai_2.y );
             push();
             imageMode(CENTER);
             image(ai_picked_img, ai_2.x, ai_2.y+10);
             fill( 'black' );
-            text( "\nbullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
-            text( "\n\nrate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
+            text( "\n\n    bullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
+            text( "\n\n\n    rate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
             //text( "\n\n\nbullet speed: 13", ai_2.x + 50, ai_2.y );
             pop();
             if ( mouseIsPressed )
@@ -665,15 +671,18 @@ function pick_and_ban()
 
             
             circle( ai_3.x, ai_3.y, 10 );
-            image( textBox2_img, ai_3.x, ai_3.y - 35 );
-            text( "Alexander : You know I can kill zombies better than others. I must be left here!", ai_3.x + 50, ai_3
+            fill("white");
+            rect(ai_3.x + 50, ai_3.y-10,380,50);
+            fill( 'black' );
+            //image( textBox2_img, ai_3.x, ai_3.y - 35 );
+            text( " Alexander : You know I can kill zombies better than others. I must be left here!", ai_3.x + 50, ai_3
                 .y );
             push();
             imageMode(CENTER);
             image(ai_picked_img, ai_3.x, ai_3.y+10);
             fill( 'black' );
-            text( "\nbullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
-            text( "\n\nrate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
+            text( "\n\n    bullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
+            text( "\n\n\n    rate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
             //text( "\n\n\nbullet speed: 40", ai_3.x + 50, ai_3.y );
             pop();
             if ( mouseIsPressed )
@@ -691,14 +700,16 @@ function pick_and_ban()
         if ( ai_4.x - 30 < mouseX && mouseX < ai_4.x + 30 && ai_4.y - 30 < mouseY && mouseY < ai_4.y + 30 )
         {
             circle( ai_4.x, ai_4.y, 10 );
-            image( textBox3_img, ai_4.x, ai_4.y - 35 );
-            text( "Hudson : PLEASE DON'T KILL ME!! I just don't wanna die!", ai_4.x + 50, ai_4.y );
+            fill("white");
+            rect(ai_4.x + 50, ai_4.y-10,280,50);
+            fill( 'black' );
+            //image( textBox3_img, ai_4.x, ai_4.y - 35 );
+            text( " Hudson : PLEASE DON'T KILL ME!! I just don't wanna die!", ai_4.x + 50, ai_4.y );
             push();
             imageMode(CENTER);
             image(ai_picked_img, ai_4.x, ai_4.y+10);
-            fill( 'black' );
-            text( "\nbullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
-            text( "\n\nrate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
+            text( "\n\n    bullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
+            text( "\n\n\n    rate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
             //text( "\n\n\nbullet speed: 30", ai_4.x + 50, ai_4.y );
             pop();
             if ( mouseIsPressed )
