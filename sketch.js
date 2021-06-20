@@ -81,6 +81,8 @@ let textBox_img, textBox2_img, textBox3_img, textBox4_img;
 
 let scoreBox_img;
 
+let ai_picked_img
+
 function preload()
 {
     bullet_preload();
@@ -101,6 +103,7 @@ function preload()
     textBox3_img = loadImage( 'assets/images/game_background/textbox3.png' );
     scoreBox_img = loadImage( 'assets/images/game_background/scorebox.png' );
     textBox4_img = loadImage( 'assets/images/game_background/textbox4.png' );
+    ai_picked_img = loadImage( 'assets/images/player_and_ai/ai_focus.png');
 }
 
 function setup()
@@ -608,6 +611,8 @@ function pick_and_ban()
             image( textBox_img, ai_1.x, ai_1.y - 35 );
             text( "Lyon : My family is waiting for me. Please save me! \n", ai_1.x + 50, ai_1.y );
             push();
+            imageMode(CENTER);
+            image(ai_picked_img, ai_1.x, ai_1.y+10);
             fill( 'black' );
             text( "\nbullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
             text( "\n\nbullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
@@ -631,6 +636,8 @@ function pick_and_ban()
             image( textBox3_img, ai_2.x, ai_2.y - 35 );
             text( "Elon : I am ready to sacrifice myself. I want to save others", ai_2.x + 50, ai_2.y );
             push();
+            imageMode(CENTER);
+            image(ai_picked_img, ai_2.x, ai_2.y+10);
             fill( 'black' );
             text( "\nbullet damage: " + ai_2_damage, ai_2.x + 50, ai_2.y );
             text( "\n\nrate of fire: " + ai_2_speed, ai_2.x + 50, ai_2.y );
@@ -650,11 +657,15 @@ function pick_and_ban()
     {
         if ( ai_3.x - 30 < mouseX && mouseX < ai_3.x + 30 && ai_3.y - 30 < mouseY && mouseY < ai_3.y + 30 )
         {
+
+            
             circle( ai_3.x, ai_3.y, 10 );
             image( textBox2_img, ai_3.x, ai_3.y - 35 );
             text( "Alexander : You know I can kill zombies better than others. I must be left here!", ai_3.x + 50, ai_3
                 .y );
             push();
+            imageMode(CENTER);
+            image(ai_picked_img, ai_3.x, ai_3.y+10);
             fill( 'black' );
             text( "\nbullet damage: " + ai_3_damage, ai_3.x + 50, ai_3.y );
             text( "\n\nrate of fire: " + ai_3_speed, ai_3.x + 50, ai_3.y );
@@ -678,6 +689,8 @@ function pick_and_ban()
             image( textBox3_img, ai_4.x, ai_4.y - 35 );
             text( "Hudson : PLEASE DON'T KILL ME!! I just don't wanna die!", ai_4.x + 50, ai_4.y );
             push();
+            imageMode(CENTER);
+            image(ai_picked_img, ai_4.x, ai_4.y+10);
             fill( 'black' );
             text( "\nbullet damage: " + ai_4_damage, ai_4.x + 50, ai_4.y );
             text( "\n\nrate of fire: " + ai_4_speed, ai_4.x + 50, ai_4.y );
