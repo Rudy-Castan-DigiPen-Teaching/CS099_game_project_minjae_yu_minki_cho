@@ -19,8 +19,6 @@ const INTERMISSION = 3;
 const GAME_OVER = 4;
 const HOW_TO_PLAY = 5;
 const STORY = 6;
-const ENDING = 7;
-
 
 //bullet_zombie_distance
 let x_dis;
@@ -294,7 +292,7 @@ function draw()
         zombies_day4_wave4;*/
 
     //if there are no zombie on day1 then day2 start!
-    if ( zombie_day1_length <= 0 && game_mode != GAME_OVER && game_mode != ENDING )
+    if ( zombie_day1_length <= 0 && game_mode != GAME_OVER )
     {
         game_mode = INTERMISSION;
         if ( !ready_for_day2 && game_mode == INTERMISSION )
@@ -338,7 +336,7 @@ function draw()
         }
     }
 
-    if ( zombie_day2_length <= 0 && game_mode != GAME_OVER && game_mode != ENDING )
+    if ( zombie_day2_length <= 0 && game_mode != GAME_OVER )
     {
         game_mode = INTERMISSION;
         if ( !ready_for_day3 && game_mode == INTERMISSION )
@@ -383,7 +381,7 @@ function draw()
         }
     }
 
-    if ( zombie_day3_length <= 0 && game_mode != GAME_OVER && game_mode != ENDING )
+    if ( zombie_day3_length <= 0 && game_mode != GAME_OVER )
     {
         game_mode = INTERMISSION;
         if ( !ready_for_day4 )
@@ -428,7 +426,7 @@ function draw()
         }
     }
 
-    if ( zombie_day4_length <= 0 && game_mode != GAME_OVER && game_mode != ENDING )
+    if ( zombie_day4_length <= 0 && game_mode != GAME_OVER )
     {
         game_mode = INTERMISSION;
         if ( !ready_for_day5 )
@@ -472,7 +470,7 @@ function draw()
             }
         }
     }
-    if ( zombie_day5_length <= 0 && game_mode != GAME_OVER && game_mode != ENDING )
+    if ( zombie_day5_length <= 0 && game_mode != GAME_OVER )
     {
         game_mode = INTERMISSION;
         if ( !ready_for_day6 )

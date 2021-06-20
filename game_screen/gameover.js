@@ -10,11 +10,11 @@ function game_over_preload()
 
 function game_over()
 {
-    // ready_for_day1 = false;
-    // ready_for_day2 = false;
-    // ready_for_day3 = false;
-    // ready_for_day4 = false;
-    // ready_for_day5 = false;
+    ready_for_day1 = false;
+    ready_for_day2 = false;
+    ready_for_day3 = false;
+    ready_for_day4 = false;
+    ready_for_day5 = false;
 
     clear();
     background( 50 );
