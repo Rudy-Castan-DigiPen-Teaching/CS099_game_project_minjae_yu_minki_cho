@@ -33,3 +33,8 @@ function game_over()
     image( game_over_img, 100, 100 );
     pop();
 }
+
+function game_ending()
+{
+    
+}
