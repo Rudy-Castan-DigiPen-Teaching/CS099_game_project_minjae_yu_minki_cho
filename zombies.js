@@ -2,7 +2,6 @@ let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img;
 let zombie_hit_wall_img, blood_img;
 
-let ghost_zombie1,ghost_zombie2;
 const zombie_size = 30;
 const zombie_line = 20;
 
@@ -16,8 +15,6 @@ function zombie_image_preload()
     zombie_hit_img      = loadImage( 'assets/images/zombies/zombie_hit.png' );
     zombie_hit_wall_img = loadImage( 'assets/images/game_background/wall_hit.jpg' );
     blood_img           = loadImage( 'assets/images/blood.png' );
-    ghost_zombie1       = loadImage( 'assets/images/zombies/normal_zombie.png' );
-    ghost_zombie2       = loadImage( 'assets/images/zombies/white_zombie.png' );
 }
 
 class zombies

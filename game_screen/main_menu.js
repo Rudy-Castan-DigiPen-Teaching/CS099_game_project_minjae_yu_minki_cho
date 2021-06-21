@@ -35,8 +35,6 @@ function main_menu()
     image( fast_zombie_img, 370, 110 );
     image( fat_zombie_img, 430, 10 );
     image( fat_zombie_img, x, 60 );
-    image( ghost_zombie1, 500, 124);
-    image( ghost_zombie2, 500, 123);
 
     x -= 1;
     x2 -= 2;
