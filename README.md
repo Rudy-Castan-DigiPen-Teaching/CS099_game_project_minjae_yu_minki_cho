@@ -1,5 +1,7 @@
 # CS099_game_project_minjae_yu_minki_cho
 
+---
+<img src="https://github.com/Rudy-Castan-DigiPen-Teaching/CS099_game_project_minjae_yu_minki_cho/blob/main/game_screen/gamescreen.PNG" alt="#Zombie defense">
 Make 2d game with p5.js
 
 click [here](https://rudy-castan-digipen-teaching.github.io/CS099_game_project_minjae_yu_minki_cho/) to play game!
