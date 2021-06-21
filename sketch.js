@@ -3,7 +3,7 @@ let line_size = 100;
 let game_wall;
 
 //ai
-let ai;
+//let ai;
 let ai_1, ai_2, ai_3, ai_4;
 
 //game_mode
