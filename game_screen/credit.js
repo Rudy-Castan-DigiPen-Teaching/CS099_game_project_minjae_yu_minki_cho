@@ -1,11 +1,5 @@
 let img1, img2 
 
-function credit_preload()
-{
-    img1 = loadImage("/assets/images/zombies/normal_zombie.png");
-    img2 = loadImage("/assets/images/zombies/white_zombie.png");
-}
-
 function credit()
 {
     clear();

@@ -91,7 +91,6 @@ function preload()
     day_fadeout_img_preload();
     game_over_preload();
     howToPlay_preload();
-    credit_preload();
     fadeout_preload();
     hit_sound = loadSound( 'assets/sounds/hit_2.wav' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
