@@ -17,7 +17,7 @@ function howToPlay()
     textSize(30);
     text( "You have to stop the zombies.\n" +
         "Move the crosshair by moving the mouse.\n" +
-        "If you click the right mouse button, a bullet goes out.\n" +
+        "If you click the left mouse button, a bullet goes out.\n" +
         "You can reload by pressing 'R' button.\n" +
         "Each day you choose one survivor to sacrifice.:\n" +
         "The game ends when the wall's durability is zero.\n" +

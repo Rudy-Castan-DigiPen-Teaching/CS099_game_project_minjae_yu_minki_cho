@@ -630,7 +630,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_1.x, ai_1.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
-            text( "\n\n\n    bullet speed: " + ai_1_speed, ai_1.x + 50, ai_1.y );
+            text( "\n\n\n    rate of fire: " + ai_1_speed, ai_1.x + 50, ai_1.y );
             //text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )
