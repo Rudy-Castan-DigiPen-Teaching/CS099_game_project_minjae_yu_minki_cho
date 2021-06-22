@@ -38,6 +38,12 @@ assets/images/game_background
     18. textbox3.png
     19. textbox4.png
     20. will.png
+    21. arrow.png
+    22. arrow_focus.png
+    23. keyboard.png
+    24. mouse.png
+    25. wall2_braking.jpg
+    26. wall2_braking2.png
 
 assets/images/player_and_ai
 
@@ -67,6 +73,9 @@ assets/images/zombies
     5. zombie_hit.png
     6. zombie_normal.gif
     7. zombie_setup.png
+
+game_screen/
+    1.gamescreen.PNG
     
 about wall2.jpg
 
@@ -81,6 +90,10 @@ about wall2.jpg
     /*Use all photos for free for commercial and noncommercial purposes.
     Giving credit to the photographer or Pexels is not required but appreciated.
     You can edit and adapt the photos as you like.*/
+
+    file name: wall2_braking.jpg, wall2_braking2.png
+
+    I used wall2.jpg for the base and modify with aseprite tool.
 
     ---
 
