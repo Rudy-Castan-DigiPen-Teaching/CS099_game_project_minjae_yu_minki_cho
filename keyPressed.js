@@ -46,42 +46,42 @@ function keyPressed()
 
     }
 
-    //move to next day when AI is picked
-    if ( game_mode == INTERMISSION )
-    {
-        if ( ai_picked == true && !ready_for_day2 )
-        {
-            ready_for_day2 = true;
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }
+    // //move to next day when AI is picked
+    // if ( game_mode == INTERMISSION )
+    // {
+    //     if ( ai_picked == true && !ready_for_day2 )
+    //     {
+    //         ready_for_day2 = true;
+    //         ai_picked = false;
+    //         player_gun_bullet = 7;
+    //     }
 
-        if ( ai_picked == true && !ready_for_day3 )
-        {
-            ready_for_day3 = true;
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }
+    //     if ( ai_picked == true && !ready_for_day3 )
+    //     {
+    //         ready_for_day3 = true;
+    //         ai_picked = false;
+    //         player_gun_bullet = 7;
+    //     }
 
-        if ( ai_picked == true && !ready_for_day4 )
-        {
-            ready_for_day4 = true;
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }
+    //     if ( ai_picked == true && !ready_for_day4 )
+    //     {
+    //         ready_for_day4 = true;
+    //         ai_picked = false;
+    //         player_gun_bullet = 7;
+    //     }
 
-        if ( ai_picked == true && !ready_for_day5 )
-        {
-            ready_for_day5 = true;
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }
+    //     if ( ai_picked == true && !ready_for_day5 )
+    //     {
+    //         ready_for_day5 = true;
+    //         ai_picked = false;
+    //         player_gun_bullet = 7;
+    //     }
 
-        if ( ai_picked == true && !ready_for_day_final )
-        {
-            ready_for_day_final = true;
-            ai_picked = false;
-            player_gun_bullet = 7;
-        }
-    }
+    //     if ( ai_picked == true && !ready_for_day_final )
+    //     {
+    //         ready_for_day_final = true;
+    //         ai_picked = false;
+    //         player_gun_bullet = 7;
+    //     }
+    //}
 }

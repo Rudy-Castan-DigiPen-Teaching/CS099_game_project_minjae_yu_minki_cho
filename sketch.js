@@ -92,6 +92,7 @@ function preload()
     game_over_preload();
     howToPlay_preload();
     fadeout_preload();
+    arrow_preload();
     hit_sound = loadSound( 'assets/sounds/hit_2.wav' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
     textBox_img = loadImage( 'assets/images/game_background/textbox.png' );
@@ -354,6 +355,7 @@ function draw()
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
+                intermission_arrow();
             }
         }
         if ( ready_for_day2 )
@@ -400,6 +402,7 @@ function draw()
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
+                intermission_arrow()
             }
         }
         if ( ready_for_day3 )
@@ -446,6 +449,7 @@ function draw()
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
+                intermission_arrow()
             }
         }
         if ( ready_for_day4 )
@@ -492,6 +496,7 @@ function draw()
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
+                intermission_arrow()
             }
         }
         if ( ready_for_day5 )
@@ -537,6 +542,7 @@ function draw()
                 text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
+                intermission_arrow()
             }
         }
         if ( ready_for_day_final )
