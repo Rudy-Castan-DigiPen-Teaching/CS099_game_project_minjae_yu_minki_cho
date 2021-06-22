@@ -13,7 +13,7 @@ let zombies_final_wave10 = new Array;
 function zombie_final_setup()
 {
     //zombies
-    for ( let count1 = 0; count1 < 100; count1++ )
+    for ( let count1 = 0; count1 < 20; count1++ )
     {
         zombies_final_wave1[ count1 ] = new zombies();
     }

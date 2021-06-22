@@ -23,7 +23,7 @@ class zombies
     {
         this.x = width - 20;
         //this.y = round( random( 4 ) ) * line_size + line_size / 2;
-
+        this.random_moving_x = random(-1,1);
         this.speed = 1; //normal zombie_speed
         this.line_size = 100; //wall x_position
         this.zombie_type = round( random( zombie_type ) ) //0 = normal, 1 = fast, 2 = fat
@@ -52,6 +52,7 @@ class zombies
 
         this.value = random();
 
+
         if ( this.zombie_type === 0 )
         {
             this.zombie_hp = this.normal_zombie_hp; //normal_zombie
@@ -68,20 +69,19 @@ class zombies
 
     update()
     {
-        //this.value = random([this.a,this.b,this.c,this.d]);
         if ( this.zombie_type === 0 ) //normal_zombie
         {
-            this.speed = 70 * ( deltaTime / 1000 );
+            this.speed = 70 * ( deltaTime / 1000 ) + this.random_moving_x; //original 70
             this.draw_normal_zombies();
         }
         else if ( this.zombie_type === 1 ) //fast_zombie
         {
-            this.speed = 250 * ( deltaTime / 1000 );
+            this.speed = 250 * ( deltaTime / 1000 ) + this.random_moving_x;    //original 250
             this.draw_fast_zombies();
         }
         else if ( this.zombie_type === 2 ) //fat_zombie
         {
-            this.speed = 30 * ( deltaTime / 1000 );
+            this.speed = 30 * ( deltaTime / 1000 ) + this.random_moving_x; //original 30
             this.draw_fat_zombies();
         }
     else
@@ -114,7 +114,7 @@ class zombies
         //drawing normal zombies
         push();
         imageMode( CENTER );
-        image( normal_zombie_img, this.x, this.y );
+        image( normal_zombie_img, this.x, this.y);
         // fill('red');
         // rectMode(CORNER)
         // rect(this.x+10,this.y,5,this.normal_zombie_hp*6);
@@ -128,7 +128,7 @@ class zombies
         //drawing fast zombies
         push();
         imageMode( CENTER );
-        image( fast_zombie_img, this.x, this.y );
+        image( fast_zombie_img, this.x, this.y);
         // fill('red');
         // rectMode(CORNER)
         // rect(this.x+10,this.y,5,this.fast_zombie_hp*6);
@@ -142,7 +142,7 @@ class zombies
         //drawing fat zombies
         push();
         imageMode( CENTER );
-        image( fat_zombie_img, this.x, this.y );
+        image( fat_zombie_img, this.x, this.y);
         // fill('red');
         // rectMode(CORNER)
         // rect(this.x+10,this.y,5,this.fat_zombie_hp*3);
@@ -158,8 +158,8 @@ class zombies
         push();
         hit_sound.play();
         imageMode( CENTER );
-        image( zombie_hit_img, this.x, this.y );
-        image( blood_img, this.x + 40, this.y )
+        image( zombie_hit_img, this.x, this.y);
+        image( blood_img, this.x + 40, this.y);
         this.x += 20; //Knock-back
         pop();
     }
