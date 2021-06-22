@@ -51,7 +51,7 @@ function mousePressed()
         //fire bullets when the mouse position is within the shooting range except player lines
         if ( mouseX >= 100 && mouseX <= width && mouseY >= 0 && mouseY <= height )
         {
-            if ( player_gun_bullet > 0 &&  delay % delay_time == 0 )
+            if ( player_gun_bullet > 0 &&  delay % delay_time == 0 && reload_check == false )
             {
                 bullet_fired = true;
                 gun_recoil.reset();

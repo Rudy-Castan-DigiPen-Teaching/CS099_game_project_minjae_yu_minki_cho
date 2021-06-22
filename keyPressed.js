@@ -1,3 +1,7 @@
+const fixed_reload_time = 30;
+let reload_time = fixed_reload_time;
+let reload_check = false;
+
 //This function is for main_menu game start, how to play and credit.
 function keyPressed()
 {
@@ -23,10 +27,14 @@ function keyPressed()
     {
         if ( keyCode === 82 )
         {
-            if ( player_gun_bullet >= 0 && player_gun_bullet != 7 )
+            reload_check = true;
+            if ( player_gun_bullet >= 0 && player_gun_bullet != 7 && reload_check == true )
             {
                 reload_sound.play();
-                player_gun_bullet = 7;
+                /*if ( reload_time <= 0 )
+                {
+                    player_gun_bullet = 7;
+                }*/
             }
         }
     }

@@ -173,11 +173,7 @@ function setup()
 function draw()
 {
     background( 110 );
-    //console.log(frameCount)
-    console.log(ai_1_isShoot)
-    console.log(ai_2_isShoot)
-    console.log(ai_3_isShoot)
-    console.log(ai_4_isShoot)
+    console.log(reload_check)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +
@@ -265,15 +261,12 @@ function draw()
         }
         //remove mouse_cursor
         noCursor();
-        //crosshair
-        crosshair();
         //ai.draw();
         ai_1.draw();
         ai_2.draw();
         ai_3.draw();
         ai_4.draw();
 
-  
         zombie_day1_draw();
         ai_bullet_setoff();
         bullet_check();
@@ -288,6 +281,9 @@ function draw()
         {
             day1_fadeout_img();
         }
+
+        //crosshair above zombies
+        crosshair();
     }
     else
     {
@@ -298,6 +294,18 @@ function draw()
     if ( count_start === false )
     {
         frameCount = 0;
+    }
+
+    //reload_check
+    if ( reload_check == true )
+    {
+        reload_time--;
+    }
+    if ( reload_time == 0 )
+    {
+        reload_time = fixed_reload_time;
+        reload_check = false;
+        player_gun_bullet = 7;
     }
 
     if ( game_mode == GAME_OVER )
