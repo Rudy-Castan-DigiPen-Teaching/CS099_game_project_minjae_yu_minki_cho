@@ -1,8 +1,11 @@
-let wall_img;
+let wall_img, braking_wall_img, braking_wall2_img;
 
 function preload_wall()
 {
     wall_img = loadImage( 'assets/images/game_background/wall2.jpg' );
+    braking_wall_img = loadImage ('assets/images/game_background/wall2_braking.jpg');
+    braking_wall2_img = loadImage('assets/images/game_background/wall2_braking2.png');
+
 }
 
 class Wall
@@ -22,7 +25,17 @@ class Wall
         //rectMode( CENTER );
         fill( 'brown' );
         imageMode( CENTER );
-        image( wall_img, this.x, this.y )
+        if(this.wall_health>250)
+        {
+            image( wall_img, this.x, this.y );
+        }
+        else if(this.wall_health>150&& this.wall_health<250)
+        {
+            image(braking_wall_img, this.x, this.y);
+        }
+        else{
+            image(braking_wall2_img, this.x, this.y);
+        }
         this.wall_hp();
         //console.log( this.wall_health );
     }

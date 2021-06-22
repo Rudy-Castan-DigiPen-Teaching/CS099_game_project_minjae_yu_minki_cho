@@ -399,7 +399,7 @@ function draw()
                 background( 110 );
                 textSize( 30 );
                 textAlign( CENTER );
-                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -446,7 +446,7 @@ function draw()
                 background( 110 );
                 textSize( 30 );
                 textAlign( CENTER );
-                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -493,7 +493,7 @@ function draw()
                 background( 110 );
                 textSize( 30 );
                 textAlign( CENTER );
-                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -539,7 +539,7 @@ function draw()
                 background( 110 );
                 textSize( 30 );
                 textAlign( CENTER );
-                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
