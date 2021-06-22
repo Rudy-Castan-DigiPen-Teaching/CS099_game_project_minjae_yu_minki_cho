@@ -19,4 +19,12 @@ function crosshair()
         rect( mouseX, mouseY + 20, reload_time, 5);
         pop();
     }
+
+    if ( reload_check == false && player_gun_bullet == 0 )
+    {
+        textAlign( CENTER );
+        fill ( 'red' );
+        textSize( 15 );
+        text( 'NO AMMO', mouseX, mouseY + 20 );
+    }
 }
