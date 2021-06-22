@@ -23,7 +23,7 @@ function keyPressed()
     {
         if ( keyCode === 82 )
         {
-            if ( player_gun_bullet == 0 )
+            if ( player_gun_bullet >= 0 && player_gun_bullet != 7 )
             {
                 reload_sound.play();
                 player_gun_bullet = 7;

@@ -142,8 +142,8 @@ function setup()
     ai_3_survived = true;
     ai_4_survived = true;
     ai_1_isShoot = true;
-    ai_1_isShoot = true;
-    ai_1_isShoot = true;
+    ai_2_isShoot = true;
+    ai_3_isShoot = true;
     ai_4_isShoot = true;
 
     //ai_damage setup
@@ -174,7 +174,10 @@ function draw()
 {
     background( 110 );
     //console.log(frameCount)
-    //console.log(ready_for_day_final)
+    console.log(ai_1_isShoot)
+    console.log(ai_2_isShoot)
+    console.log(ai_3_isShoot)
+    console.log(ai_4_isShoot)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +
