@@ -18,21 +18,21 @@ function howToPlay()
     background( 220 );
     fill('black');
     textSize(30);
-    text( "You have to stop the zombies.\n\n" +
+    text( "You have to stop rushing zombies.\n\n" +
         "Move the crosshair by moving the mouse.\n\n" +
-        "If you click the left mouse button, a bullet goes out.\n\n" +
-        "You can reload by pressing 'R' button.\n\n" +
+        "Click the left mouse button to fire.\n\n" +
+        "Press 'R' to reload.\n\n" +
         "Each day you choose one survivor to sacrifice.\n\n" +
         "The game ends when the wall's durability is zero.\n" +
         "I pray for your survival.\n", 50, 50 );
     imageMode( CORNER );
     image( back_img, width - 80, height - 80 );
-    image(normal_zombie_img,470,5);
-    image(fast_zombie_img,500,5);
-    image(fat_zombie_img,530,5);
+    image(normal_zombie_img,540,5);
+    image(fast_zombie_img,570,5);
+    image(fat_zombie_img,600,5);
 
     image(mouse_img,630, 95);
-    image(keyboard_img,590,240);
+    image(keyboard_img,350,240);
 
     image(ai_img, 680,310);
     image(ai2_img, 705,310);
