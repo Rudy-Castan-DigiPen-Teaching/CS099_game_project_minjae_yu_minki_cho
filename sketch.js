@@ -361,9 +361,9 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize( 30 );
+                textSize( 13 );
                 textAlign( CENTER );
-                text( "Press any key to start your next day.", width / 2, height / 2 + 150 );
+                text( "Move on to the next day.", 900, 480 );
                 pop();
                 ai_last_word();
                 intermission_arrow();
@@ -408,9 +408,9 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize( 30 );
+                textSize( 13 );
                 textAlign( CENTER );
-                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
+                text( "Move on to the next day.", 900, 480 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -455,9 +455,9 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize( 30 );
+                textSize( 13 );
                 textAlign( CENTER );
-                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
+                text( "Move on to the next day.", 900, 480 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -502,9 +502,9 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize( 30 );
+                textSize( 13 );
                 textAlign( CENTER );
-                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
+                text( "Move on to the next day.", 900, 480 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -548,9 +548,9 @@ function draw()
                 clear();
                 push();
                 background( 110 );
-                textSize( 30 );
+                textSize( 13 );
                 textAlign( CENTER );
-                text( "Press arrow to start your next day.", width / 2, height / 2 + 150 );
+                text( "Move on to the next day.", 900, 480 );
                 pop();
                 ai_last_word();
                 intermission_arrow()
@@ -589,26 +589,37 @@ function ai_last_word()
 {
     push();
     textSize( 20 );
-    image(will_img,width/2-10,0);
+    image(will_img,width/2-10,5);
     if ( ai_1_survived == false )
     {
-        image( ai_img, 350 - 15, height / 2 - 50 );
-        
+        image( ai_img, 100,430 );
+        fill("red");
+        text("dead",100, 430);
+        fill("black");
         text( "Lyon: Please tell my family my death.", width / 2, 90 );
     }
     if ( ai_2_survived == false )
     {
-        image( ai2_img, 450 - 15, height / 2 - 50 );
+        image( ai2_img, 200, 430 )
+        fill("red");
+        text("dead",200, 430);
+        fill("black");;
         text( "Elon: Do not make my death wasted...", width / 2, 120 );
     }
     if ( ai_3_survived == false )
     {
-        image( ai3_img, 550 - 15, height / 2 - 50 );
+        image( ai3_img, 300, 430 );
+        fill("red");
+        text("dead",300, 430);
+        fill("black");
         text( "Alexander: I respect your decision.", width / 2, 150 );
     }
     if ( ai_4_survived == false )
     {
-        image( ai4_img, 650 - 15, height / 2 - 50 );
+        image( ai4_img, 400, 430 );
+        fill("red");
+        text("dead",400, 430);
+        fill("black");
         text( "Hudson: NO!! Why me? Go to hell you all", width / 2, 180 );
     }
     pop();
@@ -647,7 +658,7 @@ function pick_and_ban()
             image(ai_picked_img, ai_1.x, ai_1.y+10);
             fill( 'black' );
             text( "\n\n    bullet damage: " + ai_1_damage, ai_1.x + 50, ai_1.y );
-            text( "\n\n\n    rate of fire: " + ai_1_speed, ai_1.x + 50, ai_1.y );
+            text( "\n\n\n    firing rate: " + ai_1_speed, ai_1.x + 50, ai_1.y );
             //text( "\n\n\nbullet speed: 12", ai_1.x + 50, ai_1.y );
             pop();
             if ( mouseIsPressed )

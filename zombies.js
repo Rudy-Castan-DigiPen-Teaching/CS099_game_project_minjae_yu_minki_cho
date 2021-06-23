@@ -23,7 +23,8 @@ class zombies
     {
         this.x = width - 20;
         //this.y = round( random( 4 ) ) * line_size + line_size / 2;
-        this.random_moving_x = random(-0.5,1.5);
+        this.random_moving_x = random(-0.3,0.5);
+        this.random_fat_moving_x = random(-0.1,0.2);
         this.speed = 1; //normal zombie_speed
         this.line_size = 100; //wall x_position
         this.zombie_type = round( random( zombie_type ) ) //0 = normal, 1 = fast, 2 = fat
@@ -81,7 +82,7 @@ class zombies
         }
         else if ( this.zombie_type === 2 ) //fat_zombie
         {
-            this.speed = 30 * ( deltaTime / 1000 ) + this.random_moving_x; //original 30
+            this.speed = 30 * ( deltaTime / 1000 ) + this.random_fat_moving_x; //original 30
             this.draw_fat_zombies();
         }
     else
