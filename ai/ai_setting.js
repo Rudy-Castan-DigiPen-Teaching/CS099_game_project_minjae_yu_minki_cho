@@ -39,7 +39,7 @@ function ai_bullet_setoff()
 {
     //To change the value of fameCount value, I divided into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
-    if ( frameCount % int(1000/ai_1_speed) == 1 )
+    if ( frameCount % int(1000/ai_1_speed) == 1 )  //frameCount % ai_speed
     {
         //ai_bullets = [] this is in sketch.js
         if(ai_1_isShoot)
