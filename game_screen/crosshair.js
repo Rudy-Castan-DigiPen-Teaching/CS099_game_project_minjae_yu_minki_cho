@@ -22,9 +22,11 @@ function crosshair()
 
     if ( reload_check == false && player_gun_bullet == 0 )
     {
+        push();
         textAlign( CENTER );
         fill ( 'red' );
         textSize( 15 );
         text( 'NO AMMO', mouseX, mouseY + 20 );
+        pop();
     }
 }
