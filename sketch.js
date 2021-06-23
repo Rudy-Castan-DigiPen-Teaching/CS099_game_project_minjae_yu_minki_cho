@@ -70,7 +70,7 @@ let ai_2_isShoot = true;
 let ai_3_isShoot = true;
 let ai_4_isShoot = true;
 
-let scoreBox_img;
+//let scoreBox_img;
 
 let ai_picked_img;
 let will_img;
@@ -265,7 +265,7 @@ function draw()
         push();
         fill('black');
         textSize( 12 );
-        image(scoreBox_img,width-150, 10);
+        //image(scoreBox_img,width-150, 10);
         text( " Your score is " + score + " !", width - 200, 20 );
         pop();
         if ( zombies_day1_wave1 != 0 )
