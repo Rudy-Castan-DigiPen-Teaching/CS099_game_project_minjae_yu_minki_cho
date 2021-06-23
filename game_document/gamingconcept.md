@@ -128,29 +128,47 @@ It's a variable to determine the number of bullets. It used for maximum of playe
 //player gun magazine
 let player_gun_bullet = 7;
 
-This variables are for preload day1~5 images.
+These variables are for preload day1~5 images.
 
     //day1,2,3,4,5 img
     let day1_img, day2_img, day3_img, day4_img, day5_img;
 
+This variable is for know ai is picked or not this is used at sacrifice screen.
 
-let ai_picked = false;
+    let ai_picked = false;
 
-let check_keyIsPressed = false;
+If ai is picked I have to turn off the ai shooting these are use for it.
 
-//This is for ai_bullet 
-let ai_1_isShoot = true;
-let ai_2_isShoot = true;
-let ai_3_isShoot = true;
-let ai_4_isShoot = true;
+    //This is for ai_bullet 
+    let ai_1_isShoot = true;
+    let ai_2_isShoot = true;
+    let ai_3_isShoot = true;
+    let ai_4_isShoot = true;
 
-//text_box image
-let textBox_img, textBox2_img, textBox3_img, textBox4_img;
+This variable is for preload score box image.
 
-let scoreBox_img;
+    let scoreBox_img;
 
-let ai_picked_img;
-let will_img;
+This variable is for ai picked image. If mouseX and Y is focus on ai than this image draws. 
+    let ai_picked_img;
+
+This variable is for ai wall image.
+
+    let will_img;
+
+This variables are the value of the image transparency for the day1~5 images. I used tint function to make transparency.
+
+    let day1_transparency = 255,
+    day2_transparency = 255,
+    day3_transparency = 255,
+    day4_transparency = 255,
+    day5_transparency = 255
+
+
+let black_screen_img;
+let screen_transparency = 0;
+let final_day_screen_transparency = 0;
+let text_transparency = 250;
 
 ## Conditional Statements
 ## Loops

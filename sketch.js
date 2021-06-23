@@ -70,9 +70,6 @@ let ai_2_isShoot = true;
 let ai_3_isShoot = true;
 let ai_4_isShoot = true;
 
-//text_box image
-let textBox_img, textBox2_img, textBox3_img, textBox4_img;
-
 let scoreBox_img;
 
 let ai_picked_img;
@@ -93,10 +90,6 @@ function preload()
     arrow_preload();
     hit_sound = loadSound( 'assets/sounds/hit_2.wav' );
     left_bullet_img = loadImage( 'assets/images/left_bullet.png' );
-    textBox_img = loadImage( 'assets/images/game_background/textbox.png' );
-    textBox2_img = loadImage( 'assets/images/game_background/textbox2.png' );
-    textBox3_img = loadImage( 'assets/images/game_background/textbox3.png' );
-    scoreBox_img = loadImage( 'assets/images/game_background/scorebox.png' );
     textBox4_img = loadImage( 'assets/images/game_background/textbox4.png' );
     ai_picked_img = loadImage( 'assets/images/player_and_ai/ai_focus.png');
     will_img = loadImage('assets/images/game_background/will.png');
