@@ -64,8 +64,6 @@ let day1_img, day2_img, day3_img, day4_img, day5_img;
 //check AI is picked or not once
 let ai_picked = false;
 
-let check_keyIsPressed = false;
-
 //This is for ai_bullet 
 let ai_1_isShoot = true;
 let ai_2_isShoot = true;
