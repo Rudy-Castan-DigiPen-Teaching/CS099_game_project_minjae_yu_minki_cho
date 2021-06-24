@@ -1114,7 +1114,11 @@ howToPlay() is a function to let thr player know how to play the game.
 
 >>gameover.js
 
-game_over_preload() is a function to preload 
+game_over_preload() is a function to preload gameover image.
+
+    game_over_preload()
+
+
 
 ## <span style="color:skyblue"> Classes  </span>
 
