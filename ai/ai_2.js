@@ -1,4 +1,4 @@
-// Name       : Minjae Yoo, Minki Cho
+// Name       : Minjae Yu, Minki Cho
 // Assignment : Final Project - Make a Game
 // Course     : CS099
 // Spring 2021
