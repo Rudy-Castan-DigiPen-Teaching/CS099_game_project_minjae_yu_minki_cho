@@ -10,7 +10,6 @@ function keyPressed()
         if ( keyCode == ENTER )
         {
             game_mode = GAME_START;
-            
         }
     }
 

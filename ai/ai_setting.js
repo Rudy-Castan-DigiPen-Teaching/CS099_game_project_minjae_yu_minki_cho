@@ -8,10 +8,10 @@ let ai_3_damage = 0;
 let ai_4_damage = 0;
 
 //rate_of_fire between 10 and 30
-let ai_1_speed = 0;
-let ai_2_speed = 0;
-let ai_3_speed = 0;
-let ai_4_speed = 0;
+let ai_1_speed = 60;
+let ai_2_speed = 70;
+let ai_3_speed = 50;
+let ai_4_speed = 30;
 
 function ai_image_preload()
 {
@@ -39,7 +39,7 @@ function ai_bullet_setoff()
 {
     //To change the value of fameCount value, I divided into each if statement.
     // class ai_bullet's constructor(x, y, speed = 2, damage)
-    if ( frameCount % int(1000/ai_1_speed) == 1 )  //frameCount % ai_speed
+    if ( frameCount % ai_1_speed == 0 )  //frameCount % ai_speed
     {
         //ai_bullets = [] this is in sketch.js
         if(ai_1_isShoot)
@@ -54,7 +54,7 @@ function ai_bullet_setoff()
         }
     }
 
-    if ( frameCount % int(1000/ai_2_speed) == 1 )
+    if ( frameCount % ai_2_speed == 0 )
     {
         if(ai_2_isShoot)
         {
@@ -68,7 +68,7 @@ function ai_bullet_setoff()
         }
     }
 
-    if ( frameCount % int(1000/ai_3_speed) == 1 )
+    if ( frameCount % ai_3_speed == 0 )
     {
         if(ai_3_isShoot)
         {
@@ -81,7 +81,7 @@ function ai_bullet_setoff()
             ai_bullet_3.splice(0,ai_bullet_3.length)
         }
     }
-    if ( frameCount % int(1000/ai_4_speed) == 1 )
+    if ( frameCount % ai_4_speed == 0 )
     {
         if(ai_4_isShoot)
         {

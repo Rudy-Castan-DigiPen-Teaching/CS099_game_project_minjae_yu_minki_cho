@@ -165,7 +165,7 @@ function setup()
 function draw()
 {
     background( 110 );
-    console.log(reload_check)
+    console.log(frameCount)
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +
@@ -355,10 +355,11 @@ function draw()
         }
         if ( ready_for_day2 )
         {
-            game_mode = GAME_START;
+            //game_mode = GAME_START;
             fadeout();
             if ( screen_transparency == 255 )
             {
+                game_mode = GAME_START;
                 day2_fadeout_img();
                 zombie_day2_draw();
             }
@@ -402,10 +403,10 @@ function draw()
         }
         if ( ready_for_day3 )
         {
-            game_mode = GAME_START;
             fadeout();
             if ( screen_transparency == 255 )
             {
+                game_mode = GAME_START;
                 day3_fadeout_img();
                 zombie_day3_draw();
             }
@@ -449,10 +450,10 @@ function draw()
         }
         if ( ready_for_day4 )
         {
-            game_mode = GAME_START;
             fadeout();
             if ( screen_transparency == 255 )
             {
+                game_mode = GAME_START;
                 day4_fadeout_img();
                 zombie_day4_draw();
             }
@@ -496,10 +497,10 @@ function draw()
         }
         if ( ready_for_day5 )
         {
-            game_mode = GAME_START;
             fadeout();
             if ( screen_transparency == 255 )
             {
+                game_mode = GAME_START;
                 day5_fadeout_img();
                 zombie_day5_draw();
             }
@@ -542,10 +543,10 @@ function draw()
         }
         if ( ready_for_day_final )
         {
-            game_mode = GAME_START;
             final_day_fadeout();
             if ( final_day_screen_transparency == 255 )
             {
+                game_mode = GAME_START;
                 zombie_final_draw();
             }
         }

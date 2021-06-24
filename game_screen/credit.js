@@ -19,8 +19,8 @@ function credit()
     text("THE TEAM",40,150);
     text("Thanks To",670,150);
     textSize(15);
-    text("Corders",40, 190);
-    text("Artist",40, 240);
+    text("PROGRAMMING",40, 190);
+    text("GRAPHICS",40, 240);
     text("Game design",40, 300);
     text("Sound design",40, 350);
     textSize(11);
