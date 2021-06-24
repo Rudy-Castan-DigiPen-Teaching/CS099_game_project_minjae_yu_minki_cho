@@ -30,8 +30,6 @@ function credit()
     text("Minjae Yoo \nMinki Cho",130,370);
     text("BlinkFarm. www.youtube.com/blinkfarm",670,180);
 
-    
-
 
     if ( mouseX < width - 30 && mouseX > width - 80 )
     {

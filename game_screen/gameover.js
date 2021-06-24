@@ -63,6 +63,5 @@ function game_ending()
             image( game_over_img, 100, 100 );
             pop();
         }
-
     }
 }

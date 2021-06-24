@@ -1,6 +1,6 @@
-let day2_bg_check = false;
-let day3_bg_check = false;
-let day4_bg_check = false;
+// let day2_bg_check = false;
+// let day3_bg_check = false;
+// let day4_bg_check = false;
 
 function preload_characters()
 {
