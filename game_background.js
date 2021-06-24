@@ -19,11 +19,7 @@ function drawing_lines_characters()//drawing lines and characters
 {
     for(let i = 0; i < 5; i++)
     {
-        /*push();
-        stroke(0);
-        line(0, i * line_size , width , i * line_size);
-        pop();*/
-            
+ 
         if(i === 2)//player position
         {
             fill('orange');

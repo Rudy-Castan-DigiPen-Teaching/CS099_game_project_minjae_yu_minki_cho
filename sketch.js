@@ -316,14 +316,6 @@ function draw()
         tint_value = 0;
     }
 
-    /*let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
-        zombies_day1_wave4 + zombies_day1_wave5;
-    let zombie_day2_length = zombies_day2_wave1.length + zombies_day2_wave2.length + zombies_day2_wave3.length +
-        zombies_day2_wave4;
-    let zombie_day3_length = zombies_day3_wave1.length + zombies_day3_wave2.length + zombies_day3_wave3.length +
-        zombies_day3_wave4;
-    let zombie_day4_length = zombies_day4_wave1.length + zombies_day4_wave2.length + zombies_day4_wave3.length +
-        zombies_day4_wave4;*/
 
     //if there are no zombie on day1 then day2 start!
     if ( zombie_day1_length <= 0 && game_mode != GAME_OVER )
