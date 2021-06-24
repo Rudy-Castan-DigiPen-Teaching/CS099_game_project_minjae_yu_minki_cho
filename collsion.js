@@ -1,3 +1,8 @@
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 //zombie array and collision update
 function zombie_day_update( day_count )
 {

@@ -1,3 +1,8 @@
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 //day_count
 let zombies_day2_wave1 = new Array;
 let zombies_day2_wave2 = new Array;

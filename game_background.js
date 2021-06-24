@@ -1,6 +1,7 @@
-// let day2_bg_check = false;
-// let day3_bg_check = false;
-// let day4_bg_check = false;
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
 
 function preload_characters()
 {

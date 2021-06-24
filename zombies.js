@@ -1,3 +1,8 @@
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 let normal_zombie_img;
 let fast_zombie_img, fat_zombie_img, zombie_hit_img;
 let zombie_hit_wall_img, blood_img;

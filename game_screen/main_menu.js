@@ -1,3 +1,8 @@
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 let new_text_font;
 let tombstone_img;
 let menu_img, menu_focus_img;

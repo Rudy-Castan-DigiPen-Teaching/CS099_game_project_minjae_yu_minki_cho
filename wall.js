@@ -1,3 +1,8 @@
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 let wall_img, braking_wall_img, braking_wall2_img;
 
 function preload_wall()

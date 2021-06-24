@@ -1,3 +1,8 @@
+// Name       : Minjae Yoo, Minki Cho
+// Assignment : Final Project - Make a Game
+// Course     : CS099
+// Spring 2021
+
 const fixed_reload_time = 30;
 let reload_time = fixed_reload_time;
 let reload_check = false;
