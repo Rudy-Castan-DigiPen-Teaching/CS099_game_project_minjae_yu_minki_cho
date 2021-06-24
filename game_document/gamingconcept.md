@@ -1,11 +1,11 @@
 
 
-# <span style="color:brown"> CS99 – final game project Programming Concepts </span>
+# < <span style="color:brown"> CS99 – final game project Programming Concepts  </span> >
 
 - - -
 
 
-TEAM NAME: Zombie
+TEAM NAME: Zombies
 
 GAME NAME: Zombie defense
 
@@ -16,12 +16,18 @@ PROGRAMING LANGUAGE: Java Script(p5.js)
 
 GAME DESCRIPTION:  It is Zombie Defense Game
 
-    The game requires players and AI survivors to survive until rescue teams come, destroying the approaching zombies. Since there is not much food and supplies left, you, the main character, and a military-turned-leader, must choose one victim every day when you survive, so everything depends on your choice.
+    The game requires player and AI survivors to survive until rescue teams come, destroying the approaching zombies. Since there is not much food and supplies left, you, the main character, and a military-turned-leader, must choose one victim every day when you survive, so everything depends on your choice.
 
 URL: <https://github.com/Rudy-Castan-DigiPen-Teaching/CS099_game_project_minjae_yu_minki_cho>
 
 
 - - -
+
+
+
+
+
+
 
 ## <span style="color:skyblue"> Shapes </span>
 
@@ -921,9 +927,247 @@ When zombie is reach to wall it will stop this statement do that.
 
 ## <span style="color:skyblue">  Loops </span>
 
+This loop is looping until ai bullet length and function runs. (ai_setting.js)
 
-## <span style="color:skyblue"> Functions Loops  </span>
+    for ( var i = 0; i < ai_bullet_1.length; i++ )
+        {
+            ai_bullet_1[ i ].run();
+        }
+
+It is for zombie waves. To set how many zombies are and spawn its. This loops are in zombie_day1~5.
+
+    for ( let count1 = 0; count1 < 30; count1++ )
+    {
+        zombies_final_wave1[ count1 ] = new zombies();
+    }
+
+This for loops is for draw bullet.
+
+    for ( var i = 0; i < bullet.length; i++ )
+    {
+        bullet[ i ].draw_bullet();
+
+        if ( bullet[ i ].x <= 0 || bullet[ i ].y <= 0 || bullet[ i ].x >= width+20 || bullet[ i ].y >= height )
+        {
+            bullet.splice( i, 1 );
+        } //if ball goes out of frame, delete the ball from the array.
+    }
+
+This for day count(means zombie waves for days) and run update.
+
+    for ( let count = 0; count < day_count.length; count++ )
+    {
+        day_count[ count ].update();
+    }
+
+If there are collision with bullet and zombie bullets will always disappear. If zombie's health become 0 than zombie will disappear.
+
+    //player_bullet_zombie collision
+    for ( let bullet_count = 0; bullet_count < bullet.length; bullet_count++ )
+    {
+        for ( let i = 0; i < day_count.length; i++ )
+        {
+            x_dis = day_count[ i ].x - bullet[ bullet_count ].x;
+            y_dis = day_count[ i ].y - bullet[ bullet_count ].y;
+            distance = sqrt( x_dis * x_dis + y_dis * y_dis );
+             . . .
+
+In canvas there are 5 lines this loops means 5 lines. Each line there will be ais and player.
+
+    function drawing_lines_characters()  //drawing lines and characters
+    {
+        for(let i = 0; i < 5; i++)
+        {
+            . . .
+
+## <span style="color:skyblue"> Functions </span>
+
+>sketch.js
+
+setup() function is to make variables rest it's own initial value.
+
+    setup()
+
+draw() function is to draw background, players, zombies, wall, and UI.
+
+    draw()
+
+bullet_check() function is to draw bullet and indicate the player to reload.
+
+    bullet_check()
+
+ai_last_word() function is to write Ai's last word when each AI is chosen to sacrifice by the player.
+
+    ai_last_word()
+    
+pick_ai() function is to let the player know AI is sacrificed or not by drawing tombstone at a place where sacrificed AI's position.
+
+    pick_ai()
+
+pick_and_ban() is a function that choosing one AI to sacrifice and indicate each AI's status
+
+    pick_and_ban()
+
+>zombies.js
+
+zombie_image_preload() is a function to preload images relevant to zombies.
+
+    zombie_image_preload()
+
+>wall.js
+
+preload_wall() is a function to preload images relevant to wall.
+
+    preload_wall()
+
+>mousePressed.js
+
+mousePressed() function is to play sound when clicking buttons at the main_menu and fire the gun at the game screen.
+
+    mousePressed()
+
+>keyPressed.js
+
+keyPressed() is a function starting the game by pressing the enter button, pressing the R button to reload the gun or reset the game.
+
+    keyPressed()
+
+>intermission_arrow.js
+
+arrow_preload() is a function to preload images relevant to arrow buttons.30min
+
+    arrow_preload()
+
+intermission_arrow() is a function to draw arrow when the game mode is INTERMISSION and start next day by pressing the arrow button.
+
+    intermission_arrow()
+
+>game_background.js
+
+preload_characters() is a function to preload images relevant to player including game background images.
+
+    preload_character()
+
+drawing_lines_characters() is a function drawing player and animation.
+
+    drawing_lines_characters()
+
+>collision.js
+
+zombie_day_update() is a function to make collision between the bullet and the zombies.
+
+    zombie_day_update()
+
+>>bullet.js
+
+bullet_preload() is a function to preload images relevant to bullet.
+
+    bullet_preload()
+
+bullet_setoff() is a function to draw the bullet and remove when the bullet is outside the screen.
+
+    bullet_setoff()
+
+>>zombie_day1.js, zombie_day2.js, zombie_day3.js, zombie_day4.js, zombie_day5.js, zombie_day_final.js
+
+zombie_day1_setup(), zombie_day2_setup(), zombie_day3_setup(), zombie_day4_setup(), zombie_day5_setup(), zombie_final_setup() are functions to add random zombies to arrays.
+
+    zombie_day1_setup(),
+    zombie_day2_setup(),
+    zombie_day3_setup(),
+    zombie_day4_setup(),
+    zombie_day5_setup(),
+    zombie_final_setup()
+
+zombie_day1_draw(), zombie_day2_draw(), zombie_day3_draw(), zombie_day4_draw(), zombie_day5_draw(), zombie_final_draw() are functions to draw zombies on the screen.
+
+    zombie_day1_draw(),
+    zombie_day2_draw(),
+    zombie_day3_draw(),
+    zombie_day4_draw(),
+    zombie_day5_draw(),
+    zombie_final_draw()
+
+>>story.js
+
+story() is a function to write short story description of the game before the game start.
+
+    story();
+
+>>main_menu.js
+
+font_preload() is a function to preload a font and images relevant to main menu assets and a button sound.
+
+    font_preload()
+
+main_menu() is a function to draw main menu.2d
+
+    main_menu()
+
+>>howToPlay.js
+
+howToPlay_preload() is a function to preload images relevant to description of playing.
+
+howToPlay() is a function to let thr player know how to play the game.
+
+    howToPlay()
+
+>>gameover.js
+
+game_over_preload() is a function to preload 
+
 ## <span style="color:skyblue"> Classes  </span>
+
+>class draw_ai_1, class Ai_bullet_1
+
+Class draw_ai_1 class is mainly draw ai and ai arms to pretend shooting feelings.
+
+Class Ai_bullet_1 is for make bullet by the adding speed in distance like (distance = distance + speed ) and draw in canvas.
+
+>class draw_ai_2, class Ai_bullet_2
+
+Class draw_ai_2 class is mainly draw ai and ai arms to pretend shooting feelings.
+
+Class Ai_bullet_2 is for make bullet by the adding speed in distance like (distance = distance + speed ) and draw in canvas.
+
+>class draw_ai_3
+
+Class draw_ai_3 class is mainly draw ai and ai arms to pretend shooting feelings.
+
+Class Ai_bullet_3 is for make bullet by the adding speed in distance like (distance = distance + speed ) and draw in canvas.
+
+>class draw_ai_4
+
+Class draw_ai_4 class is mainly draw ai and ai arms to pretend shooting feelings.
+
+Class Ai_bullet_4 is for make bullet by the adding speed in distance like (distance = distance + speed ) and draw in canvas.
+
+>class Bullet
+
+This class is for player bullet by using rotate function and Math.atan2 (rotate( Math.atan2( this.dy, this.dx )))it could follow mouse cursor.
+        
+>class Wall
+
+It draw wall images and could set wall's hp recording for wall's hp it draw different wall images.
+
+>class zombies
+
+It draw zombies normal, fast and fat zombies. Could set zombies health, speed and damage.
+
 ## <span style="color:skyblue"> Arrays  </span>
 
-Notes
+The large array consists of bullets and zombies. 
+The player has bullets and AI bullets and consists of an array of zombies that make to the wave on each date.
+
+    var bullet = [];
+
+    let zombies_day1_wave1 = new Array;
+    let zombies_day1_wave2 = new Array;
+    let zombies_day1_wave3 = new Array;
+    . . .
+    let ai_bullets = [];
+    let ai_bullet_1 = new Array;
+    let ai_bullet_2 = new Array;
+    let ai_bullet_3 = new Array;
+    let ai_bullet_4 = new Array;
+
