@@ -1118,7 +1118,63 @@ game_over_preload() is a function to preload gameover image.
 
     game_over_preload()
 
+game_over() is a function to display game over when the wall's durability is 0 before final day.
 
+    game_over()
+
+game_ending() is a function to display ending when the wall's durability is 0 at the final day.
+
+    game_ending()
+
+>>fadeout.js
+
+fadeout_preload() is a function to preload black_screen.png image.
+
+    fadeout_preload()
+
+fadeout() is a function to make the fadeout effect.
+
+    fadeout()
+
+final_day_fadeout() is a function to make the fadeout effect of final day.
+
+    final_day_fadeout()
+
+>>day_img.js
+
+day_fadeout_img_preload() is a function to preload DAY images.
+
+    day_fadeout_img_preload()
+
+day1_fadeout_img(), day2_fadeout_img(), day3_fadeout_img(), day4_fadeout_img(), day5_fadeout_img() are the functions to draw DAY images.
+
+    day1_fadeout_img(),
+    day2_fadeout_img(),
+    day3_fadeout_img(),
+    day4_fadeout_img(),
+    day5_fadeout_img()
+
+>>crosshair.js
+
+crosshair() is a function to draw crosshair on the screen.
+
+    crosshair()
+
+>>credit.js
+
+credit() is a function to draw credit on the screen.
+
+    credit()
+
+>>ai_setting.js
+
+ai_image_preload() is a function to preload images relevant to AIs.
+
+    ai_image_preload()
+
+ai_bullet_setoff() is a function to draw bullets and remove when the bullets are out of the screen.
+
+    ai_bullet_setoff()
 
 ## <span style="color:skyblue"> Classes  </span>
 
