@@ -145,10 +145,11 @@ function setup()
     ai_4_damage = round( random( 0.5, 1 ), 1 );
 
     //ai_rate_of_fire
-    ai_1_speed = round( random( 10, 30 ), 1 );
-    ai_2_speed = round( random( 10, 30 ), 1 );
-    ai_3_speed = round( random( 10, 30 ), 1 );
-    ai_4_speed = round( random( 10, 30 ), 1 );
+    ai_1_speed = int( random( 10, 30 ) );
+    ai_2_speed = int( random( 10, 30 ) );
+    ai_3_speed = int( random( 10, 30 ) );
+    ai_4_speed = int( random( 10, 30 ) );
+
 
     //fadeout reset
     screen_transparency = 0;
@@ -165,7 +166,8 @@ function setup()
 function draw()
 {
     background( 110 );
-    console.log(frameCount)
+    console.log(ai_1_speed)
+    //console.log(( frameCount * ai_1_speed ) % 60 )
 
     let zombie_day1_length = zombies_day1_wave1.length + zombies_day1_wave2.length + zombies_day1_wave3.length +
         zombies_day1_wave4.length + zombies_day1_wave5.length + zombies_day1_wave6.length + zombies_day1_wave7.length +
