@@ -38,7 +38,7 @@ function zombie_final_setup()
         // {
         //     zombies_final_wave5[ count5 ] = new zombies();
         // }
-    }
+}
 
     function zombie_final_draw()
     {
@@ -63,5 +63,4 @@ function zombie_final_setup()
         {
             zombie_day_update( zombies_final_wave5 );
         }
-
     }

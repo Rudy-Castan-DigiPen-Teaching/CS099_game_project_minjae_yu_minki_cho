@@ -110,5 +110,4 @@ function zombie_day2_draw()
     {
         zombie_day_update( zombies_day2_wave10 );
     }
-
 }
