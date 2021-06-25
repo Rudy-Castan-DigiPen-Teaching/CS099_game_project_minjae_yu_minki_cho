@@ -13,10 +13,10 @@ let ai_3_damage = 0;
 let ai_4_damage = 0;
 
 //rate_of_fire between 10 and 30
-ai_1_speed = int( random( 10, 30 ) );
-ai_2_speed = int( random( 10, 30 ) );
-ai_3_speed = int( random( 10, 30 ) );
-ai_4_speed = int( random( 10, 30 ) );
+let ai_1_speed = 0;
+let ai_2_speed = 0;
+let ai_3_speed = 0;
+let ai_4_speed = 0;
 
 function ai_image_preload()
 {
