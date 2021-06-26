@@ -15,7 +15,6 @@ function howToPlay_preload()
     keyboard_img = loadImage('assets/images/game_background/keyboard.png');
 }
 
-
 function howToPlay()
 {
     clear();

@@ -8,7 +8,6 @@ let line_size = 100;
 let game_wall;
 
 //ai
-//let ai;
 let ai_1, ai_2, ai_3, ai_4;
 
 //game_mode
@@ -34,11 +33,6 @@ const gun_damage = 1; //originally 1
 
 //preload hit sound
 let hit_sound;
-
-//background
-let bg;
-let bg1;
-let bg2;
 
 //left bullet
 let left_bullet_img;

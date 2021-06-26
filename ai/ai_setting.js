@@ -86,6 +86,7 @@ function ai_bullet_setoff()
             ai_bullet_3.splice(0,ai_bullet_3.length)
         }
     }
+    
     if ( frameCount % ai_4_speed == 0 )
     {
         if(ai_4_isShoot)

@@ -62,7 +62,6 @@ class Ai_bullet_4
         pop();  //restore fill and stroke
     }
   
-
     run()
     {
         this.show();
